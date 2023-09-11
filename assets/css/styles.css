@@ -6,6 +6,12 @@ body{
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	-webkit-touch-callout: none;
+    background: #fff;
+    color: #484848;
+    overflow: unset;
+	scroll-behavior: smooth;
+	margin: 0;
+	height: auto;
 }
 html,body{
 	height: 100%;
@@ -15,4 +21,12 @@ h4{
 }
 .f12{
 	font-size: 12px;
+}
+
+#back-img{
+	background-image: url("../images/home-top-banner-4.jpg");
+	background-color: black;
+	background-position: center top;
+	height: 490px;
+	width: auto;
 }
