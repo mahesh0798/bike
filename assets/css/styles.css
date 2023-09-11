@@ -1,0 +1,18 @@
+*:focus {
+    outline: none !important;
+	box-shadow: none !important;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	-webkit-touch-callout: none;
+}
+html,body{
+	height: 100%;
+}
+h4{
+	font-size: 18px
+}
+.f12{
+	font-size: 12px;
+}
