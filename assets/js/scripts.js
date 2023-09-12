@@ -5284,3 +5284,43 @@
 // 	$('#ec').val('');
 // 	$('#bc').val('');
 // }
+// $('#myCollapsible').collapse({
+//     toggle: false
+//   })
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      items: 3, // Number of items to display
+      loop: false, // Infinite loop
+      // autoplay: 4000, // Autoplay the carousel
+      // autoplayTimeout: 3000,
+      slideSpeed: 300,
+	    paginationSpeed: 600, // Autoplay interval in milliseconds (3 seconds in this example)
+      nav: true, // Show navigation buttons
+      dots: false, 
+      autoWidth:false,
+      margin:35,
+      startPosition:1,
+      center:true,
+      responsiveClass:true,
+      navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],// Show pagination dots
+      responsive: {
+        0: {
+          items: 1,
+          // nav: true, // Number of items to display on smaller screens
+        },
+        600: {
+          items: 2,
+          // nav: true // Number of items to display on medium screens
+        },
+        1000: {
+          items: 3,
+          // nav: true // Number of items to display on larger screens
+        }
+      }
+    });
+  });
+
+  $(function() {
+    $('#nav-tab').responsiveTabs();
+  });
+  

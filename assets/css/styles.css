@@ -30,3 +30,203 @@ h4{
 	height: 490px;
 	width: auto;
 }
+.pt-14{
+	padding-top: 14rem!important;
+}
+.search{
+	margin-top: 30px;
+    background: #fff;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 50px;
+    text-align: left;
+    border: 1px solid #ffe2d9;
+}
+.search-btn{
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    padding: 0 20px;
+    background: #ff5821;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 50px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+.b-0{
+	border: 0 !important;
+}
+.trade-class {
+    background-color: #FFFFFF;
+    width: 17%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px #0000000a;
+    text-align: center;
+	border:1px solid #ebebeb;
+}
+.index-class1_0 {
+    display: flex;
+    gap: 25px;
+    place-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.owl-carousel .owl-nav .owl-next img, .owl-carousel .owl-nav .owl-prev img {
+    width: 30px;
+    border-radius: 50px !important;
+    border: 1px solid #5e50ad;
+}
+.owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
+    height: 36px;
+    width: 36px; 
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none; 
+    background: transparent !important;
+    margin: 0 !important;
+    border-radius: 50px !important;
+}
+.owl-next {
+    transform: rotate(180deg);
+}
+.owl-nav{
+    top: 100%;
+    bottom: 150px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    position: relative !important;
+    display: flex;
+    float: right;
+    width: 100%;
+    height: 36px;
+    margin: 20px auto;
+}
+.owl-nav .owl-next{
+    right: 0px;
+}
+.owl-nav .owl-prev{
+    left: 0px;
+}
+.container.textimonialsection.mt-5 {
+    height: 235px;
+    margin-top: 1px !important;
+}
+.textimonialsection .owl-item.active .testimonial-class1 h5{
+    color: #333333;
+}
+.textimonialsection .owl-item.active.center{
+    /* background-color: #5E50AD; */
+    border-radius: 5%;
+    color: #FFFFFF;
+    min-height: 200px;
+    /* background-image: url(../images/SBINEW/landpage_image.jpg); */
+    background-position: center;
+    box-shadow: 3px 2px 12px #0000000a;
+    background-size: cover;
+}
+.owl-nav {
+    width: 100%;
+    position: absolute;
+    top: 45%;
+}
+
+.owl-nav .owl-prev, .owl-nav .owl-next {
+    position: absolute;
+}
+
+.owl-nav .owl-prev {
+    left: 0px;
+}
+
+.owl-nav .owl-next {
+    right: 0px;
+}
+
+.owl-nav .prev-slide {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    margin-left: -23px;
+} 
+.owl-nav .next-slide {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    margin-left: -30px;
+} 
+@media only screen and (max-width: 600px) {
+	.trade-class{
+        width: 44%;
+        padding: 20px;
+    }
+	.index-class1_0{
+        display: flex; 
+        gap: 20px; 
+        place-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+.item-card-title i{  
+    font-size:15px;
+    transition:1s;
+    cursor:pointer;
+    color:#ffa710
+  }
+  .card-title i:hover{
+    transform: scale(1.25) rotate(100deg); 
+    color:#18d4ca;
+    
+  }
+  .card:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+  }
+  .card-text{
+    height:80px;  
+  }
+  
+  .card::before, .card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, 0.1);
+    content: '';
+    pointer-events: none;
+  }
+  .card::before {
+    transform-origin: left top;
+  }
+  .card::after {
+    transform-origin: right bottom;
+  }
+  .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+    transform: scale3d(1, 1, 1);
+  }
+
+  /* .loveback-img{
+	background-image: url("../images/get-final-price-banner.jpg");
+	background-color: black;
+	background-position: center top;
+	height: 490px;
+	width: auto;
+} */
+.loveback-img{
+ background:linear-gradient(rgba(0, 0, 0, 0.31), rgba(0, 0, 0, 0.31)) 0% 0% / cover, url("../images/get-final-price-banner.jpg") center center no-repeat;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 450px;
+}
+.h-550{
+    height: 550px;
+}

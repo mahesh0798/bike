@@ -22,6 +22,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css?ver=1.8" />
 	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -35,6 +37,8 @@
 	<script src="assets/js/demat.js" defer></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
 </head>
 
 <body> 
@@ -92,22 +96,246 @@
 	</header>
 	</div>
 	  <section>
-		<div id="back-img">
-			<div class="carousel-caption">
-				<h2>Find the Difference</h2>
-				
-			</div>
+		<div id="back-img" class="p-5 text-center bg-image rounded-3">
+			<div class="mask">
+				<div class="d-flex justify-content-center align-items-center h-100 pt-14">
+				  <div class="text-white">
+					<h1 class="mb-3">Find the Right Bike</h1>
+					<h4 class="mb-3">Get Comprehensive Information on Bikes!
+					</h4>
+					<form action="" method="post" class="search d-flex">
+						<input type="email" name="email" placeholder="search your bike here" class="form-control me-2 b-0"><input class="search-btn" type="submit" value="search">
+					  </form>
+					<!-- <form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					  </form> -->
+					<!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a> -->
+				  </div>
+				</div>
+			  </div>
 
 		</div>
-
-
-		<!-- <div class="row">
-			<div class="col-md-12">
-				<img src="./assets/images/home-top-banner-4.jpg" class="img-fluid" alt="Responsive image">
-			</div> 
-		</div> -->
-
 	  </section>
+	  <!-- <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View More</a>
+	  <div class="row">
+		<div class="col">
+		  <div class="collapse multi-collapse" id="multiCollapseExample1">
+			<div class="card card-body">
+				content
+			</div>
+		  </div>
+		</div>
+		</div> -->
+		<section>
+			<div class="container my-4">
+				<div><h2 class="">Browse Bikes By</h2></div>
+				<nav>
+					<div class="nav nav-tabs" id="nav-tab" role="tablist">
+					  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">BRAND</button>
+					  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">BUDGET</button>
+					  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">DISPLACEMENT</button>
+					</div>
+				  </nav>
+				  <div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+						<div class="f-16 mt-50 color-label-black index-main w-100">
+							<div class="index-class1_0 mt-3">
+								<div class="trade-class">
+									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+								</div>
+								<div class="trade-class">
+									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+								</div>
+								<div class="trade-class">
+									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+								</div>
+								<div class="trade-class">
+									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+								</div>
+								<div class="trade-class">
+									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+								</div>
+								
+							</div>
+							<div class="text-center">
+							<div class="row">
+							  <div class="col">
+								<div class="collapse multi-collapse" id="multiCollapseExample1">
+									<div class="index-class1_0 mt-3">
+										<div class="trade-class">
+											<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+											<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+										</div>
+										<div class="trade-class">
+											<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+											<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+										</div>
+										<div class="trade-class">
+											<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+											<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+										</div>
+										<div class="trade-class">
+											<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+											<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+										</div>
+										<div class="trade-class">
+											<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
+											<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
+										</div>
+										<!-- <div class="trade-class">
+											<img class="mobile-img" src="assets/images/SBINEW/Group 26026.svg">
+											<div class="mt-25"><b class="f-12 color-label-black">Present at 70+ Locations</b></div>
+										</div> -->
+										
+									</div>
+								  </div>
+								</div>
+							  </div>
+							  </div>
+							<a data-bs-toggle="collapse" class="mt-2"   data-bs-target="#multiCollapseExample1" href="#multiCollapseExample1" id="toggleButton" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View More Brands</a>
+						</div>
+						</div>
+					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+					<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+				  </div>
+			</div>
+		  </section>
+		  <section class="h-550">
+			<div class="container my-4">
+				<div><h2 class="">Featured Bikes</h2></div>
+				<nav>
+					<div class="nav nav-tabs" id="nav-tab" role="tablist">
+					  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">MOST POPULAR</button>
+					  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">NEW LAUNCHING</button>
+					  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">UPCOMING</button>
+					</div>
+				  </nav>
+
+				</div>
+				  
+		  
+
+<div class="container textimonialsection mt-5">
+		<div class="owl-carousel owl-theme">
+			<div class="item" >
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+			</div>
+			<div class="item">
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="item">
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="item">
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="item">
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="item">
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="item">
+				<div class="card" style="width: 18rem;">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+		  </div>
+		</div>
+	</section>
+		<section>
+			<div class="container-fluid p-0 m-0">
+			  <div class="loveback-img">
+				  <div class="container">
+					  <div>
+						  <div>
+							  <div class="text-black">
+								  <h4 class="mb-3">Check On-Road Price
+								  </h4>
+								  
+								</div>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+			  </div>
+				
+		</section>
+	  <!-- <div id="accordion">
+		<div class="card">
+		  <div class="card-header" id="headingOne">
+			<h5 class="mb-0">
+			  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+View More			  </button>
+			</h5>
+		  </div>
+	  
+		  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+			<div class="card-body">
+			  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			</div>
+		  </div>
+		</div>
+		</div> -->
     </body>
 
 </html>
