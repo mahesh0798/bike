@@ -289,3 +289,6 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     padding: 10px;
     border-top: 1px solid #FFFFFF;
   }
+  .table_border{
+    border-color: #aaa !important;
+  }
