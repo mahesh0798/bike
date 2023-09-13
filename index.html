@@ -39,6 +39,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="jquery.min.js"></script>
 <script src="owlcarousel/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body> 
@@ -95,8 +98,10 @@
 	  </nav>
 	</header>
 	</div>
-	  <section>
-		<div id="back-img" class="p-5 text-center bg-image rounded-3">
+	  <section data-aos="fade-up"
+     data-aos-duration="3000">
+		<div id="back-img" class="p-5 text-center bg-image rounded-3" data-aos="fade-up"
+     data-aos-duration="3000">
 			<div class="mask">
 				<div class="d-flex justify-content-center align-items-center h-100 pt-14">
 				  <div class="text-white">
@@ -106,11 +111,6 @@
 					<form action="" method="post" class="search d-flex">
 						<input type="email" name="email" placeholder="search your bike here" class="form-control me-2 b-0"><input class="search-btn" type="submit" value="search">
 					  </form>
-					<!-- <form class="d-flex">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
-					  </form> -->
-					<!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a> -->
 				  </div>
 				</div>
 			  </div>
@@ -121,15 +121,18 @@
 	  <div class="row">
 		<div class="col">
 		  <div class="collapse multi-collapse" id="multiCollapseExample1">
-			<div class="card card-body">
+			<div class="card  card-body card-bg">
 				content
 			</div>
 		  </div>
 		</div>
 		</div> -->
-		<section>
-			<div class="container my-4">
-				<div><h2 class="">Browse Bikes By</h2></div>
+		<section data-aos="fade-up"
+     data-aos-duration="3000">
+			<div class="container my-4" data-aos="fade-up"
+     data-aos-duration="3000">
+				<div data-aos="fade-up"
+     data-aos-duration="3000"><h2 class="">Browse Bikes By</h2></div>
 				<nav>
 					<div class="nav nav-tabs" id="nav-tab" role="tablist">
 					  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">BRAND</button>
@@ -206,9 +209,12 @@
 				  </div>
 			</div>
 		  </section>
-		  <section class="h-550">
+		  <section class="h-550" data-aos="fade-up"
+     data-aos-duration="3000">
 			<div class="container my-4">
-				<div><h2 class="">Featured Bikes</h2></div>
+				<div data-aos="fade-up"data-aos-duration="3000">
+	 			<h2 class="">Featured Bikes</h2>
+			</div>
 				<nav>
 					<div class="nav nav-tabs" id="nav-tab" role="tablist">
 					  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">MOST POPULAR</button>
@@ -221,12 +227,13 @@
 				  
 		  
 
-<div class="container textimonialsection mt-5">
+<div class="container textimonialsection mt-5" data-aos="fade-up"
+     data-aos-duration="3000">
 		<div class="owl-carousel owl-theme">
-			<div class="item" >
-				<div class="card" style="width: 18rem;">
+			<div class="item">
+				<div class="card">
 					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
+					<div class=" card-body card-bg">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -234,20 +241,9 @@
 				  </div>
 			</div>
 			<div class="item">
-				<div class="card" style="width: 18rem;">
+				<div class="card">
 					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-			<div class="item">
-				<div class="card" style="width: 18rem;">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
+					<div class=" card-body card-bg">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -256,9 +252,9 @@
 				
 			</div>
 			<div class="item">
-				<div class="card" style="width: 18rem;">
+				<div class="card">
 					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
+					<div class=" card-body card-bg">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -267,9 +263,9 @@
 				
 			</div>
 			<div class="item">
-				<div class="card" style="width: 18rem;">
+				<div class="card">
 					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
+					<div class=" card-body card-bg">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -278,9 +274,9 @@
 				
 			</div>
 			<div class="item">
-				<div class="card" style="width: 18rem;">
+				<div class="card">
 					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
+					<div class=" card-body card-bg">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -289,9 +285,20 @@
 				
 			</div>
 			<div class="item">
-				<div class="card" style="width: 18rem;">
+				<div class="card">
 					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class="card-body">
+					<div class=" card-body card-bg">
+					  <h5 class="card-title">Card title</h5>
+					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					  <a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				  </div>
+				
+			</div>
+			<div class="item">
+				<div class="card">
+					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+					<div class=" card-body card-bg">
 					  <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 					  <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -302,24 +309,432 @@
 		  </div>
 		</div>
 	</section>
-		<section>
-			<div class="container-fluid p-0 m-0">
-			  <div class="loveback-img">
-				  <div class="container">
-					  <div>
-						  <div>
-							  <div class="text-black">
-								  <h4 class="mb-3">Check On-Road Price
-								  </h4>
-								  
+	<section data-aos="fade-up"
+     data-aos-duration="3000">
+		<div class="container-fluid p-0 m-0">
+			<div class="loveback-img">
+				<!-- <div class="mask"  data-aos="fade-up"
+				data-aos-duration="3000">
+					<div class="d-flex justify-content-center h-100 pt-7">
+				<div class="container row">
+					<div class="text-white col-md-6 col-sm-12 br-7 h-auto" style="background-color: rgba(0,0,0,.5);">
+						<h4>Check On-Road Price
+						</h4>
+						<div class="input-group pt-2 pb-2">
+							<span class="input-group-append">
+								<button class="btn btn-outline-secondary bg-white border-bottom-0 border ms-n5" type="button">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+							<input class="form-control border-end-0 border" type="search" placeholder="search" id="example-search-input">
+							
+						</div>
+						<div class="pt-2 pb-2">
+							<p class="f-12">Check the on road price on your city</p>
+						</div>
+					</div>
+				</div>
+				</div>
+				</div> -->
+			</div>
+		</div>
+	</section>
+
+	<section class="h-550">
+		<div class="container my-4" data-aos="fade-up"
+		data-aos-duration="3000">
+			<div><h2 class="">Trending Bikes of September 2023</h2></div>
+			<nav>
+				<div class="nav nav-tabs" id="nav-tab" role="tablist">
+				  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">SCOOTERS</button>
+				  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">MILEAGE BIKES</button>
+				  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">SPORTS</button>
+				</div>
+			  </nav>
+
+			</div>
+			  
+	  
+
+<div class="container textimonialsection mt-5" data-aos="fade-up"
+data-aos-duration="3000">
+	<div class="owl-carousel owl-theme">
+		<div class="item" >
+			<div class="card" >
+				<img src="./assets/images/scooty1.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Honda Activa 6G</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+		</div>
+		<div class="item">
+			<div class="card" >
+				<img src="./assets/images/scootyBlue.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			
+		</div>
+		<div class="item">
+			<div class="card" >
+				<img src="./assets/images/scootyRed.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			
+		</div>
+		<div class="item">
+			<div class="card" >
+				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			
+		</div>
+		<div class="item">
+			<div class="card" >
+				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			
+		</div>
+		<div class="item">
+			<div class="card" >
+				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			
+		</div>
+		<div class="item">
+			<div class="card" >
+				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
+				<div class=" card-body card-bg">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			
+		</div>
+	  </div>
+	</div>
+</section>
+
+	<section class="Review">
+		<div class="container">
+			<div class="card border_green">
+				<div class=" card-body card-bg d-flex">
+					<marquee>
+				 <div class="row w-100">
+					<div class="col-2">
+					<img src="./assets/images/bike-review-contest.svg" class="img-fluid">
+				 </div>
+					<div class="col-4">
+					<p class="fw-bold mb-0 mt-2">Stand a chance to win</p>
+					<p class="mb-0">Write a detailed review and win</p>
+					<p class="amazon m-0">
+					<img src="./assets/images/amazon.svg" class="img-fluid1"><span class="ml-2">voucher worth Rs. 2,000</span></p>
+				</div>
+					<div class="col-6">
+						<div class="d-flex justify-content-end mt-4">
+					<p class="border_red p-2 text-center w-50 fw-bold">
+						participate & win
+					</p>
+				</div>
+				 </div>
+				</div>
+			</marquee>
+				</div>
+			  </div>
+		</div>
+	
+	</section>
+	<section>
+		<div data-aos="fade-up" class="container"
+     data-aos-duration="3000">
+	 <h3 class="">Featured Bikes</h3>
+	</div>
+		<div class="container textimonialsection mt-5" data-aos="fade-up"
+		data-aos-duration="3000">
+			<div class="owl-carousel owl-theme">
+				<div class="item">
+					<div class="card" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-0 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-2">
+									<p class="card-title">TVS</p>
+									<p class="f-12 mb-0"><b>Apache RTR 310</b></p>
+									<p class="f-12  mb-0">₹2,42,990</p>
+									<p class="f-12 mb-0 text-grey">onwards</p>
 								</div>
-						  </div>
-					  </div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images//tvs-apache-rr-310-right-side13.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body">
+									<p class="card-title">TVS</p>
+									<p class="f-12  mb-0"><b>Apache RR 310</b></p>
+									<p class="f-12  mb-0">₹2,42,990</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80 mb-12">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="card" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-2 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/bullet-350-next-gen-right-front-three-quarter.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-0">
+									<p class="card-title">Royal Enfield</p>
+									<p class="f-12 mb-0"><b>Bullet 350</b></p>
+									<p class="f-12  mb-0">₹1,73,562</p>
+									<p class="f-12 mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/classic-350-right-front-three-quarter-6.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-0">
+									<p class="card-title">Royal Enfield</p>
+									<p class="f-12  mb-0"><b>Classic 350</b></p>
+									<p class="f-12  mb-0">₹1,93,080</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="card" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-2 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/raider-125-right-front-three-quarter-4.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body">
+									<p class="card-title">TVS</p>
+									<p class="f-12 mb-0"><b>Raider 125</b></p>
+									<p class="f-12  mb-0">₹97,054</p>
+									<p class="f-12 mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/sp-125-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body">
+									<p class="card-title">HONDA</p>
+									<p class="f-12  mb-0"><b>SP 125</b></p>
+									<p class="f-12  mb-0">₹86,749</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="card" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-2 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/sp-125-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
+									alt="...">
+									<div class=" card-body">
+										<p class="card-title">HONDA</p>
+										<p class="f-12  mb-0"><b>SP 125</b></p>
+										<p class="f-12  mb-0">₹86,749</p>
+										<p class="f-12  mb-0 text-grey">onwards</p>
+									</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/shine-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body">
+									<p class="card-title">HONDA</p>
+									<p class="f-12  mb-0"><b>Shine</b></p>
+									<p class="f-12  mb-0">₹80,402</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="card p-2" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-0 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/hunter-350-right-front-three-quarter.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-0 pr-0">
+									<p class="card-title">ROYAL ENFIELD</p>
+									<p class="f-12  mb-0"><b>Hunter 350</b></p>
+									<p class="f-12  mb-0">₹1,49,900</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/ronin-225-right-front-three-quarter.webp" class="card-img-top img-fluid"
+									alt="...">
+									<div class=" card-body pl-0">
+										<p class="card-title">TVS</p>
+										<p class="f-12  mb-0"><b>Ronin</b></p>
+										<p class="f-12  mb-0">₹1,49,097</p>
+										<p class="f-12  mb-0 text-grey">onwards</p>
+									</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="card" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-2 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/karizma-xmr-210-right-front-three-quarter-2 (1).webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-0 pr-0">
+									<p class="card-title">HERO</p>
+									<p class="f-12  mb-0"><b>Karizma ZMR</b></p>
+									<p class="f-12  mb-0">₹1,72,900</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/rs-200-right-front-three-quarter-7.webp" class="card-img-top img-fluid"
+									alt="...">
+									<div class=" card-body pl-0">
+										<p class="card-title">BAJAJ</p>
+										<p class="f-12  mb-0"><b>Pulsar RS 200</b></p>
+										<p class="f-12  mb-0">₹1,71,780</p>
+										<p class="f-12  mb-0 text-grey">onwards</p>
+									</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="card p-2" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-0 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/apache-160-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-0 pr-0">
+									<p class="card-title">TVS</p>
+									<p class="f-12  mb-0"><b>Apache RTR 160</b></p>
+									<p class="f-12  mb-0">₹1,19,981</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/pulsar-150-right-front-three-quarter-7.webp" class="card-img-top img-fluid"
+									alt="...">
+									<div class=" card-body pl-0">
+										<p class="card-title">BAJAJ</p>
+										<p class="f-12  mb-0"><b>Pulsar 150</b></p>
+										<p class="f-12  mb-0">₹1,05,884</p>
+										<p class="f-12  mb-0 text-grey">onwards</p>
+									</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="card p-2" style="height: auto;">
+						<div class="row d-flex  justify-content-center  p-0 m-0">
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/390-duke-2024-right-side-view-3.webp" class="card-img-top img-fluid"
+									alt="...">
+								<div class=" card-body pl-0 pr-0">
+									<p class="card-title">KTM</p>
+									<p class="f-12  mb-0"><b>390 Duke</b></p>
+									<p class="f-12  mb-0">₹3,10,520</p>
+									<p class="f-12  mb-0 text-grey">onwards</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
+								<img src="./assets/images/duke-390-left-front-three-quarter.webp" class="card-img-top img-fluid"
+									alt="...">
+									<div class=" card-body pl-0">
+										<p class="card-title">KTM</p>
+										<p class="f-12  mb-0"><b>Duke 390</b></p>
+										<p class="f-12  mb-0">₹2,97,818</p>
+										<p class="f-12  mb-0 text-grey">onwards</p>
+									</div>
+							</div>
+							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+
+
+
+
+
+
+
+			</div>
+		</div>
+	</section>
+	<section >
+		<div class="footer-sec mt-5">
+				<div class="container">
+					<div class="d-flex justify-content-center gap-3 p-3">
+						<img src="./assets/images/amazon.svg" class="img-fluid1">
+						<img src="./assets/images/amazon.svg" class="img-fluid1">
+						<img src="./assets/images/amazon.svg" class="img-fluid1">
+						<img src="./assets/images/amazon.svg" class="img-fluid1">
+						<img src="./assets/images/amazon.svg" class="img-fluid1">
+					</div>
+						
+				</div>
+				<div></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">sacf</div>
+						<div class="col-md-6">fca</div>
+	
+					</div>
+				</div>
+			
+			
+			  <div class="row m-0 p-0">
+				  <div class="col-md-12 copy">
+					  <p class="text-center">© 2012 - 2023. https://www.bikewale.com</p>
 				  </div>
 			  </div>
-			  </div>
-				
-		</section>
+			</div>
+	</section>
 	  <!-- <div id="accordion">
 		<div class="card">
 		  <div class="card-header" id="headingOne">
@@ -330,7 +745,7 @@ View More			  </button>
 		  </div>
 	  
 		  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-			<div class="card-body">
+			<div class=" card-body card-bg">
 			  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 			</div>
 		  </div>

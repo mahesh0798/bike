@@ -5287,6 +5287,9 @@
 // $('#myCollapsible').collapse({
 //     toggle: false
 //   })
+
+AOS.init()
+
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel({
       items: 3, // Number of items to display
@@ -5298,7 +5301,7 @@ $(document).ready(function(){
       nav: true, // Show navigation buttons
       dots: false, 
       autoWidth:false,
-      margin:35,
+      margin:30,
       startPosition:1,
       center:true,
       responsiveClass:true,
@@ -5306,6 +5309,7 @@ $(document).ready(function(){
       responsive: {
         0: {
           items: 1,
+        
           // nav: true, // Number of items to display on smaller screens
         },
         600: {
@@ -5315,7 +5319,13 @@ $(document).ready(function(){
         1000: {
           items: 3,
           // nav: true // Number of items to display on larger screens
+        },
+        1440:{
+          items:4
         }
+        // 1024: {
+        //   items: 4
+        // }
       }
     });
   });
