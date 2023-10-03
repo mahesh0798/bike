@@ -5290,47 +5290,101 @@
 
 AOS.init()
 
-$(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-      items: 3, // Number of items to display
-      loop: false, // Infinite loop
-      // autoplay: 4000, // Autoplay the carousel
-      // autoplayTimeout: 3000,
-      slideSpeed: 300,
-	    paginationSpeed: 600, // Autoplay interval in milliseconds (3 seconds in this example)
-      nav: true, // Show navigation buttons
-      dots: false, 
-      autoWidth:false,
-      margin:30,
-      startPosition:1,
-      center:true,
-      responsiveClass:true,
-      navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],// Show pagination dots
-      responsive: {
-        0: {
-          items: 1,
-        
-          // nav: true, // Number of items to display on smaller screens
-        },
-        600: {
-          items: 2,
-          // nav: true // Number of items to display on medium screens
-        },
-        1000: {
-          items: 3,
-          // nav: true // Number of items to display on larger screens
-        },
-        1440:{
-          items:4
-        }
-        // 1024: {
-        //   items: 4
-        // }
-      }
-    });
-  });
+$(document).ready(function () {
+  var imageUrls = [
+      "./assets/images/apache-rtr-310-right-side-view-7.webp",
+      "./assets/images/apache-rtr-310-right-side-view-7.webp",
+      "./assets/images/apache-rtr-310-right-side-view-7.webp",
+      "./assets/images/apache-rtr-310-right-side-view-7.webp",
+      "./assets/images/apache-rtr-310-right-side-view-7.webp"
+  ];
 
-  $(function() {
-    $('#nav-tab').responsiveTabs();
+  var carouselItems = "";
+  for (var i = 0; i < imageUrls.length; i++) {
+      carouselItems += `
+      <div class="item">
+          <div class="card">
+              <img src="${imageUrls[i]}" class="card-img-top img-fluid" alt="...">
+              <div class="card-body card-bg">
+                  <h5 class="card-title">Card Title ${i + 1}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+          </div>
+      </div>`;
+  }
+
+  $(".owl-carousel").html(carouselItems);
+
+  $(".owl-carousel").owlCarousel({
+      items: 3,
+      loop: false,
+      slideSpeed: 300,
+      paginationSpeed: 600,
+      nav: true,
+      dots: false,
+      autoWidth: false,
+      margin: 30,
+      startPosition: 1,
+      center: true,
+      responsiveClass: true,
+      navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+      responsive: {
+          0: {
+              items: 1,
+          },
+          600: {
+              items: 2,
+          },
+          1000: {
+              items: 3,
+          },
+          1440: {
+              items: 4,
+          }
+      }
   });
-  
+});
+
+  // $(function() {
+  //   $('#nav-tab').responsiveTabs();
+  // });
+
+  $(document).ready(function () {
+    var hidden = true;
+    var imageUrls = [
+        "./assets/images/honda20200511152343.jpg",
+        "./assets/images/royal-enfield20200508193112.jpg",
+        "./assets/images/hero20200508192826.jpg",
+        "./assets/images/tvs20200508193203.jpg",
+        "./assets/images/yamaha20200508193220.jpg",
+        "./assets/images/honda20200511152343.jpg",
+        "./assets/images/royal-enfield20200508193112.jpg",
+        "./assets/images/hero20200508192826.jpg",
+        "./assets/images/tvs20200508193203.jpg",
+        "./assets/images/yamaha20200508193220.jpg"
+    ];
+
+    $("#toggleButton").click(function () {
+        if (hidden) {
+            var imagesHTML = "";
+            for (var i = 0; i < imageUrls.length; i++) {
+                if (i % 5 === 0) {
+                    imagesHTML += '<tr>';
+                }
+                imagesHTML += '<td><img src="' + imageUrls[i] + '" class="img-fluid"></td>';
+                if (i % 5 === 4 || i === imageUrls.length - 1) {
+                    imagesHTML += '</tr>';
+                }
+            }
+            $("#brandsContainer tbody").html(imagesHTML);
+            $("#brandsContainer").show();
+
+            $(this).text("Hide Brands");
+        } else {
+            $("#brandsContainer").hide();
+            $(this).text("View More Brands");
+        }
+        hidden = !hidden;
+    });
+});

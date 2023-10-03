@@ -292,3 +292,16 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
   .table_border{
     border-color: #aaa !important;
   }
+  .table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table td {
+    width: 20%;
+}
+
+.table img {
+    max-width: 100%;
+    height: auto;
+}

@@ -41,6 +41,7 @@
 <script src="owlcarousel/owl.carousel.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
@@ -133,99 +134,50 @@
      data-aos-duration="3000">
 				<div data-aos="fade-up"
      data-aos-duration="3000"><h2 class="">Browse Bikes By</h2></div>
-				<nav>
-					<div class="nav nav-tabs" id="nav-tab" role="tablist">
-					  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">BRAND</button>
-					  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">BUDGET</button>
-					  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">DISPLACEMENT</button>
-					</div>
-				  </nav>
-				  <div class="tab-content" id="nav-tabContent">
-					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-						<div class="f-16 mt-50 color-label-black index-main w-100">
-							<div class="table-responsive">
-							<table class="table table-bordered table_border mb-1">
-								<tbody>
-								<tr>
-									<td><img src="./assets/images/honda20200511152343.jpg"> </td>
-									<td><img src="./assets/images/royal-enfield20200508193112.jpg"> </td>
-									<td><img src="./assets/images/hero20200508192826.jpg"> </td>
-									<td><img src="./assets/images/tvs20200508193203.jpg"> </td>
-									<td><img src="./assets/images/yamaha20200508193220.jpg"> </td>
-								
-								</tr>
-								  <tr>
-									<td><img src="./assets/images/honda20200511152343.jpg"> </td>
-									<td><img src="./assets/images/royal-enfield20200508193112.jpg"> </td>
-									<td><img src="./assets/images/hero20200508192826.jpg"> </td>
-									<td><img src="./assets/images/tvs20200508193203.jpg"> </td>
-									<td><img src="./assets/images/yamaha20200508193220.jpg"> </td>
-								  </tr>
-								  <tr>
-								  
-								</tbody>
-							  </table>
-							  </div>
-							<!-- <div class="index-class1_0 mt-3">
-								<div class="trade-class">
-									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
-									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
-								</div>
-								<div class="trade-class">
-									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
-									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
-								</div>
-								<div class="trade-class">
-									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
-									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
-								</div>
-								<div class="trade-class">
-									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
-									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
-								</div>
-								<div class="trade-class">
-									<img class="img-fluid" width="60" alt="whychoose2" src="assets/images/duke.jpg">
-									<div class="mt-25"><b class="f-14 color-label-black">Duke</b></div>
-								</div>
-								
-							</div> -->
-							 <div class="row">
-							  <div class="col">
-								<div class="collapse multi-collapse" id="multiCollapseExample1">
-									<div class="table-responsive">
-									<table class="table table-bordered table_border">
-										<tbody>
-										<tr>
-											<td><img src="./assets/images/honda20200511152343.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/royal-enfield20200508193112.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/hero20200508192826.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/tvs20200508193203.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/yamaha20200508193220.jpg"  class="img-fluid"> </td>
-										
-										</tr>
-										  <tr>
-											<td><img src="./assets/images/honda20200511152343.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/royal-enfield20200508193112.jpg"   class="img-fluid"> </td>
-											<td><img src="./assets/images/hero20200508192826.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/tvs20200508193203.jpg"  class="img-fluid"> </td>
-											<td><img src="./assets/images/yamaha20200508193220.jpg"  class="img-fluid"> </td>
-										  </tr>
-										  <tr>
-										  
-										</tbody>
-									  </table>
-									</div>
-								  </div>
-								</div>
-							  </div> 
-							  <div class="text-center">
-							<a data-bs-toggle="collapse" class="mt-2"   data-bs-target="#multiCollapseExample1" href="#multiCollapseExample1" id="toggleButton" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View More Brands</a>
-						</div>
-					</div>
-						</div>
+				
+	 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="f-16 mt-50 color-label-black index-main w-100">
+            <div class="table-responsive">
+                <table class="table table-bordered table_border mb-1">
+                    <tbody>
+                        <tr>
+                            <td><img src="./assets/images/honda20200511152343.jpg"> </td>
+                            <td><img src="./assets/images/royal-enfield20200508193112.jpg"> </td>
+                            <td><img src="./assets/images/hero20200508192826.jpg"> </td>
+                            <td><img src="./assets/images/tvs20200508193203.jpg"> </td>
+                            <td><img src="./assets/images/yamaha20200508193220.jpg"> </td>
+                        </tr>
+                        <tr>
+                            <td><img src="./assets/images/honda20200511152343.jpg"> </td>
+                            <td><img src="./assets/images/royal-enfield20200508193112.jpg"> </td>
+                            <td><img src="./assets/images/hero20200508192826.jpg"> </td>
+                            <td><img src="./assets/images/tvs20200508193203.jpg"> </td>
+                            <td><img src="./assets/images/yamaha20200508193220.jpg"> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="brandsContainer" style="display: none;">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table_border">
+                                <tbody>
+                                    <!-- Additional images will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="mt-2 btn btn-outline-primary" id="toggleButton">View More Brands</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
 					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
 					<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-				  </div>
 			</div>
 		  </section>
 		  <section class="h-550" data-aos="fade-up"
@@ -246,115 +198,15 @@
 				  
 		  
 
-<div class="container textimonialsection mt-5" data-aos="fade-up"
-     data-aos-duration="3000">
-		<div class="owl-carousel owl-theme">
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
+				<div class="container testimonialsection mt-5" data-aos="fade-up" data-aos-duration="3000">
+					<div class="owl-carousel owl-theme">
 					</div>
-				  </div>
-			</div>
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-			<div class="item">
-				<div class="card">
-					<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-					<div class=" card-body card-bg">
-					  <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  <a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				  </div>
-				
-			</div>
-		  </div>
-		</div>
+				</div>
 	</section>
 	<section data-aos="fade-up"
      data-aos-duration="3000">
 		<div class="container-fluid p-0 m-0">
 			<div class="loveback-img">
-				<!-- <div class="mask"  data-aos="fade-up"
-				data-aos-duration="3000">
-					<div class="d-flex justify-content-center h-100 pt-7">
-				<div class="container row">
-					<div class="text-white col-md-6 col-sm-12 br-7 h-auto" style="background-color: rgba(0,0,0,.5);">
-						<h4>Check On-Road Price
-						</h4>
-						<div class="input-group pt-2 pb-2">
-							<span class="input-group-append">
-								<button class="btn btn-outline-secondary bg-white border-bottom-0 border ms-n5" type="button">
-									<i class="fa fa-search"></i>
-								</button>
-							</span>
-							<input class="form-control border-end-0 border" type="search" placeholder="search" id="example-search-input">
-							
-						</div>
-						<div class="pt-2 pb-2">
-							<p class="f-12">Check the on road price on your city</p>
-						</div>
-					</div>
-				</div>
-				</div>
-				</div> -->
 			</div>
 		</div>
 	</section>
