@@ -91,6 +91,21 @@ h4{
     margin: 0 !important;
     border-radius: 50px !important;
 }
+.owl-carousel1 .owl-nav .owl-next img, .owl-carousel1 .owl-nav .owl-prev img {
+    width: 30px;
+    border-radius: 50px !important;
+    border: 1px solid #5e50ad;
+}
+.owl-carousel1 .owl-nav .owl-next, .owl-carousel1 .owl-nav .owl-prev {
+    height: 36px;
+    width: 36px; 
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none; 
+    background: transparent !important;
+    margin: 0 !important;
+    border-radius: 50px !important;
+}
 .owl-next {
     transform: rotate(180deg);
 }

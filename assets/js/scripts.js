@@ -5290,61 +5290,118 @@
 
 AOS.init()
 
+// $(document).ready(function () {
+//   var imageUrls = [
+//       "./assets/images/apache-rtr-310-right-side-view-7.webp",
+//       "./assets/images/apache-rtr-310-right-side-view-7.webp",
+//       "./assets/images/apache-rtr-310-right-side-view-7.webp",
+//       "./assets/images/apache-rtr-310-right-side-view-7.webp",
+//       "./assets/images/apache-rtr-310-right-side-view-7.webp"
+//   ];
+
+//   var carouselItems = "";
+//   for (var i = 0; i < imageUrls.length; i++) {
+//       carouselItems += `
+//       <div class="item">
+//           <div class="card">
+//               <img src="${imageUrls[i]}" class="card-img-top img-fluid" alt="...">
+//               <div class="card-body card-bg">
+//                   <h5 class="card-title">Card Title ${i + 1}</h5>
+//                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//                   <a href="#" class="btn btn-primary">Go somewhere</a>
+//               </div>
+//           </div>
+//       </div>`;
+//   }
+
+//   $(".owl-carousel").html(carouselItems);
+
+//   $(".owl-carousel").owlCarousel({
+//       items: 3,
+//       loop: false,
+//       slideSpeed: 300,
+//       paginationSpeed: 600,
+//       nav: true,
+//       dots: false,
+//       autoWidth: false,
+//       margin: 30,
+//       startPosition: 1,
+//       center: true,
+//       responsiveClass: true,
+//       navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+//       responsive: {
+//           0: {
+//               items: 1,
+//           },
+//           600: {
+//               items: 2,
+//           },
+//           1000: {
+//               items: 3,
+//           },
+//           1440: {
+//               items: 4,
+//           }
+//       }
+//   });
+// });
 $(document).ready(function () {
-  var imageUrls = [
-      "./assets/images/apache-rtr-310-right-side-view-7.webp",
-      "./assets/images/apache-rtr-310-right-side-view-7.webp",
-      "./assets/images/apache-rtr-310-right-side-view-7.webp",
-      "./assets/images/apache-rtr-310-right-side-view-7.webp",
-      "./assets/images/apache-rtr-310-right-side-view-7.webp"
-  ];
+    // Carousel 1
+    var imageUrls1 = [
+        "./assets/images/apache-rtr-310-right-side-view-7.webp",
+        "./assets/images/apache-rtr-310-right-side-view-7.webp",
+        "./assets/images/apache-rtr-310-right-side-view-7.webp",
+        "./assets/images/apache-rtr-310-right-side-view-7.webp",
+        "./assets/images/apache-rtr-310-right-side-view-7.webp"
+    ];
 
-  var carouselItems = "";
-  for (var i = 0; i < imageUrls.length; i++) {
-      carouselItems += `
-      <div class="item">
-          <div class="card">
-              <img src="${imageUrls[i]}" class="card-img-top img-fluid" alt="...">
-              <div class="card-body card-bg">
-                  <h5 class="card-title">Card Title ${i + 1}</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-          </div>
-      </div>`;
-  }
+    var carouselItems1 = "";
+    for (var i = 0; i < imageUrls1.length; i++) {
+        carouselItems1 += `
+        <div class="item">
+            <div class="card">
+                <img src="${imageUrls1[i]}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body card-bg">
+                    <h5 class="card-title">Card Title ${i + 1}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>`;
+    }
 
-  $(".owl-carousel").html(carouselItems);
+    $("#carousel1").html(carouselItems1);
 
-  $(".owl-carousel").owlCarousel({
-      items: 3,
-      loop: false,
-      slideSpeed: 300,
-      paginationSpeed: 600,
-      nav: true,
-      dots: false,
-      autoWidth: false,
-      margin: 30,
-      startPosition: 1,
-      center: true,
-      responsiveClass: true,
-      navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-      responsive: {
-          0: {
-              items: 1,
-          },
-          600: {
-              items: 2,
-          },
-          1000: {
-              items: 3,
-          },
-          1440: {
-              items: 4,
-          }
-      }
-  });
-});
+    $("#carousel1").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 3,
+            },
+            1440: {
+                items: 4,
+            }
+        }
+    });
+})
+
 
   // $(function() {
   //   $('#nav-tab').responsiveTabs();
@@ -5386,5 +5443,326 @@ $(document).ready(function () {
             $(this).text("View More Brands");
         }
         hidden = !hidden;
+    });
+});
+$(document).ready(function () {
+    // Define an array of objects representing carousel 2 items
+    var carousel2Items = [
+        {
+            imageUrl: "./assets/images/apache-rtr-310-right-side-view-7.webp",
+            brand: "TVS",
+            model: "Apache RTR 310",
+            price: "₹2,42,990"
+        },
+        {
+            imageUrl: "./assets/images/tvs-apache-rr-310-right-side13.webp",
+            brand: "TVS",
+            model: "Apache RR 310",
+            price: "₹2,42,990"
+        },
+        // Add more items as needed
+    ];
+
+    var carousel2HTML = "";
+
+    // Generate the dynamic content for each carousel 2 item
+    carousel2Items.forEach(function (item) {
+        carousel2HTML += `
+            <div class="item">
+                <div class="card" style="height: auto;">
+                    <div class="row d-flex justify-content-center p-0 m-0">
+                        <div class="col-md-6 col-sm-3 col" style="width: 50%;">
+                            <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
+                            <div class="card-body pl-2">
+                                <p class="card-title">${item.brand}</p>
+                                <p class="f-12 mb-0"><b>${item.model}</b></p>
+                                <p class="f-12 mb-0">${item.price}</p>
+                                <p class="f-12 mb-0 text-grey">onwards</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-3 col" style="width: 50%;">
+                            <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
+                            <div class="card-body">
+                                <p class="card-title">${item.brand}</p>
+                                <p class="f-12 mb-0"><b>${item.model}</b></p>
+                                <p class="f-12 mb-0">${item.price}</p>
+                                <p class="f-12 mb-0 text-grey">onwards</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline-primary w-80 mb-12">Go somewhere</a>
+                    </div>
+                </div>
+            </div>`;
+    });
+
+    // Add the generated HTML to carousel 2 container
+    $("#carousel2").html(carousel2HTML);
+
+    // Initialize Owl Carousel for carousel 2
+    $("#carousel2").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 3,
+            },
+            1440: {
+                items: 4,
+            }
+        }
+    });
+});
+
+// $(document).ready(function () {
+//     // Define an array of objects representing carousel 2 items
+//     var carousel2Items = [
+//         {
+//             imageUrl: "./assets/images/bullet-350-next-gen-right-front-three-quarter.webp",
+//             brand: "Royal Enfield",
+//             model: "Bullet 350",
+//             price: "₹1,73,562"
+//         },
+//         {
+//             imageUrl: "./assets/images/classic-350-right-front-three-quarter-6.webp",
+//             brand: "Royal Enfield",
+//             model: "Classic 350",
+//             price: "₹1,93,080"
+//         },
+//         {
+//             imageUrl: "./assets/images/raider-125-right-front-three-quarter-4.webp",
+//             brand: "TVS",
+//             model: "Raider 125",
+//             price: "₹97,054"
+//         },
+//         {
+//             imageUrl: "./assets/images/sp-125-right-front-three-quarter-2.webp",
+//             brand: "HONDA",
+//             model: "SP 125",
+//             price: "₹86,749"
+//         },
+//         {
+//             imageUrl: "./assets/images/sp-125-right-front-three-quarter-2.webp",
+//             brand: "HONDA",
+//             model: "SP 125",
+//             price: "₹86,749"
+//         },
+//         {
+//             imageUrl: "./assets/images/shine-right-front-three-quarter-2.webp",
+//             brand: "HONDA",
+//             model: "Shine",
+//             price: "₹80,402"
+//         },
+//         {
+//             imageUrl: "./assets/images/hunter-350-right-front-three-quarter.webp",
+//             brand: "ROYAL ENFIELD",
+//             model: "Hunter 350",
+//             price: "₹1,49,900"
+//         },
+//         {
+//             imageUrl: "./assets/images/ronin-225-right-front-three-quarter.webp",
+//             brand: "TVS",
+//             model: "Ronin",
+//             price: "₹1,49,097"
+//         },
+//         {
+//             imageUrl: "./assets/images/karizma-xmr-210-right-front-three-quarter-2 (1).webp",
+//             brand: "HERO",
+//             model: "Karizma ZMR",
+//             price: "₹1,72,900"
+//         },
+//         {
+//             imageUrl: "./assets/images/rs-200-right-front-three-quarter-7.webp",
+//             brand: "BAJAJ",
+//             model: "Pulsar RS 200",
+//             price: "₹1,71,780"
+//         },
+//         {
+//             imageUrl: "./assets/images/apache-160-right-front-three-quarter-2.webp",
+//             brand: "TVS",
+//             model: "Apache RTR 160",
+//             price: "₹1,19,981"
+//         },
+//         {
+//             imageUrl: "./assets/images/pulsar-150-right-front-three-quarter-7.webp",
+//             brand: "BAJAJ",
+//             model: "Pulsar 150",
+//             price: "₹1,05,884"
+//         },
+//         {
+//             imageUrl: "./assets/images/390-duke-2024-right-side-view-3.webp",
+//             brand: "KTM",
+//             model: "390 Duke",
+//             price: "₹3,10,520"
+//         },
+//         {
+//             imageUrl: "./assets/images/duke-390-left-front-three-quarter.webp",
+//             brand: "KTM",
+//             model: "Duke 390",
+//             price: "₹2,97,818"
+//         }
+//     ];
+
+//     var carousel2HTML = "";
+
+//     // Generate the dynamic content for each carousel 2 item
+//     carousel2Items.forEach(function (item) {
+//         carousel2HTML += `
+//             <div class="item">
+//                 <div class="card" style="height: auto;">
+//                     <div class="row d-flex justify-content-center p-2 m-0">
+//                         <div class="col-md-6 col-sm-3 col" style="width: 50%;">
+//                             <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
+//                             <div class="card-body pl-0">
+//                                 <p class="card-title">${item.brand}</p>
+//                                 <p class="f-12 mb-0"><b>${item.model}</b></p>
+//                                 <p class="f-12 mb-0">${item.price}</p>
+//                                 <p class="f-12 mb-0 text-grey">onwards</p>
+//                             </div>
+//                         </div>
+//                         <a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
+//                     </div>
+//                 </div>
+//             </div>`;
+//     });
+
+//     // Add the generated HTML to carousel 2 container
+//     $("#carousel2").html(carousel2HTML);
+
+//     // Initialize Owl Carousel for carousel 2
+//     $("#carousel2").owlCarousel({
+//         items: 3,
+//         loop: false,
+//         slideSpeed: 300,
+//         paginationSpeed: 600,
+//         nav: true,
+//         dots: false,
+//         autoWidth: false,
+//         margin: 30,
+//         startPosition: 1,
+//         center: true,
+//         responsiveClass: true,
+//         navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+//         responsive: {
+//             0: {
+//                 items: 1,
+//             },
+//             600: {
+//                 items: 2,
+//             },
+//             1000: {
+//                 items: 3,
+//             },
+//             1440: {
+//                 items: 4,
+//             }
+//         }
+//     });
+// });
+
+
+$(document).ready(function () {
+    // Define an array of objects representing carousel 3 items
+    var carousel3Items = [
+        {
+            imageUrl: "./assets/images/scooty1.webp",
+            title: "Honda Activa 6G",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        },
+        {
+            imageUrl: "./assets/images/scootyBlue.webp",
+            title: "Card title",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        },
+        {
+            imageUrl: "./assets/images/scootyRed.webp",
+            title: "Card title",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        },
+        {
+            imageUrl: "./assets/images/apache-rtr-310-right-side-view-7.webp",
+            title: "Card title",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        },
+        {
+            imageUrl: "./assets/images/apache-rtr-310-right-side-view-7.webp",
+            title: "Card title",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        },
+        {
+            imageUrl: "./assets/images/apache-rtr-310-right-side-view-7.webp",
+            title: "Card title",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        },
+        {
+            imageUrl: "./assets/images/apache-rtr-310-right-side-view-7.webp",
+            title: "Card title",
+            description: "Some quick example text to build on the card title and make up the bulk of the card's content."
+        }
+    ];
+
+    var carousel3HTML = "";
+
+    // Generate the dynamic content for each carousel 3 item
+    carousel3Items.forEach(function (item) {
+        carousel3HTML += `
+            <div class="item">
+                <div class="card">
+                    <img src="${item.imageUrl}" class="card-img-top img-fluid" alt="...">
+                    <div class="card-body card-bg">
+                        <h5 class="card-title">${item.title}</h5>
+                        <p class="card-text">${item.description}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>`;
+    });
+
+    // Add the generated HTML to carousel 3 container
+    $("#carousel3").html(carousel3HTML);
+
+    // Initialize Owl Carousel for carousel 3
+    $("#carousel3").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 3,
+            },
+            1440: {
+                items: 4,
+            }
+        }
     });
 });
