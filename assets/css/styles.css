@@ -406,3 +406,25 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     width: 100%;
     height: 100%;
 }
+
+/* .form-outline {
+    position: relative;
+    margin-bottom: 1rem; 
+  }
+  
+  .form-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    pointer-events: none; 
+    transition: all 0.3s ease; 
+  }
+  
+  .form-control:focus + .form-label,
+  .form-control:not(:placeholder-shown) + .form-label {
+    font-size: 0.75rem; 
+    transform: translateY(-100%);
+    color: #6c757d; 
+  }
+  
