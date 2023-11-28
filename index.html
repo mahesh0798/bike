@@ -10,8 +10,7 @@
 		content="Open Demat Account Online, Trading Account Opening, 2 in 1 Account,3 in 1 Account, Open Demat Account, Demat Account Opening">
 	<meta name="description"
 		content="Open demat account online with SBICAP Securities in just 15 minutes! Get your 2 in 1 demat and trading account with great benefitss">
-	<link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
-	<!-- <link rel="manifest" href="/manifest.json"> -->
+	<link rel="shortcut icon" href="assets/images/favicon/favicon.png">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
@@ -32,39 +31,57 @@
 	<script src="assets/js/popper.min.js" defer></script>
 	<script src="assets/js/bootstrap.min.js" defer></script>
 	<script src="assets/js/owl.carousel.min.js" defer></script>
-	<script src="assets/js/common.js" defer></script>
 	<script src="assets/js/scripts.js?ver=2.0" defer></script>
-	<script src="assets/js/demat.js" defer></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="jquery.min.js"></script>
 <script src="owlcarousel/owl.carousel.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+	.offer-btn{
+    width: 100%;
+    height: 48px;
+    color: #fff;
+    background-color: #e53012;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+}
 
+.specs{
+    display: flex;
+    justify-content: space-around;
+}
+</style>
 </head>
 
 <body> 
+	<div class="loader-parent" style="display:none;">
+        <div class="nb-spinner"></div>
+    </div>
+	
 	<div>
 		<header style="height: 56px;width: 100%;">
 	<nav class="navbar navbar-light bg-light fixed-top">
 		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-		  <a class="navbar-brand" href="#">Offcanvas navbar</a>
-		  <form class="form-inline">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-			<!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-		  </form>
-		  <a class="navbar-brand" href="#">Log In</a>
+			<div class="d-flex">
+					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+						<span class="navbar-toggler-icon"></span>
+					  </button>
+					  <h3 class="mx-2" onclick="frontpage()">bike</h3>
+					  </div>
+				  <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
+					
+
+		
 
 		  
 		  
 		  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 			<div class="offcanvas-header">
-			  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+			  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">bike</h5>
 			  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
@@ -89,20 +106,32 @@
 				  </ul>
 				</li>
 			  </ul>
-			  <!-- <form class="d-flex">
-				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Search</button>
-			  </form> -->
+			 
 			</div>
+			
 		  </div>
+		  <form class="form-inline">
+			<div class="input-group">
+				<div class="form-outline">
+				  <input type="search" id="form1" class="form-control" placeholder="Search"/>
+				</div>
+				<button type="button" class="btn btn-info">
+				  <img src="./assets/images/search.svg"></i>
+				</button>
+			  </div>
+			<!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+		  </form>
+		  <a class="navbar-brand" href="login.html">Log In</a>
 		</div>
 	  </nav>
 	</header>
 	</div>
+	<div id="first">
+	<div style="display: block;">
 	  <section data-aos="fade-up"
-     data-aos-duration="3000">
+     data-aos-duration="1000">
 		<div id="back-img" class="p-5 text-center bg-image rounded-3" data-aos="fade-up"
-     data-aos-duration="3000">
+     data-aos-duration="1000">
 			<div class="mask">
 				<div class="d-flex justify-content-center align-items-center h-100 pt-14">
 				  <div class="text-white">
@@ -118,504 +147,850 @@
 
 		</div>
 	  </section>
-	  <!-- <a data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">View More</a>
-	  <div class="row">
-		<div class="col">
-		  <div class="collapse multi-collapse" id="multiCollapseExample1">
-			<div class="card  card-body card-bg">
-				content
+	  <section class="Review">
+		<div class="container mt-5 ">
+			
+			<div class="card border_green">
+				<div class="card-body card-bg">
+					<marquee>
+					<div class="row">
+						
+						<div class="col-md-3 col-12 text-center d-flex">
+							<img src="" id="addimg" class="img-fluid">
+						</div>
+						<div class="col-md-9 col-12 px-4 text-start">
+							<p class="fw-bold  my-3" id="addline1"></p>
+							<p class="my-3" id="addline2"></p>
+							<p class=" my-3" id="addline3">
+								<!-- <img src="./assets/images/amazon.svg" class="img-fluid1">
+								<span class="ml-2">voucher worth Rs. 2,000</span> -->
+							</p>
+						</div>
+						<!-- <div class="col-md-6 col-12 text-center participate">
+							<p class="border_red p-2 fw-bold">
+								participate & win
+							</p>
+						</div> -->
+					
+					</div>
+				</marquee>
+				</div>
 			</div>
-		  </div>
+			
 		</div>
-		</div> -->
+	</section>
 		<section data-aos="fade-up"
-     data-aos-duration="3000">
+     data-aos-duration="1000">
 			<div class="container my-4" data-aos="fade-up"
-     data-aos-duration="3000">
+     data-aos-duration="1000">
 				<div data-aos="fade-up"
-     data-aos-duration="3000"><h2 class="">Browse Bikes By</h2></div>
-				
-	 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="f-16 mt-50 color-label-black index-main w-100">
-            <div class="table-responsive">
-                <table class="table table-bordered table_border mb-1">
-                    <tbody>
-                        <tr>
-                            <td><img src="./assets/images/honda20200511152343.jpg"> </td>
-                            <td><img src="./assets/images/royal-enfield20200508193112.jpg"> </td>
-                            <td><img src="./assets/images/hero20200508192826.jpg"> </td>
-                            <td><img src="./assets/images/tvs20200508193203.jpg"> </td>
-                            <td><img src="./assets/images/yamaha20200508193220.jpg"> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="./assets/images/honda20200511152343.jpg"> </td>
-                            <td><img src="./assets/images/royal-enfield20200508193112.jpg"> </td>
-                            <td><img src="./assets/images/hero20200508192826.jpg"> </td>
-                            <td><img src="./assets/images/tvs20200508193203.jpg"> </td>
-                            <td><img src="./assets/images/yamaha20200508193220.jpg"> </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div id="brandsContainer" style="display: none;">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table_border">
-                                <tbody>
-                                    <!-- Additional images will be loaded here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <button class="mt-2 btn btn-outline-primary" id="toggleButton">View More Brands</button>
-                </div>
-            </div>
-        </div>
-    </div>
-	
+     data-aos-duration="1000"><h2 class="mt-3 mb-3">Top Brands of Petrol TN Vechiles</h2></div>
+				  <div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+						<div class="f-16 mt-50 color-label-black index-main w-100">
+							<div class="table-responsive">
+								<table id="table1" class="table table-bordered table_border mb-1">
+									<tbody id="tablebody">
+										
+									</tbody>
+								</table>
+							</div>
+							
+								<div class="text-center">
+									<button class="mt-2 btn btn-outline-primary" id="toogleBtn" onclick="TNviewmore()">View More Brands</button>
+								</div>
+						
+					</div>
+						</div>
 					<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
 					<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+				  </div>
+				  
 			</div>
 		  </section>
+			   <section data-aos="fade-up"
+			   data-aos-duration="1000">
+					  <div class="container my-4" data-aos="fade-up"
+			   data-aos-duration="1000">
+						  <div data-aos="fade-up"
+			   data-aos-duration="1000"><h2 class="mt-3 mb-3">Top Brands of Electric TN Vechiles</h2></div>
+							<div class="tab-content" id="nav-tabContent">
+							  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+								  <div class="f-16 mt-50 color-label-black index-main w-100">
+									  <div class="table-responsive">
+										  <table id="table2" class="table table-bordered table_border mb-1">
+											  <tbody id="tablebody1">
+												  
+											  </tbody>
+										  </table>
+									  </div>
+									  
+										  <div class="text-center">
+											  <button class="mt-2 btn btn-outline-primary" id="toogleBtn1" onclick="TNviewmore1()">View More Brands</button>
+										  </div>
+								  
+							  </div>
+								  </div>
+							  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+							  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+							</div>
+							
+					  </div>
+					</section>
 		  <section class="h-550" data-aos="fade-up"
-     data-aos-duration="3000">
+     data-aos-duration="1000">
 			<div class="container my-4">
-				<div data-aos="fade-up"data-aos-duration="3000">
-	 			<h2 class="">Featured Bikes</h2>
+				<div data-aos="fade-up"data-aos-duration="1000">
+	 			<h2 class="">Famous Bikes Modals</h2>
 			</div>
-				<nav>
-					<div class="nav nav-tabs" id="nav-tab" role="tablist">
-					  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">MOST POPULAR</button>
-					  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">NEW LAUNCHING</button>
-					  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">UPCOMING</button>
-					</div>
-				  </nav>
+
 
 				</div>
-				  
-		  
-
-				<div class="container testimonialsection mt-5" data-aos="fade-up" data-aos-duration="3000">
-					<div class="owl-carousel owl-theme" id="carousel1">
-					</div>
-				</div>
-	</section>
-	<section data-aos="fade-up"
-     data-aos-duration="3000">
-		<div class="container-fluid p-0 m-0">
-			<div class="loveback-img">
-			</div>
+<div class="container textimonialsection mt-5" data-aos="fade-up"
+     data-aos-duration="1000">
+	 <div class="owl-carousel owl-theme" id="carousel2">
+    </div>
 		</div>
 	</section>
+	
 
 	<section class="h-550">
 		<div class="container my-4" data-aos="fade-up"
-		data-aos-duration="3000">
-			<div><h2 class="">Trending Bikes of September 2023</h2></div>
-			<!-- <nav>
-				<div class="nav nav-tabs" id="nav-tab" role="tablist">
-				  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">SCOOTERS</button>
-				  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">MILEAGE BIKES</button>
-				  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">SPORTS</button>
-				</div>
-			  </nav> -->
-
+		data-aos-duration="1000">
+			<div><h2 class="">Race Models</h2></div>
 			</div>
-			  
-	  
-
 <div class="container textimonialsection mt-5" data-aos="fade-up"
-data-aos-duration="3000">
-	<div class="owl-carousel owl-theme" id="carousel3">
-		<!-- <div class="item" >
-			<div class="card" >
-				<img src="./assets/images/scooty1.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Honda Activa 6G</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-		</div>
-		<div class="item">
-			<div class="card" >
-				<img src="./assets/images/scootyBlue.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Card title</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-			
-		</div>
-		<div class="item">
-			<div class="card" >
-				<img src="./assets/images/scootyRed.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Card title</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-			
-		</div>
-		<div class="item">
-			<div class="card" >
-				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Card title</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-			
-		</div>
-		<div class="item">
-			<div class="card" >
-				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Card title</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-			
-		</div>
-		<div class="item">
-			<div class="card" >
-				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Card title</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-			
-		</div>
-		<div class="item">
-			<div class="card" >
-				<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid" alt="...">
-				<div class=" card-body card-bg">
-				  <h5 class="card-title">Card title</h5>
-				  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-				  <a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			  </div>
-			
-		</div> -->
-	  </div>
+data-aos-duration="1000">
+<div class="owl-carousel owl-theme" id="myCarousel2">
+
+</div>
+
 	</div>
 </section>
+<section class="h-550">
+	<div class="container my-4" data-aos="fade-up"
+	data-aos-duration="1000">
+		<div><h2 class="">Famous Scooty Models</h2></div>
+		</div>
+		  
+  
 
-	<section class="Review">
-		<div class="container">
-			<div class="card border_green">
-				<div class=" card-body card-bg d-flex">
-					<marquee>
-				 <div class="row w-100">
-					<div class="col-2">
-					<img src="./assets/images/bike-review-contest.svg" class="img-fluid">
-				 </div>
-					<div class="col-4">
-					<p class="fw-bold mb-0 mt-2">Stand a chance to win</p>
-					<p class="mb-0">Write a detailed review and win</p>
-					<p class="amazon m-0">
-					<img src="./assets/images/amazon.svg" class="img-fluid1"><span class="ml-2">voucher worth Rs. 2,000</span></p>
-				</div>
-					<div class="col-6">
-						<div class="d-flex justify-content-end mt-4">
-					<p class="border_red p-2 text-center w-50 fw-bold">
-						participate & win
-					</p>
-				</div>
-				 </div>
+<div class="container textimonialsection mt-5" data-aos="fade-up"
+data-aos-duration="1000">
+<div class="owl-carousel owl-theme" id="myCarousel3">
+	</div>
+</div>
+</section>
+<section class="h-550">
+	<div class="container my-4" data-aos="fade-up" data-aos-duration="1000">
+		<div>
+			<h2 class="">Famous Electric Models</h2>
+		</div>
+	</div>
+	<div class="container textimonialsection mt-5" data-aos="fade-up" data-aos-duration="1000">
+		<div class="owl-carousel owl-theme" id="evModals">
+		</div>
+	</div>
+</section>
+<section class="h-550">
+	<div class="container my-4" data-aos="fade-up"
+	data-aos-duration="1000">
+		<div><h2 class="">Mileage Models</h2></div>
+		</div>
+		  
+  
+
+<div class="container textimonialsection mt-5" data-aos="fade-up"
+data-aos-duration="1000">
+<div class="owl-carousel owl-theme" id="myCarousel4">
+	</div>
+</div>
+</section>
+<section class="Review">
+	<div class="container mt-5">
+		
+		<div class="card border_green">
+			<div class="card-body card-bg">
+				<marquee>
+				<div class="row">
+					
+					<div class="col-md-2 col-3 text-center mb-3 d-flex">
+						<img src="./assets/images/bike-review-contest.svg" class="img-fluid">
+					</div>
+					<div class="col-md-4 col-9">
+						<p class="fw-bold mb-1">Stand a chance to win</p>
+						<p class="mb-1">Write a detailed review and win</p>
+						<p class="amazon m-0">
+							<img src="./assets/images/amazon.svg" class="img-fluid1">
+							<span class="ml-2">voucher worth Rs. 2,000</span>
+						</p>
+					</div>
+					<div class="col-md-6 col-12 text-center participate">
+						<p class="border_red p-2 fw-bold">
+							participate & win
+						</p>
+					</div>
+				
 				</div>
 			</marquee>
-				</div>
-			  </div>
+			</div>
 		</div>
-	
-	</section>
-	<section>
-		<div data-aos="fade-up" class="container"
-     data-aos-duration="3000">
-	 <h3 class="">Featured Bikes</h3>
+		
 	</div>
-		<div class="container textimonialsection mt-5" data-aos="fade-up"
-		data-aos-duration="3000">
-
-		<div class="owl-carousel owl-theme" id="carousel2">
-            <!-- Dynamic content will be added here using jQuery -->
-        </div>
-			<!-- <div class="owl-carousel1 owl-theme">
-				<div class="item">
-					<div class="card" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-0 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/apache-rtr-310-right-side-view-7.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-2">
-									<p class="card-title">TVS</p>
-									<p class="f-12 mb-0"><b>Apache RTR 310</b></p>
-									<p class="f-12  mb-0">₹2,42,990</p>
-									<p class="f-12 mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images//tvs-apache-rr-310-right-side13.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body">
-									<p class="card-title">TVS</p>
-									<p class="f-12  mb-0"><b>Apache RR 310</b></p>
-									<p class="f-12  mb-0">₹2,42,990</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80 mb-12">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="card" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-2 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/bullet-350-next-gen-right-front-three-quarter.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-0">
-									<p class="card-title">Royal Enfield</p>
-									<p class="f-12 mb-0"><b>Bullet 350</b></p>
-									<p class="f-12  mb-0">₹1,73,562</p>
-									<p class="f-12 mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/classic-350-right-front-three-quarter-6.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-0">
-									<p class="card-title">Royal Enfield</p>
-									<p class="f-12  mb-0"><b>Classic 350</b></p>
-									<p class="f-12  mb-0">₹1,93,080</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="card" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-2 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/raider-125-right-front-three-quarter-4.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body">
-									<p class="card-title">TVS</p>
-									<p class="f-12 mb-0"><b>Raider 125</b></p>
-									<p class="f-12  mb-0">₹97,054</p>
-									<p class="f-12 mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/sp-125-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body">
-									<p class="card-title">HONDA</p>
-									<p class="f-12  mb-0"><b>SP 125</b></p>
-									<p class="f-12  mb-0">₹86,749</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="card" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-2 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/sp-125-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
-									alt="...">
-									<div class=" card-body">
-										<p class="card-title">HONDA</p>
-										<p class="f-12  mb-0"><b>SP 125</b></p>
-										<p class="f-12  mb-0">₹86,749</p>
-										<p class="f-12  mb-0 text-grey">onwards</p>
-									</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/shine-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body">
-									<p class="card-title">HONDA</p>
-									<p class="f-12  mb-0"><b>Shine</b></p>
-									<p class="f-12  mb-0">₹80,402</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="card p-2" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-0 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/hunter-350-right-front-three-quarter.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-0 pr-0">
-									<p class="card-title">ROYAL ENFIELD</p>
-									<p class="f-12  mb-0"><b>Hunter 350</b></p>
-									<p class="f-12  mb-0">₹1,49,900</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/ronin-225-right-front-three-quarter.webp" class="card-img-top img-fluid"
-									alt="...">
-									<div class=" card-body pl-0">
-										<p class="card-title">TVS</p>
-										<p class="f-12  mb-0"><b>Ronin</b></p>
-										<p class="f-12  mb-0">₹1,49,097</p>
-										<p class="f-12  mb-0 text-grey">onwards</p>
-									</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="card" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-2 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/karizma-xmr-210-right-front-three-quarter-2 (1).webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-0 pr-0">
-									<p class="card-title">HERO</p>
-									<p class="f-12  mb-0"><b>Karizma ZMR</b></p>
-									<p class="f-12  mb-0">₹1,72,900</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/rs-200-right-front-three-quarter-7.webp" class="card-img-top img-fluid"
-									alt="...">
-									<div class=" card-body pl-0">
-										<p class="card-title">BAJAJ</p>
-										<p class="f-12  mb-0"><b>Pulsar RS 200</b></p>
-										<p class="f-12  mb-0">₹1,71,780</p>
-										<p class="f-12  mb-0 text-grey">onwards</p>
-									</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					<div class="card p-2" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-0 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/apache-160-right-front-three-quarter-2.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-0 pr-0">
-									<p class="card-title">TVS</p>
-									<p class="f-12  mb-0"><b>Apache RTR 160</b></p>
-									<p class="f-12  mb-0">₹1,19,981</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/pulsar-150-right-front-three-quarter-7.webp" class="card-img-top img-fluid"
-									alt="...">
-									<div class=" card-body pl-0">
-										<p class="card-title">BAJAJ</p>
-										<p class="f-12  mb-0"><b>Pulsar 150</b></p>
-										<p class="f-12  mb-0">₹1,05,884</p>
-										<p class="f-12  mb-0 text-grey">onwards</p>
-									</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="card p-2" style="height: auto;">
-						<div class="row d-flex  justify-content-center  p-0 m-0">
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/390-duke-2024-right-side-view-3.webp" class="card-img-top img-fluid"
-									alt="...">
-								<div class=" card-body pl-0 pr-0">
-									<p class="card-title">KTM</p>
-									<p class="f-12  mb-0"><b>390 Duke</b></p>
-									<p class="f-12  mb-0">₹3,10,520</p>
-									<p class="f-12  mb-0 text-grey">onwards</p>
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-3 col" style="width: 50%;">
-								<img src="./assets/images/duke-390-left-front-three-quarter.webp" class="card-img-top img-fluid"
-									alt="...">
-									<div class=" card-body pl-0">
-										<p class="card-title">KTM</p>
-										<p class="f-12  mb-0"><b>Duke 390</b></p>
-										<p class="f-12  mb-0">₹2,97,818</p>
-										<p class="f-12  mb-0 text-grey">onwards</p>
-									</div>
-							</div>
-							<a href="#" class="btn btn-outline-primary w-80">Go somewhere</a>
-						</div>
-					</div>
-				</div>
-			</div> -->
-		</div>
-	</section>
-	<section >
-		<div class="footer-sec mt-5">
-				<div class="container">
-					<div class="d-flex justify-content-center gap-3 p-3">
-						<img src="./assets/images/amazon.svg" class="img-fluid1">
-						<img src="./assets/images/amazon.svg" class="img-fluid1">
-						<img src="./assets/images/amazon.svg" class="img-fluid1">
-						<img src="./assets/images/amazon.svg" class="img-fluid1">
-						<img src="./assets/images/amazon.svg" class="img-fluid1">
-					</div>
-						
-				</div>
-				<div></div>
-				<div class="container">
+</section>
+</div>
+</div>
+<div id="second">
+	<section class="Review">
+		<div class="container mt-5 ">
+			
+			<div class="card border_green">
+				<div class="card-body card-bg">
+					<marquee>
 					<div class="row">
-						<div class="col-md-6">sacf</div>
-						<div class="col-md-6">fca</div>
+						
+						<div class="col-md-3 col-12 text-center d-flex">
+							<img src="" id="addimgsec" class="img-fluid">
+						</div>
+						<div class="col-md-9 col-12 px-4 text-start">
+							<p class="fw-bold  my-3" id="addline1sec"></p>
+							<p class="my-3" id="addline2sec"></p>
+							<p class=" my-3" id="addline3sec">
+								<!-- <img src="./assets/images/amazon.svg" class="img-fluid1">
+								<span class="ml-2">voucher worth Rs. 2,000</span> -->
+							</p>
+						</div>
+						<!-- <div class="col-md-6 col-12 text-center participate">
+							<p class="border_red p-2 fw-bold">
+								participate & win
+							</p>
+						</div> -->
+					
+					</div>
+				</marquee>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+  <section>
+	<div class="container mt-5" id="bikesecond">
 	
+	</div>
+  </section>
+</div>
+<!-- three -->
+<div id="three">
+	<section class="Review">
+		<div class="container mt-5 ">
+			
+			<div class="card border_green">
+				<div class="card-body card-bg">
+					<marquee>
+					<div class="row">
+						
+						<div class="col-md-3 col-12 text-center d-flex">
+							<img src="" id="addimgthree" class="img-fluid">
+						</div>
+						<div class="col-md-9 col-12 px-4 text-start">
+							<p class="fw-bold  my-3" id="addline1three"></p>
+							<p class="my-3" id="addline2three"></p>
+							<p class=" my-3" id="addline3three">
+								<!-- <img src="./assets/images/amazon.svg" class="img-fluid1">
+								<span class="ml-2">voucher worth Rs. 2,000</span> -->
+							</p>
+						</div>
+						<!-- <div class="col-md-6 col-12 text-center participate">
+							<p class="border_red p-2 fw-bold">
+								participate & win
+							</p>
+						</div> -->
+					
+					</div>
+				</marquee>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+
+
+<section>
+	<div class="container mt-5">
+
+		<div class="row">
+			<div class="col-md-auto">
+				<h2 id="vehicleName"></h2>
+			</div>
+		</div>
+
+			<div class="card">
+				<div class="card-body p-0 shadow-sm">
+					<div class="row ">
+						<div class="col-md-6">
+							<div class="owl-carousel owl-theme" id="image-carousel-1">
+							</div>
+
+							<div class="row mx-0">
+								<!-- <div class="col-md-6">
+
+									<a href="#" style="color:grey;text-decoration: none;">images</a>
+
+								</div> -->
+								
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="row mx-0 border mx-0 mb-3">
+								<div class="col-8">
+									<p class="mb-0 mt-1">City</p>
+									<p class="mt-1">Show Prices in City</p>
+								</div>
+								<div class="col-4 text-center">
+									<svg xmlns="http://www.w3.org/1000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-arrow-right-circle mt-4 cursor" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+									  </svg>
+								</div>
+							</div>
+							
+							<div class="row mx-0 my-5">
+								<div class="col-md-6">
+									<h3 class="pl-2" id="exshowroomPrize"></h3>
+									<p class="pl-2"> Avg. Ex-Showroom Price</p>
+
+								</div>
+								<div class="col-md-6">
+									<div class="row mx-0 border d-none" >
+										<div class="col-md-6 text-center col-sm-6">
+											<p>Price</p>
+
+										</div>
+										<div class="col-md-6  text-center col-sm-6">
+											<p>Color</p>
+
+										</div>
+										<div class="col-md-6 text-center col-sm-6">
+
+										</div>
+										<div class="col-md-6 text-center col-sm-6">
+
+										</div>
+
+									</div>
+									<!-- <table class="table w-100 bc-collapse table-responsive table-bordered">
+										<thead>
+											<tr>
+												<th class="w-50">Price</th>
+												<th>Color</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td></td>
+												<td></td>
+											</tr>
+										</tbody>
+
+									</table> -->
+
+								</div>
+									
+							</div>
+							
+
+							<div class="row mx-0 my-5">
+								<div class="col-md-8">
+									<button class="offer-btn rounded-pill" type="button" >Get Diwali Offers</button>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="row mx-3 my-3">
+						<!-- <div class="col-md-2">
+							<svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette-fill" viewBox="0 0 16 16">
+								<path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+							  </svg>
+							  <span class="ml-1">Colors</span>
+
+						</div> -->
+						<div class="col-md-2">
+							<svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
+								<path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+								<path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+							  </svg>
+							  <span class="ml-1"><a href="allImage.html" style="color: black;cursor: pointer;">Images</a></span>
+						</div>
+
 					</div>
 				</div>
-			
-			
-			  <div class="row m-0 p-0">
-				  <div class="col-md-12 copy">
-					  <p class="text-center">© 2012 - 2023. https://www.bikewale.com</p>
-				  </div>
-			  </div>
 			</div>
-	</section>
-	  <!-- <div id="accordion">
-		<div class="card">
-		  <div class="card-header" id="headingOne">
-			<h5 class="mb-0">
-			  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-View More			  </button>
-			</h5>
-		  </div>
-	  
-		  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-			<div class=" card-body card-bg">
-			  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+			<div class="card shadow-sm my-4">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-auto">
+							<h3 id="vehicleName1"></h3>
+						</div>
+						<div class="col-md-auto text-start">
+							<span class="h3">KEY HIGHLIGHTS</span>
+						</div>
+				
+					</div>
+					<div class="row mx-0">
+						<div class="col-md-6 col-6">
+							<div class="row border">
+								<div class="col-md-12 py-3">
+									Mileage
+								</div>
+							</div>
+							<div class="row border">
+								<div class="col-md-12 py-3">
+									KerbWeight
+								</div>
+							</div>
+							<div class="row border">
+								<div class="col-md-12 py-3">
+									Speedmeter
+								</div>
+							</div>
+							<!-- <div class="row border">
+								<div class="col-md-12 py-3">
+									Fuel Tank Capacity
+								</div>
+							</div> -->
+							<div class="row border">
+								<div class="col-md-12 py-3">
+									cubicCapacity
+								</div>
+							</div>
+							<!-- <div class="row border">
+								<div class="col-md-12 py-3">
+									Seat Height
+								</div>
+							</div> -->
+				
+						</div>
+						<div class="col-md-6 col-6">
+							<div class="row border">
+								<div class="col-md-12 py-3" id="mileage1">
+								</div>
+							</div>
+							<div class="row border">
+								<div class="col-md-12 py-3" id="kerbWeight">
+								
+								</div>
+							</div>
+							<div class="row border">
+								<div class="col-md-12 py-3" id="speedometer">
+								</div>
+							</div>
+							
+							<!-- <div class="row border">
+								<div class="col-md-12 py-3" id="mileage">
+									11.2 Litres
+								</div>
+							</div> -->
+							<div class="row border">
+								<div class="col-md-12 py-3" id="cubicCapacity">
+								</div>
+							</div>
+							<!-- <div class="row border">
+								<div class="col-md-12 py-3" id="mileage">
+									790 mm
+								</div>
+							</div> -->
+				
+						</div>
+				
+					</div>
+				</div>
+
 			</div>
-		  </div>
+			
+
+			<div class="card mt-4">
+				<div class="card-body shadow-sm">
+					<div class="row mx-0">
+						<div class="col-md-auto">
+							<h4 id="vehicleName2"></h4> 
+						</div>
+						<div class="col-md-auto ps-0 text-start">
+							 <span class="h4">Specifications</span>
+						</div>
+
+					</div>
+
+					<div class="row mx-0 specs">
+						<div class="col-md-5 col-12">
+
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Mileage
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end" id="mileage">
+									
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Engine type
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end">
+									4 Stroke, SI Engine
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Max Power
+								</div>
+								<div class="col-md-6 py-3 col-6 text-end" id="maxPower">
+									
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6  col-6 py-3">
+									Front Brake
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end" id="frontBrake">
+									<!-- Disc -->
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Fuel Capacity
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end" id="fuelCapacity" >
+								</div>
+							</div>
+								<!-- <div class="col-md-12 py-3">
+									Mileage
+								</div>
+								<div class="col-md-12 py-3">
+									Mileage
+								</div>
+								<div class="col-md-12 py-3">
+									Mileage
+								</div> -->
+
+							
+
+						</div>
+						<div class="col-md-5 col-12">
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Displacement
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end" id="displacement">
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									No. of Cylinders
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end">
+									1
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Max Torque
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end" id="maxTorque">
+									<!-- 10.87 PS @7500 RPM -->
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Rear Brake
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end" id="rearBrake">
+									<!-- Drum -->
+								</div>
+							</div>
+							<div class="row border-bottom">
+								<div class="col-md-6 col-6 py-3">
+									Body Type
+								</div>
+								<div class="col-md-6 col-6 py-3 text-end">
+									Commuter Bikes
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		
+
+	</div>
+</section>
+<section >
+	<div class="container my-4">
+		<div data-aos="fade-up"data-aos-duration="1000">
+			<div class="row mx-0">
+					<div class="col-md-auto">
+						<h2 id="vehicleName3"></h2>
+					</div>
+					<div class="col-md-auto text-start">
+						<span class="h2">Price</span>
+					</div>
+			</div>
+		
+	</div>
+
+
 		</div>
-		</div> -->
+<div class="container textimonialsection mt-5" >
+<div class="owl-carousel owl-theme" id="bikePrice">
+</div>
+</div>
+</section>
+<!-- 
+<section>
+<div class="container my-5">
+	
+</div>
+</section> -->
+<section>
+<div class="container" style="padding-top: 200px;" >
+	<div class="row mx-0">
+		<div class="col-md-auto">
+			<h3 id="vehicleName4"></h3>
+		</div>
+		<div class="col-md-auto text-start">
+			<span class="h3">User Reviews</span>
+		</div>
+	</div>
+	<div class="card border-0 my-3" style="background-color: #f9f9f9;">
+		<div class="card-body shadow-sm ">
+			<div class="row">
+				<div class="col-md-5">
+					<img src="./assets/images/star.webp" alt="" style="width: 50px;height: 50px;">
+					<span style="font-size: 16px;">4.4</span><span style="font-size: 12px;">/5</span>
+					<span style="font-size: 12px;" class="ml-5">(1392 Ratings)</span>
+					<span style="font-size: 12px;">406 Reviews</span>
+
+				</div>
+
+
+			</div>
+			<div class="row p-4 border-top">
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2">Visual Appeal</p>
+				</div>
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2">Reliability</p>
+				</div>
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2">Comfort</p>
+				</div>
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2"> Experience</p>
+				</div>
+				
+			</div>
+			<div class="row p-4 border-bottom">
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2">Visual Appeal</p>
+				</div>
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2">Reliability</p>
+				</div>
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2">Comfort</p>
+				</div>
+				<div class="col text-center border-right">
+					<input value="4" class="reviewinput">
+					<p class="my-2"> Experience</p>
+				</div>
+
+			</div>
+			<div class="row py-2">
+				<div class="col-md-12">
+					<h5>Honda SP 125 Is A Very Good Choice</h5>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1 border-right text-center">
+					<p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p>
+				</div>
+				<div class="col-md-2 text-left">
+					<p style="color: #aaa;font-size: 12px;" class="m-0">Pramod Jaiswar</p>
+				</div>
+				
+			</div>
+			<div class="row my-2">
+				<div class="col-md-12">
+					The Honda SP 125 is a commendable entry-level commuter bike that combines practicality, reliability, and fuel efficiency in a stylish package. As an owner of the Honda SP 125, I've had a
+					The Honda SP 125 is a commendable entry-level commuter bike that combines practicality, reliability, and fuel efficiency in a stylish package. As an owner of the Honda SP 125, I've had a
+					The Honda SP 125 is a commendable entry-level commuter bike that combines practicality, reliability, and fuel efficiency in a stylish package. As an owner of the Honda SP 125, I've had a
+				</div>
+
+			</div>
+
+			<div class="row py-2">
+				<div class="col-md-10 text-left">
+					<p style="color: #aaa;font-size: 14px;">Was this review helpful?</p>
+
+				</div>
+				<div class="col-md-1 text-right">
+					<svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+						<path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
+					  </svg>
+				</div>
+				<div class="col-md-1 text-left">
+					<svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down-fill" viewBox="0 0 16 16">
+						<path d="M6.956 14.534c.065.936.952 1.659 1.908 1.42l.261-.065a1.378 1.378 0 0 0 1.012-.965c.22-.816.533-2.512.062-4.51.136.02.285.037.443.051.713.065 1.669.071 2.516-.211.518-.173.994-.68 1.2-1.272a1.896 1.896 0 0 0-.234-1.734c.058-.118.103-.242.138-.362.077-.27.113-.568.113-.856 0-.29-.036-.586-.113-.857a2.094 2.094 0 0 0-.16-.403c.169-.387.107-.82-.003-1.149a3.162 3.162 0 0 0-.488-.9c.054-.153.076-.313.076-.465a1.86 1.86 0 0 0-.253-.912C13.1.757 12.437.28 11.5.28H8c-.605 0-1.07.08-1.466.217a4.823 4.823 0 0 0-.97.485l-.048.029c-.504.308-.999.61-2.068.723C2.682 1.815 2 2.434 2 3.279v4c0 .851.685 1.433 1.357 1.616.849.232 1.574.787 2.132 1.41.56.626.914 1.28 1.039 1.638.199.575.356 1.54.428 2.591z"/>
+					  </svg>
+				</div>
+
+			</div>
+				
+			
+
+		</div>
+
+	</div>
+
+</div>
+</section>
+
+
+<section >
+	<div class="container my-4">
+		<div data-aos="fade-up"data-aos-duration="1000">
+		 <h2 class="">ShowRoom and Location</h2>
+	</div>
+
+
+		</div>
+<div class="container textimonialsection mt-5" >
+<div class="owl-carousel owl-theme" id="showroom">
+</div>
+</div>
+</section>
+<section class="Review">
+	<div class="container mt-5">
+		
+		<div class="card border_green">
+			<div class="card-body card-bg">
+				<marquee>
+				<div class="row">
+					
+					<div class="col-md-2 col-3 text-center mb-3 d-flex">
+						<img src="./assets/images/bike-review-contest.svg" class="img-fluid">
+					</div>
+					<div class="col-md-4 col-9">
+						<p class="fw-bold mb-1">Stand a chance to win</p>
+						<p class="mb-1">Write a detailed review and win</p>
+						<p class="amazon m-0">
+							<img src="./assets/images/amazon.svg" class="img-fluid1">
+							<span class="ml-2">voucher worth Rs. 2,000</span>
+						</p>
+					</div>
+					<div class="col-md-6 col-12 text-center participate">
+						<p class="border_red p-2 fw-bold">
+							participate & win
+						</p>
+					</div>
+				
+				</div>
+			</marquee>
+			</div>
+		</div>
+		
+	</div>
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Select Your City</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="input-group">
+				<input class="form-control border-end-0 border rounded-pill" type="search" id="example-search-input">
+				<span class="input-group-append">
+					<button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+						<i class="fa fa-search"></i>
+					</button>
+				</span>
+			</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		  <button type="button" class="btn btn-primary">Save changes</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+   <div class="modal" role="dialog" id="alertModal">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<p class="text-danger"><span id="alertMsg"></span></p>
+				<p>
+					<button class="btn sb-btn-primary my-2" data-dismiss="modal">
+						Close
+					</button>
+				</p>
+			</div>
+		</div>
+	</div>
+</div> 
+
+</div>		
+<div class="container-fluid mt-3 p-0 ml-0 mr-0">
+
+	<footer class="text-center text-lg-start" style="background-color: #e4dedc;">
+	  <div class="container d-flex justify-content-center py-5">
+		<button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+			<i class="fa fa-facebook-square" aria-hidden="true"></i>
+		</button>
+		<button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+			<i class="fa fa-youtube-play" aria-hidden="true"></i>
+		</button>
+		<button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+			<i class="fa fa-instagram" aria-hidden="true"></i>
+		</button>
+		<button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+			<i class="fa fa-twitter-square" aria-hidden="true"></i>
+		</button>
+	  </div>
+  
+	  <!-- Copyright -->
+	  <div class="text-center text-black p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+		© 2020 Copyright:
+		<a class="text-black" href="https://dreambike.com/">dreambike.com</a>
+	  </div>
+	  <!-- Copyright -->
+	</footer>
+	
+  </div>
     </body>
 
 </html>
