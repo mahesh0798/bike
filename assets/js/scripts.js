@@ -1,5 +1,7 @@
 
 // var baseUrl = 'https://dotnet.constient.com/CoreTutorial/api/';
+// import { Input, initMDB } from "mdb-ui-kit";
+// initMDB({ Input });
 var baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
 var brandimg=[]
 var viewmore=false;
@@ -1837,4 +1839,28 @@ $('.loader-parent').show();
         toggleForm();
         }
       }})
+}
+
+function fetchPincode() {
+  const city = document.getElementById('form12').value;
+  // const baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
+  const apiKey = `api/Home/GetCity?Key=${city}`; // Replace 'your_api_key_here' with your actual API key
+
+  // Make the API request
+  fetch(`${baseUrl}Home/GetCity?Key=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+
+      if (matchingPincode) {
+        const pincode = matchingPincode.pincode;
+        document.getElementById('pincodeResult').textContent = ` ${pincode}`;
+      } else {
+        document.getElementById('pincodeResult').textContent = `${city} not found`;
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      document.getElementById('pincodeResult').textContent = 'Error fetching data';
+    });
 }
