@@ -102,8 +102,8 @@ function fetchBrands(count) {
         dataType: 'json',
         success: function(data) {
             $('.loader-parent').hide();
-            renderImagesForTable1(data.filter(x => x.ev === false),count);
-            renderImagesForTable2(data.filter(x => x.ev === true),count);
+            renderImagesForTable1(data.filter(x => x.pv === true),count);
+            // renderImagesForTable2(data.filter(x => x.ev === true),count);
         },
         error: function(xhr, status, error) {
             console.error('Error fetching data:', error);
@@ -180,7 +180,7 @@ function renderImagesForTable2(data,count) {
           if (i % 5 === 0) {
               imagesHTML += '<tr>';
           }
-          imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+          imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+','+data[i].brandNames+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -209,7 +209,8 @@ function renderImagesForTable2(data,count) {
 //     console.log(i)
 //     console.log(j)
 // }
-function brandselect(i, j) {
+function brandselect(i, j,name) {
+  // if(name=="TVS"&&j==)
   var apiurl = baseUrl + "VehicleList/BrandList?Brandid=" + i + '&IsEv=' + j;
   $('.loader-parent').show();
   $.ajax({
@@ -234,12 +235,12 @@ function brandselect(i, j) {
                           <div class="col-md-6 col-12">
                               <div class="card-body ">
                                   <h5 class="card-title">${vehicle.brand}</h5>
-                                  <p class="card-text">${vehicle.vehiclename}</p>
+                                  <p class="card-text mt-3">${vehicle.vehiclename} | ${vehicle.cubicCapacity} cc | ${vehicle.topSpeed} | ${vehicle.displacement}</p>
                                   <h5>₹ ${vehicle.exshowroomPrize}</h5>
                                   <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
                               </div>
                           </div>
-                          <div class="col-md-3 col-6">
+                          <div class="col-md-3 col-12">
                               <div class="card-body ">
                                   <table class="table table-bordered">
                                       <tr>

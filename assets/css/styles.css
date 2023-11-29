@@ -42,6 +42,9 @@ a{
    .cursor-pointer{
     cursor: pointer;
   }
+  .card-img-top {
+    width: 70% !important;
+}
 .reviewinput{
     width: 26px;
     height: 26px;
@@ -261,7 +264,7 @@ h4{
     box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
   } */
   .card-text{
-    height:80px;  
+    height:40px;  
   }
   
   .card::before, .card::after {
