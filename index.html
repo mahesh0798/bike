@@ -39,10 +39,10 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="./assets/css/mdb.min.css" />
-<script type="text/javascript" src="./assets/js/mdb.umd.min.js"></script>
+<script type="text/javascript" src="./assets/js/mdb.umd.min.js"></script> -->
 
 
-<link
+<!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
@@ -50,6 +50,19 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     /> -->
+	<!-- <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.0.0/mdb.min.css"
+  rel="stylesheet"
+/> -->
 <style>
 	.offer-btn{
     width: 100%;
@@ -456,57 +469,39 @@ data-aos-duration="1000">
 
 
 						<div class="col-md-6">
-							<div class="row mx-0 border mx-0 mb-3">
+							<div class="row mx-0 border mx-0 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<div class="col-8">
 									<p class="mb-0 mt-1">City</p>
 									<p class="mt-1">Show Prices in City</p>
 								</div>
 								<div class="col-4 text-center">
-									<svg xmlns="http://www.w3.org/1000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-arrow-right-circle mt-4 cursor" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#exampleModal">
+									<svg xmlns="http://www.w3.org/1000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-arrow-right-circle mt-4 cursor" viewBox="0 0 16 16" >
 										<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
 									  </svg>
 								</div>
 							</div>
 							
 							<div class="row mx-0 my-5">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<h3 class="pl-2" id="exshowroomPrize"></h3>
 									<p class="pl-2"> Avg. Ex-Showroom Price</p>
 
 								</div>
-								<div class="col-md-6">
-									<div class="row mx-0 border d-block" >
-										<div class="col-md-6 text-center col-sm-6">
-											<p id="pincodeResult"></p>
-
-										</div>
-										<div class="col-md-6  text-center col-sm-6">
-											<p>Color</p>
-
-										</div>
-										<div class="col-md-6 text-center col-sm-6">
-
-										</div>
-										<div class="col-md-6 text-center col-sm-6">
-
-										</div>
-
-									</div>
-									<!-- <table class="table w-100 bc-collapse table-responsive table-bordered">
-										<thead>
-											<tr>
-												<th class="w-50">Price</th>
-												<th>Color</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td></td>
-												<td></td>
-											</tr>
-										</tbody>
-
-									</table> -->
+								
+								<div class="col-md-8">
+									<table class="table table-bordered table_border mb-1">
+										<tr>
+										  <th>Color</th>
+										  <th>Name</th>
+										  <th>Price</th>
+										</tr>
+										<tr>
+										  <td>Alfreds </td>
+										  <td>Maria </td>
+										  <td>Germany</td>
+										</tr>
+									
+									  </table>
 
 								</div>
 									
@@ -945,17 +940,10 @@ data-aos-duration="1000">
 						<label class="form-label" for="form12">Search City</label>
 					  </div> -->
 					<div class="form-outline" data-mdb-input-init>
+						<label class="form-label" for="form12">Search City</label>	
 						<input type="text" id="form12" class="form-control" onkeyup="fetchPincode()"/>
-						<label class="form-label" for="form12">Search City</label>
+						<!-- <label class="form-label" for="form12">Search City</label> -->
 					  </div>
-					<!-- <div class="input-group">
-				<input class="form-control border-end-0 border rounded-pill" type="search" id="example-search-input">
-				<span class="input-group-append">
-					<button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
-						<i class="fa fa-search"></i>
-					</button>
-				</span>
-			</div> -->
 
 				</div>
 

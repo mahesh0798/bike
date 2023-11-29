@@ -25,6 +25,7 @@ const toggleForm = () => {
     container.classList.toggle('active');
   };
 AOS.init()
+
 //   $(function() {
 //     $('#nav-tab').responsiveTabs();
 //   });
@@ -237,7 +238,7 @@ function brandselect(i, j,name) {
                           <div class="col-md-6 col-12">
                               <div class="card-body ">
                                   <h5 class="card-title">${vehicle.brand}</h5>
-                                  <p class="card-text mt-3">${vehicle.vehiclename} | ${vehicle.cubicCapacity} cc | ${vehicle.topSpeed} | ${vehicle.displacement}</p>
+                                  <p class="card-text mt-3">${vehicle.vehiclename} | <img src='assets/images/engine.png' style='width:20px'>${vehicle.cubicCapacity} cc | <img src='assets/images/mileage.png' style='width:20px'> ${vehicle.topSpeed} | ${vehicle.displacement}</p>
                                   <h5>₹ ${vehicle.exshowroomPrize}</h5>
                                   <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
                               </div>
@@ -275,6 +276,8 @@ function brandlist(i,j){
       success: function (data) {
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid
+        var ismulticolor=vehicleDetails.ismulticolor;
+        var isSamePrize=vehicleDetails.isSamePrize;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
@@ -296,6 +299,16 @@ function brandlist(i,j){
         $('#second').hide();
         $('#three').show();
         $('.loader-parent').hide();
+        if(ismulticolor&&isSamePrize){
+          var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor+'&IsSamePrize=' + isSamePrize;
+          $.ajax({
+            url: apiurl,
+            method: 'GET',
+            dataType: 'json',
+            success: function (res) {
+
+            }})
+        }
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
         $.ajax({
@@ -314,33 +327,33 @@ function brandlist(i,j){
                   success: function (data) {
                     $('.loader-parent').hide();
                     var carouselItems = "";
-      for (var i = 0; i < data.length; i++) {
-        carouselItems += `
-          <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
-              <div class="card border-top-0">
-                <div class="card-body shadow">
-                  <div class="row mx-0">
-                    <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-                      <img class="rounded-circle image-container text-center" src="${data[i].imagePath}" alt="${data[i].vehiclename}">
-                    </div>
-                  </div>
-                  <div class="row mx-0" style="padding-top: 180px;">
-                    <div class="col-md-12">
-                      <h5>${data[i].vehiclename}</h5>
-                    </div>
-                    <div class="col-md-10">
-                      <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>`;
-      }
+                    for (var i = 0; i < data.length; i++) {
+                      carouselItems += `
+                        <div class="item">
+                          <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
+                            <div class="card border-top-0">
+                              <div class="card-body shadow">
+                                <div class="row mx-0">
+                                  <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                                    <img class="rounded-circle image-container text-center" src="${data[i].imagePath}" alt="${data[i].vehiclename}">
+                                  </div>
+                                </div>
+                                <div class="row mx-0" style="padding-top: 180px;">
+                                  <div class="col-md-12">
+                                    <h5>${data[i].vehiclename}</h5>
+                                  </div>
+                                  <div class="col-md-10">
+                                    <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
+                                  </div>
+                                  <div class="col-md-12 text-center">
+                                    <button class="btn btn-secondary">Get Diwali Offers</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>`;
+                    }
 
       // Update the carousel with the new content
       $("#bikePrice").html(carouselItems);
@@ -1345,52 +1358,6 @@ $(document).ready(function () {
             }})
   }
 
-// bike 2nd screen...
-// $(document).ready(function () {
-//     var bikesec = [
-//         "./assets/images/scooty1.webp",
-//         "./assets/images/scootyBlue.webp",
-//         "./assets/images/scootyRed.webp",
-//         "./assets/images/apache-rtr-310-right-side-view-7.webp",
-//         "./assets/images/apache-rtr-310-right-side-view-7.webp",
-//         "./assets/images/apache-rtr-310-right-side-view-7.webp",
-//         "./assets/images/apache-rtr-310-right-side-view-7.webp"
-//     ];
-  
-//     var carouselContentsec = "";
-//     for (var i = 0; i < bikesec.length; i++) {
-//         carouselContentsec += `
-//         <div class="item">
-//             <div class="card mt-4 bikeshadow">
-//                 <div class="row">
-//                     <div class="col-md-4 col-12">
-//                         <img src="${bikesec[i]}" class="card-img-top img-fluid" alt="...">
-//                         </div>
-//                         <div class="col-md-6 col-12">
-//                         <div class="card-body ">
-//                             <h5 class="card-title">honda </h5>
-//                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//                             <h5>₹ 82,043</h5>
-//                             <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
-//                         </div>
-//                         </div>
-//                         <div class="col-md-2 col-6">
-//                         <div class="card-body ">
-//                         <table class="table table-bordered">
-//                             <tr>
-//                             <td>4.4/5</td>
-//                             <td>300Rating</td>
-//                             </tr>
-//                             </table>
-//                         </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//         </div>`;
-//     }
-  
-//     $("#bikesecond").html(carouselContentsec);
-// })
 $(document).ready(function() {
     // Your image URLs
     var imageUrls = [
@@ -1443,173 +1410,6 @@ $(document).ready(function() {
         }
     });
 });
-// $(document).ready(function () {
-//     var $carousel = $("#bikePrice");
-
-//     var cardData = [
-//         {
-//             variant: "SP 125 Drum",
-//             price: "₹86,752",
-//             specifications: "Drum Brakes, Alloy Wheels",
-//         },
-//         {
-//             variant: "XYZ Model",
-//             price: "₹75,000",
-//             specifications: "Disc Brakes, Alloy Wheels",
-//         },
-//         {
-//             variant: "ABC Special",
-//             price: "₹95,500",
-//             specifications: "ABS, Alloy Wheels",
-//         },
-//         {
-//             variant: "LMN Deluxe",
-//             price: "₹81,999",
-//             specifications: "Drum Brakes, Tubeless Tires",
-//         },
-//         {
-//             variant: "PQR Premium",
-//             price: "₹92,800",
-//             specifications: "Disc Brakes, Digital Console",
-//         },
-//         // Add more card data as needed
-//     ];
-
-//     // Loop through the card data and create card elements
-//     for (var i = 0; i < cardData.length; i++) {
-//         var card = cardData[i];
-
-//         // Create a new card element
-//         var $card = $("<div class='card' style='width: 22rem;height:13rem'>" +
-//             "<div class='card-body shadow-sm'>" +
-//             "<div class='row mx-0'>" +
-//             "<div class='col-md-6'>" +
-//             "<p>Variant</p>" +
-//             "<p>Price</p>" +
-//             "<p>Specifications</p>" +
-//             "</div>" +
-//             "<div class='col-md-6'>" +
-//             "<p>" + card.variant + "</p>" +
-//             "<p>" + card.price + "</p>" +
-//             "<p>" + card.specifications + "</p>" +
-//             "</div>" +
-//             "</div>" +
-//             "</div>" +
-//             "</div>");
-
-//         // Append the card to the carousel
-//         $carousel.append($card);
-//     }
-
-//     // Initialize the Owl Carousel
-//     $carousel.owlCarousel({
-//         items: 1, // Set the number of items to display
-//         loop: false,
-//         slideSpeed: 300,
-//         paginationSpeed: 600,
-//         nav: true,
-//         dots: false,
-//         autoWidth: false,
-//         margin: 30,
-//         startPosition: 1,
-//         center: true,
-//         responsiveClass: true,
-//         navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-//         responsive: {
-//             0: {
-//                 items: 1,
-//             },
-//             600: {
-//                 items: 2,
-//             },
-//             1000: {
-//                 items: 3,
-//             },
-//             1440: {
-//                 items: 4,
-//             }
-//         }
-//     });
-// });
-
-// $(document).ready(function () {
-//   var baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
-//   var apiEndpoint = `VehicleDetails/GetVariant?BikeModelid= + ${bikemodeid}`;
-//   var apiUrl = baseUrl + apiEndpoint;
-
-//   // Make AJAX request to fetch data from the API
-//   $.ajax({
-//     url: apiUrl,
-//     method: 'GET',
-//     success: function (data) {
-//       // Process the API response and generate carousel content
-//       var carouselItems = "";
-//       for (var i = 0; i < data.length; i++) {
-//         carouselItems += `
-//           <div class="item">
-//             <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
-//               <div class="card border-top-0">
-//                 <div class="card-body shadow">
-//                   <div class="row mx-0">
-//                     <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-//                       <img class="rounded-circle image-container text-center" src="${data[i].imagePath}" alt="${data[i].vehiclename}">
-//                     </div>
-//                   </div>
-//                   <div class="row mx-0" style="padding-top: 180px;">
-//                     <div class="col-md-12">
-//                       <h5>${data[i].vehiclename}</h5>
-//                     </div>
-//                     <div class="col-md-10">
-//                       <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
-//                     </div>
-//                     <div class="col-md-12 text-center">
-//                       <button class="btn btn-secondary">Get Diwali Offers</button>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>`;
-//       }
-
-//       // Update the carousel with the new content
-//       $("#bikePrice").html(carouselItems);
-
-//       // Initialize the Owl Carousel
-//       $("#bikePrice").owlCarousel({
-//         items: 3,
-//         loop: false,
-//         slideSpeed: 300,
-//         paginationSpeed: 600,
-//         nav: true,
-//         dots: false,
-//         autoWidth: false,
-//         margin: 30,
-//         startPosition: 1,
-//         center: true,
-//         responsiveClass: true,
-//         navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-//         responsive: {
-//           0: {
-//             items: 1,
-//           },
-//           600: {
-//             items: 2,
-//           },
-//           1000: {
-//             items: 3,
-//           },
-//           1440: {
-//             items: 4,
-//           }
-//         }
-//       });
-//     },
-//     error: function (error) {
-//       console.error('Error fetching data from the API:', error);
-//     }
-//   });
-// });
 
 $(document).ready(function() {
     // Your image URLs
@@ -1844,13 +1644,32 @@ $('.loader-parent').show();
 function fetchPincode() {
   const city = document.getElementById('form12').value;
   // const baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
-  const apiKey = `api/Home/GetCity?Key=${city}`; // Replace 'your_api_key_here' with your actual API key
+  // const apiKey = `api/Home/GetCity?Key=${city}`; // Replace 'your_api_key_here' with your actual API key
 
-  // Make the API request
-  fetch(`${baseUrl}Home/GetCity?Key=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+  // fetch(`${baseUrl}Home/GetCity?Key=${apiKey}`)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+
+  //     if (matchingPincode) {
+  //       const pincode = matchingPincode.pincode;
+  //       document.getElementById('pincodeResult').textContent = ` ${pincode}`;
+  //     } else {
+  //       document.getElementById('pincodeResult').textContent = `${city} not found`;
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.error('Error fetching data:', error);
+  //     document.getElementById('pincodeResult').textContent = 'Error fetching data';
+  //   });
+        var apiurl = baseUrl + "Home/GetCity?Key="+city;
+      
+        $.ajax({
+          url: apiurl,
+          method: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
 
       if (matchingPincode) {
         const pincode = matchingPincode.pincode;
@@ -1858,9 +1677,6 @@ function fetchPincode() {
       } else {
         document.getElementById('pincodeResult').textContent = `${city} not found`;
       }
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      document.getElementById('pincodeResult').textContent = 'Error fetching data';
-    });
+          }
+        })
 }
