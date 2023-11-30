@@ -17,6 +17,7 @@ var addline2=""
 var addline3=""
 var addimg="";
 var btnall="";
+let clickedCityId = null;
 $('#first').show();
 $('#second').hide();
 $('#three').hide();
@@ -1643,25 +1644,6 @@ $('.loader-parent').show();
 
 function fetchPincode() {
   const city = document.getElementById('form12').value;
-  // const baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
-  // const apiKey = `api/Home/GetCity?Key=${city}`; // Replace 'your_api_key_here' with your actual API key
-
-  // fetch(`${baseUrl}Home/GetCity?Key=${apiKey}`)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
-
-  //     if (matchingPincode) {
-  //       const pincode = matchingPincode.pincode;
-  //       document.getElementById('pincodeResult').textContent = ` ${pincode}`;
-  //     } else {
-  //       document.getElementById('pincodeResult').textContent = `${city} not found`;
-  //     }
-  //   })
-  //   .catch(error => {
-  //     console.error('Error fetching data:', error);
-  //     document.getElementById('pincodeResult').textContent = 'Error fetching data';
-  //   });
         var apiurl = baseUrl + "Home/GetCity?Key="+city;
       
         $.ajax({
@@ -1670,6 +1652,7 @@ function fetchPincode() {
           dataType: 'json',
           success: function (data) {
             const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+            displayAutocompleteResults(data);
 
       if (matchingPincode) {
         const pincode = matchingPincode.pincode;
@@ -1680,3 +1663,55 @@ function fetchPincode() {
           }
         })
 }
+function displayAutocompleteResults(results) {
+  const autocompleteResults = document.getElementById('autocompleteResults');
+  autocompleteResults.innerHTML = '';
+
+  if (results.length === 0) {
+    // Display a 'No results found' message
+    const noResults = document.createElement('div');
+    noResults.textContent = 'No results found';
+    autocompleteResults.appendChild(noResults);
+    return;
+  }
+
+  results.forEach(result => {
+    const option = document.createElement('div');
+    option.classList.add('autocomplete-option');
+    option.textContent = `${result.city} - ${result.pincode}`;
+    option.addEventListener('click', function() {
+      document.getElementById('form12').value = result.city;
+      document.getElementById('pincodeResult').textContent = result.pincode;
+      clickedCityId = result.pincodeId;
+      document.getElementById('pinCity').innerHTML = `<b>${result.city}</b>`;
+      console.log(document.getElementById("pinCity"),"pincode and city");
+      console.log("Clicked city ID:", clickedCityId);
+
+      $('#exampleModal').modal('hide');
+      autocompleteResults.innerHTML = ''; 
+    });
+    autocompleteResults.appendChild(option);
+  });
+}
+document.addEventListener("click", function (e) {
+  const autocompleteResults = document.getElementById('autocompleteResults');
+  if (!autocompleteResults) {
+    return; 
+  }
+
+  if (e.target.id !== 'form12' && e.target.id !== 'autocompleteResults') {
+    autocompleteResults.innerHTML = '';
+  }
+});
+
+// document.addEventListener("click", function (e) {
+//   const autocompleteResults = document.getElementById('autocompleteResults');
+//   if (e.target.id !== 'form12' && e.target.parentNode.id !== 'autocompleteResults') {
+//     autocompleteResults.innerHTML = '';
+//   }
+// });
+
+// This line adds the pincodeResult element dynamically to display the pincode
+const pincodeDisplay = document.createElement('div');
+pincodeDisplay.id = 'pincodeResult';
+document.body.appendChild(pincodeDisplay);

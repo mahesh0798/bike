@@ -471,8 +471,15 @@ data-aos-duration="1000">
 						<div class="col-md-6">
 							<div class="row mx-0 border mx-0 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
 								<div class="col-8">
-									<p class="mb-0 mt-1">City</p>
-									<p class="mt-1">Show Prices in City</p>
+									<div class="row mx-0">
+									<div class="col-md-6 my-1"><b>City</b></div>
+									<div class="col-md-6 my-1 text-center" id="pinCity"></div>
+									</div>
+									<div class="row mx-0">
+									<div class="col-md-6 my-1"><b>Show prices in City</b></div>
+									<div class="col-md-6 my-1 text-center"></div>
+									</div>
+									
 								</div>
 								<div class="col-4 text-center">
 									<svg xmlns="http://www.w3.org/1000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-arrow-right-circle mt-4 cursor" viewBox="0 0 16 16" >
@@ -489,19 +496,27 @@ data-aos-duration="1000">
 								</div>
 								
 								<div class="col-md-8">
-									<table class="table table-bordered table_border mb-1">
-										<tr>
-										  <th>Color</th>
-										  <th>Name</th>
-										  <th>Price</th>
-										</tr>
-										<tr>
-										  <td>Alfreds </td>
-										  <td>Maria </td>
-										  <td>Germany</td>
-										</tr>
+									<div class="row mx-0">
+										<div class="col border">Color</div>
+										<div class="col border">Name</div>
+										<div class="col border">Price</div>
+									</div>
+									<div class="row mx-0 mb-1">
+										<div class="col border">Alfreds</div>
+										<div class="col border">Maria</div>
+										<div class="col border">Germany</div>
+									</div>
+
+										  <!-- <th class="col">Color</th>
+										  <th class="col">Name</th>
+										  <th class="col">Price</th> -->
+										
+										<!-- <tr>
+										  <td class="col">Alfreds </td>
+										  <td class="col">Maria </td>
+										  <td class="col">Germany</td>
+										</tr> -->
 									
-									  </table>
 
 								</div>
 									
@@ -941,8 +956,8 @@ data-aos-duration="1000">
 					  </div> -->
 					<div class="form-outline" data-mdb-input-init>
 						<label class="form-label" for="form12">Search City</label>	
-						<input type="text" id="form12" class="form-control" onkeyup="fetchPincode()"/>
-						<!-- <label class="form-label" for="form12">Search City</label> -->
+						<input type="text" id="form12" autocomplete="off" class="form-control" onkeyup="fetchPincode()"/>
+						<div id="autocompleteResults"></div>
 					  </div>
 
 				</div>
