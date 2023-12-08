@@ -318,6 +318,44 @@ function brandlist(i,j){
             dataType: 'json',
             success: function (img) {
               $('.loader-parent').hide();
+              $("#image-carousel-1").empty();
+              var $carousel = $("#image-carousel-1");
+              for (var i = 0; i < img.length; i++) {
+                  var imageUrl = img[i].imagePath;
+                  var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+                  $carousel.append($image);
+              }
+          
+              
+              $carousel.owlCarousel({
+                  items: 3,
+                  loop: false,
+                  slideSpeed: 300,
+                  paginationSpeed: 600,
+                  nav: true,
+                  dots: false,
+                  autoWidth: false,
+                  margin: 30,
+                  startPosition: 1,
+                  center: true,
+                  responsiveClass: true,
+                  navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                  responsive: {
+                      0: {
+                          items: 1,
+                      },
+                      600: {
+                          items: 1,
+                      },
+                      1000: {
+                          items: 1,
+                      },
+                      1440: {
+                          items: 1,
+                      }
+                  }
+              });
+
 
               var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid ;
               $('.loader-parent').show();
@@ -521,6 +559,7 @@ $(document).ready(function () {
       method: 'GET',
       dataType: 'json',
       success: function (data) {
+        $('.loader-parent').hide();
         var vehicleDetails = apiResponse.find(item => item.vechileid === i);
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
@@ -550,8 +589,49 @@ $(document).ready(function () {
             url: apiurl,
             method: 'GET',
             dataType: 'json',
-            success: function (data) {
+            success: function (img) {
               $('.loader-parent').hide();
+              $("#image-carousel-1").empty();
+              var $carousel = $("#image-carousel-1");
+              for (var i = 0; i < img.length; i++) {
+                  var imageUrl = img[i].imagePath;
+                  var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+                  $carousel.append($image);
+              }
+          
+              
+              $carousel.owlCarousel({
+                  items: 3,
+                  loop: false,
+                  slideSpeed: 300,
+                  paginationSpeed: 600,
+                  nav: true,
+                  dots: false,
+                  autoWidth: false,
+                  margin: 30,
+                  startPosition: 1,
+                  center: true,
+                  responsiveClass: true,
+                  navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                  responsive: {
+                      0: {
+                          items: 1,
+                      },
+                      600: {
+                          items: 1,
+                      },
+                      1000: {
+                          items: 1,
+                      },
+                      1440: {
+                          items: 1,
+                      }
+                  }
+              });
+
+
+
+              
               var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid ;
               $('.loader-parent').show();
               $.ajax({
@@ -738,6 +818,7 @@ $(document).ready(function () {
       method: 'GET',
       dataType: 'json',
       success: function (data) {
+        $('.loader-parent').hide();
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid
                    $('#vehicleName').text(vehicleDetails.vehiclename);
@@ -769,10 +850,48 @@ $(document).ready(function () {
             url: apiurl,
             method: 'GET',
             dataType: 'json',
-            success: function (data) {
-              var vehicleImages = data.find(item => item.vechileid === i);
-              var imageUrls = data.map(item => item.imagePath);
+            success: function (img) {
+              // var vehicleImages = data.find(item => item.vechileid === i);
+              // var imageUrls = data.map(item => item.imagePath);
               $('.loader-parent').hide();
+              $("#image-carousel-1").empty();
+              var $carousel = $("#image-carousel-1");
+              for (var i = 0; i < img.length; i++) {
+                  var imageUrl = img[i].imagePath;
+                  var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+                  $carousel.append($image);
+              }
+          
+              
+              $carousel.owlCarousel({
+                  items: 3,
+                  loop: false,
+                  slideSpeed: 300,
+                  paginationSpeed: 600,
+                  nav: true,
+                  dots: false,
+                  autoWidth: false,
+                  margin: 30,
+                  startPosition: 1,
+                  center: true,
+                  responsiveClass: true,
+                  navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                  responsive: {
+                      0: {
+                          items: 1,
+                      },
+                      600: {
+                          items: 1,
+                      },
+                      1000: {
+                          items: 1,
+                      },
+                      1440: {
+                          items: 1,
+                      }
+                  }
+              });
+
               var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid ;
               $('.loader-parent').show();
               $.ajax({
@@ -1034,6 +1153,7 @@ $(document).ready(function () {
       method: 'GET',
       dataType: 'json',
       success: function (data) {
+        $('.loader-parent').hide();
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid
         $('#vehicleName').text(vehicleDetails.vehiclename);
@@ -1063,8 +1183,47 @@ $(document).ready(function () {
             url: apiurl,
             method: 'GET',
             dataType: 'json',
-            success: function (data) {
+            success: function (img) {
               $('.loader-parent').hide();
+              $("#image-carousel-1").empty();
+              var $carousel = $("#image-carousel-1");
+              for (var i = 0; i < img.length; i++) {
+                  var imageUrl = img[i].imagePath;
+                  var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+                  $carousel.append($image);
+              }
+          
+              
+              $carousel.owlCarousel({
+                  items: 3,
+                  loop: false,
+                  slideSpeed: 300,
+                  paginationSpeed: 600,
+                  nav: true,
+                  dots: false,
+                  autoWidth: false,
+                  margin: 30,
+                  startPosition: 1,
+                  center: true,
+                  responsiveClass: true,
+                  navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                  responsive: {
+                      0: {
+                          items: 1,
+                      },
+                      600: {
+                          items: 1,
+                      },
+                      1000: {
+                          items: 1,
+                      },
+                      1440: {
+                          items: 1,
+                      }
+                  }
+              });
+
+
               var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid ;
               $('.loader-parent').show();
               $.ajax({
@@ -1240,6 +1399,7 @@ $(document).ready(function () {
       method: 'GET',
       dataType: 'json',
       success: function (data) {
+        $('.loader-parent').hide();
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid;
                    $('#vehicleName').text(vehicleDetails.vehiclename);
@@ -1270,8 +1430,48 @@ $(document).ready(function () {
             url: apiurl,
             method: 'GET',
             dataType: 'json',
-            success: function (data) {
+            success: function (img) {
               $('.loader-parent').hide();
+              $("#image-carousel-1").empty();
+              var $carousel = $("#image-carousel-1");
+              for (var i = 0; i < img.length; i++) {
+                  var imageUrl = img[i].imagePath;
+                  var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+                  $carousel.append($image);
+              }
+          
+              
+              $carousel.owlCarousel({
+                  items: 3,
+                  loop: false,
+                  slideSpeed: 300,
+                  paginationSpeed: 600,
+                  nav: true,
+                  dots: false,
+                  autoWidth: false,
+                  margin: 30,
+                  startPosition: 1,
+                  center: true,
+                  responsiveClass: true,
+                  navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                  responsive: {
+                      0: {
+                          items: 1,
+                      },
+                      600: {
+                          items: 1,
+                      },
+                      1000: {
+                          items: 1,
+                      },
+                      1440: {
+                          items: 1,
+                      }
+                  }
+              });
+
+
+
               var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid ;
               $('.loader-parent').show();
               $.ajax({
@@ -1359,58 +1559,53 @@ $(document).ready(function () {
             }})
   }
 
-$(document).ready(function() {
-    // Your image URLs
-    var imageUrls = [
-        './assets/images/image11.webp',
-        './assets/images/image11.webp',
-        './assets/images/image11.webp',
-        './assets/images/image11.webp',
-        // Add more image URLs as needed
-    ];
+// $(document).ready(function() {
+ 
+//     var imageUrls = [
+//         './assets/images/image11.webp',
+//         './assets/images/image11.webp',
+//         './assets/images/image11.webp',
+//         './assets/images/image11.webp',
+      
+//     ];
 
-    // Select the owl carousel container
-    var $carousel = $("#image-carousel-1");
 
-    // Loop through the image URLs and append them to the carousel
-    for (var i = 0; i < imageUrls.length; i++) {
-        var imageUrl = imageUrls[i];
-        // Create an image element
-        var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
-        // Append the image to the carousel
-        $carousel.append($image);
-    }
+//     var $carousel = $("#image-carousel-1");
 
-    // Initialize the Owl Carousel
-    $carousel.owlCarousel({
-        items: 3,
-        loop: false,
-        slideSpeed: 300,
-        paginationSpeed: 600,
-        nav: true,
-        dots: false,
-        autoWidth: false,
-        margin: 30,
-        startPosition: 1,
-        center: true,
-        responsiveClass: true,
-        navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-        responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 1,
-            },
-            1000: {
-                items: 1,
-            },
-            1440: {
-                items: 1,
-            }
-        }
-    });
-});
+//     for (var i = 0; i < imageUrls.length; i++) {
+//         var imageUrl = imageUrls[i];
+//         var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+//         $carousel.append($image);
+//     }
+//     $carousel.owlCarousel({
+//         items: 3,
+//         loop: false,
+//         slideSpeed: 300,
+//         paginationSpeed: 600,
+//         nav: true,
+//         dots: false,
+//         autoWidth: false,
+//         margin: 30,
+//         startPosition: 1,
+//         center: true,
+//         responsiveClass: true,
+//         navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+//         responsive: {
+//             0: {
+//                 items: 1,
+//             },
+//             600: {
+//                 items: 1,
+//             },
+//             1000: {
+//                 items: 1,
+//             },
+//             1440: {
+//                 items: 1,
+//             }
+//         }
+//     });
+// });
 
 $(document).ready(function() {
     // Your image URLs
