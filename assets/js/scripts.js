@@ -142,7 +142,7 @@ function renderImagesForTable1(data,count) {
               if (i % 5 === 0) {
                   imagesHTML += '<tr>';
               }
-              imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+              imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
@@ -154,7 +154,7 @@ function renderImagesForTable1(data,count) {
           if (i % 5 === 0) {
               imagesHTML += '<tr>';
           }
-          imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+          imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -232,7 +232,7 @@ function brandselect(i, j,name) {
             console.log(vehicle)
               carouselContentsec += `
               <div class="item">
-                  <div class="card mt-5 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
+                  <div class="card mt-5 mb-4 bikeshadow" onclick="brandlist(${vehicle.vehicleId},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
                               <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
@@ -276,8 +276,8 @@ function brandlist(i,j){
       method: 'GET',
       dataType: 'json',
       success: function (data) {
-        var vehicleDetails = data.find(item => item.vechileid === i);
-        var bikemodeid=data[0].bikeModelid
+        var vehicleDetails = data.find(item => item.vehicleId === i);
+        var bikemodeid=data[0].bikeModelid;
         var ismulticolor=vehicleDetails.ismulticolor;
         var isSamePrize=vehicleDetails.isSamePrize;
         brandidpin=vehicleDetails.brandid;

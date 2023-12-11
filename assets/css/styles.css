@@ -428,6 +428,9 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     background-color: #0a58ca;
     color: #fff;
   }
+  #pincodeResult{
+    display: none;
+  }
 /* .form-outline {
     position: relative;
     margin-bottom: 1rem; 
