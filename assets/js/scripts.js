@@ -39,7 +39,7 @@ function addsImg() {
         method: 'GET',
         dataType: 'json',
         success: function(response) {
-            $('.loader-parent').hide();
+            $('.loader-parent').hide(); 
             btnall=response.buttonText
             $('#btnsname').val(btnall);
             console.log(btnall);
