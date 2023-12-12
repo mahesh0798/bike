@@ -18,6 +18,7 @@ var addline3=""
 var addimg="";
 var btnall="";
 let clickedCityId = null;
+allimgvechileid=""
 var brandidpin='';
 $('#first').show();
 $('#second').hide();
@@ -232,7 +233,7 @@ function brandselect(i, j,name) {
             console.log(vehicle)
               carouselContentsec += `
               <div class="item">
-                  <div class="card mt-5 mb-4 bikeshadow" onclick="brandlist(${vehicle.vehicleId},${vehicle.isEv})">
+                  <div class="card mt-5 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
                               <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
@@ -276,15 +277,16 @@ function brandlist(i,j){
       method: 'GET',
       dataType: 'json',
       success: function (data) {
-        var vehicleDetails = data.find(item => item.vehicleId === i);
+        var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid;
         var ismulticolor=vehicleDetails.ismulticolor;
         var isSamePrize=vehicleDetails.isSamePrize;
+        allimgvechileid=vehicleDetails.vechileid;
         brandidpin=vehicleDetails.brandid;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
-        $('#vehicleName3').text(vehicleDetails.vehiclename);
+        $('#vehicleName3').text(vehicleDetails.vehiclename+" Price");
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
@@ -564,10 +566,11 @@ $(document).ready(function () {
         $('.loader-parent').hide();
         var vehicleDetails = apiResponse.find(item => item.vechileid === i);
         brandidpin=vehicleDetails.brandid;
+        allimgvechileid=vehicleDetails.vechileid;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
-        $('#vehicleName3').text(vehicleDetails.vehiclename);
+        $('#vehicleName3').text(vehicleDetails.vehiclename+" Price");
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
@@ -825,10 +828,11 @@ $(document).ready(function () {
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid
         brandidpin=vehicleDetails.brandid;
+        allimgvechileid=vehicleDetails.vechileid;
                    $('#vehicleName').text(vehicleDetails.vehiclename);
                    $('#vehicleName1').text(vehicleDetails.vehiclename);
                    $('#vehicleName2').text(vehicleDetails.vehiclename);
-                   $('#vehicleName3').text(vehicleDetails.vehiclename);
+                   $('#vehicleName3').text(vehicleDetails.vehiclename+" Price");
                    $('#vehicleName4').text(vehicleDetails.vehiclename);
                     $('#displacement').text(vehicleDetails.displacement);
                     $('#speedometer').text(vehicleDetails.speedometer);
@@ -1161,10 +1165,11 @@ $(document).ready(function () {
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid
         brandidpin=vehicleDetails.brandid;
+        allimgvechileid=vehicleDetails.vechileid;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
-        $('#vehicleName3').text(vehicleDetails.vehiclename);
+        $('#vehicleName3').text(vehicleDetails.vehiclename+" Price");
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
@@ -1408,11 +1413,12 @@ $(document).ready(function () {
         var vehicleDetails = data.find(item => item.vechileid === i);
         var bikemodeid=data[0].bikeModelid;
         brandidpin=vehicleDetails.brandid;
+        allimgvechileid=vehicleDetails.vechileid;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
-        $('#vehicleName3').text(vehicleDetails.vehiclename);
+        $('#vehicleName3').text(vehicleDetails.vehiclename+" Price");
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
@@ -1613,59 +1619,36 @@ $(document).ready(function () {
 //     });
 // });
 
-$(document).ready(function() {
-    // Your image URLs
-    var imageUrls = [
-        './assets/images/image11.webp',
-        './assets/images/image11.webp',
-        './assets/images/image11.webp',
-        './assets/images/image11.webp',
-       
-    ];
+function allimg(){
+  var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + allimgvechileid ;
+  $('.loader-parent').show();
+  $.ajax({
+      url: apiurl,
+      method: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        $('.loader-parent').hide();
+  var carouselContentsec = "";
+  data.forEach(function (vehicle) {
+    console.log(vehicle)
+      carouselContentsec += `
+      <div class="item">
+              <div class="row">
+                  <div class="col-md-4 col-12">
+                      <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
+                  </div>
+              </div>
+      </div>`;
+  });
 
-    // Select the owl carousel container
-    var $carousel = $("#allimg");
-
-    // Loop through the image URLs and append them to the carousel
-    for (var i = 0; i < imageUrls.length; i++) {
-        var imageUrl = imageUrls[i];
-        // Create an image element
-        var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
-        // Append the image to the carousel
-        $carousel.append($image);
-    }
-
-    // Initialize the Owl Carousel
-    $carousel.owlCarousel({
-        items: 3,
-        loop: false,
-        slideSpeed: 300,
-        paginationSpeed: 600,
-        nav: true,
-        dots: false,
-        autoWidth: false,
-        margin: 30,
-        startPosition: 1,
-        center: true,
-        responsiveClass: true,
-        navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-        responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 1,
-            },
-            1000: {
-                items: 1,
-            },
-            1440: {
-                items: 1,
-            }
-        }
-    });
+  $("#allimg").html(carouselContentsec);
+},
+error: function (xhr, status, error) {
+    $('.loader-parent').hide();
+    console.error('Error fetching data:', error);
+}
 });
-
+}
 
 // $(document).ready(function () {
 //     var $carousel = $("#showroom");
