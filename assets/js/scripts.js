@@ -68,6 +68,7 @@ function frontpage(){
   $('#first').show();
 $('#second').hide();
 $('#three').hide();
+$('#four').hide();
 }
 function TNviewmore(){
     
@@ -1628,17 +1629,17 @@ function allimg(){
       dataType: 'json',
       success: function (data) {
         $('.loader-parent').hide();
+        $('#first').hide();
+        $('#second').hide();
+        $('#three').hide();
+        $('#four').show();
   var carouselContentsec = "";
   data.forEach(function (vehicle) {
     console.log(vehicle)
       carouselContentsec += `
-      <div class="item">
-              <div class="row">
-                  <div class="col-md-4 col-12">
+                 
                       <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
-                  </div>
-              </div>
-      </div>`;
+      `;
   });
 
   $("#allimg").html(carouselContentsec);
