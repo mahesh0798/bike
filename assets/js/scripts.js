@@ -23,6 +23,7 @@ var brandidpin='';
 $('#first').show();
 $('#second').hide();
 $('#three').hide();
+$('#four').hide();
 const toggleForm = () => {
     const container = document.querySelector('.container2');
     container.classList.toggle('active');
@@ -56,6 +57,10 @@ function addsImg() {
             $('#addline2three').text(response.dailyOfferLine2)
             $('#addline3three').text(response.dailyOfferLine3)
             $("#addimgthree").attr('src',response.dailyOfferImage)
+            $('#addline1four').text(response.dailyOfferLine1)
+            $('#addline2four').text(response.dailyOfferLine2)
+            $('#addline3four').text(response.dailyOfferLine3)
+            $("#addimgfour").attr('src',response.dailyOfferImage)
         },
         error: function(xhr, status, error) {
             $('.loader-parent').hide();
@@ -374,7 +379,7 @@ function brandlist(i,j){
                     for (var i = 0; i < data.length; i++) {
                       carouselItems += `
                         <div class="item">
-                          <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
+                          <div class="container mt-6" style="position: relative;" >
                             <div class="card border-top-0">
                               <div class="card-body shadow">
                                 <div class="row mx-0">
@@ -656,7 +661,7 @@ $(document).ready(function () {
                     for (var i = 0; i < data.length; i++) {
                       carouselItems += `
                         <div class="item">
-                          <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
+                          <div class="container mt-6" style="position: relative;" >
                             <div class="card border-top-0">
                               <div class="card-body shadow">
                                 <div class="row mx-0">
@@ -918,7 +923,7 @@ $(document).ready(function () {
                     for (var i = 0; i < data.length; i++) {
                       carouselItems += `
                         <div class="item">
-                          <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
+                          <div class="container mt-6" style="position: relative;" >
                             <div class="card border-top-0">
                               <div class="card-body shadow">
                                 <div class="row mx-0">
@@ -1247,7 +1252,7 @@ $(document).ready(function () {
       for (var i = 0; i < data.length; i++) {
         carouselItems += `
           <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
+            <div class="container mt-6" style="position: relative;">
               <div class="card border-top-0">
                 <div class="card-body shadow">
                   <div class="row mx-0">
@@ -1497,7 +1502,7 @@ $(document).ready(function () {
       for (var i = 0; i < data.length; i++) {
         carouselItems += `
           <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Racemodel(${data[i].vechileid})">
+            <div class="container mt-6" style="position: relative;">
               <div class="card border-top-0">
                 <div class="card-body shadow">
                   <div class="row mx-0">
@@ -1651,88 +1656,6 @@ error: function (xhr, status, error) {
 });
 }
 
-// $(document).ready(function () {
-//     var $carousel = $("#showroom");
-
-//     var cardData = [
-//         {
-//             city: "MotoDon Honda - Dadar",
-//             Showroom: "Sri Rama Nagar Rd, Kalyan Nagar, Erragadda, Hyderabad - 500045",
-//             Phonenumber: "7045382858",
-//         },
-//         {
-//             city: "Pilot Honda - Bhandup",
-//             Showroom: "Sri Rama Nagar Rd, Kalyan Nagar, Erragadda, Hyderabad - 500045",
-//             Phonenumber: "7045382858",
-//         },
-//         {
-//             city: "Jhaveri Honda - Fort",
-//             Showroom: "Sri Rama Nagar Rd, Kalyan Nagar, Erragadda, Hyderabad - 500045",
-//             Phonenumber: "7045382858",
-//         },
-//         {
-//             city: "LMN Deluxe",
-//             Showroom: "Sri Rama Nagar Rd, Kalyan Nagar, Erragadda, Hyderabad - 500045",
-//             Phonenumber: "7045382858",
-//         },
-//         {
-//             city: "PQR Premium",
-//             Showroom: "Sri Rama Nagar Rd, Kalyan Nagar, Erragadda, Hyderabad - 500045",
-//             Phonenumber: "7045382858",
-//         },
-        
-//     ];
-//     for (var i = 0; i < cardData.length; i++) {
-//         var card = cardData[i];
-//         var $card = $("<div class='card'>" +
-//             "<div class='card-body shadow' style='background: #e6e4e4;'>" +
-//             "<div class='row mx-0'>" +
-//             "<div class='col-3 text-center'>" +
-//             "<p class='mb-1'><b>City</b></p>" +
-//             "<p class='mt-4'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-geo-alt' viewBox='0 0 16 16'><path d='M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z'/><path d='M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/></svg></p>" +
-//             "<p class='mt-5'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-telephone-fill' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'/></svg></p>" +
-//             "</div>" +
-//             "<div class='col-9'>" +
-//             "<p class='mb-1'>" + card.city + "</p>" +
-//             "<p class='mt-4 mb-2 f-15'>" + card.Showroom + "</p>" +
-//             "<a class='mt-2' href='tel:"+card.Phonenumber+"'>" + card.Phonenumber + "</a>" +
-//             "</div>" +
-//             "</div>" +
-//             "</div>" +
-//             "</div>");
-
-//         $carousel.append($card);
-//     }
-
-//     $carousel.owlCarousel({
-//         items: 1, 
-//         loop: false,
-//         slideSpeed: 300,
-//         paginationSpeed: 600,
-//         nav: true,
-//         dots: false,
-//         autoWidth: false,
-//         margin: 30,
-//         startPosition: 1,
-//         center: true,
-//         responsiveClass: true,
-//         navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-//         responsive: {
-//             0: {
-//                 items: 1,
-//             },
-//             600: {
-//                 items: 2,
-//             },
-//             1000: {
-//                 items: 3,
-//             },
-//             1440: {
-//                 items: 4,
-//             }
-//         }
-//     });
-// });
 function validateLogin(){
   var mobileNumber = document.getElementById('mobileNumber').value;
   var password = document.getElementById('password').value;
@@ -1949,3 +1872,10 @@ document.addEventListener("click", function (e) {
 const pincodeDisplay = document.createElement('div');
 pincodeDisplay.id = 'pincodeResult';
 document.body.appendChild(pincodeDisplay);
+
+function backstage(){
+  $('#first').hide();
+$('#second').hide();
+$('#three').show();
+$('#four').hide();
+}
