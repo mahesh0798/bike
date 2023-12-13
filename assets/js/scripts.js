@@ -310,16 +310,71 @@ function brandlist(i,j){
         $('#second').hide();
         $('#three').show();
         $('.loader-parent').hide();
-        if(ismulticolor&&isSamePrize){
-          var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor+'&IsSamePrize=' + isSamePrize;
+        if (ismulticolor && isSamePrize) {
+          var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
           $.ajax({
-            url: apiurl,
-            method: 'GET',
-            dataType: 'json',
-            success: function (res) {
-
-            }})
-        }
+              url: apiurl,
+              method: 'GET',
+              dataType: 'json',
+              success: function (res) {
+                  if (res && res.length > 0) {
+                      var carouselContent = '';
+      
+                      res.forEach(function (item) {
+                          carouselContent += `
+                              <div class="item">
+                                      <div class="row mx-0">
+                                          <div class="col border">Color</div> 
+                                          <div class="col border">Name</div>
+                                          <div class="col border" id="vehiclePriceCol">Price</div>
+                                      </div>
+                                      <div class="row mx-0 mb-1">
+                                          <div class="col border" id="vehicleColor">${item.colour}</div>
+                                          <div class="col border" id="vehicleName">${item.name}</div>
+                                          <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                                  </div>
+                              </div>`;
+                      });
+      
+                      $('#vehicle-details').html(carouselContent);
+      
+                      // Initialize Owl Carousel after adding all items
+                      $('#vehicle-details').owlCarousel({
+                          items: 3,
+                          loop: false,
+                          slideSpeed: 300,
+                          paginationSpeed: 600,
+                          nav: true,
+                          dots: false,
+                          autoWidth: false,
+                          margin: 30,
+                          startPosition: 1,
+                          center: true,
+                          responsiveClass: true,
+                          navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                          responsive: {
+                              0: {
+                                  items: 1,
+                              },
+                              600: {
+                                  items: 2,
+                              },
+                              1000: {
+                                  items: 3,
+                              },
+                              1440: {
+                                  items: 4,
+                              }
+                          }
+                      });
+                  }
+              },
+              error: function (xhr, status, error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
+      
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
         $.ajax({
