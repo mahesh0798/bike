@@ -318,55 +318,32 @@ function brandlist(i,j){
               dataType: 'json',
               success: function (res) {
                   if (res && res.length > 0) {
-                      var carouselContent = '';
+                      var carouselContent = '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">';
       
-                      res.forEach(function (item) {
+                      res.forEach(function (item, index) {
+                          var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
+      
                           carouselContent += `
-                              <div class="item">
-                                      <div class="row mx-0">
-                                          <div class="col border">Color</div> 
-                                          <div class="col border">Name</div>
-                                          <div class="col border" id="vehiclePriceCol">Price</div>
-                                      </div>
-                                      <div class="row mx-0 mb-1">
-                                          <div class="col border" id="vehicleColor">${item.colour}</div>
-                                          <div class="col border" id="vehicleName">${item.name}</div>
-                                          <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
-                                  </div>
-                              </div>`;
+                          <div class="carousel-item ${activeClass}">
+                              <div class="row mx-0">
+                                  <div class="col border">Color</div>
+                                  <div class="col border">Name</div>
+                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                              </div>
+                              <div class="row mx-0 mb-1">
+                                  <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                  <div class="col border" id="vehicleName">${item.name}</div>
+                                  <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                              </div>
+                          </div>`;
                       });
+      
+                      carouselContent += '</div></div>'; // Close carousel-inner and carousel
       
                       $('#vehicle-details').html(carouselContent);
       
-                      // Initialize Owl Carousel after adding all items
-                      $('#vehicle-details').owlCarousel({
-                          items: 3,
-                          loop: false,
-                          slideSpeed: 300,
-                          paginationSpeed: 600,
-                          nav: true,
-                          dots: false,
-                          autoWidth: false,
-                          margin: 30,
-                          startPosition: 1,
-                          center: true,
-                          responsiveClass: true,
-                          navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-                          responsive: {
-                              0: {
-                                  items: 1,
-                              },
-                              600: {
-                                  items: 2,
-                              },
-                              1000: {
-                                  items: 3,
-                              },
-                              1440: {
-                                  items: 4,
-                              }
-                          }
-                      });
+                      // Activate the carousel
+                      $('#carouselExample').carousel();
                   }
               },
               error: function (xhr, status, error) {
@@ -374,6 +351,7 @@ function brandlist(i,j){
               }
           });
       }
+      
       
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
