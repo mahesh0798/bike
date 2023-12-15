@@ -310,7 +310,7 @@ function brandlist(i,j){
         $('#second').hide();
         $('#three').show();
         $('.loader-parent').hide();
-        if (ismulticolor && isSamePrize) {
+        if (ismulticolor && !isSamePrize) {
           var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
           $.ajax({
               url: apiurl,
@@ -606,6 +606,8 @@ $(document).ready(function () {
         var vehicleDetails = apiResponse.find(item => item.vechileid === i);
         brandidpin=vehicleDetails.brandid;
         allimgvechileid=vehicleDetails.vechileid;
+        var ismulticolor=vehicleDetails.ismulticolor;
+        var isSamePrize=vehicleDetails.isSamePrize;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
@@ -628,6 +630,47 @@ $(document).ready(function () {
         $('#second').hide();
         $('#three').show();
         $('.loader-parent').hide();
+        if (ismulticolor && !isSamePrize) {
+          var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+          $.ajax({
+              url: apiurl,
+              method: 'GET',
+              dataType: 'json',
+              success: function (res) {
+                  if (res && res.length > 0) {
+                      var carouselContent = '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">';
+      
+                      res.forEach(function (item, index) {
+                          var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
+      
+                          carouselContent += `
+                          <div class="carousel-item ${activeClass}">
+                              <div class="row mx-0">
+                                  <div class="col border">Color</div>
+                                  <div class="col border">Name</div>
+                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                              </div>
+                              <div class="row mx-0 mb-1">
+                                  <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                  <div class="col border" id="vehicleName">${item.name}</div>
+                                  <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                              </div>
+                          </div>`;
+                      });
+      
+                      carouselContent += '</div></div>'; // Close carousel-inner and carousel
+      
+                      $('#vehicle-details').html(carouselContent);
+      
+                      // Activate the carousel
+                      $('#carouselExample').carousel();
+                  }
+              },
+              error: function (xhr, status, error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
         $.ajax({
@@ -868,6 +911,8 @@ $(document).ready(function () {
         var bikemodeid=data[0].bikeModelid
         brandidpin=vehicleDetails.brandid;
         allimgvechileid=vehicleDetails.vechileid;
+        var ismulticolor=vehicleDetails.ismulticolor;
+        var isSamePrize=vehicleDetails.isSamePrize;
                    $('#vehicleName').text(vehicleDetails.vehiclename);
                    $('#vehicleName1').text(vehicleDetails.vehiclename);
                    $('#vehicleName2').text(vehicleDetails.vehiclename);
@@ -889,6 +934,47 @@ $(document).ready(function () {
                     $('#second').hide();
                     $('#three').show();
                     $('.loader-parent').hide();
+                    if (ismulticolor && !isSamePrize) {
+                      var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+                      $.ajax({
+                          url: apiurl,
+                          method: 'GET',
+                          dataType: 'json',
+                          success: function (res) {
+                              if (res && res.length > 0) {
+                                  var carouselContent = '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">';
+                  
+                                  res.forEach(function (item, index) {
+                                      var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
+                  
+                                      carouselContent += `
+                                      <div class="carousel-item ${activeClass}">
+                                          <div class="row mx-0">
+                                              <div class="col border">Color</div>
+                                              <div class="col border">Name</div>
+                                              <div class="col border" id="vehiclePriceCol">Price</div>
+                                          </div>
+                                          <div class="row mx-0 mb-1">
+                                              <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                              <div class="col border" id="vehicleName">${item.name}</div>
+                                              <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                                          </div>
+                                      </div>`;
+                                  });
+                  
+                                  carouselContent += '</div></div>'; // Close carousel-inner and carousel
+                  
+                                  $('#vehicle-details').html(carouselContent);
+                  
+                                  // Activate the carousel
+                                  $('#carouselExample').carousel();
+                              }
+                          },
+                          error: function (xhr, status, error) {
+                              console.error('Error fetching data:', error);
+                          }
+                      });
+                  }
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
 
@@ -1205,6 +1291,8 @@ $(document).ready(function () {
         var bikemodeid=data[0].bikeModelid
         brandidpin=vehicleDetails.brandid;
         allimgvechileid=vehicleDetails.vechileid;
+        var ismulticolor=vehicleDetails.ismulticolor;
+        var isSamePrize=vehicleDetails.isSamePrize;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
         $('#vehicleName2').text(vehicleDetails.vehiclename);
@@ -1226,6 +1314,47 @@ $(document).ready(function () {
         $('#second').hide();
         $('#three').show();
         $('.loader-parent').hide();
+        if (ismulticolor && !isSamePrize) {
+          var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+          $.ajax({
+              url: apiurl,
+              method: 'GET',
+              dataType: 'json',
+              success: function (res) {
+                  if (res && res.length > 0) {
+                      var carouselContent = '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">';
+      
+                      res.forEach(function (item, index) {
+                          var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
+      
+                          carouselContent += `
+                          <div class="carousel-item ${activeClass}">
+                              <div class="row mx-0">
+                                  <div class="col border">Color</div>
+                                  <div class="col border">Name</div>
+                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                              </div>
+                              <div class="row mx-0 mb-1">
+                                  <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                  <div class="col border" id="vehicleName">${item.name}</div>
+                                  <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                              </div>
+                          </div>`;
+                      });
+      
+                      carouselContent += '</div></div>'; // Close carousel-inner and carousel
+      
+                      $('#vehicle-details').html(carouselContent);
+      
+                      // Activate the carousel
+                      $('#carouselExample').carousel();
+                  }
+              },
+              error: function (xhr, status, error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
         $.ajax({
@@ -1453,6 +1582,8 @@ $(document).ready(function () {
         var bikemodeid=data[0].bikeModelid;
         brandidpin=vehicleDetails.brandid;
         allimgvechileid=vehicleDetails.vechileid;
+        var ismulticolor=vehicleDetails.ismulticolor;
+        var isSamePrize=vehicleDetails.isSamePrize;
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName').text(vehicleDetails.vehiclename);
         $('#vehicleName1').text(vehicleDetails.vehiclename);
@@ -1475,6 +1606,47 @@ $(document).ready(function () {
         $('#second').hide();
         $('#three').show();
         $('.loader-parent').hide();
+        if (ismulticolor && !isSamePrize) {
+          var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+          $.ajax({
+              url: apiurl,
+              method: 'GET',
+              dataType: 'json',
+              success: function (res) {
+                  if (res && res.length > 0) {
+                      var carouselContent = '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">';
+      
+                      res.forEach(function (item, index) {
+                          var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
+      
+                          carouselContent += `
+                          <div class="carousel-item ${activeClass}">
+                              <div class="row mx-0">
+                                  <div class="col border">Color</div>
+                                  <div class="col border">Name</div>
+                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                              </div>
+                              <div class="row mx-0 mb-1">
+                                  <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                  <div class="col border" id="vehicleName">${item.name}</div>
+                                  <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                              </div>
+                          </div>`;
+                      });
+      
+                      carouselContent += '</div></div>'; // Close carousel-inner and carousel
+      
+                      $('#vehicle-details').html(carouselContent);
+      
+                      // Activate the carousel
+                      $('#carouselExample').carousel();
+                  }
+              },
+              error: function (xhr, status, error) {
+                  console.error('Error fetching data:', error);
+              }
+          });
+      }
         var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i ;
         $('.loader-parent').show();
         $.ajax({
