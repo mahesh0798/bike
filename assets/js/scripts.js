@@ -2084,3 +2084,57 @@ $('#second').hide();
 $('#three').show();
 $('#four').hide();
 }
+
+function searchCity(){
+  const searchCity = document.getElementById('form1').value;
+        var apiurl = baseUrl + "VehicleList/SearchVehicle?keywords=" + searchCity;
+        $.ajax({
+          url: apiurl,
+          method: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            console.log(data,"data of search city")
+            const matchingCity = data.find(item => item.vehiclename.toLowerCase() === searchCity.toLowerCase());
+            displayAutocompleteResults1(data);
+
+          }
+        })
+}
+
+function displayAutocompleteResults1(results) {
+  const autocompleteResults1 = document.getElementById('autocompleteResults1');
+  autocompleteResults1.innerHTML = '';
+
+  if (results.length === 0) {
+    const noResults1 = document.createElement('div');
+    noResults1.textContent = 'No results found';
+    autocompleteResults1.appendChild(noResults1);
+    return;
+  }
+
+  results.forEach(result => {
+    const option1 = document.createElement('div');
+    option1.classList.add('autocomplete-option');
+    option1.textContent = `${result.vehiclename}`;
+    option1.addEventListener('click', function() {
+      document.getElementById('form1').value = result.vehiclename;
+      clickedVehicleId = result.vechileid;
+      console.log("Clicked vehicle ID:", clickedVehicleId);
+      if(clickedVehicleId){
+        Racemodel(clickedVehicleId)
+      }
+      autocompleteResults1.innerHTML = ''; 
+    });
+    autocompleteResults1.appendChild(option1);
+  });}
+
+  document.addEventListener("click", function (e) {
+    const autocompleteResults2 = document.getElementById('autocompleteResults1');
+    if (!autocompleteResults2) {
+      return; 
+    }
+  
+    if (e.target.id !== 'form1' && e.target.id !== 'autocompleteResults1') {
+      autocompleteResults2.innerHTML = '';
+    }
+  });

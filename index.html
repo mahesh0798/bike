@@ -135,17 +135,27 @@
 			</div>
 			
 		  </div>
-		  <form class="form-inline">
-			<div class="input-group">
-				<div class="form-outline">
-				  <input type="search" id="form1" class="form-control" placeholder="Search"/>
+		  		<div class="row">
+					<div class="col pr-0">
+						<form class="form-inline">
+							<div class="input-group">
+								<div class="form-outline">
+								  <input type="search" id="form1" class="form-control" placeholder="Search" onkeyup="searchCity()"/>
+								  <div id="autocompleteResults1"></div>
+								</div>
+								
+							  </div>
+						  </form>
+					</div>
+					<div class="col pl-0">
+						<button type="button" class="btn btn-info">
+							<img src="./assets/images/search.svg">
+						  </button>
+					</div>
+
 				</div>
-				<button type="button" class="btn btn-info">
-				  <img src="./assets/images/search.svg"></i>
-				</button>
-			  </div>
-			<!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-		  </form>
+				
+		  
 		  <a class="navbar-brand" href="login.html">Log In</a>
 		</div>
 	  </nav>
