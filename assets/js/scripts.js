@@ -114,6 +114,7 @@ function fetchBrands(count) {
         dataType: 'json',
         success: function(data) {
             $('.loader-parent').hide();
+            sessionStorage.setItem('GetBrands',data)
             renderImagesForTable1(data.filter(x => x.pv === true),count);
             // renderImagesForTable2(data.filter(x => x.ev === true),count);
         },
@@ -238,16 +239,21 @@ function brandselect(i, j,name) {
           data.forEach(function (vehicle) {
             console.log(vehicle)
               carouselContentsec += `
+              <div class="row">
+                <div class="col-md-auto">
+                  <h2 >${vehicle.brand}</h2>
+                </div>
+              </div>
               <div class="item">
-                  <div class="card mt-5 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
+                  <div class="card mt-3 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
                               <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
                           </div>
                           <div class="col-md-6 col-12">
                               <div class="card-body ">
-                                  <h5 class="card-title">${vehicle.brand}</h5>
-                                  <p class="card-text mt-3">${vehicle.vehiclename} | <img src='assets/images/engine.png' style='width:20px'>${vehicle.cubicCapacity} cc | <img src='assets/images/mileage.png' style='width:20px'> ${vehicle.topSpeed} | ${vehicle.displacement}</p>
+                                  <h5 class="card-title">${vehicle.vehiclename}</h5>
+                                  <p class="card-text mt-3"> <img src='assets/images/engine.png' style='width:20px'>${vehicle.displacement} cc | <img src='assets/images/mileage.png' style='width:20px'> ${vehicle.mileage}|${vehicle.kerbWeight}|${vehicle.topSpeed} <img src='assets/images/mileage.png' style='width:20px'> </p>
                                   <h5>₹ ${vehicle.exshowroomPrize}</h5>
                                   <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
                               </div>
@@ -296,7 +302,7 @@ function brandlist(i,j){
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -615,7 +621,7 @@ $(document).ready(function () {
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -920,7 +926,7 @@ $(document).ready(function () {
                    $('#vehicleName4').text(vehicleDetails.vehiclename);
                     $('#displacement').text(vehicleDetails.displacement);
                     $('#speedometer').text(vehicleDetails.speedometer);
-                    $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+                    $('#cubicCapacity').text(vehicleDetails.displacement);
                     $('#kerbWeight').text(vehicleDetails.kerbWeight);
                     $('#mileage').text(vehicleDetails.mileage);
                     $('#mileage1').text(vehicleDetails.mileage);
@@ -1300,7 +1306,7 @@ $(document).ready(function () {
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -1592,7 +1598,7 @@ $(document).ready(function () {
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
