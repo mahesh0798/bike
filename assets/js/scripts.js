@@ -397,7 +397,7 @@ function brandlist(i,j){
         $('#overallRatings').text(vehicleDetails.overallRatings);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -742,7 +742,7 @@ $(document).ready(function () {
         $('#overallRatings').text(vehicleDetails.overallRatings);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -1073,7 +1073,7 @@ $(document).ready(function () {
                    $('#overallRatings').text(vehicleDetails.overallRatings);
                     $('#displacement').text(vehicleDetails.displacement);
                     $('#speedometer').text(vehicleDetails.speedometer);
-                    $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+                    $('#cubicCapacity').text(vehicleDetails.displacement);
                     $('#kerbWeight').text(vehicleDetails.kerbWeight);
                     $('#mileage').text(vehicleDetails.mileage);
                     $('#mileage1').text(vehicleDetails.mileage);
@@ -1479,7 +1479,7 @@ $(document).ready(function () {
         $('#overallRatings').text(vehicleDetails.overallRatings);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -1797,7 +1797,7 @@ $(document).ready(function () {
         $('#overallRatings').text(vehicleDetails.overallRatings);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
+        $('#cubicCapacity').text(vehicleDetails.displacement);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
