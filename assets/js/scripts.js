@@ -114,7 +114,6 @@ function fetchBrands(count) {
         dataType: 'json',
         success: function(data) {
             $('.loader-parent').hide();
-            sessionStorage.setItem('GetBrands',data)
             renderImagesForTable1(data.filter(x => x.pv === true),count);
             // renderImagesForTable2(data.filter(x => x.ev === true),count);
         },
@@ -139,30 +138,97 @@ function fetchBrands1(count) {
         }
     });
 }
-function renderImagesForTable1(data,count) {
-    console.log(data.length)
-    var imagesHTML = "";
-    $('#tablebody').empty();
-    let trcount = 0;
-    for (var i = 0; i < data.length; i++) {
-      if(count > 0)
-      {   if(i<10){
+// function renderImagesForTable1(data,count) {
+//     console.log(data.length)
+//     var imagesHTML = "";
+//     $('#tablebody').empty();
+//     let trcount = 0;
+//     for (var i = 0; i < data.length; i++) {
+//       if(count > 0)
+//       {   if(i<10){
+//               if (i % 5 === 0) {
+//                   imagesHTML += '<tr>';
+//               }
+//               imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+//               if (i % 5 === 4 || i === data.length - 1) {
+//                   imagesHTML += '</tr>';
+//               }
+//       }
+//       else{break;}
+//   }
+//       else
+//       {
+//           if (i % 5 === 0) {
+//               imagesHTML += '<tr>';
+//           }
+//           imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+//           if (i % 5 === 4 || i === data.length - 1) {
+//               imagesHTML += '</tr>';
+//           }
+//       }
+//   }
+//   $('#tablebody').append(imagesHTML);
+// }
+// function renderImagesForTable2(data,count) {
+//     console.log(data.length)
+//     var imagesHTML = "";
+//     $('#tablebody1').empty();
+//     let trcount = 0;
+//     for (var i = 0; i < data.length; i++) {
+//       if(count > 0)
+//       {   if(i<10){
+//               if (i % 5 === 0) {
+//                   imagesHTML += '<tr>';
+//               }
+//               imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+//               if (i % 5 === 4 || i === data.length - 1) {
+//                   imagesHTML += '</tr>';
+//               }
+//       }
+//       else{break;}
+//   }
+//       else
+//       {
+//           if (i % 5 === 0) {
+//               imagesHTML += '<tr>';
+//           }
+//           imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+','+data[i].brandNames+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+//           if (i % 5 === 4 || i === data.length - 1) {
+//               imagesHTML += '</tr>';
+//           }
+//       }
+//   }
+//   $('#tablebody1').append(imagesHTML);
+// }
+function renderImagesForTable1(data, count) {
+  console.log(data.length);
+  var imagesHTML = "";
+  $('#tablebody').empty();
+  let trcount = 0;
+  for (var i = 0; i < data.length; i++) {
+      if (count > 0) {
+          if (i < 10) {
               if (i % 5 === 0) {
                   imagesHTML += '<tr>';
               }
-              imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+              // Remove double quotes from brandNames using replace()
+              var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
+              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
+          }
+          else {
+              break;
+          }
       }
-      else{break;}
-  }
-      else
-      {
+      else {
           if (i % 5 === 0) {
               imagesHTML += '<tr>';
           }
-          imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+          // Remove double quotes from brandNames using replace()
+          var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
+          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -170,30 +236,34 @@ function renderImagesForTable1(data,count) {
   }
   $('#tablebody').append(imagesHTML);
 }
-function renderImagesForTable2(data,count) {
-    console.log(data.length)
-    var imagesHTML = "";
-    $('#tablebody1').empty();
-    let trcount = 0;
-    for (var i = 0; i < data.length; i++) {
-      if(count > 0)
-      {   if(i<10){
+
+function renderImagesForTable2(data, count) {
+  console.log(data.length);
+  var imagesHTML = "";
+  $('#tablebody1').empty();
+  let trcount = 0;
+  for (var i = 0; i < data.length; i++) {
+      if (count > 0) {
+          if (i < 10) {
               if (i % 5 === 0) {
                   imagesHTML += '<tr>';
               }
-              imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+              // Remove double quotes from brandNames using replace()
+              var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
+              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
-      }
-      else{break;}
-  }
-      else
-      {
+          } else {
+              break;
+          }
+      } else {
           if (i % 5 === 0) {
               imagesHTML += '<tr>';
           }
-          imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+','+data[i].brandNames+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
+          // Remove double quotes from brandNames using replace()
+          var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
+          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ',' + data[i].brandNames + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -201,6 +271,7 @@ function renderImagesForTable2(data,count) {
   }
   $('#tablebody1').append(imagesHTML);
 }
+
 // function brandselect(i,j){
 //     var apiurl = baseUrl + "VehicleList/BrandList?Brandid="+i+'&IsEv='+j;
 //     $('.loader-parent').show();
@@ -234,22 +305,25 @@ function brandselect(i, j,name) {
           $('.loader-parent').hide();
           $('#first').hide();
           $('#second').show();
-          $('Bkename').val(data[0].brand)
+          $("#bikeName").text(data[0].brand)
+          console.log(data[0].brand,"brand");
+
+
           var carouselContentsec = "";
-          data.forEach(function (vehicle) {          
+          data.forEach(function (vehicle) {
             console.log(vehicle)
               carouselContentsec += `
               <div class="item">
-                  <div class="card mt-5 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
+                  <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
                               <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
                           </div>
                           <div class="col-md-6 col-12">
-                              <div class="card-body ">
-                                  <h5 class="card-title">${vehicle.vehiclename}</h5>
-                                  <p class="card-text mt-1 mb-0"> <img src='assets/images/engine.png' style='width:20px'>${vehicle.displacement} cc | <img src='assets/images/mileage.png' style='width:20px'> ${vehicle.mileage}|${vehicle.kerbWeight}|<img src='assets/images/mileage.png' style='width:20px'>${vehicle.topSpeed}  </p>
-                                  <h5>₹ ${vehicle.exshowroomPrize} Ex showroom Price onwards</h5>
+                              <div class="card-body px-md-2">
+                                  <h5 class="card-title">${vehicle.brand}</h5>
+                                  <p class="card-text mt-3">${vehicle.vehiclename} | <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.cubicCapacity} cc | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} | <img src='assets/images/piston.png' style='width:20px'>${vehicle.displacement}</p>
+                                  <h5>₹ ${vehicle.exshowroomPrize}</h5>
                                   <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
                               </div>
                           </div>
@@ -297,7 +371,7 @@ function brandlist(i,j){
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.displacement);
+        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -616,7 +690,7 @@ $(document).ready(function () {
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.displacement);
+        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -921,7 +995,7 @@ $(document).ready(function () {
                    $('#vehicleName4').text(vehicleDetails.vehiclename);
                     $('#displacement').text(vehicleDetails.displacement);
                     $('#speedometer').text(vehicleDetails.speedometer);
-                    $('#cubicCapacity').text(vehicleDetails.displacement);
+                    $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
                     $('#kerbWeight').text(vehicleDetails.kerbWeight);
                     $('#mileage').text(vehicleDetails.mileage);
                     $('#mileage1').text(vehicleDetails.mileage);
@@ -1301,7 +1375,7 @@ $(document).ready(function () {
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.displacement);
+        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
@@ -1593,7 +1667,7 @@ $(document).ready(function () {
         $('#vehicleName4').text(vehicleDetails.vehiclename);
         $('#displacement').text(vehicleDetails.displacement);
         $('#speedometer').text(vehicleDetails.speedometer);
-        $('#cubicCapacity').text(vehicleDetails.displacement);
+        $('#cubicCapacity').text(vehicleDetails.cubicCapacity);
         $('#kerbWeight').text(vehicleDetails.kerbWeight);
         $('#mileage').text(vehicleDetails.mileage);
         $('#mileage1').text(vehicleDetails.mileage);
