@@ -2,8 +2,15 @@
     outline: none !important;
 	box-shadow: none !important;
 }
+@font-face {
+    font-family: Barlow;
+    src: url("../fonts/Barlow.ttf") format('truetype'), url('../fonts/Barlow.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal
+    /* #880e4f */
+}
 body{
-	font-family: 'Roboto', sans-serif;
+	font-family: Barlow !important;
 	font-size: 14px;
 	-webkit-touch-callout: none;
     background: #fff;
@@ -44,6 +51,9 @@ a{
   }
   .card-img-top {
     width: 70% !important;
+}
+.purple1{
+    background-color: #880e4f !important;
 }
 .reviewinput{
     width: 26px;

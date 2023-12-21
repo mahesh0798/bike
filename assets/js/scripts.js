@@ -213,7 +213,7 @@ function renderImagesForTable1(data, count) {
               }
               // Remove double quotes from brandNames using replace()
               var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
+              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
@@ -228,7 +228,7 @@ function renderImagesForTable1(data, count) {
           }
           // Remove double quotes from brandNames using replace()
           var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
+          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -250,7 +250,7 @@ function renderImagesForTable2(data, count) {
               }
               // Remove double quotes from brandNames using replace()
               var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
+              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
@@ -263,7 +263,7 @@ function renderImagesForTable2(data, count) {
           }
           // Remove double quotes from brandNames using replace()
           var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ',' + data[i].brandNames + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">' + brandNameWithoutQuotes + '</p></td>';
+          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ',' + data[i].brandNames + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -880,7 +880,7 @@ $(document).ready(function () {
                                     <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
                                   </div>
                                   <div class="col-md-12 text-center">
-                                    <button class="btn btn-secondary">Get Diwali Offers</button>
+                                    <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                                   </div>
                                 </div>
                               </div>
@@ -977,7 +977,7 @@ $(document).ready(function () {
                       <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
+                      <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                     </div>
                   </div>
                 </div>
@@ -1211,7 +1211,7 @@ $(document).ready(function () {
                                     <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
                                   </div>
                                   <div class="col-md-12 text-center">
-                                    <button class="btn btn-secondary">Get Diwali Offers</button>
+                                    <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                                   </div>
                                 </div>
                               </div>
@@ -1306,7 +1306,7 @@ $(document).ready(function () {
                       <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
+                      <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                     </div>
                   </div>
                 </div>
@@ -1384,7 +1384,7 @@ $(document).ready(function () {
                       <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
+                      <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                     </div>
                   </div>
                 </div>
@@ -1609,7 +1609,7 @@ $(document).ready(function () {
                       <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
+                      <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                     </div>
                   </div>
                 </div>
@@ -1701,7 +1701,7 @@ $(document).ready(function () {
                       <p class="mb-0">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</p>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
+                      <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                     </div>
                   </div>
                 </div>
@@ -1928,7 +1928,7 @@ $(document).ready(function () {
                       <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary">Get Diwali Offers</button>
+                      <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
                     </div>
                   </div>
                 </div>
