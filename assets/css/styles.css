@@ -380,14 +380,16 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     border-top: 1px solid #FFFFFF;
   }
   .table_border{
-    border-color: #aaa !important;
+    border-color: #185ac5 !important;
+    border-radius: 5%;
   }
   .table-bordered {
     width: 100%;
     border-collapse: collapse;
 }
 .table-bordered td {
-    border: 1px solid #ccc;
+    border: 1px solid #185ac5;
+    border-radius: 5%;
     padding: 10px;
 }
 .table-bordered img {
