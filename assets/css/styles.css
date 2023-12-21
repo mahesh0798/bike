@@ -450,5 +450,12 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     font-size: 0.75rem; 
     transform: translateY(-100%);
     color: #6c757d; 
+  }*/
+  .h-400{
+    background-color: black;
+	background-position: center top;
+	height: 490px;
   }
-  
+  /* .carousel-control-prev-icon {
+    background-image: url('../assets/images/leftarrowNew.png') !important;
+  } */
