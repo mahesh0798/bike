@@ -321,9 +321,9 @@ function brandselect(i, j,name) {
                           </div>
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
-                                  <h5 class="card-title">${vehicle.brand}</h5>
-                                  <p class="card-text mt-3">${vehicle.vehiclename} | <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.cubicCapacity} cc | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} | <img src='assets/images/piston.png' style='width:20px'>${vehicle.displacement}</p>
-                                  <h5>₹ ${vehicle.exshowroomPrize}</h5>
+                                  <h5 class="card-title">${vehicle.vehiclename}</h5>
+                                  <p class="card-text mt-3"> <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.displacement} cc | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} | <img src='assets/images/piston.png' style='width:20px'>${vehicle.displacement}</p>
+                                  <h5>₹ ${vehicle.exshowroomPrize} Ex showroom Price onwards</h5>
                                   <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
                               </div>
                           </div>
