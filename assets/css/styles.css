@@ -53,7 +53,7 @@ a{
     width: 70% !important;
 }
 .purple1{
-    background-color: #880e4f !important;
+    background: linear-gradient(94deg, rgb(48 32 116) 2%, rgb(48 32 116) 11%,rgb(198 30 86) 82%, rgb(198 30 86) 96%);
 }
 .reviewinput{
     width: 26px;

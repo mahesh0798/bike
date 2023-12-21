@@ -43,7 +43,12 @@ function addsImg() {
         success: function(response) {
             $('.loader-parent').hide(); 
             btnall=response.buttonText
-            $('#btnsname').val(btnall);
+          //   $("#bikeName").text(data[0].brand)
+          // console.log(data[0].brand,"brand");
+            $('.psbutton').text("wsw");
+            $('.psbutton').text("sssdse");
+            $('.psbutton').val(btnall);
+            $('.psbutton').text(btnall);
             console.log(btnall);
             $('#addline1').text(response.dailyOfferLine1)
             $('#addline2').text(response.dailyOfferLine2)
@@ -68,7 +73,7 @@ function addsImg() {
         }
     });
 }
-addsImg();
+
 function frontpage(){
   $('#first').show();
 $('#second').hide();
@@ -641,13 +646,13 @@ $(document).ready(function () {
                   </div>
                   <div class="row mx-0" style="padding-top: 180px;">
                     <div class="col-md-12">
-                      <h5>${filteredData[i].vehicleName}</h5>
+                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
                     </div>
-                    <div class="col-md-10">
-                      <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                    <div class="col-md-12">
+                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button class="btn btn-secondary" id="btnsname"></button>
+                      <button  class="btn btn-outline-secondary text-white purple1 psbutton" ></button>
                     </div>
                   </div>
                 </div>
@@ -971,10 +976,10 @@ $(document).ready(function () {
                   </div>
                   <div class="row mx-0" style="padding-top: 180px;">
                     <div class="col-md-12">
-                      <h5>${filteredData[i].vehicleName}</h5>
+                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
                     </div>
-                    <div class="col-md-10">
-                      <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                    <div class="col-md-12">
+                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
                       <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
@@ -1300,10 +1305,10 @@ $(document).ready(function () {
                   </div>
                   <div class="row mx-0" style="padding-top: 180px;">
                     <div class="col-md-12">
-                      <h5>${filteredData[i].vehicleName}</h5>
+                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
                     </div>
-                    <div class="col-md-10">
-                      <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                    <div class="col-md-12">
+                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
                       <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
@@ -1378,10 +1383,10 @@ $(document).ready(function () {
                   </div>
                   <div class="row mx-0" style="padding-top: 180px;">
                     <div class="col-md-12">
-                      <h5>${filteredData[i].vehicleName}</h5>
+                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
                     </div>
-                    <div class="col-md-10">
-                      <h5>${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                    <div class="col-md-12">
+                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
                     </div>
                     <div class="col-md-12 text-center">
                       <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
@@ -1747,6 +1752,7 @@ $(document).ready(function () {
         console.error('Error fetching data from the API:', error);
       }
     });
+    addsImg();
   });
   function mileagemodel(i){
     var apiurl = baseUrl + "VehicleDetails/Details?Vehicleid=" + i ;
