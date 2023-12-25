@@ -222,7 +222,7 @@ function renderImagesForTable1(data, count) {
               }
               // Remove double quotes from brandNames using replace()
               var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
+              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
@@ -237,7 +237,7 @@ function renderImagesForTable1(data, count) {
           }
           // Remove double quotes from brandNames using replace()
           var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
+          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -259,7 +259,7 @@ function renderImagesForTable2(data, count) {
               }
               // Remove double quotes from brandNames using replace()
               var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
+              imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
               if (i % 5 === 4 || i === data.length - 1) {
                   imagesHTML += '</tr>';
               }
@@ -267,12 +267,12 @@ function renderImagesForTable2(data, count) {
               break;
           }
       } else {
-          if (i % 5 === 0) {
+          if (i % 5 === 0) {  
               imagesHTML += '<tr>';
           }
           // Remove double quotes from brandNames using replace()
           var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ',' + data[i].brandNames + ')"><img src="' + data[i].brandLogo + '" class="img-fluid"></td>';
+          imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ',' + data[i].brandNames + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
           if (i % 5 === 4 || i === data.length - 1) {
               imagesHTML += '</tr>';
           }
@@ -331,9 +331,9 @@ function brandselect(i, j,name) {
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
                                   <h5 class="card-title">${vehicle.vehiclename}</h5>
-                                  <p class="card-text mt-3"> <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.displacement} cc | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} | <img src='assets/images/piston.png' style='width:20px'>${vehicle.displacement}</p>
-                                  <h5>₹ ${vehicle.exshowroomPrize} Ex showroom Price onwards</h5>
-                                  <a href="#" class="btn btn-danger rounded-pill px-5">Check On-Road Price</a>
+                                  <p class="card-text mt-3"> <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.displacement} cc | ${vehicle.mileage}| <img src='assets/images/piston.png' style='width:20px'>${vehicle.kerbWeight}|<img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} </p>
+                                  <h5>₹ ${vehicle.exshowroomPrize} <span class="f-14">Ex showroom Price onwards<span></h5>
+                                  <a href="#" class="btn btn-outline-secondary text-white purple1">Check On-Road Price</a>
                               </div>
                           </div>
                           <div class="col-md-3 col-12">
@@ -341,7 +341,7 @@ function brandselect(i, j,name) {
                                   <table class="table table-bordered">
                                       <tr>
                                           <td>Rating: ${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'}</td>
-                                          <td>${vehicle.mileage ? vehicle.mileage : 'N/A'}</td>
+                                         
                                       </tr>
                                   </table>
                               </div>
