@@ -102,12 +102,12 @@ function TNviewmore() {
 function TNviewmore1() {
     eletric = true
     if (viewmore1) {
-        fetchBrands1(1);
+        fetchBrands(1);
         viewmore1 = false;
         $('#toogleBtn1').text('View More Brands')
     }
     else {
-        fetchBrands1(0);
+        fetchBrands(0);
         viewmore1 = true;
         $('#toogleBtn1').text('View less Brands')
     }
@@ -123,7 +123,7 @@ function fetchBrands(count) {
         success: function (data) {
             $('.loader-parent').hide();
             renderImagesForTable1(data.filter(x => x.pv === true), count);
-            // renderImagesForTable2(data.filter(x => x.ev === true),count);
+            renderImagesForTable2(data.filter(x => x.ev === true),count);
         },
         error: function (xhr, status, error) {
             console.error('Error fetching data:', error);
@@ -316,7 +316,7 @@ function brandselect(i, j, name) {
             $("#bikeName").text(data[0].brand)
             console.log(data[0].brand, "brand");
 
-
+            var btext = localStorage.getItem("buttontext");
             var carouselContentsec = "";
             data.forEach(function (vehicle) {
                 console.log(vehicle)
@@ -330,9 +330,9 @@ function brandselect(i, j, name) {
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
                                   <h5 class="card-title">${vehicle.vehiclename}</h5>
-                                  <p class="card-text mt-3"> <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.displacement} cc | ${vehicle.mileage}| <img src='assets/images/piston.png' style='width:20px'>${vehicle.kerbWeight}|<img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} </p>
+                                  <p class="card-text mt-3"> <img src='assets/images/engine-color.png' style='width:20px'>${vehicle.displacement} CC | ${vehicle.mileage} KMPL | <img src='assets/images/piston.png' style='width:20px'>${vehicle.kerbWeight} Kg|<img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
                                   <h5>₹ ${vehicle.exshowroomPrize} <span class="f-14">Ex showroom Price onwards<span></h5>
-                                  <a href="#" class="btn btn-outline-secondary text-white purple1">Check On-Road Price</a>
+                                  <a href="#" class="btn btn-outline-secondary text-white purple1">${btext}</a>
                               </div>
                           </div>
                           <div class="col-md-3 col-12">
@@ -590,6 +590,7 @@ function brandlist(i, j) {
                     console.error('Error fetching data:', error);
                 }
             })
+            defaultcity();
         },
         error: function (xhr, status, error) {
             $('.loader-parent').hide();
@@ -600,31 +601,11 @@ function brandlist(i, j) {
 $(document).ready(function () {
 
     fetchBrands(1);
-    fetchBrands1(1);
-});
-
-$(document).ready(function () {
-    var imagePaths = [
-        "./assets/images/honda20200511152343.jpg",
-        "./assets/images/royal-enfield20200508193112.jpg",
-        "./assets/images/hero20200508192826.jpg",
-        "./assets/images/tvs20200508193203.jpg",
-        "./assets/images/yamaha20200508193220.jpg"
-    ];
-
-    //   function renderImagesForTable2() {
-    //       $('#table2 td').each(function (index) {
-    //           $(this).html('<img src="' + imagePaths[index % imagePaths.length] + '">');
-    //       });
-    //   }
-
-    //   renderImagesForTable2();
 });
 
 
-
 $(document).ready(function () {
-    // var baseUrl = 'https://dotnet.constient.com/CoreTutorial/api/';
+   
     addsImg();
     var apiEndpoint = 'Home/GetChoiceCategory';
     var apiUrl = baseUrl + apiEndpoint;
@@ -947,6 +928,7 @@ function famousbikemodel(i) {
                     console.error('Error fetching data:', error);
                 }
             })
+            defaultcity();
         },
         error: function (xhr, status, error) {
             $('.loader-parent').hide();
@@ -1280,6 +1262,7 @@ function Racemodel(i) {
                     console.error('Error fetching data:', error);
                 }
             })
+            defaultcity();
         },
         error: function (xhr, status, error) {
             $('.loader-parent').hide();
@@ -1677,6 +1660,7 @@ function Scootymodel(i) {
                     console.error('Error fetching data:', error);
                 }
             })
+            defaultcity();
         },
         error: function (xhr, status, error) {
             $('.loader-parent').hide();
@@ -1993,6 +1977,7 @@ function mileagemodel(i) {
                             console.error('Error fetching data:', error);
                         }
                     })
+                    defaultcity();
                 },
                 error: function (xhr, status, error) {
                     $('.loader-parent').hide();
@@ -2194,6 +2179,73 @@ function fetchPincode() {
             } else {
                 document.getElementById('pincodeResult').textContent = `${city} not found`;
             }
+        }
+    })
+}
+
+function defaultcity()
+{
+    var apiurl = baseUrl + "Home/GetShowRoom?PincodeId=" + 0 + '&BrandId=' + 0
+    $('.loader-parent').show();
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            $('.loader-parent').hide();
+            $("#showroom").empty();
+            var $carousel = ""
+            var $carousel = $("#showroom");
+            for (var i = 0; i < data.length; i++) {
+                var card = data[i];
+                var $card = $("<div class='card'>" +
+                    "<div class='card-body shadow' style='background: #e6e4e4;'>" +
+                    "<div class='row mx-0'>" +
+                    "<div class='col-3 text-center'>" +
+                    "<p class='mb-1'><b>City</b></p>" +
+                    "<p class='mt-4'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-geo-alt' viewBox='0 0 16 16'><path d='M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z'/><path d='M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/></svg></p>" +
+                    "<p class='mt-0'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-telephone-fill' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'/></svg></p>" +
+                    "</div>" +
+                    "<div class='col-9'>" +
+                    "<p class='mb-1'>" + card.city + "</p>" +
+                    "<p class='mt-4 mb-3 f-15'>" + card.name + "," + card.street + "," + card.pincode + "</p>" +
+                    "<a class='mt-2' href='tel:" + card.phNo + "'>" + card.phNo + "</a>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>");
+
+                $carousel.append($card);
+            }
+
+            $carousel.owlCarousel({
+                items: 1,
+                loop: false,
+                slideSpeed: 300,
+                paginationSpeed: 600,
+                nav: true,
+                dots: false,
+                autoWidth: false,
+                margin: 30,
+                startPosition: 1,
+                center: true,
+                responsiveClass: true,
+                navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 2,
+                    },
+                    1000: {
+                        items: 3,
+                    },
+                    1440: {
+                        items: 4,
+                    }
+                }
+            });
         }
     })
 }
