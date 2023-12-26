@@ -30,9 +30,7 @@ const toggleForm = () => {
   };
 AOS.init()
 
-//   $(function() {
-//     $('#nav-tab').responsiveTabs();
-//   });
+
 function addsImg() {
     var apiurl = baseUrl + "Home/UIOffer";
     $('.loader-parent').show();
