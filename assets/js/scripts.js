@@ -130,6 +130,27 @@ function fetchBrands(count) {
         }
     });
 }
+
+
+function carouselBind() {
+    var apiurl = baseUrl + "Home/PictureBanner";
+    $('.loader-parent').show();
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            $('.loader-parent').hide();
+            $('#caroselimg1').attr("src", data[0].bannerURL)
+            $('#caroselimg2').attr("src", data[1].bannerURL)
+            $('#caroselimg3').attr("src", data[2].bannerURL)
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
+
 function fetchBrands1(count) {
     var apiurl = baseUrl + "Home/GetBrands";
     $('.loader-parent').show();
@@ -599,7 +620,7 @@ function brandlist(i, j) {
     })
 }
 $(document).ready(function () {
-
+    carouselBind();
     fetchBrands(1);
 });
 
