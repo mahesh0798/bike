@@ -91,13 +91,56 @@
 		<header style="height: 56px;width: 100%;">
 	<nav class="navbar navbar-light bg-light fixed-top">
 		<div class="container-fluid">
-			<div class="d-flex">
-					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-						<span class="navbar-toggler-icon"></span>
-					  </button>
-				<img src="assets/images/logo_png.jpg" alt="Bike logo" class="bike-logo" style="min-width: 30%;" onclick="frontpage()">
-					  <h3 class="mx-2" onclick="frontpage()"></h3>
-					  </div>
+			<div class="row w-100">
+				<div class="col-3">
+					<div class="d-flex">
+						<!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+							<span class="navbar-toggler-icon"></span>
+						  </button> -->
+						  <div></div>
+							<img src="assets/images/logo_png.jpg" alt="Bike logo" class="bike-logo" style="min-width: 30%;" onclick="frontpage()">
+						  	<h3 class="mx-2" onclick="frontpage()"></h3>
+					</div>
+				</div>
+				<div class="col-7">
+					<div class="row">
+						<div class="col pr-0">
+							<form class="form-inline d-flex justify-content-center">
+								<input type="search" id="form1" class="form-control w_80" placeholder="Search" onkeyup="searchCity()"/>
+									 
+								<!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+								<button type="button" class="btn btn-outline-secondary text-white purple1 d-md-block d-none">
+									<img src="./assets/images/search.svg">
+								  </button>
+							  </form>
+							  <div id="autocompleteResults1" class="w_80"></div>
+							<!-- <form class="form-inline">
+								<div class="input-group">
+									<div class="form-outline">
+									  
+									</div>
+									
+								  </div>
+							  </form> -->
+						<!-- </div>
+						<div class="col pl-0">
+							<button type="button" class="btn btn-outline-secondary text-white purple1">
+								<img src="./assets/images/search.svg">
+							  </button> -->
+						</div>
+	
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="d-flex justify-content-md-end">
+						<div class="d-flex align-items-center">
+							<i class="fa fa-user fa-lg " aria-hidden="true"></i>
+						</div>
+						<a class="navbar-brand" href="login.html">Log In</a>
+					</div>
+				</div>
+			</div>
+			
 				  <!-- <a class="navbar-brand" href="#">Offcanvas navbar</a> -->
 					
 
@@ -105,7 +148,7 @@
 
 		  
 		  
-		  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+		  <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 			<div class="offcanvas-header">
 			  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">bike</h5>
 			  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -135,29 +178,10 @@
 			 
 			</div>
 			
-		  </div>
-		  		<div class="row">
-					<div class="col pr-0">
-						<form class="form-inline">
-							<div class="input-group">
-								<div class="form-outline">
-								  <input type="search" id="form1" class="form-control" placeholder="Search" onkeyup="searchCity()"/>
-								  <div id="autocompleteResults1"></div>
-								</div>
-								
-							  </div>
-						  </form>
-					</div>
-					<div class="col pl-0">
-						<button type="button" class="btn btn-outline-secondary text-white purple1">
-							<img src="./assets/images/search.svg">
-						  </button>
-					</div>
-
-				</div>
+		  </div> -->
+		  		
 				
-		  
-				<a class="navbar-brand" href="login.html">Log In</a>
+				
 		</div>
 	  </nav>
 	</header>
@@ -233,10 +257,10 @@
 						<div class="col-md-4 col-12 text-center d-flex">
 							<img src="" id="addimg" class="img-fluid">
 						</div>
-						<div class="col-md-8 col-12 px-4 text-start">
-							<p class="fw-bold  my-3" id="addline1"></p>
-							<p class="my-3" id="addline2"></p>
-							<p class=" my-3" id="addline3">
+						<div class="col-md-8 col-12 px-4 text-md-start text-center">
+							<p class="fw-bold  my-md-3 mb-0" id="addline1"></p>
+							<p class="my-md-3 mb-0" id="addline2"></p>
+							<p class=" my-md-3 mb-0" id="addline3">
 								<!-- <img src="./assets/images/amazon.svg" class="img-fluid1">
 								<span class="ml-2">voucher worth Rs. 2,000</span> -->
 							</p>
