@@ -87,15 +87,25 @@ function frontpage() {
     $('#three').hide();
     $('#four').hide();
 }
+
+function loginpage() {
+
+    location.href = "./index.html";
+    $('#first').show();
+    $('#second').hide();
+    $('#three').hide();
+    $('#four').hide();
+}
+
 function TNviewmore() {
 
     if (viewmore) {
-        fetchBrands(1);
+        fetchBrands(1,1);
         viewmore = false;
         $('#toogleBtn').text('View More Brands')
     }
     else {
-        fetchBrands(0);
+        fetchBrands(0,1);
         viewmore = true;
         $('#toogleBtn').text('View less Brands')
     }
@@ -104,18 +114,18 @@ function TNviewmore() {
 function TNviewmore1() {
     eletric = true
     if (viewmore1) {
-        fetchBrands(1);
+        fetchBrands(1,0);
         viewmore1 = false;
         $('#toogleBtn1').text('View More Brands')
     }
     else {
-        fetchBrands(0);
+        fetchBrands(0,0);
         viewmore1 = true;
         $('#toogleBtn1').text('View less Brands')
     }
 
 }
-function fetchBrands(count) {
+function fetchBrands(count,ispv) {
     var apiurl = baseUrl + "Home/GetBrands";
     $('.loader-parent').show();
     $.ajax({
@@ -124,8 +134,18 @@ function fetchBrands(count) {
         dataType: 'json',
         success: function (data) {
             $('.loader-parent').hide();
-            renderImagesForTable1(data.filter(x => x.pv === true), count);
-            renderImagesForTable2(data.filter(x => x.ev === true),count);
+            if (ispv == 1) {
+                renderImagesForTable1(data.filter(x => x.pv === true), count);
+            }
+            else if (ispv == 0) {
+                renderImagesForTable2(data.filter(x => x.ev === true), count);
+            }
+            else {
+                renderImagesForTable1(data.filter(x => x.pv === true), count);
+                renderImagesForTable2(data.filter(x => x.ev === true), count);
+            }
+          
+           
         },
         error: function (xhr, status, error) {
             console.error('Error fetching data:', error);
@@ -623,7 +643,7 @@ function brandlist(i, j) {
 }
 $(document).ready(function () {
     carouselBind();
-    fetchBrands(1);
+    fetchBrands(1,2);
 });
 
 
