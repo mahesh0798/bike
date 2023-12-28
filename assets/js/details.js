@@ -138,7 +138,8 @@ function brandlistV1() {
                                   <div class="col border" id="vehiclePriceCol">Price</div>
                               </div>
                               <div class="row mx-0 mb-1">
-                                  <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                  <div class="col border" id="vehicleColor" >
+                                    <div class="circle" style="background-color:${item.colour};"></div></div>
                                   <div class="col border" id="vehicleName">${item.name}</div>
                                   <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
                               </div>
