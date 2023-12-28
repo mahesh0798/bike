@@ -100,7 +100,9 @@ function brandlistV1() {
             $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
             $('#overallRatings').text(vehicleDetails.overallRatings);
             $('#displacement').text(vehicleDetails.displacement);
-            $('#speedometer').text(vehicleDetails.speedometer);
+            $('#speedometer').text(vehicleDetails.topSpeed);
+            $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity);
+
             $('#cubicCapacity').text(vehicleDetails.displacement);
             $('#kerbWeight').text(vehicleDetails.kerbWeight);
             $('#mileage').text(vehicleDetails.mileage);
@@ -204,7 +206,7 @@ function brandlistV1() {
                         }
                     });
 
-
+                    var btext = localStorage.getItem("buttontext");
                     var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid;
                     $('.loader-parent').show();
                     $.ajax({
@@ -232,9 +234,9 @@ function brandlistV1() {
                                   <div class="col-md-10">
                                     <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
                                   </div>
-                                  <div class="col-md-12 text-center">
-                                    <button class="btn btn-secondary">Get Diwali Offers</button>
-                                  </div>
+                                                   <div class="col-md-12 text-center">
+                                      <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
+                                    </div>
                                 </div>
                               </div>
                             </div>
