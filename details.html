@@ -198,9 +198,9 @@
                                 <div class="row mx-0">
                                     <!-- <div class="col-md-6">
 
-                                        <a href="#" style="color:grey;text-decoration: none;">images</a>
+                            <a href="#" style="color:grey;text-decoration: none;">images</a>
 
-                                    </div> -->
+                        </div> -->
 
                                 </div>
                             </div>
@@ -255,12 +255,12 @@
                         </div>
                         <div class="row mx-3 my-3">
                             <!-- <div class="col-md-2">
-                                <svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette-fill" viewBox="0 0 16 16">
-                                    <path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-                                  </svg>
-                                  <span class="ml-1">Colors</span>
+                    <svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette-fill" viewBox="0 0 16 16">
+                        <path d="M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                      </svg>
+                      <span class="ml-1">Colors</span>
 
-                            </div> -->
+                </div> -->
                             <div class="col-md-2">
                                 <svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
                                     <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
@@ -272,7 +272,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card shadow-sm my-4">
+                <div class="card shadow-sm my-4" id="pvkeyspec" style="display:none">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-auto">
@@ -312,15 +312,15 @@
                                     </div>
                                 </div>
                                 <!-- <div class="row border">
-        <div class="col-md-12 py-3">
-            Fuel Tank Capacity
-        </div>
-    </div> -->
+                        <div class="col-md-12 py-3">
+                            Fuel Tank Capacity
+                        </div>
+                    </div> -->
                                 <!-- <div class="row border">
-        <div class="col-md-12 py-3">
-            Seat Height
-        </div>
-    </div> -->
+                        <div class="col-md-12 py-3">
+                            Seat Height
+                        </div>
+                    </div> -->
 
                             </div>
                             <div class="col-md-6 col-6">
@@ -328,7 +328,7 @@
                                     <div class="col-md-12 py-3" id="cubicCapacity">
 
                                     </div>
-                                    
+
 
                                 </div>
 
@@ -351,15 +351,111 @@
                                 </div>
 
                                 <!-- <div class="row border">
-        <div class="col-md-12 py-3" id="mileage">
-            11.2 Litres
-        </div>
-    </div> -->
+                        <div class="col-md-12 py-3" id="mileage">
+                            11.2 Litres
+                        </div>
+                    </div> -->
                                 <!-- <div class="row border">
-        <div class="col-md-12 py-3" id="mileage">
-            790 mm
-        </div>
-    </div> -->
+                        <div class="col-md-12 py-3" id="mileage">
+                            790 mm
+                        </div>
+                    </div> -->
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card shadow-sm my-4" id="evkeyspec" style="display:none">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <h3 class="text-center fw-bold" id="vehicleName1"></h3>
+                            </div>
+                            <div class="col-md-auto text-start">
+                                <span class="h3 text-center fw-bold">KEY HIGHLIGHTS</span>
+                            </div>
+
+                        </div>
+                        <div class="row mx-0">
+                            <div class="col-md-6 col-6">
+                                <div class="row border">
+                                    <div class="col-md-12 py-3">
+                                        Battery Type
+                                    </div>
+                                </div>
+
+                                <div class="row border">
+                                    <div class="col-md-12 py-3">
+                                        Charging Time
+                                    </div>
+                                </div>
+                                <div class="row border">
+                                    <div class="col-md-12 py-3">
+                                        KerbWeight
+                                    </div>
+                                </div>
+                                <div class="row border">
+                                    <div class="col-md-12 py-3">
+                                        TopSpeed
+                                    </div>
+                                </div>
+                                <div class="row border">
+                                    <div class="col-md-12 py-3">
+                                        Range
+                                    </div>
+                                </div>
+                                <!-- <div class="row border">
+                        <div class="col-md-12 py-3">
+                            Fuel Tank Capacity
+                        </div>
+                    </div> -->
+                                <!-- <div class="row border">
+                        <div class="col-md-12 py-3">
+                            Seat Height
+                        </div>
+                    </div> -->
+
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <div class="row border">
+                                    <div class="col-md-12 py-3" id="batteryType">
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row border">
+                                    <div class="col-md-12 py-3" id="chargingtime">
+                                    </div>
+                                </div>
+                                <div class="row border">
+                                    <div class="col-md-12 py-3" id="kerbWeight">
+
+                                    </div>
+                                </div>
+                                <div class="row border">
+                                    <div class="col-md-12 py-3" id="speedometer">
+                                    </div>
+                                </div>
+                                <div class="row border">
+                                    <div class="col-md-12 py-3" id="range">
+                                    </div>
+                                </div>
+
+                                <!-- <div class="row border">
+                        <div class="col-md-12 py-3" id="mileage">
+                            11.2 Litres
+                        </div>
+                    </div> -->
+                                <!-- <div class="row border">
+                        <div class="col-md-12 py-3" id="mileage">
+                            790 mm
+                        </div>
+                    </div> -->
 
                             </div>
 
@@ -369,7 +465,349 @@
                 </div>
 
 
-                <div class="card mt-4">
+                <div class="card mt-4" id="pvspec" style="display:none">
+                    <div class="card-body shadow-sm">
+                        <div class="row mx-0">
+                            <div class="col-md-auto">
+                                <h4 class="text-center fw-bold" id="vehicleName2"></h4>
+                            </div>
+                            <div class="col-md-auto ps-0 text-start">
+                                <span class="h4 text-center fw-bold">Specifications</span>
+                            </div>
+
+                        </div>
+
+                        <div class="row mx-0 specs">
+                            <div class="col-md-5 col-12">
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        VehicleType
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="vehicleType">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        TopSpeed
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="topSpeed">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Range
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="Range1">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Battery type
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="batteryType">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Battery Capacity
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="batteryCapacity">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        No of Battery
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="NoOfBatter">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Motor Type
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="MotorType">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Drive type
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="DriveType">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Motor Power
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="MotorPower">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        IP Rating
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="MotorPower">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6  col-6 py-3">
+                                        Front Brake
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="frontBrake">
+                                        <!-- Disc -->
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Fuel Tank Capacity
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="fuelCapacity">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Manufacturing Warrenty
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="manufacturingWarrenty">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Fuel Filling Place
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="fuelFilling">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Braking System
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="brakingSystem">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Tyre Type
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="tyreType">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Tyre Size
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="tyreSize">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Wheelbase
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="wheelbase">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Service Indicator
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="serviceIndicator">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Low Fuel Indicator
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="lowFuelIndicator">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Engine kill Switch
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="kilswitch">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Colours
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="color">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Bike Information
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="bikeInfor">
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-12 py-3">
+        Mileage
+    </div>
+    <div class="col-md-12 py-3">
+        Mileage
+    </div>
+    <div class="col-md-12 py-3">
+        Mileage
+    </div> -->
+
+
+
+                            </div>
+                            <div class="col-md-5 col-12">
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Displacement
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="displacement">
+                                    </div>
+                                </div>
+                               
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        No. of Cylinders
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Max Torque
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="maxTorque">
+                                        <!-- 10.87 PS @7500 RPM -->
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Rear Brake
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="rearBrake">
+                                        <!-- Drum -->
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Body
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="body">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        GrountClearence
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="grountClearence">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        No of Gears
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="noofGears">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Head Light
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="headLight">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Under seat Storage
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="underseatStorage">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Clock
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="clock">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Mobile Connectivity
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="mobileConnectivity">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Gps & Navigation
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="gpsandNavigation">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        USB Charging Port
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="usbChargingPort">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Additional Features
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="additionalFeatures">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        EX SHOW ROOM PRICE
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="exshowroomPrize1">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Over All Ratings
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="overallRatings">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card mt-4" id="evspec" style="display:none">
                     <div class="card-body shadow-sm">
                         <div class="row mx-0">
                             <div class="col-md-auto">
@@ -509,14 +947,14 @@
                                     </div>
                                 </div>
                                 <!-- <div class="col-md-12 py-3">
-                                    Mileage
-                                </div>
-                                <div class="col-md-12 py-3">
-                                    Mileage
-                                </div>
-                                <div class="col-md-12 py-3">
-                                    Mileage
-                                </div> -->
+                        Mileage
+                    </div>
+                    <div class="col-md-12 py-3">
+                        Mileage
+                    </div>
+                    <div class="col-md-12 py-3">
+                        Mileage
+                    </div> -->
 
 
 
@@ -664,8 +1102,6 @@
                     </div>
 
                 </div>
-
-
 
             </div>
         </section>
