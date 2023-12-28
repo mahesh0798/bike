@@ -72,51 +72,63 @@ function brandlistV1() {
             sessionStorage.setItem('isSamePrize',isSamePrize)
             allimgvechileid = vehicleDetails.vechileid;
             brandidpin = vehicleDetails.brandid;
-            $('#vehicleName').text(vehicleDetails.vehiclename);
-            $('#vehicleName1').text(vehicleDetails.vehiclename);
-            $('#vehicleName2').text(vehicleDetails.vehiclename);
-            $('#vehicleName3').text(vehicleDetails.vehiclename + " Price");
-            $('#vehicleName4').text(vehicleDetails.vehiclename);
-            $('#vehicleType').text(vehicleDetails.vehicleType);
-            $('#engineType').text(vehicleDetails.engineType);
-            $('#topSpeed').text(vehicleDetails.topSpeed +" KMPL");
-            $('#grountClearence').text(vehicleDetails.grountClearence);
-            $('#body').text(vehicleDetails.body);
-            $('#manufacturingWarrenty').text(vehicleDetails.manufacturingWarrenty);
-            $('#fuelFilling').text(vehicleDetails.fuelFilling);
-            $('#brakingSystem').text(vehicleDetails.brakingSystem);
-            $('#tyreType').text(vehicleDetails.tyreType);
-            $('#tyreSize').text(vehicleDetails.tyreSize);
-            $('#wheelbase').text(vehicleDetails.wheelbase);
-            $('#noofGears').text(vehicleDetails.noofGears);
-            $('#headLight').text(vehicleDetails.headLight);
-            $('#underseatStorage').text(vehicleDetails.underseatStorage);
-            $('#clock').text(vehicleDetails.clock);
-            $('#mobileConnectivity').text(vehicleDetails.mobileConnectivity);
-            $('#serviceIndicator').text(vehicleDetails.serviceIndicator);
-            $('#lowFuelIndicator').text(vehicleDetails.lowFuelIndicator);
-            $('#gpsandNavigation').text(vehicleDetails.gpsandNavigation);
-            $('#usbChargingPort').text(vehicleDetails.usbChargingPort);
-            $('#kilswitch').text(vehicleDetails.kilswitch);
-            $('#color').text(vehicleDetails.color);
-            $('#bikeInfor').text(vehicleDetails.bikeInfor);
-            $('#additionalFeatures').text(vehicleDetails.additionalFeatures);
-            $('#exshowroomPrize1').text(vehicleDetails.exshowroomPrize);
-            $('#overallRatings').text(vehicleDetails.overallRatings);
-            $('#displacement').text(vehicleDetails.displacement + " CC");
-            $('#speedometer').text(vehicleDetails.topSpeed+" KMPH");
-            $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity +"L");
 
-            $('#cubicCapacity').text(vehicleDetails.displacement + " CC");
-            $('#kerbWeight').text(vehicleDetails.kerbWeight +" KG");
-            $('#mileage').text(vehicleDetails.mileage +" KMPL");
-            $('#mileage1').text(vehicleDetails.mileage +" KMPL");
-            $('#maxPower').text(vehicleDetails.maxPower);
-            $('#maxTorque').text(vehicleDetails.maxTorque);
-            $('#frontBrake').text(vehicleDetails.frontBrake);
-            $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
-            $('#rearBrake').text(vehicleDetails.rearBrake);
-            $('#fuelCapacity').text(vehicleDetails.fuelTankCapacity);
+            if (j == true) {
+                $('#pvkeyspec').show();
+                $('#pvspec').show();
+                $('#vehicleName').text(vehicleDetails.vehiclename);
+                $('#vehicleName1').text(vehicleDetails.vehiclename);
+                $('#vehicleName2').text(vehicleDetails.vehiclename);
+                $('#vehicleName3').text(vehicleDetails.vehiclename + " Price");
+                $('#vehicleName4').text(vehicleDetails.vehiclename);
+                $('#vehicleType').text(vehicleDetails.vehicleType);
+                $('#engineType').text(vehicleDetails.engineType);
+                $('#topSpeed').text(vehicleDetails.topSpeed + " KMPL");
+                $('#grountClearence').text(vehicleDetails.grountClearence);
+                $('#body').text(vehicleDetails.body);
+                $('#manufacturingWarrenty').text(vehicleDetails.manufacturingWarrenty);
+                $('#fuelFilling').text(vehicleDetails.fuelFilling);
+                $('#brakingSystem').text(vehicleDetails.brakingSystem);
+                $('#tyreType').text(vehicleDetails.tyreType);
+                $('#tyreSize').text(vehicleDetails.tyreSize);
+                $('#wheelbase').text(vehicleDetails.wheelbase);
+                $('#noofGears').text(vehicleDetails.noofGears);
+                $('#headLight').text(vehicleDetails.headLight);
+                $('#underseatStorage').text(vehicleDetails.underseatStorage);
+                $('#clock').text(vehicleDetails.clock);
+                $('#mobileConnectivity').text(vehicleDetails.mobileConnectivity);
+                $('#serviceIndicator').text(vehicleDetails.serviceIndicator);
+                $('#lowFuelIndicator').text(vehicleDetails.lowFuelIndicator);
+                $('#gpsandNavigation').text(vehicleDetails.gpsandNavigation);
+                $('#usbChargingPort').text(vehicleDetails.usbChargingPort);
+                $('#kilswitch').text(vehicleDetails.kilswitch);
+                $('#color').text(vehicleDetails.color);
+                $('#bikeInfor').text(vehicleDetails.bikeInfor);
+                $('#additionalFeatures').text(vehicleDetails.additionalFeatures);
+                $('#exshowroomPrize1').text(vehicleDetails.exshowroomPrize);
+                $('#overallRatings').text(vehicleDetails.overallRatings);
+                $('#displacement').text(vehicleDetails.displacement + " CC");
+                $('#speedometer').text(vehicleDetails.topSpeed + " KMPH");
+                $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity + "L");
+
+                $('#cubicCapacity').text(vehicleDetails.displacement + " CC");
+                $('#kerbWeight').text(vehicleDetails.kerbWeight + " KG");
+                $('#mileage').text(vehicleDetails.mileage + " KMPL");
+                $('#mileage1').text(vehicleDetails.mileage + " KMPL");
+                $('#maxPower').text(vehicleDetails.maxPower);
+                $('#maxTorque').text(vehicleDetails.maxTorque);
+                $('#frontBrake').text(vehicleDetails.frontBrake);
+                $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
+                $('#rearBrake').text(vehicleDetails.rearBrake);
+                $('#fuelCapacity').text(vehicleDetails.fuelTankCapacity);
+            }
+            else {
+                $('#evkeyspec').show();
+                $('#evspec').show();
+            }
+
+            
+
             $('#first').hide();
             $('#second').hide();
             $('#three').show();
@@ -142,7 +154,8 @@ function brandlistV1() {
                                   <div class="col border" id="vehiclePriceCol">Price</div>
                               </div>
                               <div class="row mx-0 mb-1">
-                                  <div class="col border" id="vehicleColor" style="background-color:${item.colour};"></div>
+                                  <div class="col border" id="vehicleColor" >
+                                    <div class="circle" style="background-color:${item.colour};"></div></div>
                                   <div class="col border" id="vehicleName">${item.name}</div>
                                   <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
                               </div>
