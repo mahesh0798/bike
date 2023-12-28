@@ -14,6 +14,8 @@ var addline3 = ""
 var addimg = "";
 var btnall = "";
 let clickedCityId = null;
+var ismulticolor11=false;
+var isSamePrize11 =false;
 allimgvechileid = ""
 var brandidpin = '';
 $('#first').show();
@@ -65,7 +67,9 @@ function brandlistV1() {
             var vehicleDetails = data[0];// data.find(item => item.vechileid === i);
             var bikemodeid = data[0].bikeModelid;
             var ismulticolor = vehicleDetails.ismulticolor;
+            sessionStorage.setItem('ismulticolor',ismulticolor)
             var isSamePrize = vehicleDetails.isSamePrize;
+            sessionStorage.setItem('isSamePrize',isSamePrize)
             allimgvechileid = vehicleDetails.vechileid;
             brandidpin = vehicleDetails.brandid;
             $('#vehicleName').text(vehicleDetails.vehiclename);
@@ -129,7 +133,7 @@ function brandlistV1() {
 
                             res.forEach(function (item, index) {
                                 var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
-
+                                $('#vehicleName11'+index).val(item.name)
                                 carouselContent += `
                           <div class="carousel-item ${activeClass}">
                               <div class="row mx-0">
@@ -327,7 +331,38 @@ function allimg() {
         }
     });
 }
-
+function allcolor (){
+            var colorPopUp = new bootstrap.Modal(document.getElementById('colorPopUp'), {
+                backdrop: 'static',
+                keyboard: false
+            })
+            colorPopUp.show()
+            var ismulticolor=sessionStorage.getItem('ismulticolor')
+            var isSamePrize=sessionStorage.getItem('isSamePrize')
+         var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + allimgvechileid + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+                $.ajax({
+                    url: apiurl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#colormsg").empty()
+                        var $carousel = ""
+                        var $carousel = $("#colormsg");
+                        for (var i = 0; i < data.length; i++) {
+                            var card = data[i];
+                            var $card = `
+                            <div class="row mx-0 ">
+                                    <div class="col border" id="vehicleColor" style="background-color:${card.colour};"></div>
+                                    <div class="col border" id="vehicleName">${card.name}</div>
+                                    <div class="col border" id="vehiclePrice">${card.price || 'N/A'}</div>
+                            </div>`;
+            
+                            $carousel.append($card);
+                        
+                    }
+                }})
+               
+}
 
 function backstage() {
     $('#first').hide();
