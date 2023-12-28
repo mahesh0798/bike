@@ -73,7 +73,7 @@ function brandlistV1() {
             allimgvechileid = vehicleDetails.vechileid;
             brandidpin = vehicleDetails.brandid;
 
-            if (j == true) {
+            if (j == "false") {
                 $('#pvkeyspec').show();
                 $('#pvspec').show();
                 $('#vehicleName').text(vehicleDetails.vehiclename);
