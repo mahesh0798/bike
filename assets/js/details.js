@@ -66,6 +66,9 @@ function brandlistV1() {
             var bikemodeid = data[0].bikeModelid;
             var ismulticolor = vehicleDetails.ismulticolor;
             var isSamePrize = vehicleDetails.isSamePrize;
+            sessionStorage.setItem('ismulticolor', ismulticolor);
+            sessionStorage.setItem('isSamePrize', isSamePrize);
+
             allimgvechileid = vehicleDetails.vechileid;
             brandidpin = vehicleDetails.brandid;
 
@@ -370,7 +373,8 @@ function allcolor (){
                     var card = data[i];
                     var $card = `
                     <div class="row mx-0 ">
-                            <div class="col border" id="vehicleColor" style="background-color:${card.colour};"></div>
+                            <div class="col border" id="vehicleColor" >
+                              <div class="circle" style="background-color:${card.colour};"></div></div>
                             <div class="col border" id="vehicleName">${card.name}</div>
                             <div class="col border" id="vehiclePrice">${card.price || 'N/A'}</div>
                     </div>`;

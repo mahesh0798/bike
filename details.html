@@ -215,7 +215,7 @@
                                             <div class="col-md-6 my-1 text-center d-none" id="pinid"></div>
                                         </div>
                                         <div class="row mx-0">
-                                            <div class="col-md-6 my-1"><b>Show prices in City</b></div>
+                                            <div class="col-md-6 my-1"><b>ShowRooms in My City</b></div>
                                             <div class="col-md-6 my-1 text-center"></div>
                                         </div>
 
@@ -229,9 +229,10 @@
 
                                 <div class="row mx-0 my-5">
                                     <div class="col-md-4">
-                                        <h3 class="pl-2" id="exshowroomPrize"></h3>
-                                        <p class="pl-2"> Avg. Ex-Showroom Price</p>
-
+                                        <!--<h3 class="pl-2" id="exshowroomPrize">
+                                        </h3>
+                                        <p class="pl-2"> Avg. Ex-Showroom Price</p>-->
+                                        <h4> <b>₹<span id="exshowroomPrize"></span></b> <span class="f-14">Ex showroom Price onwards<span></h4>
                                     </div>
 
 
@@ -304,27 +305,32 @@
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         CubicCapacity
+                                        <img src='assets/images/engine-color.png' style='width:20px'>
                                     </div>
                                 </div>
 
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         Mileage
+                                        <img src="assets/images/milage-icon.png" style="width:20px">
                                     </div>
                                 </div>
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         KerbWeight
+                                        <img src="assets/images/piston.png" style="width:20px">
                                     </div>
                                 </div>
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         TopSpeed
+                                        <img src="assets/images/mileage-color.png" style="width:20px">
                                     </div>
                                 </div>
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         FualTankCapacity
+                                        <img src="assets/images/milage-icon.png" style="width:20px">
                                     </div>
                                 </div>
                                 <!-- <div class="row border">
@@ -1325,8 +1331,8 @@
                                     <label class="form-label" for="form12">Search City</label>
                                   </div> -->
                                 <div class="form-outline" data-mdb-input-init>
-                                    <label class="form-label" for="form12">Search City</label>
-                                    <input type="text" id="form12" autocomplete="off" class="form-control" onkeyup="fetchPincode()" />
+                                    <!--<label class="form-label" for="form12">Search City</label>-->
+                                    <input type="text" id="form12" autocomplete="off" class="form-control" onkeyup="fetchPincode()" placeholder="Type Your Pincode here" />
                                     <div id="autocompleteResults"></div>
                                 </div>
 
@@ -1335,8 +1341,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-outline-secondary text-white purple1" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
