@@ -75,7 +75,7 @@ function brandlistV1() {
             $('#vehicleName4').text(vehicleDetails.vehiclename);
             $('#vehicleType').text(vehicleDetails.vehicleType);
             $('#engineType').text(vehicleDetails.engineType);
-            $('#topSpeed').text(vehicleDetails.topSpeed);
+            $('#topSpeed').text(vehicleDetails.topSpeed +" KMPL");
             $('#grountClearence').text(vehicleDetails.grountClearence);
             $('#body').text(vehicleDetails.body);
             $('#manufacturingWarrenty').text(vehicleDetails.manufacturingWarrenty);
@@ -97,16 +97,16 @@ function brandlistV1() {
             $('#color').text(vehicleDetails.color);
             $('#bikeInfor').text(vehicleDetails.bikeInfor);
             $('#additionalFeatures').text(vehicleDetails.additionalFeatures);
-            $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
+            $('#exshowroomPrize1').text(vehicleDetails.exshowroomPrize);
             $('#overallRatings').text(vehicleDetails.overallRatings);
-            $('#displacement').text(vehicleDetails.displacement);
-            $('#speedometer').text(vehicleDetails.topSpeed);
-            $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity);
+            $('#displacement').text(vehicleDetails.displacement + " CC");
+            $('#speedometer').text(vehicleDetails.topSpeed+" KMPH");
+            $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity +"L");
 
-            $('#cubicCapacity').text(vehicleDetails.displacement);
-            $('#kerbWeight').text(vehicleDetails.kerbWeight);
-            $('#mileage').text(vehicleDetails.mileage);
-            $('#mileage1').text(vehicleDetails.mileage);
+            $('#cubicCapacity').text(vehicleDetails.displacement + " CC");
+            $('#kerbWeight').text(vehicleDetails.kerbWeight +" KG");
+            $('#mileage').text(vehicleDetails.mileage +" KMPL");
+            $('#mileage1').text(vehicleDetails.mileage +" KMPL");
             $('#maxPower').text(vehicleDetails.maxPower);
             $('#maxTorque').text(vehicleDetails.maxTorque);
             $('#frontBrake').text(vehicleDetails.frontBrake);
