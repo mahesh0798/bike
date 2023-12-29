@@ -177,7 +177,7 @@ function brandlistV1() {
             }
 
 
-            var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + i;
+            var apiurl = baseUrl + "VehicleDetails/VehicleDetailImages?Vehicleid=" + i;
             $('.loader-parent').show();
             $.ajax({
                 url: apiurl,
@@ -346,6 +346,9 @@ function allimg() {
         }
     });
 }
+
+
+
 
 
 function backstage() {

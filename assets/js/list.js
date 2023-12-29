@@ -74,7 +74,39 @@ function brandselectV1() {
             var carouselContentsec = "";
             data.forEach(function (vehicle) {
                 console.log(vehicle)
-                carouselContentsec += `
+                if (j = "true") {
+                    
+                    carouselContentsec += `
+              <div class="item">
+                  <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vehicleId},${vehicle.isEv})">
+                      <div class="row">
+                          <div class="col-md-3 col-12">
+                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
+                          </div>
+                          <div class="col-md-6 col-12">
+                              <div class="card-body px-md-2">
+                                  <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
+                                  <p class="card-text mt-3 col-md-12"> <img src='assets/images/engine-color.png' style='width:20px'> ${vehicle.displacement} CC | <img src='assets/images/milage-icon.png' style='width:20px'> ${vehicle.mileage} KMPL | <img src='assets/images/piston.png' style='width:20px'> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
+                                  <h4 class="col-md-12"> <b>₹ ${vehicle.exshowroomPrize}</b> <span class="f-14">Ex showroom Price onwards<span></h4>
+                                  <a href="#" class="btn btn-outline-secondary text-white purple1 col-md-6">${btext}</a>
+                              </div>
+                          </div>
+                          <div class="col-md-3 col-12">
+                              <div class="card-body ">
+                                  <table class="table table-bordered">
+                                      <tr>
+                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'} </span></td>
+                                         
+                                      </tr>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>`;
+
+                } else {
+                    carouselContentsec += `
               <div class="item">
                   <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
@@ -102,6 +134,8 @@ function brandselectV1() {
                       </div>
                   </div>
               </div>`;
+                }
+                
             });
 
             $("#bikesecond").html(carouselContentsec);
