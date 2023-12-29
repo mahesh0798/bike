@@ -472,3 +472,10 @@ function fetchPincode() {
         }
     })
 }
+function listoffer (){
+    var pinlist = new bootstrap.Modal(document.getElementById('pinlist'), {
+        backdrop: 'static',
+        keyboard: false
+    })
+    pinlist.show()
+}

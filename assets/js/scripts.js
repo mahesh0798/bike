@@ -1217,10 +1217,10 @@ $(document).ready(function () {
                   </div>
                   <div class="row mx-0" style="padding-top: 180px;">
                     <div class="col-md-12">
-                      <p class="mb-0">${filteredData[i].vehicleName}</p>
+                      <p class="mb-0 text-center mt-2">${filteredData[i].vehicleName}</p>
                     </div>
-                    <div class="col-md-10">
-                      <p class="mb-0">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</p>
+                    <div class="col-md-12">
+                      <p class="mb-2 text-center mt-2">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</p>
                     </div>
                     <div class="col-md-12 text-center">
                       <button class="btn btn-outline-secondary text-white purple1">${btext}</button>

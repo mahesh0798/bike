@@ -118,7 +118,7 @@
                                         <input type="search" id="form1" class="form-control w_80" placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" />
 
                                         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-                                        <button type="button" class="btn btn-outline-secondary text-white purple1 d-md-block d-none">
+                                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4 d-md-block d-none">
                                             <img src="./assets/images/Search.svg" style="height:23px">
                                         </button>
                                     </form>
@@ -188,7 +188,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card border_color">
                     <div class="card-body p-0 shadow-sm">
                         <div class="row ">
                             <div class="col-md-6">
@@ -247,7 +247,7 @@
                                 <div class="row mx-0 mt-5 mb-1">
                                     <div class="col-md-8">
                                         <!--<button class="offer-btn rounded-pill" type="button">Get Diwali Offers</button>-->
-                                        <a href="#" class="btn btn-outline-secondary text-white purple1 col-md-6" id="debtn"></a>
+                                        <a  class="btn btn-outline-secondary text-white purple1 px-2 col-md-6" id="debtn" onclick="listoffer()"></a>
                                     </div>
 
                                 </div>
@@ -290,7 +290,7 @@
                     </div>
                 </div>
                 <div class="card shadow-sm my-4" id="pvkeyspec" style="display:none">
-                    <div class="card-body">
+                    <div class="card-body border_color">
                         <div class="row">
                             <div class="col-md-auto">
                                 <h3 class="text-center fw-bold" id="vehicleName1"></h3>
@@ -391,7 +391,7 @@
                 </div>
 
                 <div class="card shadow-sm my-4" id="evkeyspec" style="display:none">
-                    <div class="card-body">
+                    <div class="card-body border_color">
                         <div class="row">
                             <div class="col-md-auto">
                                 <h3 class="text-center fw-bold" id="vehicleName1"></h3>
@@ -488,7 +488,7 @@
 
 
                 <div class="card mt-4" id="pvspec" style="display:none">
-                    <div class="card-body shadow-sm">
+                    <div class="card-body shadow-sm border_color">
                         <div class="row mx-0">
                             <div class="col-md-auto">
                                 <h4 class="text-center fw-bold" id="vehicleName2"></h4>
@@ -1310,7 +1310,36 @@
                         </div> -->
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-outline-secondary text-white purple1"                                    
+                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4 "                                    
+                        data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="modal fade" id="pinlist" role="dialog">
+            <div class="modal-dialog login-dialog" style="max-width: 900px;margin-top: 11rem;">
+                <div class="modal-content">
+                    <div class="modal-header" style="padding-bottom: 0 !important">
+                        <h3>Please tell us your city</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                       
+                        <div class="col-md-12">
+                            <!-- <div class="form-outline">
+                                <input type="text" id="form12" class="form-control border" onkeyup="fetchPincode()"/>
+                                <label class="form-label" for="form12">Search City</label>
+                              </div> -->
+                            <div class="form-outline" data-mdb-input-init>
+                                <!--<label class="form-label" for="form12">Search City</label>-->
+                                <input type="text" id="form123" autocomplete="off" class="form-control" onkeyup="fetchPincode1()" placeholder="Type Your Pincode here" />
+                                <div id="autocompleteResults1"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4"                                    
                         data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -1341,7 +1370,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary text-white purple1" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -1415,7 +1444,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button type="button" class="btn btn-danger rounded-pill px-5" onclick="backstage()">
+                <button type="button" class="btn btn-danger rounded-pill mt-3 px-5" onclick="backstage()">
                     Back
                 </button>
             </div>
