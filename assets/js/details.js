@@ -76,8 +76,8 @@ function brandlistV1() {
                 $('#pvkeyspec').show();
                 $('#pvspec').show();
                 $('#vehicleName').text(vehicleDetails.vehiclename);
-                $('#vehicleName1').text(vehicleDetails.vehiclename);
-                $('#vehicleName2').text(vehicleDetails.vehiclename);
+                $('#vehicleName1').text(vehicleDetails.vehiclename + " KEY HIGHLIGHTS");
+                $('#vehicleName2').text(vehicleDetails.vehiclename + " Specifications");
                 $('#vehicleName3').text(vehicleDetails.vehiclename + " Price");
                 $('#vehicleName4').text(vehicleDetails.vehiclename);
                 $('#vehicleType').text(vehicleDetails.vehicleType);
@@ -133,6 +133,7 @@ function brandlistV1() {
             $('#three').show();
             $('.loader-parent').hide();
             if (ismulticolor && !isSamePrize) {
+                $('#allcolor').show();
                 var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
                 $.ajax({
                     url: apiurl,
@@ -245,10 +246,10 @@ function brandlistV1() {
                                 </div>
                                 <div class="row mx-0" style="padding-top: 180px;">
                                   <div class="col-md-12">
-                                    <h5>${data[i].vehiclename}</h5>
+                                    <h5 class="text-center">${data[i].vehiclename}</h5>
                                   </div>
-                                  <div class="col-md-10">
-                                    <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
+                                  <div class="col-md-12">
+                                    <h5 class="text-center">${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
                                   </div>
                                                    <div class="col-md-12 text-center">
                                       <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
@@ -330,8 +331,10 @@ function allimg() {
             data.forEach(function (vehicle) {
                 console.log(vehicle)
                 carouselContentsec += `
-                 
+                
+                <div class="col-md-6 mt-4 d-flex justify-content-center">
                       <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
+                </div>
       `;
             });
 
@@ -383,7 +386,6 @@ function allcolor (){
                 
             }
         }})
-       
 }
 function fetchPincode() {
     const city = document.getElementById('form12').value;

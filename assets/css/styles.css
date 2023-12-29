@@ -247,6 +247,12 @@ h4{
         width: 44%;
         padding: 20px;
     }
+    .w_80 {
+        width: 100% !important;
+    }
+    .bike-logo{
+        width: 100px !important;
+    }
 	.index-class1_0{
         display: flex; 
         gap: 20px; 
@@ -522,4 +528,13 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
   @keyframes wave {
     from { transform: rotate(0deg);}
     from { transform: rotate(360deg);}
+  }
+  .headdesign{
+  background: linear-gradient(94deg, rgb(48 32 116) 2%, rgb(48 32 116) 11%,rgb(198 30 86) 82%, rgb(198 30 86) 96%);;
+    width: 100%;
+    border: 2px solid #645353;
+    padding: 10px;
+    /* border-top-right-radius: 150px 61px; */
+    color: white;
+    margin-left: 2px !important;
   }
