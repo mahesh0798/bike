@@ -114,6 +114,8 @@ function displayAutocompleteResults(results) {
         autocompleteResults.appendChild(noResults);
         return;
     }
+    localStorage.setItem("SearchPincode", results[0].pincode);
+   
 
     results.forEach(result => {
         const option = document.createElement('div');
@@ -123,7 +125,12 @@ function displayAutocompleteResults(results) {
             document.getElementById('form12').value = result.city;
             document.getElementById('pincodeResult').textContent = result.pincode;
             clickedCityId = result.pincodeId;
-            document.getElementById('pinCity').innerHTML = `<b>${result.city}</b>`;
+            
+            document.getElementById('pinCity').innerHTML = `<b>Show Rooms In ${result.city}</b>`;
+          
+
+            $('#SearchShowrom').hide();
+
             console.log(document.getElementById("pinCity"), "pincode and city");
             console.log("Clicked city ID:", clickedCityId);
             if (clickedCityId && brandidpin) {
@@ -136,6 +143,9 @@ function displayAutocompleteResults(results) {
                     success: function (data) {
                         $('.loader-parent').hide();
                         $("#showroom").empty();
+
+                       
+
                         var $carousel = ""
                         var $carousel = $("#showroom");
                         for (var i = 0; i < data.length; i++) {

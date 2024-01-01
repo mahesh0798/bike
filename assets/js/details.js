@@ -29,6 +29,11 @@ AOS.init()
 $(document).ready(function () {
     addsImg();
     brandlistV1();
+  
+    var IsPincode = localStorage.getItem("SearchPincode");
+    if (IsPincode) {
+        fetchPincodeCache();
+    }
 });
 
 function frontpage() {
@@ -69,8 +74,19 @@ function brandlistV1() {
             sessionStorage.setItem('ismulticolor', ismulticolor);
             sessionStorage.setItem('isSamePrize', isSamePrize);
 
-            allimgvechileid = vehicleDetails.vechileid;
+            if (j == "true") {
+                allimgvechileid = vehicleDetails.vehicleId;
+            }
+            else {
+                allimgvechileid = vehicleDetails.vechileid;
+            }
+          
+            
+
             brandidpin = vehicleDetails.brandid;
+
+            $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
+            $('#overallRatings,#overallRatingsPv').text(vehicleDetails.overallRatings);
 
             if (j == "false") {
                 $('#pvkeyspec').show();
@@ -105,7 +121,7 @@ function brandlistV1() {
                 $('#bikeInfor').text(vehicleDetails.bikeInfor);
                 $('#additionalFeatures').text(vehicleDetails.additionalFeatures);
                 $('#exshowroomPrize1').text(vehicleDetails.exshowroomPrize);
-                $('#overallRatings').text(vehicleDetails.overallRatings);
+              
                 $('#displacement').text(vehicleDetails.displacement + " CC");
                 $('#speedometer').text(vehicleDetails.topSpeed + " KMPH");
                 $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity + "L");
@@ -117,11 +133,84 @@ function brandlistV1() {
                 $('#maxPower').text(vehicleDetails.maxPower);
                 $('#maxTorque').text(vehicleDetails.maxTorque);
                 $('#frontBrake').text(vehicleDetails.frontBrake);
-                $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
+             
                 $('#rearBrake').text(vehicleDetails.rearBrake);
                 $('#fuelCapacity').text(vehicleDetails.fuelTankCapacity);
             }
             else {
+
+                $('#EVvehicleType').text(vehicleDetails.vehicleType);
+                $('#EVtopSpeed').text(vehicleDetails.topSpeed + " KMPL");
+                $('#range').text(vehicleDetails.range + " M");
+                $('#Range1').text(vehicleDetails.range + " M");
+                $('#batteryType').text(vehicleDetails.batteryType);
+                $('#EVbatteryType').text(vehicleDetails.batteryType);
+                $('#chargingtime').text(vehicleDetails.chargingTime + " Ah");
+                $('#kerbWeightEv').text(vehicleDetails.kerbWeight + " KG");
+                $('#speedometerEv').text(vehicleDetails.topSpeed + " KMPH");
+                $('#EVbatteryCapacity').text(vehicleDetails.batteryCapacity);
+                $('#EVNoOfBatter').text(vehicleDetails.numberOfBatteries);
+                $('#EVMotorType').text(vehicleDetails.motorType);
+                $('#EVDriveType').text(vehicleDetails.driverType);
+                $('#EVMotorPower').text(vehicleDetails.motorPower);
+
+                $('#EVIPRating').text(vehicleDetails.ipRating);
+
+                $('#EVChargingTime').text(vehicleDetails.chargingTime);
+                $('#FastChargingTime').text(vehicleDetails.fastChargingTime);
+                $('#EVCharger').text(vehicleDetails.charger);
+                $('#EVKerbWeight').text(vehicleDetails.kerbWeight);
+                $('#EVLoadCarringCapacity').text(vehicleDetails.loadCarryingCapacity);
+                $('#EVMotorTorque').text(vehicleDetails.motorTorque);
+                $('#EVGrountClearence').text(vehicleDetails.groundClearance);
+
+                $('#EvBody').text(vehicleDetails.body);
+                $('#EVFrontBrake').text(vehicleDetails.frontBrake);
+                $('#EVRearBrake').text(vehicleDetails.rearBrake);
+                $('#EVTyreType').text(vehicleDetails.tyreType);
+
+                $('#EVTyreSize').text(vehicleDetails.tyreSize);
+                $('#EVWheelbase').text(vehicleDetails.wheelbase);
+                $('#EVNoofGears').text(vehicleDetails.numberOfGears);
+                $('#EVRemoteControl').text(vehicleDetails.remoteControl);
+
+                $('#EVAntiTheftAlarm').text(vehicleDetails.antiTheftAlarm);
+                $('#EvTouchScreenDisplay').text(vehicleDetails.touchScreenDisplay);
+                $('#EVSpeedometer').text(vehicleDetails.speedometer);
+                $('#EVHeadLight').text(vehicleDetails.headLight);
+                $('#EVUnderseatStorage').text(vehicleDetails.underseatStorage);
+                $('#EVClock').text(vehicleDetails.clock);
+
+                $('#EVMobileConnectivity').text(vehicleDetails.mobileConnectivity);
+
+                $('#EVServiceIndicator').text(vehicleDetails.serviceIndicator);
+                $('#EVStarting').text(vehicleDetails.starting);
+                $('#EVGps').text(vehicleDetails.gpsandNavigation);
+                $('#EVUSB').text(vehicleDetails.usbChargingPort);
+
+                $('#EVAdditionalFeatures').text(vehicleDetails.additionalFeatures);
+                $('#EVColor').text(vehicleDetails.color);
+                $('#EVBikeInformation').text(vehicleDetails.bikeInfor);
+
+                $('#EVRidingModes').text(vehicleDetails.rididngModes);
+                $('#EVBatteryWarrenty').text(vehicleDetails.batteryWarranty);
+                $('#EVMotorWarrenty').text(vehicleDetails.motorWarranty);
+
+                $('#EVChargerWarrenty').text(vehicleDetails.chargerWarranty);
+                $('#EVControllerWarrenty').text(vehicleDetails.controllerWarranty);
+                $('#EVReverseMode').text(vehicleDetails.reverseMode);
+
+                $('#EVCruiseControl').text(vehicleDetails.cruiseControl);
+                $('#EVLowBatteryIndicator').text(vehicleDetails.lowBatteryIndicator);
+                $('#EVexshowroomPrize1').text(vehicleDetails.exshowroomPrize);
+                $('#EVoverallRatings').text(vehicleDetails.overallRatings);
+                
+                $('#EVvehicleName1').text(vehicleDetails.vehiclename + " KEY HIGHLIGHTS");
+                $('#EVvehicleName2').text(vehicleDetails.vehiclename + " Specifications");
+                $('#EVvehicleName3').text(vehicleDetails.vehiclename + " Price");
+                $('#vehicleName4').text(vehicleDetails.vehiclename);
+                $('#vehicleType').text(vehicleDetails.vehicleType);
+
                 $('#evkeyspec').show();
                 $('#evspec').show();
             }
@@ -175,7 +264,52 @@ function brandlistV1() {
                     }
                 });
             }
+            else if (ismulticolor) {
+                $('#allcolor').show();
 
+                var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + i + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+                $.ajax({
+                    url: apiurl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res && res.length > 0) {
+                            var carouselContent = '<div id="carouselExample" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">';
+
+                            res.forEach(function (item, index) {
+                                var activeClass = index === 0 ? 'active' : ''; // Set active class for the first item
+
+                                carouselContent += `
+                          <div class="carousel-item ${activeClass}">
+                              <div class="row mx-0">
+                                  <div class="col border">Color</div>
+                                  <div class="col border">Name</div>
+                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                              </div>
+                              <div class="row mx-0 mb-1">
+                                  <div class="col border" id="vehicleColor" >
+                                    <div class="circle" style="background-color:${item.colour};"></div></div>
+                                  <div class="col border" id="vehicleName">${item.name}</div>
+                                  <div class="col border" id="vehiclePrice">${item.price || 'Same Price'}</div>
+                              </div>
+                          </div>`;
+                            });
+
+                            carouselContent += '</div></div>'; // Close carousel-inner and carousel
+
+                            $('#vehicle-details').html(carouselContent);
+
+                            // Activate the carousel
+                            $('#carouselExample').carousel();
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error fetching data:', error);
+                    }
+                });
+
+            }
+            
 
             var apiurl = baseUrl + "VehicleDetails/VehicleDetailImages?Vehicleid=" + i;
             $('.loader-parent').show();
@@ -232,11 +366,13 @@ function brandlistV1() {
                         dataType: 'json',
                         success: function (data) {
                             $('.loader-parent').hide();
+                            $('#bikePrice').empty;
                             var carouselItems = "";
-                            for (var i = 0; i < data.length; i++) {
+                            for (var i = 0; i < data.length; i++)
+                            {
                                 carouselItems += `
                         <div class="item">
-                          <div class="container mt-6" style="position: relative;" >
+                          <div class="container mt-6" style="position: relative;" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
                             <div class="card border-top-0">
                               <div class="card-body shadow">
                                 <div class="row mx-0">
@@ -259,6 +395,7 @@ function brandlistV1() {
                             </div>
                           </div>
                         </div>`;
+
                             }
 
                             // Update the carousel with the new content
@@ -314,6 +451,12 @@ function brandlistV1() {
     })
 }
 
+function Varients(i,j)
+{
+    location.href = "./details.html?Vehicleid=" + i + '&IsEv=' + j;
+}
+
+
 function allimg() {
     var apiurl = baseUrl + "VehicleDetails/Images?Vehicleid=" + allimgvechileid;
     $('.loader-parent').show();
@@ -356,6 +499,7 @@ function backstage() {
     $('#second').hide();
     $('#three').show();
     $('#four').hide();
+    $('html,body').scrollTop(0);
 }
 
 function allcolor (){
@@ -382,7 +526,7 @@ function allcolor (){
                             <div class="col border" id="vehicleColor" >
                               <div class="circle" style="background-color:${card.colour};"></div></div>
                             <div class="col border" id="vehicleName">${card.name}</div>
-                            <div class="col border" id="vehiclePrice">${card.price || 'N/A'}</div>
+                            <div class="col border" id="vehiclePrice">${card.price || 'Same Price'}</div>
                     </div>`;
     
                     $carousel.append($card);
@@ -411,6 +555,35 @@ function fetchPincode() {
         }
     })
 }
+function fetchPincodeCache() {
+    const city = localStorage.getItem("SearchPincode");
+    var apiurl = baseUrl + "Home/GetCity?Key=" + city;
+
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+            displayAutocompleteResults(data);
+
+            if (matchingPincode) {
+                const pincode = matchingPincode.pincode;
+                document.getElementById('pincodeResult').textContent = ` ${pincode}`;
+            } else {
+                document.getElementById('pincodeResult').textContent = `${city} not found`;
+            }
+        }
+    })
+}
+function ClearFilter()
+{
+    $('#form12').val("");
+    localStorage.removeItem("SearchPincode");
+    $('#pinCity').hide();
+    $('#SearchShowrom').show();
+    defaultcity();
+}
 
         function defaultcity() {
     var apiurl = baseUrl + "Home/GetShowRoom?PincodeId=" + 0 + '&BrandId=' + 0
@@ -421,6 +594,7 @@ function fetchPincode() {
         dataType: 'json',
         success: function (data) {
             $('.loader-parent').hide();
+            $("#showroom").val("");
             $("#showroom").empty();
             var $carousel = ""
             var $carousel = $("#showroom");

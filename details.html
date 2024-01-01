@@ -212,11 +212,11 @@
                                     <div class="col-md-7 col-12" style="border-right: 1px solid rgb(177, 174, 174);">
                                         <div class="row mx-0">
                                             <!--<div class="col-md-6 my-1"><b>City</b></div>-->
-                                            <div class="col-md-6 my-1 text-center" id="pinCity"></div>
-                                            <div class="col-md-6 my-1 text-center d-none" id="pinid"></div>
+                                            <div class="col-md-10 my-1 text-center" id="pinCity"></div>
+                                            <div class="col-md-2 my-1 text-center d-none" id="pinid"></div>
                                         </div>
                                         <div class="row mx-0">
-                                            <div class="col-7 my-1"><b>Search ShowRooms</b></div>
+                                            <div class="col-7 my-1" id="SearchShowrom"><b>Search ShowRooms</b></div>
                                             <div class="col-5 my-1 text-center"><svg xmlns="http://www.w3.org/1000/svg" width="25" height="25" fill="currentColor" class="cursor-pointer bi bi-arrow-right-circle  cursor" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
                                             </svg></div>
@@ -226,7 +226,7 @@
                                     <div class="col-md-5 col-12 text-center">
                                         <table class="table border-0">
                                             <tbody><tr>
-                                                <td style="border: none;text-align: center;">Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;" id="overallRatings"> </span></td>
+                                                <td style="border: none;text-align: center;">Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;" id="overallRatingsPv"> </span></td>
                                                
                                             </tr>
                                         </tbody></table>
@@ -324,7 +324,7 @@
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         KerbWeight
-                                        <img src="assets/images/piston.png" style="width:20px">
+                                        <img src="assets/images/KerbWeight.png" style="width:20px">
                                     </div>
                                 </div>
                                 <div class="row border">
@@ -400,7 +400,7 @@
                     <div class="card-body border_color">
                         <div class="row headdesign">
                             <div class="col-md-auto">
-                                <h3 class="text-center fw-bold" id="vehicleName1"></h3>
+                                <h3 class="text-center fw-bold" id="EVvehicleName1"></h3>
                             </div>
                             <!-- <div class="col-md-auto text-start">
                                 <span class="h3 text-center fw-bold">KEY HIGHLIGHTS</span>
@@ -412,27 +412,32 @@
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         Battery Type
+                                        <img src='assets/images/battery.png' style='width:12px'>
                                     </div>
                                 </div>
 
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         Charging Time
+                                        <img src='assets/images/battery-charging.png' style='width:20px'>
                                     </div>
                                 </div>
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         KerbWeight
+                                        <img src='assets/images/KerbWeight.png' style='width:20px'>
                                     </div>
                                 </div>
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         TopSpeed
+                                        <img src='assets/images/mileage-color.png' style='width:20px'>
                                     </div>
                                 </div>
                                 <div class="row border">
                                     <div class="col-md-12 py-3">
                                         Range
+                                        <img src='assets/images/Range.jpg' style='width:20px'>
                                     </div>
                                 </div>
                                 <!-- <div class="row border">
@@ -456,17 +461,18 @@
 
                                 </div>
 
+
                                 <div class="row border">
                                     <div class="col-md-12 py-3" id="chargingtime">
                                     </div>
                                 </div>
                                 <div class="row border">
-                                    <div class="col-md-12 py-3" id="kerbWeight">
+                                    <div class="col-md-12 py-3" id="kerbWeightEv">
 
                                     </div>
                                 </div>
                                 <div class="row border">
-                                    <div class="col-md-12 py-3" id="speedometer">
+                                    <div class="col-md-12 py-3" id="speedometerEv">
                                     </div>
                                 </div>
                                 <div class="row border">
@@ -635,19 +641,10 @@
                                     <div class="col-md-6 col-6 py-3 text-end" id="bikeInfor">
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-12 py-3">
-            Mileage
-        </div>
-        <div class="col-md-12 py-3">
-            Mileage
-        </div>
-        <div class="col-md-12 py-3">
-            Mileage
-        </div> -->
-
-
 
                             </div>
+
+
                             <div class="col-md-5 col-12">
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
@@ -791,7 +788,7 @@
                     <div class="card-body shadow-sm">
                         <div class="row mx-0 headdesign">
                             <div class="col-md-auto">
-                                <h4 class="text-center fw-bold" id="vehicleName2"></h4>
+                                <h4 class="text-center fw-bold" id="EVvehicleName2"></h4>
                             </div>
                             <!-- <div class="col-md-auto ps-0 text-start">
                                 <span class="h4 text-center fw-bold">Specifications</span>
@@ -806,7 +803,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         VehicleType
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="vehicleType">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVvehicleType">
 
                                     </div>
                                 </div>
@@ -814,7 +811,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         TopSpeed
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="topSpeed">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVtopSpeed">
 
                                     </div>
                                 </div>
@@ -831,7 +828,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Battery type
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="batteryType">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVbatteryType">
 
                                     </div>
                                 </div>
@@ -840,7 +837,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Battery Capacity
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="batteryCapacity">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVbatteryCapacity">
 
                                     </div>
                                 </div>
@@ -848,7 +845,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         No of Battery
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="NoOfBatter">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVNoOfBatter">
 
                                     </div>
                                 </div>
@@ -857,7 +854,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Motor Type
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="MotorType">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVMotorType">
 
                                     </div>
                                 </div>
@@ -866,7 +863,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Drive type
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="DriveType">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVDriveType">
 
                                     </div>
                                 </div>
@@ -874,7 +871,7 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Motor Power
                                     </div>
-                                    <div class="col-md-6 py-3 col-6 text-end" id="MotorPower">
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVMotorPower">
 
                                     </div>
                                 </div>
@@ -882,176 +879,143 @@
                                     <div class="col-md-6 col-6 py-3">
                                         IP Rating
                                     </div>
-                                    <div class="col-md-6 py-3 col-6 text-end" id="MotorPower">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6  col-6 py-3">
-                                        Front Brake
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="frontBrake">
-                                        <!-- Disc -->
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Fuel Tank Capacity
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="fuelCapacity">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Manufacturing Warrenty
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="manufacturingWarrenty">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Fuel Filling Place
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="fuelFilling">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Braking System
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="brakingSystem">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Tyre Type
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="tyreType">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Tyre Size
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="tyreSize">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Wheelbase
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="wheelbase">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Service Indicator
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="serviceIndicator">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Low Fuel Indicator
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="lowFuelIndicator">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Engine kill Switch
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="kilswitch">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Colours
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="color">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Bike Information
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="bikeInfor">
-                                    </div>
-                                </div>
-                                <!-- <div class="col-md-12 py-3">
-            Mileage
-        </div>
-        <div class="col-md-12 py-3">
-            Mileage
-        </div>
-        <div class="col-md-12 py-3">
-            Mileage
-        </div> -->
-
-
-
-                            </div>
-                            <div class="col-md-5 col-12">
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Displacement
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="displacement">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        TopSpeed
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="topSpeed">
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVIPRating">
 
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        No. of Cylinders
+                                        Charging Time
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end">
-                                        1
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Max Torque
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="maxTorque">
-                                        <!-- 10.87 PS @7500 RPM -->
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVChargingTime">
+
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        Rear Brake
+                                        Fast Charging Time
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="rearBrake">
-                                        <!-- Drum -->
+                                    <div class="col-md-6 py-3 col-6 text-end" id="FastChargingTime">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Charger
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVCharger">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Kerb Weight
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVKerbWeight">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        LoadCarringCapacity
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVLoadCarringCapacity">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        MotorTorque
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVMotorTorque">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        GrountClearence
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVGrountClearence">
+
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
                                         Body
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="body">
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EvBody">
 
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        GrountClearence
+                                        Front Brake
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="grountClearence">
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVFrontBrake">
 
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        No of Gears
+                                        Rear Brake
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="noofGears">
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVRearBrake">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Tyre Type
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVTyreType">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Tyre Size
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVTyreSize">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Wheelbase
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVWheelbase">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        NoofGears
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVNoofGears">
+
+                                    </div>
+                                </div>
+                             
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Bike Information
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVBikeInformation">
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-5 col-12">
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Speedometer
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVSpeedometer">
 
                                     </div>
                                 </div>
@@ -1059,47 +1023,23 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Head Light
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="headLight">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVHeadLight">
+                                        <!-- 10.87 PS @7500 RPM -->
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Starting
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVStarting">
 
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        Under seat Storage
+                                        Color
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="underseatStorage">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Clock
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="clock">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Mobile Connectivity
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="mobileConnectivity">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Gps & Navigation
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="gpsandNavigation">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        USB Charging Port
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="usbChargingPort">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVColor">
 
                                     </div>
                                 </div>
@@ -1107,15 +1047,167 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Additional Features
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="additionalFeatures">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVAdditionalFeatures">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        RidingModes
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVRidingModes">
 
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
+                                        Battery Warrenty
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVBatteryWarrenty">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Motor Warrenty
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVMotorWarrenty">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Charger Warrenty
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVChargerWarrenty">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Controller Warrenty
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVControllerWarrenty">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Anti Theft Alarm
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVAntiTheftAlarm">
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        TouchScreenDisplay
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EvTouchScreenDisplay">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Under seat Storage
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVUnderseatStorage">
+                                        <!-- Drum -->
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Clock
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVClock">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Mobile Connectivity
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVMobileConnectivity">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        RemoteControl
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVRemoteControl">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Service Indicator
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVServiceIndicator">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Gps & Navigation
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVGps">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        USB Charging Port
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVUSB">
+
+                                    </div>
+                                </div>
+
+
+                                <!--<div class="row border-bottom">
+        <div class="col-md-6 col-6 py-3">
+            Registered Vehicle
+        </div>
+        <div class="col-md-6 col-6 py-3 text-end" id="EVRegisteredVehicle">
+
+        </div>
+    </div>-->
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Reverse Mode
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVReverseMode">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Cruise Control
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVCruiseControl">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        LowBatteryIndicator
+                                    </div>
+                                    <div class="col-md-6 py-3 col-6 text-end" id="EVLowBatteryIndicator">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
                                         EX SHOW ROOM PRICE
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="exshowroomPrize1">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVexshowroomPrize1">
 
                                     </div>
                                 </div>
@@ -1123,10 +1215,11 @@
                                     <div class="col-md-6 col-6 py-3">
                                         Over All Ratings
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="overallRatings">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="EVoverallRatings">
 
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
@@ -1180,7 +1273,8 @@
         </div>
         </section> -->
         <section>
-            <div class="container" style="padding-top: 200px;">
+            <div style="padding-top: 200px;"></div>
+            <div class="container" style="display:none;padding-top: 200px;">
                 <div class="row mx-0">
                     <div class="col-md-auto">
                         <h3 class="text-center fw-bold" id="vehicleName4"></h3>
@@ -1377,7 +1471,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" data-bs-dismiss="modal">Close</button>
+                       
+                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" onclick="ClearFilter()">Clear Filter</button>
                     </div>
                 </div>
             </div>

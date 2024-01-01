@@ -74,7 +74,7 @@ function brandselectV1() {
             var carouselContentsec = "";
             data.forEach(function (vehicle) {
                 console.log(vehicle)
-                if (j = "true") {
+                if (j == "true") {
                     
                     carouselContentsec += `
               <div class="item">
@@ -86,7 +86,7 @@ function brandselectV1() {
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
                                   <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
-                                  <p class="card-text mt-3 col-md-12"> <img src='assets/images/engine-color.png' style='width:20px'> ${vehicle.displacement} CC | <img src='assets/images/milage-icon.png' style='width:20px'> ${vehicle.mileage} KMPL | <img src='assets/images/piston.png' style='width:20px'> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
+                                  <p class="card-text mt-3 col-md-12"> <img src='assets/images/battery.png' style='width:13px'> ${vehicle.batteryType} | <img src='assets/images/battery-charging.png' style='width:24px'> ${vehicle.chargingTime} Ah | <img src='assets/images/KerbWeight.png' style='width:20px'> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
                                   <h4 class="col-md-12"> <b>₹ ${vehicle.exshowroomPrize}</b> <span class="f-14">Ex showroom Price onwards<span></h4>
                                   <a href="#" class="btn btn-outline-secondary text-white purple1 col-md-6">${btext}</a>
                               </div>
