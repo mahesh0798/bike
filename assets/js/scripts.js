@@ -16,6 +16,7 @@ var addimg = "";
 var btnall = "";
 let clickedCityId = null;
 allimgvechileid = ""
+var Bikedata;
 var brandidpin = '';
 $('#first').show();
 $('#second').hide();
@@ -139,68 +140,7 @@ function fetchBrands1(count) {
         }
     });
 }
-// function renderImagesForTable1(data,count) {
-//     console.log(data.length)
-//     var imagesHTML = "";
-//     $('#tablebody').empty();
-//     let trcount = 0;
-//     for (var i = 0; i < data.length; i++) {
-//       if(count > 0)
-//       {   if(i<10){
-//               if (i % 5 === 0) {
-//                   imagesHTML += '<tr>';
-//               }
-//               imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
-//               if (i % 5 === 4 || i === data.length - 1) {
-//                   imagesHTML += '</tr>';
-//               }
-//       }
-//       else{break;}
-//   }
-//       else
-//       {
-//           if (i % 5 === 0) {
-//               imagesHTML += '<tr>';
-//           }
-//           imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+false+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
-//           if (i % 5 === 4 || i === data.length - 1) {
-//               imagesHTML += '</tr>';
-//           }
-//       }
-//   }
-//   $('#tablebody').append(imagesHTML);
-// }
-// function renderImagesForTable2(data,count) {
-//     console.log(data.length)
-//     var imagesHTML = "";
-//     $('#tablebody1').empty();
-//     let trcount = 0;
-//     for (var i = 0; i < data.length; i++) {
-//       if(count > 0)
-//       {   if(i<10){
-//               if (i % 5 === 0) {
-//                   imagesHTML += '<tr>';
-//               }
-//               imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+')"><img src="' + data[i].brandLogo + '" class="img-fluid" ><p class="text-center">"' + data[i].brandNames + '"</p></td>';
-//               if (i % 5 === 4 || i === data.length - 1) {
-//                   imagesHTML += '</tr>';
-//               }
-//       }
-//       else{break;}
-//   }
-//       else
-//       {
-//           if (i % 5 === 0) {
-//               imagesHTML += '<tr>';
-//           }
-//           imagesHTML += '<td onclick="brandselect('+data[i].brandId+','+data[i].ev+','+data[i].brandNames+')"><img src="' + data[i].brandLogo + '" class="img-fluid"><p class="text-center">"' + data[i].brandNames + '"</p></td>';
-//           if (i % 5 === 4 || i === data.length - 1) {
-//               imagesHTML += '</tr>';
-//           }
-//       }
-//   }
-//   $('#tablebody1').append(imagesHTML);
-// }
+
 function renderImagesForTable1(data, count) {
     console.log(data.length);
     var imagesHTML = "";
@@ -273,27 +213,7 @@ function renderImagesForTable2(data, count) {
     $('#tablebody1').append(imagesHTML);
 }
 
-// function brandselect(i,j){
-//     var apiurl = baseUrl + "VehicleList/BrandList?Brandid="+i+'&IsEv='+j;
-//     $('.loader-parent').show();
-//     $.ajax({
-//         url: apiurl,
-//         method: 'GET',
-//         dataType: 'json',
-//         success: function(data) {
-//           $('.loader-parent').hide();
-//           $('#first').hide();
-//           $('#second').show();
-//         },
-//         error: function(xhr, status, error) {
-//           $('.loader-parent').hide();
-//             console.error('Error fetching data:', error);
-//         }
-//     });
-//     // location.href = "./bike.html";
-//     console.log(i)
-//     console.log(j)
-// }
+
 function brandselect(i, j, name) {
     // if(name=="TVS"&&j==)
     location.href = "./list.html?Brandid=" + i + "&IsEv=" + j;
@@ -615,11 +535,12 @@ $(document).ready(function () {
         method: 'GET',
         success: function (data) {
             // Filter items where famousBike is true
+            Bikedata = data;
             var filteredData = data.filter(item => item.famousBike);
             var btext = localStorage.getItem("buttontext");
             // Process the filtered API response and generate carousel content
             var carouselItems2 = "";
-            for (var i = 0; i < filteredData.length; i++) {
+            for (var i = 0; i < filteredData.length; i++) { 
                 carouselItems2 += `
           <div class="item">
             <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
@@ -679,6 +600,11 @@ $(document).ready(function () {
                     }
                 }
             });
+            RaceModelsBind();
+            ScootyModelsBind();
+            FamousEvModels();
+            FamousMilageModel();
+
         },
         error: function (error) {
             console.error('Error fetching data from the API:', error);
@@ -937,23 +863,14 @@ function famousbikemodel(i) {
 }
 
 
+function RaceModelsBind()
+{
+    var filteredData = Bikedata.filter(item => item.raceModels);
+    var btext = localStorage.getItem("buttontext");
 
-
-$(document).ready(function () {
-    var apiEndpoint = 'Home/GetChoiceCategory';
-    var apiUrl = baseUrl + apiEndpoint;
-
-    $.ajax({
-        url: apiUrl,
-        method: 'GET',
-        success: function (data) {
-            // Filter items where raceModels is true
-            var filteredData = data.filter(item => item.raceModels);
-            var btext = localStorage.getItem("buttontext");
-            // Process the filtered API response and generate carousel content
-            var carouselContent = "";
-            for (var i = 0; i < filteredData.length; i++) {
-                carouselContent += `
+    var carouselContent = "";
+    for (var i = 0; i < filteredData.length; i++) {
+        carouselContent += `
           <div class="item">
             <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
               <div class="card border-top-0">
@@ -978,65 +895,48 @@ $(document).ready(function () {
               </div>
             </div>
           </div>`;
-            }
+    }
 
-            // Update the carousel with the new content
-            $("#myCarousel2").html(carouselContent);
+    // Update the carousel with the new content
+    $("#myCarousel2").html(carouselContent);
 
-            // Initialize the Owl Carousel
-            $("#myCarousel2").owlCarousel({
+    // Initialize the Owl Carousel
+    $("#myCarousel2").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
                 items: 3,
-                loop: false,
-                slideSpeed: 300,
-                paginationSpeed: 600,
-                nav: true,
-                dots: false,
-                autoWidth: false,
-                margin: 30,
-                startPosition: 1,
-                center: true,
-                responsiveClass: true,
-                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    600: {
-                        items: 2,
-                    },
-                    1000: {
-                        items: 3,
-                    },
-                    1440: {
-                        items: 4,
-                    }
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data from the API:', error);
+            },
+            1440: {
+                items: 4,
+            }
         }
     });
-});
+}
 
-
-
-$(document).ready(function () {
-    // var baseUrl = 'https://dotnet.constient.com/CoreTutorial/api/';
-    var apiEndpoint = 'Home/GetChoiceCategory';
-    var apiUrl = baseUrl + apiEndpoint;
-
-    $.ajax({
-        url: apiUrl,
-        method: 'GET',
-        success: function (data) {
-            // Filter items where famousScooty is true
-            var filteredData = data.filter(item => item.famousScooty);
-            var btext = localStorage.getItem("buttontext");
-            // Process the filtered API response and generate carousel content
-            var carouselContent = "";
-            for (var i = 0; i < filteredData.length; i++) {
-                carouselContent += `
+function ScootyModelsBind() {
+    var filteredData = Bikedata.filter(item => item.famousScooty);
+    var btext = localStorage.getItem("buttontext");
+    var carouselContent = "";
+    for (var i = 0; i < filteredData.length; i++) {
+        carouselContent += `
           <div class="item">
             <div class="container mt-6" style="position: relative;" onclick="Scootymodel(${filteredData[i].vehicleId})">
               <div class="card border-top-0">
@@ -1061,60 +961,48 @@ $(document).ready(function () {
               </div>
             </div>
           </div>`;
-            }
+    }
 
-            // Update the carousel with the new content
-            $("#myCarousel3").html(carouselContent);
+    // Update the carousel with the new content
+    $("#myCarousel3").html(carouselContent);
 
-            // Initialize the Owl Carousel
-            $("#myCarousel3").owlCarousel({
+    // Initialize the Owl Carousel
+    $("#myCarousel3").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
                 items: 3,
-                loop: false,
-                slideSpeed: 300,
-                paginationSpeed: 600,
-                nav: true,
-                dots: false,
-                autoWidth: false,
-                margin: 30,
-                startPosition: 1,
-                center: true,
-                responsiveClass: true,
-                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    600: {
-                        items: 2,
-                    },
-                    1000: {
-                        items: 3,
-                    },
-                    1440: {
-                        items: 4,
-                    }
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data from the API:', error);
+            },
+            1440: {
+                items: 4,
+            }
         }
     });
-});
-$(document).ready(function () {
-    // var baseUrl = 'https://dotnet.constient.com/CoreTutorial/api/';
-    var apiEndpoint = 'Home/GetChoiceCategory';
-    var apiUrl = baseUrl + apiEndpoint;
+}
 
-    $.ajax({
-        url: apiUrl,
-        method: 'GET',
-        success: function (data) {
-            var filteredData = data.filter(item => item.evModels);
-            var btext = localStorage.getItem("buttontext");
-            var carouselContent = "";
-            for (var i = 0; i < filteredData.length; i++) {
-                carouselContent += `
+function FamousEvModels() {
+    var filteredData = Bikedata.filter(item => item.evModels);
+    var btext = localStorage.getItem("buttontext");
+    var carouselContent = "";
+    for (var i = 0; i < filteredData.length; i++) {
+        carouselContent += `
           <div class="item">
             <div class="container mt-6" style="position: relative;" onclick="Scootyevmodel(${filteredData[i].vehicleId})">
               <div class="card border-top-0">
@@ -1139,73 +1027,50 @@ $(document).ready(function () {
               </div>
             </div>
           </div>`;
-            }
+    }
 
-            // Update the carousel with the new content
-            $("#evModals").html(carouselContent);
+    // Update the carousel with the new content
+    $("#evModals").html(carouselContent);
 
-            // Initialize the Owl Carousel
-            $("#evModals").owlCarousel({
+    // Initialize the Owl Carousel
+    $("#evModals").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
                 items: 3,
-                loop: false,
-                slideSpeed: 300,
-                paginationSpeed: 600,
-                nav: true,
-                dots: false,
-                autoWidth: false,
-                margin: 30,
-                startPosition: 1,
-                center: true,
-                responsiveClass: true,
-                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    600: {
-                        items: 2,
-                    },
-                    1000: {
-                        items: 3,
-                    },
-                    1440: {
-                        items: 4,
-                    }
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data from the API:', error);
+            },
+            1440: {
+                items: 4,
+            }
         }
     });
-});
-function Scootymodel(i) {
 
-    location.href = "./details.html?Vehicleid=" + i + '&IsEv=false';
 }
 
-function Scootyevmodel(i) {
+function FamousMilageModel() {
+    var filteredData = Bikedata.filter(item => item.mileageModels);
+    var btext = localStorage.getItem("buttontext");
 
-    location.href = "./details.html?Vehicleid=" + i + '&IsEv=true';
-}
-
-
-
-$(document).ready(function () {
-    // var baseUrl = 'https://dotnet.constient.com/CoreTutorial/api/';
-    var apiEndpoint = 'Home/GetChoiceCategory';
-    var apiUrl = baseUrl + apiEndpoint;
-    $.ajax({
-        url: apiUrl,
-        method: 'GET',
-        success: function (data) {
-            // Filter items where mileageModels is true
-            var filteredData = data.filter(item => item.mileageModels);
-            var btext = localStorage.getItem("buttontext");
-            // Process the filtered API response and generate carousel content
-            var carouselItems = "";
-            for (var i = 0; i < filteredData.length; i++) {
-                carouselItems += `
+    var carouselItems = "";
+    for (var i = 0; i < filteredData.length; i++) {
+        carouselItems += `
           <div class="item">
             <div class="container mt-6" style="position: relative;" onclick="mileagemodel(${filteredData[i].vehicleId})">
               <div class="card border-top-0">
@@ -1230,47 +1095,53 @@ $(document).ready(function () {
               </div>
             </div>
           </div>`;
-            }
+    }
 
-            // Update the carousel with the new content
-            $("#myCarousel4").html(carouselItems);
+    // Update the carousel with the new content
+    $("#myCarousel4").html(carouselItems);
 
-            // Initialize the Owl Carousel
-            $("#myCarousel4").owlCarousel({
+    // Initialize the Owl Carousel
+    $("#myCarousel4").owlCarousel({
+        items: 3,
+        loop: false,
+        slideSpeed: 300,
+        paginationSpeed: 600,
+        nav: true,
+        dots: false,
+        autoWidth: false,
+        margin: 30,
+        startPosition: 1,
+        center: true,
+        responsiveClass: true,
+        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
                 items: 3,
-                loop: false,
-                slideSpeed: 300,
-                paginationSpeed: 600,
-                nav: true,
-                dots: false,
-                autoWidth: false,
-                margin: 30,
-                startPosition: 1,
-                center: true,
-                responsiveClass: true,
-                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    600: {
-                        items: 2,
-                    },
-                    1000: {
-                        items: 3,
-                    },
-                    1440: {
-                        items: 4,
-                    }
-                }
-            });
-        },
-        error: function (error) {
-            console.error('Error fetching data from the API:', error);
+            },
+            1440: {
+                items: 4,
+            }
         }
     });
-    // addsImg();
-});
+}
+
+function Scootymodel(i) {
+
+    location.href = "./details.html?Vehicleid=" + i + '&IsEv=false';
+}
+
+function Scootyevmodel(i) {
+
+    location.href = "./details.html?Vehicleid=" + i + '&IsEv=true';
+}
+
+
 function mileagemodel(i) {
 
     location.href = "./details.html?Vehicleid=" + i + '&IsEv=false';
