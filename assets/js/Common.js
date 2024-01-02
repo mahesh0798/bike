@@ -114,7 +114,7 @@ function displayAutocompleteResults(results) {
         autocompleteResults.appendChild(noResults);
         return;
     }
-    localStorage.setItem("SearchPincode", results[0].pincode);
+    //localStorage.setItem("SearchPincode", results[0].pincode);
    
 
     results.forEach(result => {
@@ -144,7 +144,7 @@ function displayAutocompleteResults(results) {
                         $('.loader-parent').hide();
                         $("#showroom").empty();
 
-                       
+                        $.cookie('SearchPincode', result.pincode);
 
                         var $carousel = ""
                         var $carousel = $("#showroom");

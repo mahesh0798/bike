@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets"
+    "\\assets",
+    "\\assets\\js"
   ],
+  "SelectedNode": "\\assets\\js\\jquery_Clookies.js",
   "PreviewInSolutionExplorer": false
 }

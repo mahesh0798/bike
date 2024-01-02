@@ -30,7 +30,8 @@ $(document).ready(function () {
     addsImg();
     brandlistV1();
   
-    var IsPincode = localStorage.getItem("SearchPincode");
+    //var IsPincode = localStorage.getItem("SearchPincode");
+    var IsPincode = $.cookie('SearchPincode');
     if (IsPincode) {
         fetchPincodeCache();
     }
@@ -556,7 +557,8 @@ function fetchPincode() {
     })
 }
 function fetchPincodeCache() {
-    const city = localStorage.getItem("SearchPincode");
+    //const city = localStorage.getItem("SearchPincode");
+    const city = $.cookie('SearchPincode');
     var apiurl = baseUrl + "Home/GetCity?Key=" + city;
 
     $.ajax({
@@ -579,7 +581,8 @@ function fetchPincodeCache() {
 function ClearFilter()
 {
     $('#form12').val("");
-    localStorage.removeItem("SearchPincode");
+   // localStorage.removeItem("SearchPincode");
+    $.removeCookie('SearchPincode');
     $('#pinCity').hide();
     $('#SearchShowrom').show();
     defaultcity();
