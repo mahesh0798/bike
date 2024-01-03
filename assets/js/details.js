@@ -31,7 +31,7 @@ $(document).ready(function () {
     brandlistV1();
   
     //var IsPincode = localStorage.getItem("SearchPincode");
-    var IsPincode = $.cookie('SearchPincode');
+    var IsPincode = $.cookie("SearchPincode");
     if (IsPincode) {
         fetchPincodeCache();
     }
@@ -132,6 +132,8 @@ function brandlistV1() {
                 $('#mileage').text(vehicleDetails.mileage + " KMPL");
                 $('#mileage1').text(vehicleDetails.mileage + " KMPL");
                 $('#maxPower').text(vehicleDetails.maxPower);
+                $('#PvPower').text(vehicleDetails.maxPower);
+                
                 $('#maxTorque').text(vehicleDetails.maxTorque);
                 $('#frontBrake').text(vehicleDetails.frontBrake);
              
@@ -153,7 +155,10 @@ function brandlistV1() {
                 $('#EVNoOfBatter').text(vehicleDetails.numberOfBatteries);
                 $('#EVMotorType').text(vehicleDetails.motorType);
                 $('#EVDriveType').text(vehicleDetails.driverType);
+
                 $('#EVMotorPower').text(vehicleDetails.motorPower);
+                $('#EVPower').text(vehicleDetails.motorPower);
+                
 
                 $('#EVIPRating').text(vehicleDetails.ipRating);
 
@@ -578,10 +583,41 @@ function fetchPincodeCache() {
         }
     })
 }
+
+function GenerateLead() {
+   
+    var apiurl = baseUrl + "Home/LeadGeneration";
+    var LeadGeneration = new Object();
+    LeadGeneration.Mobile = $('#MobileBook').val();
+    LeadGeneration.Name = $('#CustName').val();
+    LeadGeneration.Pincode = "630001";
+    LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
+    var request = JSON.stringify(LeadGeneration);
+
+    $.ajax({
+        url: apiurl,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: request,
+        success: function (data) {
+            $('#toastMessage').text("😊 Thanks for your booking with us.We will connect you with best price soon")
+
+            $('#toastMessage').removeClass('hide').addClass('show');
+            $('#pinlist').modal('hide');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hide after 3 seconds
+          
+        }
+       
+    })
+}
+
+
 function ClearFilter()
 {
     $('#form12').val("");
-   // localStorage.removeItem("SearchPincode");
     $.removeCookie('SearchPincode');
     $('#pinCity').hide();
     $('#SearchShowrom').show();
