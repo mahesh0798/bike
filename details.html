@@ -29,7 +29,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    
 
     <script src="assets/js/popper.min.js" defer></script>
     <script src="assets/js/bootstrap.min.js" defer></script>
@@ -41,7 +41,7 @@
   
     <script src="owlcarousel/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!--<script src="assets/js/jquery_Clookies.js"></script>-->
+    <script src="assets/js/jquery_Clookies.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
@@ -541,14 +541,6 @@
 
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        Mileage
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="mileage">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
                                         VehicleType
                                     </div>
                                     <div class="col-md-6 col-6 py-3 text-end" id="vehicleType">
@@ -565,18 +557,45 @@
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
+                                        Displacement
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="displacement">
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Mileage
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="mileage">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        TopSpeed
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="topSpeed1">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
                                         Max Power
                                     </div>
                                     <div class="col-md-6 py-3 col-6 text-end" id="maxPower">
 
                                     </div>
                                 </div>
+
                                 <div class="row border-bottom">
-                                    <div class="col-md-6  col-6 py-3">
-                                        Front Brake
+                                    <div class="col-md-6 col-6 py-3">
+                                        Max Torque
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="frontBrake">
-                                        <!-- Disc -->
+                                    <div class="col-md-6 col-6 py-3 text-end" id="maxTorque">
+                                        <!-- 10.87 PS @7500 RPM -->
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
@@ -586,11 +605,21 @@
                                     <div class="col-md-6 col-6 py-3 text-end" id="fuelCapacity">
                                     </div>
                                 </div>
+
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        Manufacturing Warrenty
+                                        Kerb Weight
                                     </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="manufacturingWarrenty">
+                                    <div class="col-md-6 col-6 py-3 text-end" id="PVKerbWeight">
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        GrountClearence
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="grountClearence">
+
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
@@ -598,13 +627,6 @@
                                         Fuel Filling Place
                                     </div>
                                     <div class="col-md-6 col-6 py-3 text-end" id="fuelFilling">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Braking System
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="brakingSystem">
                                     </div>
                                 </div>
                                 <div class="row border-bottom">
@@ -628,6 +650,113 @@
                                     <div class="col-md-6 col-6 py-3 text-end" id="wheelbase">
                                     </div>
                                 </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Speedometer
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="PVSpeedometer">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        starting
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="PVstarting">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Colours
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="color">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Bike Information
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="bikeInfor">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-5 col-12">
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Manufacturing Warrenty
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="manufacturingWarrenty">
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Body
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="body">
+
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Braking System
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="brakingSystem">
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6  col-6 py-3">
+                                        Front Brake
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="frontBrake">
+                                        <!-- Disc -->
+                                    </div>
+                                </div>
+
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Rear Brake
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="rearBrake">
+                                        <!-- Drum -->
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        No of Gears
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="noofGears">
+
+                                    </div>
+                                </div>
+
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        No. of Cylinders
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="row border-bottom">
+                                    <div class="col-md-6 col-6 py-3">
+                                        Head Light
+                                    </div>
+                                    <div class="col-md-6 col-6 py-3 text-end" id="headLight">
+
+                                    </div>
+                                </div>
+
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
                                         Service Indicator
@@ -649,89 +778,7 @@
                                     <div class="col-md-6 col-6 py-3 text-end" id="kilswitch">
                                     </div>
                                 </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Colours
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="color">
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Bike Information
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="bikeInfor">
-                                    </div>
-                                </div>
 
-                            </div>
-
-
-                            <div class="col-md-5 col-12">
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Displacement
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="displacement">
-                                    </div>
-                                </div>
-
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        No. of Cylinders
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end">
-                                        1
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Max Torque
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="maxTorque">
-                                        <!-- 10.87 PS @7500 RPM -->
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Rear Brake
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="rearBrake">
-                                        <!-- Drum -->
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Body
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="body">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        GrountClearence
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="grountClearence">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        No of Gears
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="noofGears">
-
-                                    </div>
-                                </div>
-                                <div class="row border-bottom">
-                                    <div class="col-md-6 col-6 py-3">
-                                        Head Light
-                                    </div>
-                                    <div class="col-md-6 col-6 py-3 text-end" id="headLight">
-
-                                    </div>
-                                </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
                                         Under seat Storage
@@ -780,7 +827,7 @@
 
                                     </div>
                                 </div>
-                                <div class="row border-bottom">
+                                <!--<div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
                                         EX SHOW ROOM PRICE
                                     </div>
@@ -795,7 +842,7 @@
                                     <div class="col-md-6 col-6 py-3 text-end" id="overallRatings">
 
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
 
                         </div>
@@ -1442,7 +1489,7 @@
                 </div>
             </div>
         </section>
-        <section class="modal fade" id="pinlist" role="dialog">
+        <div class="modal fade" id="pinlist">
             <div class="modal-dialog login-dialog" style="max-width: 500px;max-height:500px;margin-top: 11rem;">
                 <div class="modal-content">
                     <div class="modal-header" style="padding-bottom: 0 !important">
@@ -1459,15 +1506,15 @@
 
                         </div>
                         <div class="col-md-12 pb-2">
-                            <input type="text" id="CustName" class="form-control" placeholder="Name" />
+                            <input type="text" id="CustName" class="form-control"  placeholder="Name" />
                         </div>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" onclick="GenerateLead()">Submit</button>
+                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" onclick="GenerateLead()" data-dismiss="modal">Submit</button>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog">
                 <div class="modal-content">
