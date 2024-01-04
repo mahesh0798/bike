@@ -242,14 +242,19 @@ h4{
       -webkit-transform: rotate(360deg);
       transform: rotate(360deg); } 
   }
+  @media   (min-width:375px){
+    .w_80 {
+        width: 80% !important;
+    }
+}
 @media only screen and (max-width: 600px) {
 	.trade-class{
         width: 44%;
         padding: 20px;
     }
-    .w_80 {
+    /* .w_80 {
         width: 100% !important;
-    }
+    } */
     .bike-logo{
         width: 100px !important;
     }
@@ -307,7 +312,7 @@ h4{
     transform-origin: right bottom;
   }
   .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
-    transform: scale3d(1, 1, 1);
+    /* transform: scale3d(1, 1, 1); */
   }
 
   /* .loveback-img{
