@@ -145,6 +145,7 @@ function displayAutocompleteResults(results) {
                         $("#showroom").empty();
 
                         $.cookie('SearchPincode', result.pincode);
+                        //localStorage.setItem('SearchPincode', result.pincode);
 
                         var $carousel = ""
                         var $carousel = $("#showroom");

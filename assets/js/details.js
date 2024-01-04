@@ -31,7 +31,7 @@ $(document).ready(function () {
     brandlistV1();
   
     //var IsPincode = localStorage.getItem("SearchPincode");
-    var IsPincode = $.cookie('SearchPincode');
+    var IsPincode = $.cookie("SearchPincode");
     if (IsPincode) {
         fetchPincodeCache();
     }
@@ -93,13 +93,14 @@ function brandlistV1() {
                 $('#pvkeyspec').show();
                 $('#pvspec').show();
                 $('#vehicleName').text(vehicleDetails.vehiclename);
-                $('#vehicleName1').text(vehicleDetails.vehiclename + " KEY HIGHLIGHTS");
+                $('#vehicleName1').text(vehicleDetails.vehiclename + " Key Highlight");
                 $('#vehicleName2').text(vehicleDetails.vehiclename + " Specifications");
                 $('#vehicleName3').text(vehicleDetails.vehiclename + " Price");
                 $('#vehicleName4').text(vehicleDetails.vehiclename);
                 $('#vehicleType').text(vehicleDetails.vehicleType);
                 $('#engineType').text(vehicleDetails.engineType);
-                $('#topSpeed').text(vehicleDetails.topSpeed + " KMPL");
+                $('#topSpeed').text(vehicleDetails.topSpeed + " KMPl");
+                $('#topSpeed1').text(vehicleDetails.topSpeed + " KMPh");
                 $('#grountClearence').text(vehicleDetails.grountClearence);
                 $('#body').text(vehicleDetails.body);
                 $('#manufacturingWarrenty').text(vehicleDetails.manufacturingWarrenty);
@@ -125,13 +126,20 @@ function brandlistV1() {
               
                 $('#displacement').text(vehicleDetails.displacement + " CC");
                 $('#speedometer').text(vehicleDetails.topSpeed + " KMPH");
-                $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity + "L");
+                $('#PVSpeedometer').text(vehicleDetails.speedometer);
+                $('#PVstarting').text(vehicleDetails.starting);
+                
+                $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity + " L");
 
                 $('#cubicCapacity').text(vehicleDetails.displacement + " CC");
-                $('#kerbWeight').text(vehicleDetails.kerbWeight + " KG");
-                $('#mileage').text(vehicleDetails.mileage + " KMPL");
-                $('#mileage1').text(vehicleDetails.mileage + " KMPL");
+                $('#kerbWeight').text(vehicleDetails.kerbWeight + " Kg");
+                $('#PVKerbWeight').text(vehicleDetails.kerbWeight + " Kg");
+                
+                $('#mileage').text(vehicleDetails.mileage + " KMPl");
+                $('#mileage1').text(vehicleDetails.mileage + " KMPl");
                 $('#maxPower').text(vehicleDetails.maxPower);
+                $('#PvPower').text(vehicleDetails.maxPower);
+                
                 $('#maxTorque').text(vehicleDetails.maxTorque);
                 $('#frontBrake').text(vehicleDetails.frontBrake);
              
@@ -141,19 +149,22 @@ function brandlistV1() {
             else {
 
                 $('#EVvehicleType').text(vehicleDetails.vehicleType);
-                $('#EVtopSpeed').text(vehicleDetails.topSpeed + " KMPL");
+                $('#EVtopSpeed').text(vehicleDetails.topSpeed + " KMPl");
                 $('#range').text(vehicleDetails.range + " M");
                 $('#Range1').text(vehicleDetails.range + " M");
                 $('#batteryType').text(vehicleDetails.batteryType);
                 $('#EVbatteryType').text(vehicleDetails.batteryType);
                 $('#chargingtime').text(vehicleDetails.chargingTime + " Ah");
-                $('#kerbWeightEv').text(vehicleDetails.kerbWeight + " KG");
-                $('#speedometerEv').text(vehicleDetails.topSpeed + " KMPH");
+                $('#kerbWeightEv').text(vehicleDetails.kerbWeight + " Kg");
+                $('#speedometerEv').text(vehicleDetails.topSpeed + " KMPh");
                 $('#EVbatteryCapacity').text(vehicleDetails.batteryCapacity);
                 $('#EVNoOfBatter').text(vehicleDetails.numberOfBatteries);
                 $('#EVMotorType').text(vehicleDetails.motorType);
                 $('#EVDriveType').text(vehicleDetails.driverType);
+
                 $('#EVMotorPower').text(vehicleDetails.motorPower);
+                $('#EVPower').text(vehicleDetails.motorPower);
+                
 
                 $('#EVIPRating').text(vehicleDetails.ipRating);
 
@@ -206,7 +217,7 @@ function brandlistV1() {
                 $('#EVexshowroomPrize1').text(vehicleDetails.exshowroomPrize);
                 $('#EVoverallRatings').text(vehicleDetails.overallRatings);
                 
-                $('#EVvehicleName1').text(vehicleDetails.vehiclename + " KEY HIGHLIGHTS");
+                $('#EVvehicleName1').text(vehicleDetails.vehiclename + " Key Highlight");
                 $('#EVvehicleName2').text(vehicleDetails.vehiclename + " Specifications");
                 $('#EVvehicleName3').text(vehicleDetails.vehiclename + " Price");
                 $('#vehicleName4').text(vehicleDetails.vehiclename);
@@ -578,10 +589,43 @@ function fetchPincodeCache() {
         }
     })
 }
+
+function GenerateLead() {
+   
+    var apiurl = baseUrl + "Home/LeadGeneration";
+    var LeadGeneration = new Object();
+    LeadGeneration.Mobile = $('#MobileBook').val();
+    LeadGeneration.Name = $('#CustName').val();
+    LeadGeneration.Pincode = "630001";
+    LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
+    var request = JSON.stringify(LeadGeneration);
+
+    $.ajax({
+        url: apiurl,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: request,
+        success: function (data) {
+            $('#toastMessage').text("😊 Thanks for your booking with us.We will connect you with best price soon")
+
+            $('#toastMessage').removeClass('hide').addClass('show');
+            $('#pinlist').modal('hide');
+           
+          
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hide after 3 seconds
+          
+        }
+       
+    })
+}
+
+
 function ClearFilter()
 {
     $('#form12').val("");
-   // localStorage.removeItem("SearchPincode");
     $.removeCookie('SearchPincode');
     $('#pinCity').hide();
     $('#SearchShowrom').show();
