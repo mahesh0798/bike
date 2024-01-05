@@ -1,5 +1,20 @@
 ﻿// JavaScript source code
 var baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
+var UserMobileNo;
+
+$(document).ready(function () {
+
+    UserMobileNo = $.cookie('username');
+    var CustName = $.cookie('CustName');
+    if (CustName != "" && CustName != undefined && CustName != null && UserMobileNo != "" && UserMobileNo != undefined && UserMobileNo != null) {
+        $('#loginUserName').text(CustName);
+        $('#MobileBook').val(UserMobileNo);
+        $('#loginlable').hide();
+        $('#loginUserName').show();
+    }
+
+
+});
 
 function searchCity() {
     const searchCity = document.getElementById('form1').value;
@@ -55,7 +70,7 @@ document.addEventListener("click", function (e) {
     }
 });
 function Racemodel(i) {
-    location.href = "./details.html?Vehicleid=" + i + '&IsEv=false' ;
+    location.href = "./details.html?Vehicleid=" + i + '&IsEv=false';
 }
 
 function addsImg() {
@@ -115,7 +130,7 @@ function displayAutocompleteResults(results) {
         return;
     }
     //localStorage.setItem("SearchPincode", results[0].pincode);
-   
+
 
     results.forEach(result => {
         const option = document.createElement('div');
@@ -126,9 +141,9 @@ function displayAutocompleteResults(results) {
             document.getElementById('form13').value = result.city;
             document.getElementById('pincodeResult').textContent = result.pincode;
             clickedCityId = result.pincodeId;
-            
+
             document.getElementById('pinCity').innerHTML = `<b>Show Rooms In ${result.city}</b>`;
-          
+
 
             $('#SearchShowrom').hide();
 
@@ -205,7 +220,7 @@ function displayAutocompleteResults(results) {
             }
             $('#exampleModal').modal('hide');
             autocompleteResults.innerHTML = '';
-            
+
         });
         autocompleteResults.appendChild(option);
     });
@@ -310,7 +325,7 @@ function displayAutocompleteResults12(results) {
                     }
                 })
             }
-           
+
             autocompleteResults.innerHTML = '';
 
         });
@@ -318,8 +333,7 @@ function displayAutocompleteResults12(results) {
     });
 }
 
-function GetAutoCit()
-{
+function GetAutoCit() {
     if (clickedCityId && brandidpin) {
         var apiurl = baseUrl + "Home/GetShowRoom?PincodeId=" + clickedCityId + '&BrandId=' + brandidpin
         $('.loader-parent').show();
@@ -408,5 +422,157 @@ document.addEventListener("click", function (e) {
 const pincodeDisplay = document.createElement('div');
 pincodeDisplay.id = 'pincodeResult';
 document.body.appendChild(pincodeDisplay);
+
+function validateLogin() {
+    var mobileNumber = document.getElementById('mobileNumber').value;
+    var password = document.getElementById('password').value;
+    if (!/^\d{10}$/.test(mobileNumber)) {
+        alert('Invalid mobile number. Please enter a 10-digit numeric value.');
+        return;
+    }
+    if (password.length < 6) {
+        alert('Password must be at least 6 characters long');
+        return;
+    }
+
+    $('.loader-parent').show();
+
+    var apiurl = baseUrl + "Home/PostLogin";
+    var sendData = {
+        Mobile: mobileNumber,
+        Password: password
+    }
+    $('.loader-parent').show();
+    sendData = JSON.stringify(sendData);
+    $.ajax({
+        url: apiurl,
+        type: 'POST',
+        data: sendData,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+            $('.loader-parent').hide();
+            
+            if (response.isSuccess) {
+                $('#toastMessage').text("Login Success");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                setTimeout(function () {
+                    $('#toastMessage').removeClass('show').addClass('hide');
+                }, 5000); // Hide after 3 seconds
+
+                $.cookie('username', response.userName);
+                $.cookie('CustName', response.name);
+                $('#loginUserName').text(response.name);
+                $('#loginlable').hide();
+                $('#loginUserName').show();
+                location.href = "./index.html";
+            }
+            else {
+                $('#toastMessage').text("UserName or Password Is Incorrect");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                setTimeout(function () {
+                    $('#toastMessage').removeClass('show').addClass('hide');
+                }, 5000); // Hide after 3 seconds
+            }
+        },
+         error: function (xhr, status, error) {
+             $('.loader-parent').hide();
+             $('#toastMessage').text("Login Failed.Please try  again");
+             $('#toastMessage').removeClass('hide').addClass('show');
+             setTimeout(function () {
+                 $('#toastMessage').removeClass('show').addClass('hide');
+             }, 5000); // Hide after 3 seconds
+        }
+    })
+}
+function validateSignup() {
+    var name = document.getElementById('name').value;
+    var mobileNumber1 = document.getElementById('mobileNumber1').value;
+    var email = document.getElementById('email').value;
+    var password1 = document.getElementById('password1').value;
+    var nameRegex = /^[a-zA-Z\-]+$/;
+    if (!nameRegex.test(name)) {
+        $('#LoginCname').text("* Enter Your Name");
+        return;
+    }
+    if (mobileNumber1 == "" || mobileNumber1 == null || mobileNumber1 == undefined) {
+        $('#LoginMobile').text("* Enter Your Mobile Number");
+    }
+    if (!/^\d{10}$/.test(mobileNumber1)) {
+        $('#LoginMobile').text("* Enter Valid 10 digit Mobile Number");
+        return;
+    }
+
+    if (!(email == "" || email == undefined || email == null)) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            $('#Loginemail').text("* Enter Valid Email");
+            return;
+        }
+    }
+
+    if (password1.length < 6) {
+        $('#Loginpasword').text("* Password must be at least 6 characters long");
+        return;
+    }
+
+
+    var apiurl = baseUrl + "Home/PostSignUp";
+    $('.loader-parent').show();
+    var sendData = {
+        Name: name,
+        Mobile: mobileNumber1,
+        Email: email,
+        Password: password1
+    }
+
+    sendData = JSON.stringify(sendData);
+    $.ajax({
+        url: apiurl,
+        type: 'POST',
+        data: sendData,
+        contentType: "application/json",
+        dataType: "json",
+
+        success: function (response) {
+            $('.loader-parent').hide();
+
+           
+            
+
+            if (response.isSuccess) {
+                $('#toastMessage').text("Register Successfully");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                setTimeout(function () {
+                    $('#toastMessage').removeClass('show').addClass('hide');
+                }, 5000); // Hide after 3 seconds
+
+                $.cookie('username', mobileNumber1);
+                $.cookie('CustName', name);
+                $('#loginUserName').text(name);
+                $('#loginlable').hide();
+                $('#loginUserName').show();
+                toggleForm();
+            }
+            else {
+                $('#toastMessage').text("SignUp Failed.Please try again");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                setTimeout(function () {
+                    $('#toastMessage').removeClass('show').addClass('hide');
+                }, 5000); // Hide after 3 seconds
+            }
+        },
+        error: function (xhr, status, error) {
+            $('.loader-parent').hide();
+            $('#toastMessage').text("Registration Failed.Please try again");
+            $('#toastMessage').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hide after 3 seconds
+        }
+    })
+}
+
+
 
 

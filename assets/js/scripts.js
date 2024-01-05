@@ -51,12 +51,12 @@ function loginpage() {
 function TNviewmore() {
 
     if (viewmore) {
-        fetchBrands(1,1);
+        fetchBrands(1, 1);
         viewmore = false;
         $('#toogleBtn').text('View More Brands')
     }
     else {
-        fetchBrands(0,1);
+        fetchBrands(0, 1);
         viewmore = true;
         $('#toogleBtn').text('View less Brands')
     }
@@ -65,18 +65,18 @@ function TNviewmore() {
 function TNviewmore1() {
     eletric = true
     if (viewmore1) {
-        fetchBrands(1,0);
+        fetchBrands(1, 0);
         viewmore1 = false;
         $('#toogleBtn1').text('View More Brands')
     }
     else {
-        fetchBrands(0,0);
+        fetchBrands(0, 0);
         viewmore1 = true;
         $('#toogleBtn1').text('View less Brands')
     }
 
 }
-function fetchBrands(count,ispv) {
+function fetchBrands(count, ispv) {
     var apiurl = baseUrl + "Home/GetBrands";
     $('.loader-parent').show();
     $.ajax({
@@ -95,8 +95,8 @@ function fetchBrands(count,ispv) {
                 renderImagesForTable1(data.filter(x => x.pv === true), count);
                 renderImagesForTable2(data.filter(x => x.ev === true), count);
             }
-          
-           
+
+
         },
         error: function (xhr, status, error) {
             console.error('Error fetching data:', error);
@@ -265,7 +265,7 @@ function brandselect(i, j, name) {
             });
 
             $("#bikesecond").html(carouselContentsec);
-           
+
         },
         error: function (xhr, status, error) {
             $('.loader-parent').hide();
@@ -519,12 +519,12 @@ function brandlist(i, j) {
 }
 $(document).ready(function () {
     carouselBind();
-    fetchBrands(1,2);
+    fetchBrands(1, 2);
 });
 
 
 $(document).ready(function () {
-   
+
     addsImg();
     var apiEndpoint = 'Home/GetChoiceCategory';
     var apiUrl = baseUrl + apiEndpoint;
@@ -863,8 +863,7 @@ function famousbikemodel(i) {
 }
 
 
-function RaceModelsBind()
-{
+function RaceModelsBind() {
     var filteredData = Bikedata.filter(item => item.raceModels);
     var btext = localStorage.getItem("buttontext");
 
@@ -872,29 +871,29 @@ function RaceModelsBind()
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
           <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
-              <div class="card border-top-0">
-                <div class="card-body shadow">
-                  <div class="row mx-0">
-                    <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-                      <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-                    </div>
-                  </div>
-                  <div class="row mx-0" style="padding-top: 180px;">
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
-                    </div>
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
-                    </div>
-                  </div>
-                </div>
+      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0">
+          <div class="card-body shadow">
+            <div class="row mx-0">
+              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
               </div>
             </div>
-          </div>`;
+            <div class="row mx-0" style="padding-top: 180px;">
+              <div class="col-md-12">
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+              </div>
+              <div class="col-md-12">
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+              </div>
+              <div class="col-md-12 text-center">
+                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
     }
 
     // Update the carousel with the new content
@@ -937,30 +936,30 @@ function ScootyModelsBind() {
     var carouselContent = "";
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
-          <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Scootymodel(${filteredData[i].vehicleId})">
-              <div class="card border-top-0">
-                <div class="card-body shadow">
-                  <div class="row mx-0">
-                    <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-                      <img class="rounded-circle text-center image-container" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-                    </div>
-                  </div>
-                  <div class="row mx-0" style="padding-top: 180px;">
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
-                    </div>
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
-                    </div>
-                  </div>
-                </div>
+         <div class="item">
+      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0">
+          <div class="card-body shadow">
+            <div class="row mx-0">
+              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
               </div>
             </div>
-          </div>`;
+            <div class="row mx-0" style="padding-top: 180px;">
+              <div class="col-md-12">
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+              </div>
+              <div class="col-md-12">
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+              </div>
+              <div class="col-md-12 text-center">
+                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
     }
 
     // Update the carousel with the new content
@@ -1004,29 +1003,29 @@ function FamousEvModels() {
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
           <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Scootyevmodel(${filteredData[i].vehicleId})">
-              <div class="card border-top-0">
-                <div class="card-body shadow">
-                  <div class="row mx-0">
-                    <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-                      <img class="rounded-circle text-center image-container" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-                    </div>
-                  </div>
-                  <div class="row mx-0" style="padding-top: 180px;">
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
-                    </div>
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
-                    </div>
-                  </div>
-                </div>
+      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0">
+          <div class="card-body shadow">
+            <div class="row mx-0">
+              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
               </div>
             </div>
-          </div>`;
+            <div class="row mx-0" style="padding-top: 180px;">
+              <div class="col-md-12">
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+              </div>
+              <div class="col-md-12">
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+              </div>
+              <div class="col-md-12 text-center">
+                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
     }
 
     // Update the carousel with the new content
@@ -1071,30 +1070,30 @@ function FamousMilageModel() {
     var carouselItems = "";
     for (var i = 0; i < filteredData.length; i++) {
         carouselItems += `
-          <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="mileagemodel(${filteredData[i].vehicleId})">
-              <div class="card border-top-0">
-                <div class="card-body shadow">
-                  <div class="row mx-0">
-                    <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-                      <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-                    </div>
-                  </div>
-                  <div class="row mx-0" style="padding-top: 180px;">
-                    <div class="col-md-12">
-                      <p class="mb-0 text-center mt-2">${filteredData[i].vehicleName}</p>
-                    </div>
-                    <div class="col-md-12">
-                      <p class="mb-2 text-center mt-2">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</p>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
-                    </div>
-                  </div>
-                </div>
+         <div class="item">
+      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0">
+          <div class="card-body shadow">
+            <div class="row mx-0">
+              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
               </div>
             </div>
-          </div>`;
+            <div class="row mx-0" style="padding-top: 180px;">
+              <div class="col-md-12">
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+              </div>
+              <div class="col-md-12">
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+              </div>
+              <div class="col-md-12 text-center">
+                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
     }
 
     // Update the carousel with the new content
@@ -1176,96 +1175,6 @@ function allimg() {
             console.error('Error fetching data:', error);
         }
     });
-}
-
-function validateLogin() {
-    var mobileNumber = document.getElementById('mobileNumber').value;
-    var password = document.getElementById('password').value;
-    if (!/^\d{10}$/.test(mobileNumber)) {
-        alert('Invalid mobile number. Please enter a 10-digit numeric value.');
-        return;
-    }
-    if (password.length < 6) {
-        alert('Password must be at least 6 characters long');
-        return;
-    }
-
-
-
-    var apiurl = baseUrl + "Home/PostLogin";
-    var sendData = {
-        Mobile: mobileNumber,
-        Password: password
-    }
-    $('.loader-parent').show();
-    sendData = JSON.stringify(sendData);
-    $.ajax({
-        url: apiurl,
-        type: 'POST',
-        data: sendData,
-        contentType: "application/json",
-        dataType: "json",
-        success: function (response) {
-            $('.loader-parent').hide();
-            if (response.isSuccess) {
-
-                location.href = "./index.html";
-            }
-        }
-    })
-}
-function validateSignup() {
-    var name = document.getElementById('name').value;
-    var mobileNumber1 = document.getElementById('mobileNumber1').value;
-    var email = document.getElementById('email').value;
-    var password1 = document.getElementById('password1').value;
-    var nameRegex = /^[a-zA-Z\-]+$/;
-    if (!nameRegex.test(name)) {
-        // alert('Invalid user name.');
-        $('#alertModal').modal();
-        $('#alertMsg').html('Invalid user name.');
-        return;
-    }
-    if (!/^\d{10}$/.test(mobileNumber1)) {
-        alert('Invalid mobile number. Please enter a 10-digit numeric value.');
-        return;
-    }
-
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Invalid email format');
-        return;
-    }
-    if (password1.length < 6) {
-        alert('Password must be at least 6 characters long');
-        return;
-    }
-
-
-    var apiurl = baseUrl + "Home/PostSignUp";
-    $('.loader-parent').show();
-    var sendData = {
-        Name: name,
-        Mobile: mobileNumber1,
-        Email: email,
-        Password: password1
-    }
-
-    sendData = JSON.stringify(sendData);
-    $.ajax({
-        url: apiurl,
-        type: 'POST',
-        data: sendData,
-        contentType: "application/json",
-        dataType: "json",
-
-        success: function (response) {
-            $('.loader-parent').hide();
-            if (response.isSuccess) {
-                toggleForm();
-            }
-        }
-    })
 }
 
 

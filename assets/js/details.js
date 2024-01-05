@@ -30,7 +30,7 @@ AOS.init()
 $(document).ready(function () {
     addsImg();
     brandlistV1();
-  
+
     //var IsPincode = localStorage.getItem("SearchPincode");
     var IsPincode = $.cookie("SearchPincode");
     if (IsPincode) {
@@ -82,8 +82,8 @@ function brandlistV1() {
             else {
                 allimgvechileid = vehicleDetails.vechileid;
             }
-          
-            
+
+
 
             brandidpin = vehicleDetails.brandid;
 
@@ -124,31 +124,32 @@ function brandlistV1() {
                 $('#bikeInfor').text(vehicleDetails.bikeInfor);
                 $('#additionalFeatures').text(vehicleDetails.additionalFeatures);
                 $('#exshowroomPrize1').text(vehicleDetails.exshowroomPrize);
-              
+
                 $('#displacement').text(vehicleDetails.displacement + " CC");
                 $('#speedometer').text(vehicleDetails.topSpeed + " KMPH");
                 $('#PVSpeedometer').text(vehicleDetails.speedometer);
                 $('#PVstarting').text(vehicleDetails.starting);
-                
+
                 $('#FualTankCapacity').text(vehicleDetails.fuelTankCapacity + " L");
 
                 $('#cubicCapacity').text(vehicleDetails.displacement + " CC");
                 $('#kerbWeight').text(vehicleDetails.kerbWeight + " Kg");
                 $('#PVKerbWeight').text(vehicleDetails.kerbWeight + " Kg");
-                
+
                 $('#mileage').text(vehicleDetails.mileage + " KMPl");
                 $('#mileage1').text(vehicleDetails.mileage + " KMPl");
                 $('#maxPower').text(vehicleDetails.maxPower);
                 $('#PvPower').text(vehicleDetails.maxPower);
-                
+
                 $('#maxTorque').text(vehicleDetails.maxTorque);
                 $('#frontBrake').text(vehicleDetails.frontBrake);
-             
+
                 $('#rearBrake').text(vehicleDetails.rearBrake);
                 $('#fuelCapacity').text(vehicleDetails.fuelTankCapacity);
             }
             else {
 
+                $('#vehicleName').text(vehicleDetails.vehiclename);
                 $('#EVvehicleType').text(vehicleDetails.vehicleType);
                 $('#EVtopSpeed').text(vehicleDetails.topSpeed + " KMPl");
                 $('#range').text(vehicleDetails.range + " M");
@@ -165,7 +166,7 @@ function brandlistV1() {
 
                 $('#EVMotorPower').text(vehicleDetails.motorPower);
                 $('#EVPower').text(vehicleDetails.motorPower);
-                
+
 
                 $('#EVIPRating').text(vehicleDetails.ipRating);
 
@@ -217,7 +218,7 @@ function brandlistV1() {
                 $('#EVLowBatteryIndicator').text(vehicleDetails.lowBatteryIndicator);
                 $('#EVexshowroomPrize1').text(vehicleDetails.exshowroomPrize);
                 $('#EVoverallRatings').text(vehicleDetails.overallRatings);
-                
+
                 $('#EVvehicleName1').text(vehicleDetails.vehiclename + " Key Highlight");
                 $('#EVvehicleName2').text(vehicleDetails.vehiclename + " Specifications");
                 $('#EVvehicleName3').text(vehicleDetails.vehiclename + " Price");
@@ -228,7 +229,7 @@ function brandlistV1() {
                 $('#evspec').show();
             }
 
-            
+
 
             $('#first').hide();
             $('#second').hide();
@@ -322,7 +323,7 @@ function brandlistV1() {
                 });
 
             }
-            
+
 
             var apiurl = baseUrl + "VehicleDetails/VehicleDetailImages?Vehicleid=" + i;
             $('.loader-parent').show();
@@ -381,8 +382,7 @@ function brandlistV1() {
                             $('.loader-parent').hide();
                             $('#bikePrice').empty;
                             var carouselItems = "";
-                            for (var i = 0; i < data.length; i++)
-                            {
+                            for (var i = 0; i < data.length; i++) {
                                 carouselItems += `
                         <div class="item">
                           <div class="container mt-6" style="position: relative;" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
@@ -464,8 +464,7 @@ function brandlistV1() {
     })
 }
 
-function Varients(i,j)
-{
+function Varients(i, j) {
     location.href = "./details.html?Vehicleid=" + i + '&IsEv=' + j;
 }
 
@@ -515,47 +514,48 @@ function backstage() {
     $('html,body').scrollTop(0);
 }
 
-function allcolor (){
+function allcolor() {
     var colorPopUp = new bootstrap.Modal(document.getElementById('colorPopUp'), {
         backdrop: 'static',
         keyboard: false
     })
     colorPopUp.show()
-    var ismulticolor=sessionStorage.getItem('ismulticolor')
-    var isSamePrize=sessionStorage.getItem('isSamePrize')
- var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + allimgvechileid + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
-        $.ajax({
-            url: apiurl,
-            method: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                $("#colormsg").empty()
-                var $carousel = ""
-                var $carousel = $("#colormsg");
-                for (var i = 0; i < data.length; i++) {
-                    var card = data[i];
-                    var $card = `
+    var ismulticolor = sessionStorage.getItem('ismulticolor')
+    var isSamePrize = sessionStorage.getItem('isSamePrize')
+    var apiurl = baseUrl + "VehicleDetails/GetPrice?Vehicleid=" + allimgvechileid + '&IsmultiColor=' + ismulticolor + '&IsSamePrize=' + isSamePrize;
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            $("#colormsg").empty()
+            var $carousel = ""
+            var $carousel = $("#colormsg");
+            for (var i = 0; i < data.length; i++) {
+                var card = data[i];
+                var $card = `
                     <div class="row mx-0 ">
                             <div class="col border" id="vehicleColor" >
                               <div class="circle" style="background-color:${card.colour};"></div></div>
                             <div class="col border" id="vehicleName">${card.name}</div>
                             <div class="col border" id="vehiclePrice">${card.price || 'Same Price'}</div>
                     </div>`;
-    
-                    $carousel.append($card);
-                
+
+                $carousel.append($card);
+
             }
-        }})
+        }
+    })
 }
 function fetchPincode(type) {
     var city;
     if (type == 1) {
-         city = document.getElementById('form12').value;
+        city = document.getElementById('form12').value;
     }
     else {
-         city = document.getElementById('form13').value;
+        city = document.getElementById('form13').value;
     }
-   
+
     var apiurl = baseUrl + "Home/GetCity?Key=" + city;
 
     $.ajax({
@@ -570,7 +570,7 @@ function fetchPincode(type) {
             else {
                 displayAutocompleteResults12(data);
             }
-          
+
 
             if (matchingPincode) {
                 const pincode = matchingPincode.pincode;
@@ -613,7 +613,7 @@ function GenerateLead() {
         $('#pinvalidation').text("* Enter Your Pincode");
         $('#pinvalidation').focus();
         $('#pinvalidation').show();
-        
+
         return;
     }
     else {
@@ -630,13 +630,13 @@ function GenerateLead() {
 
     if (!pattern.test(mobileNumber)) {
         $('#mobilevalidation').text("* Enter Valid Mobile Number");
-        $('#mobilevalidation').focus(); 
+        $('#mobilevalidation').focus();
         $('#mobilevalidation').show();
         return;
     }
     if ($('#CustName').val() == "" || $('#CustName').val() == null || $('#CustName').val() == "undefined") {
         $('#namevalidation').text("* Enter Your Name");
-        $('#namevalidation').focus(); 
+        $('#namevalidation').focus();
         $('#namevalidation').show();
         return;
     }
@@ -673,15 +673,14 @@ function GenerateLead() {
             setTimeout(function () {
                 $('#toastMessage').removeClass('show').addClass('hide');
             }, 5000); // Hid
-           
+
         }
-       
+
     })
 }
 
 
-function ClearFilter()
-{
+function ClearFilter() {
     $('#form12').val("");
     $('#form13').val("");
     $.removeCookie('SearchPincode');
@@ -690,7 +689,7 @@ function ClearFilter()
     defaultcity();
 }
 
-        function defaultcity() {
+function defaultcity() {
     var apiurl = baseUrl + "Home/GetShowRoom?PincodeId=" + 0 + '&BrandId=' + 0
     $('.loader-parent').show();
     $.ajax({
@@ -762,7 +761,7 @@ function listoffer() {
     if (Pin == null || Pin == "" || Pin == undefined) {
         $('#leadpin').show();
     }
-    
+
 
     var pinlist = new bootstrap.Modal(document.getElementById('pinlist'), {
         backdrop: 'static',
