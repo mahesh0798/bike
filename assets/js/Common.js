@@ -536,10 +536,6 @@ function validateSignup() {
 
         success: function (response) {
             $('.loader-parent').hide();
-
-           
-            
-
             if (response.isSuccess) {
                 $('#toastMessage').text("Register Successfully");
                 $('#toastMessage').removeClass('hide').addClass('show');
@@ -547,11 +543,11 @@ function validateSignup() {
                     $('#toastMessage').removeClass('show').addClass('hide');
                 }, 5000); // Hide after 3 seconds
 
-                $.cookie('username', mobileNumber1);
-                $.cookie('CustName', name);
-                $('#loginUserName').text(name);
-                $('#loginlable').hide();
-                $('#loginUserName').show();
+                //$.cookie('username', mobileNumber1);
+                //$.cookie('CustName', name);
+                //$('#loginUserName').text(name);
+                //$('#loginlable').hide();
+                //$('#loginUserName').show();
                 toggleForm();
             }
             else {
