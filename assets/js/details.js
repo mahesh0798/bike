@@ -16,6 +16,7 @@ var btnall = "";
 let clickedCityId = null;
 allimgvechileid = ""
 var brandidpin = '';
+var IsDirectPin = "";
 $('#first').show();
 $('#second').hide();
 $('#three').hide();
@@ -546,8 +547,15 @@ function allcolor (){
             }
         }})
 }
-function fetchPincode() {
-    const city = document.getElementById('form12').value;
+function fetchPincode(type) {
+    var city;
+    if (type == 1) {
+         city = document.getElementById('form12').value;
+    }
+    else {
+         city = document.getElementById('form13').value;
+    }
+   
     var apiurl = baseUrl + "Home/GetCity?Key=" + city;
 
     $.ajax({
@@ -556,7 +564,13 @@ function fetchPincode() {
         dataType: 'json',
         success: function (data) {
             const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
-            displayAutocompleteResults(data);
+            if (type == 1) {
+                displayAutocompleteResults(data);
+            }
+            else {
+                displayAutocompleteResults12(data);
+            }
+          
 
             if (matchingPincode) {
                 const pincode = matchingPincode.pincode;
@@ -579,7 +593,8 @@ function fetchPincodeCache() {
         success: function (data) {
             const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
             displayAutocompleteResults(data);
-
+            clickedCityId = data[0].pincodeId;
+            GetAutoCit();
             if (matchingPincode) {
                 const pincode = matchingPincode.pincode;
                 document.getElementById('pincodeResult').textContent = ` ${pincode}`;
@@ -591,12 +606,44 @@ function fetchPincodeCache() {
 }
 
 function GenerateLead() {
-   
+
+    var Pin = $.cookie('SearchPincode');
+    if (Pin == null || Pin == "" || Pin == undefined) {
+        $('#leadpin').show();
+        $('#pinvalidation').text("* Enter Your Pincode");
+        $('#pinvalidation').focus();
+        $('#pinvalidation').show();
+        
+        return;
+    }
+    else {
+        $('#leadpin').hide();
+    }
+
+    $('#LeadSuccess').text("");
+    $('#LeadSuccess').hide();
     var apiurl = baseUrl + "Home/LeadGeneration";
     var LeadGeneration = new Object();
+
+    var mobileNumber = $('#MobileBook').val();
+    var pattern = /^[6-9]\d{9}$/; // Regex pattern for Indian mobile numbers
+
+    if (!pattern.test(mobileNumber)) {
+        $('#mobilevalidation').text("* Enter Valid Mobile Number");
+        $('#mobilevalidation').focus(); 
+        $('#mobilevalidation').show();
+        return;
+    }
+    if ($('#CustName').val() == "" || $('#CustName').val() == null || $('#CustName').val() == "undefined") {
+        $('#namevalidation').text("* Enter Your Name");
+        $('#namevalidation').focus(); 
+        $('#namevalidation').show();
+        return;
+    }
+    $('.loader-parent').show();
     LeadGeneration.Mobile = $('#MobileBook').val();
     LeadGeneration.Name = $('#CustName').val();
-    LeadGeneration.Pincode = "630001";
+    LeadGeneration.Pincode = Pin;
     LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
     var request = JSON.stringify(LeadGeneration);
 
@@ -607,16 +654,26 @@ function GenerateLead() {
         dataType: "json",
         data: request,
         success: function (data) {
+            $('#LeadSuccess').show();
+            $('#LeadSuccess').text("😊 Your Order Booked Successfully");
             $('#toastMessage').text("😊 Thanks for your booking with us.We will connect you with best price soon")
-
             $('#toastMessage').removeClass('hide').addClass('show');
             $('#pinlist').modal('hide');
-           
-          
+            $('#MobileBook,#CustName').val("");
+            $('#mobilevalidation,#namevalidation').hide();
             setTimeout(function () {
                 $('#toastMessage').removeClass('show').addClass('hide');
             }, 5000); // Hide after 3 seconds
-          
+            $('.loader-parent').hide();
+        },
+        error: function (xhr, status, error) {
+            $('.loader-parent').hide();
+            $('#toastMessage').text("🙁 OOPS ! We are not able Process your Request.Please try again")
+            $('#toastMessage').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hid
+           
         }
        
     })
@@ -626,6 +683,7 @@ function GenerateLead() {
 function ClearFilter()
 {
     $('#form12').val("");
+    $('#form13').val("");
     $.removeCookie('SearchPincode');
     $('#pinCity').hide();
     $('#SearchShowrom').show();
@@ -698,7 +756,14 @@ function ClearFilter()
         }
     })
 }
-function listoffer (){
+function listoffer() {
+
+    var Pin = $.cookie('SearchPincode');
+    if (Pin == null || Pin == "" || Pin == undefined) {
+        $('#leadpin').show();
+    }
+    
+
     var pinlist = new bootstrap.Modal(document.getElementById('pinlist'), {
         backdrop: 'static',
         keyboard: false

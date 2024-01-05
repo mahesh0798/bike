@@ -79,6 +79,19 @@
 			display: flex;
 			justify-content: space-around;
 		}
+        /* Tooltip styling */
+        .tooltip-inner {
+            background-color: #333; /* Tooltip background color */
+            color: #fff; /* Tooltip text color */
+            border-radius: 4px; /* Tooltip border radius */
+            padding: 5px 10px; /* Tooltip padding */
+            font-size: 14px; /* Tooltip font size */
+        }
+
+        /* Tooltip arrow styling */
+        .arrow::before {
+            border-top-color: #333 !important; /* Tooltip arrow color */
+        }
 	</style>
 </head>
 
@@ -338,7 +351,7 @@
                      data-aos-duration="1000">
                 <div class="container my-4">
                     <div data-aos="fade-up" data-aos-duration="1000">
-                        <h2 class="text-center fw-bold">Famous Bikes Modals</h2>
+						<h2 class="text-center fw-bold">Famous Bikes Models</h2>
                     </div>
 
 

@@ -540,32 +540,32 @@ $(document).ready(function () {
             var btext = localStorage.getItem("buttontext");
             // Process the filtered API response and generate carousel content
             var carouselItems2 = "";
-            for (var i = 0; i < filteredData.length; i++) { 
+            for (var i = 0; i < filteredData.length; i++) {
                 carouselItems2 += `
-          <div class="item">
-            <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
-              <div class="card border-top-0">
-                <div class="card-body shadow">
-                  <div class="row mx-0">
-                    <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
-                      <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-                    </div>
-                  </div>
-                  <div class="row mx-0" style="padding-top: 180px;">
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].vehicleName}</h5>
-                    </div>
-                    <div class="col-md-12">
-                      <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
-                    </div>
-                    <div class="col-md-12 text-center">
-                      <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
-                    </div>
-                  </div>
-                </div>
+    <div class="item">
+      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0">
+          <div class="card-body shadow">
+            <div class="row mx-0">
+              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
               </div>
             </div>
-          </div>`;
+            <div class="row mx-0" style="padding-top: 180px;">
+              <div class="col-md-12">
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+              </div>
+              <div class="col-md-12">
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+              </div>
+              <div class="col-md-12 text-center">
+                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
             }
 
             // Update the carousel with the new content

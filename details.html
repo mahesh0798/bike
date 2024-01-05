@@ -115,6 +115,16 @@
         .show {
             display: block;
         }
+
+        /* Styling for Mobile Number input */
+        .leadinput {
+            border: 2px solid #6ab8ff; /* Red border */
+            border-radius: 5px;
+            padding: 8px;
+        }
+
+        
+
     </style>
 </head>
 
@@ -154,12 +164,12 @@
 
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 p-0">
                             <div class="d-flex justify-content-md-end">
                                 <div class="d-flex align-items-center">
-                                    <i class="fa fa-user fa-lg " aria-hidden="true"></i>
+                                    <i class="fa fa-user fa-lg " aria-hidden="true"> </i>
                                 </div>
-                                <a class="navbar-brand" href="login.html">Log In</a>
+                                <a class="navbar-brand pl-1" href="login.html"> Log In</a>
                             </div>
                         </div>
                     </div>
@@ -267,9 +277,11 @@
                                 <div class="row mx-0 my-5">
                                     <div class="col-md-4">
                                         <!--<h3 class="pl-2" id="exshowroomPrize">
-                                        </h3>
-                                        <p class="pl-2"> Avg. Ex-Showroom Price</p>-->
-                                        <h4> <b>₹<span id="exshowroomPrize"></span></b> <span class="f-14">Ex showroom Price onwards<span></h4>
+    </h3>
+    <p class="pl-2"> Avg. Ex-Showroom Price</p>-->
+                                        <!--<h4> <b>₹<span id="exshowroomPrize"></span></b> <span class="f-14">Ex showroom Price onwards<span></h4>-->
+                                        <h4> <b>₹<span id="exshowroomPrize"></span></b></h4>
+                                        <h6> <span class="f-14">Ex showroom Price onwards</span></h6>
                                     </div>
 
 
@@ -1499,7 +1511,7 @@
                 </div>
             </div>
         </section>
-        <div class="modal fade" id="pinlist">
+        <div class="modal fade" id="pinlist" role="dialog">
             <div class="modal-dialog login-dialog" style="max-width: 500px;max-height:500px;margin-top: 11rem;">
                 <div class="modal-content">
                     <div class="modal-header" style="padding-bottom: 0 !important">
@@ -1511,16 +1523,42 @@
                     </div>
                     <div class="modal-body">
 
+
+
+                        <div class="col-md-12 pb-2" data-mdb-input-init id="leadpin" style="display:none">
+                            <input type="text" id="form13" autocomplete="off" class="form-control leadinput" onkeyup="fetchPincode(2)" placeholder="Type Your Pincode here" />
+                            <div id="autocompleteResultsPin"></div>
+                            <span id="pinvalidation" style="display:none;color:red"></span>
+                        </div>
+
+
                         <div class="col-md-12 pb-2">
-                            <input type="text" id="MobileBook" class="form-control" placeholder="Mobile Number" />
+                            <input type="text" id="MobileBook" class="form-control leadinput" placeholder="Enter Your Mobile Number" />
+                            <span id="mobilevalidation" style="display:none;color:red"></span>
 
                         </div>
                         <div class="col-md-12 pb-2">
-                            <input type="text" id="CustName" class="form-control"  placeholder="Name" />
+                            <input type="text" id="CustName" class="form-control leadinput" placeholder="Enter Your Name" />
+                            <span id="namevalidation" style="display:none;color:red"></span>
                         </div>
+
+                        <div class="col-md-12 pb-5">
+                            <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF " style="height:17px" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img"><path d="M11.89 16h-8a2.06 2.06 0 01-2.06-2.06v-6a2.07 2.07 0 012-2.06V4.09a4.09 4.09 0 118.17 0v1.78a2.07 2.07 0 012 2.06v6A2.06 2.06 0 0111.89 16zm-8-9.13a1.07 1.07 0 00-1.03 1.06v6A1.07 1.07 0 003.92 15h8A1.07 1.07 0 0013 13.94v-6a1.07 1.07 0 00-1.06-1.06zm.9-1H11V4.09a3.09 3.09 0 10-6.17 0zm3.61 6.37h-1v-1.63a.84.84 0 01-.32-.61.83.83 0 111.32.65zm-.5-2.46a.18.18 0 00-.17.18c0 .19.35.19.35 0a.18.18 0 00-.18-.18z"></path></svg>
+                            <span> We only ask these once and your details are safe with us.</span>
+                        </div>
+
+                        <div class="o-cNwRuH o-cpNAVm">By proceeding ahead, you agree to BikeWale <a class="o-elzeOy" target="_blank" href="assets/pdf/visitor-agreement.pdf">Visitor Agreement</a> and <a class="o-elzeOy" target="_blank" href="assets/pdf/privacy-policy.pdf">Privacy Policy</a>.</div>
+
+                        <div class="col-md-12 pb-2 text-center">
+                            <span id="LeadSuccess" style="display:none;color:green"></span>
+                        </div>
+
+
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" onclick="GenerateLead()" data-dismiss="modal">Submit</button>
+                        <button type="button" class="btn btn-danger text-white px-4" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" onclick="GenerateLead()" id="LeadPopup">Submit</button>
+
                     </div>
                 </div>
             </div>
@@ -1541,7 +1579,7 @@
                                   </div> -->
                                 <div class="form-outline" data-mdb-input-init>
                                     <!--<label class="form-label" for="form12">Search City</label>-->
-                                    <input type="text" id="form12" autocomplete="off" class="form-control" onkeyup="fetchPincode()" placeholder="Type Your Pincode here" />
+                                    <input type="text" id="form12" autocomplete="off" class="form-control" onkeyup="fetchPincode(1)" placeholder="Type Your Pincode here" />
                                     <div id="autocompleteResults"></div>
                                 </div>
 
