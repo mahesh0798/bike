@@ -51,7 +51,7 @@ function displayAutocompleteResults1(results) {
             clickedVehicleId = result.vechileid;
             console.log("Clicked vehicle ID:", clickedVehicleId);
             if (clickedVehicleId) {
-                Racemodel(clickedVehicleId)
+                SearchRacemodel(clickedVehicleId, result.isEv)
             }
             autocompleteResults1.innerHTML = '';
         });
@@ -71,6 +71,9 @@ document.addEventListener("click", function (e) {
 });
 function Racemodel(i) {
     location.href = "./details.html?Vehicleid=" + i + '&IsEv=false';
+}
+function SearchRacemodel(i, j) {
+    location.href = "./details.html?Vehicleid=" + i + '&IsEv=' + j;
 }
 
 function addsImg() {

@@ -556,7 +556,7 @@ $(document).ready(function () {
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
-                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
                 <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
@@ -794,7 +794,7 @@ function famousbikemodel(i) {
                                     <h5>${data[i].vehiclename}</h5>
                                   </div>
                                   <div class="col-md-10">
-                                    <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
+                                    <h5>${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize : 'Price not available'}</h5>
                                   </div>
                                   <div class="col-md-12 text-center">
                                     <button class="btn btn-outline-secondary text-white purple1">Get Diwali Offers</button>
@@ -884,7 +884,7 @@ function RaceModelsBind() {
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
-                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
                 <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
@@ -950,7 +950,7 @@ function ScootyModelsBind() {
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
-                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
                 <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
@@ -1003,7 +1003,7 @@ function FamousEvModels() {
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
           <div class="item">
-      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+      <div class="container mt-6" style="position: relative;" onclick="Scootyevmodel(${filteredData[i].vehicleId})">
         <div class="card border-top-0">
           <div class="card-body shadow">
             <div class="row mx-0">
@@ -1016,7 +1016,7 @@ function FamousEvModels() {
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
-                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
                 <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
@@ -1084,7 +1084,7 @@ function FamousMilageModel() {
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
-                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price.toFixed(2) : 'Price not available'}</h5>
+                <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
                 <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>

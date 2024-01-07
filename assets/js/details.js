@@ -70,24 +70,26 @@ function brandlistV1() {
         dataType: 'json',
         success: function (data) {
             var vehicleDetails = data[0];// data.find(item => item.vechileid === i);
-            var bikemodeid = data[0].bikeModelid;
+            var bikemodeid;
             var ismulticolor = vehicleDetails.ismulticolor;
             var isSamePrize = vehicleDetails.isSamePrize;
             sessionStorage.setItem('ismulticolor', ismulticolor);
             sessionStorage.setItem('isSamePrize', isSamePrize);
-
+            
             if (j == "true") {
                 allimgvechileid = vehicleDetails.vehicleId;
+                 bikemodeid = data[0].modelid; 
             }
             else {
                 allimgvechileid = vehicleDetails.vechileid;
+                 bikemodeid = data[0].bikeModelid; 
             }
 
 
 
             brandidpin = vehicleDetails.brandid;
 
-            $('#exshowroomPrize').text(vehicleDetails.exshowroomPrize);
+            $('#exshowroomPrize').text(" "+vehicleDetails.exshowroomPrize);
             $('#overallRatings,#overallRatingsPv').text(vehicleDetails.overallRatings);
 
             if (j == "false") {
@@ -152,11 +154,11 @@ function brandlistV1() {
                 $('#vehicleName').text(vehicleDetails.vehiclename);
                 $('#EVvehicleType').text(vehicleDetails.vehicleType);
                 $('#EVtopSpeed').text(vehicleDetails.topSpeed + " KMPl");
-                $('#range').text(vehicleDetails.range + " M");
-                $('#Range1').text(vehicleDetails.range + " M");
+                $('#range').text(vehicleDetails.range + " Km");
+                $('#Range1').text(vehicleDetails.range + " Km");
                 $('#batteryType').text(vehicleDetails.batteryType);
                 $('#EVbatteryType').text(vehicleDetails.batteryType);
-                $('#chargingtime').text(vehicleDetails.chargingTime + " Ah");
+                $('#chargingtime').text(vehicleDetails.chargingTime);
                 $('#kerbWeightEv').text(vehicleDetails.kerbWeight + " Kg");
                 $('#speedometerEv').text(vehicleDetails.topSpeed + " KMPh");
                 $('#EVbatteryCapacity').text(vehicleDetails.batteryCapacity);
@@ -398,7 +400,7 @@ function brandlistV1() {
                                     <h5 class="text-center">${data[i].vehiclename}</h5>
                                   </div>
                                   <div class="col-md-12">
-                                    <h5 class="text-center">${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize.toFixed(2) : 'Price not available'}</h5>
+                                    <h5 class="text-center">${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize : 'Price not available'}</h5>
                                   </div>
                                                    <div class="col-md-12 text-center">
                                       <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
