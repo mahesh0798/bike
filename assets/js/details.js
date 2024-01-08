@@ -96,6 +96,7 @@ function brandlistV1() {
                 $('#pvkeyspec').show();
                 $('#pvspec').show();
                 $('#vehicleName').text(vehicleDetails.vehiclename);
+                $('#ImgvehicleName').text("Images of "+vehicleDetails.vehiclename);
                 $('#vehicleName1').text(vehicleDetails.vehiclename + " Key Highlight");
                 $('#vehicleName2').text(vehicleDetails.vehiclename + " Specifications");
                 $('#vehicleName3').text(vehicleDetails.vehiclename + " Price");
@@ -152,6 +153,7 @@ function brandlistV1() {
             else {
 
                 $('#vehicleName').text(vehicleDetails.vehiclename);
+                $('#ImgvehicleName').text("Images of " + vehicleDetails.vehiclename);
                 $('#EVvehicleType').text(vehicleDetails.vehicleType);
                 $('#EVtopSpeed').text(vehicleDetails.topSpeed + " KMPl");
                 $('#range').text(vehicleDetails.range + " Km");

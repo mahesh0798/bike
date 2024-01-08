@@ -154,7 +154,7 @@ function renderImagesForTable1(data, count) {
                 }
                 // Remove double quotes from brandNames using replace()
                 var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-                imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
+                imagesHTML += '<td  onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
                 if (i % 5 === 4 || i === data.length - 1) {
                     imagesHTML += '</tr>';
                 }
@@ -169,7 +169,7 @@ function renderImagesForTable1(data, count) {
             }
             // Remove double quotes from brandNames using replace()
             var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-            imagesHTML += '<td onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
+            imagesHTML += '<td  onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
             if (i % 5 === 4 || i === data.length - 1) {
                 imagesHTML += '</tr>';
             }
