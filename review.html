@@ -49,9 +49,9 @@
             border-radius: 5px;
         }
 
-        .specs {
-            display: flex;
-            justify-content: space-around;
+        
+        .star {
+            font-size: 30px; /* Change this value to adjust the size as needed */
         }
     </style>
 </head>
@@ -61,7 +61,7 @@
         <div class="nb-spinner"></div>
     </div>
 
-    <div>
+    <div class="container">
         <header style="height: 56px;width: 100%;">
             <nav class="navbar navbar-light bg-light fixed-top">
                 <div class="container-fluid">
@@ -104,41 +104,204 @@
                 </div>
             </nav>
         </header>
-    </div>
-    <div class="container w-50">
-        <div class="row mt-50">
-            <div class="col-md-6">
-                <label>Mileage</label>
-            </div>
-            <div class="col-md-6">
-                <div class="rating" data-rating="0">
-                    <span class="star" data-value="1">&#9734;</span>
-                    <span class="star" data-value="2">&#9734;</span>
-                    <span class="star" data-value="3">&#9734;</span>
-                    <span class="star" data-value="4">&#9734;</span>
-                    <span class="star" data-value="5">&#9734;</span>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-50">
-            <div class="col-md-6">
-                <label>Another Aspect</label>
-            </div>
-            <div class="col-md-6">
-                <div class="rating" data-rating="0">
-                    <span class="star" data-value="1">&#9734;</span>
-                    <span class="star" data-value="2">&#9734;</span>
-                    <span class="star" data-value="3">&#9734;</span>
-                    <span class="star" data-value="4">&#9734;</span>
-                    <span class="star" data-value="5">&#9734;</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
+        <div class="w-100 mt-4">
+
+            <div class="row pb-20">
+                <div class="col-md-2">
+                    <label>Brand</label>
+                </div>
+                <div class="col-md-3">
+                    <select id="ddlBrand" class="form-control">
+                        <option value="0">Select Brand</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label>Bike</label>
+                </div>
+                <div class="col-md-3">
+                    <select id="ddlBike" class="form-control">
+                        <option value="0">Select Bike</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>CustomerName</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="retxtname" class="form-control" />
+                </div>
+                <div class="col-md-2">
+                    <label>Mobile No</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" id="retxtmobile" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row mt-50">
+                <div class="col-md-2">
+                    <label>Mileage</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="rating" data-rating="0">
+                        <span class="star" data-value="1">&#9734;</span>
+                        <span class="star" data-value="2">&#9734;</span>
+                        <span class="star" data-value="3">&#9734;</span>
+                        <span class="star" data-value="4">&#9734;</span>
+                        <span class="star" data-value="5">&#9734;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-50">
+                <div class="col-md-2">
+                    <label>Comfort</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="ComfortRating" data-rating="0">
+                        <span class="star" data-value="1">&#9734;</span>
+                        <span class="star" data-value="2">&#9734;</span>
+                        <span class="star" data-value="3">&#9734;</span>
+                        <span class="star" data-value="4">&#9734;</span>
+                        <span class="star" data-value="5">&#9734;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-50">
+                <div class="col-md-2">
+                    <label>Performance</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="PerformanceRating" data-rating="0">
+                        <span class="star" data-value="1">&#9734;</span>
+                        <span class="star" data-value="2">&#9734;</span>
+                        <span class="star" data-value="3">&#9734;</span>
+                        <span class="star" data-value="4">&#9734;</span>
+                        <span class="star" data-value="5">&#9734;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-50">
+                <div class="col-md-2">
+                    <label>Maintanence Cost</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="MaintanenceCostRating" data-rating="0">
+                        <span class="star" data-value="1">&#9734;</span>
+                        <span class="star" data-value="2">&#9734;</span>
+                        <span class="star" data-value="3">&#9734;</span>
+                        <span class="star" data-value="4">&#9734;</span>
+                        <span class="star" data-value="5">&#9734;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-50">
+                <div class="col-md-2">
+                    <label>Safety</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="SafetyRating" data-rating="0">
+                        <span class="star" data-value="1">&#9734;</span>
+                        <span class="star" data-value="2">&#9734;</span>
+                        <span class="star" data-value="3">&#9734;</span>
+                        <span class="star" data-value="4">&#9734;</span>
+                        <span class="star" data-value="5">&#9734;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-secondary text-white purple1 psbutton">Submit</button>
+            </div>
+        </div>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.rating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                stars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        const value = parseInt(star.getAttribute('data-value'));
+                        const parent = star.parentElement;
+                        const ratingValue = parent.getAttribute('data-rating');
+                        parent.setAttribute('data-rating', value);
+
+                        stars.forEach(s => {
+                            if (parseInt(s.getAttribute('data-value')) <= value) {
+                                s.innerHTML = '&#9733;'; // Filled star
+                            } else {
+                                s.innerHTML = '&#9734;'; // Empty star
+                            }
+                        });
+                    });
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.ComfortRating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                stars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        const value = parseInt(star.getAttribute('data-value'));
+                        const parent = star.parentElement;
+                        const ratingValue = parent.getAttribute('data-rating');
+                        parent.setAttribute('data-rating', value);
+
+                        stars.forEach(s => {
+                            if (parseInt(s.getAttribute('data-value')) <= value) {
+                                s.innerHTML = '&#9733;'; // Filled star
+                            } else {
+                                s.innerHTML = '&#9734;'; // Empty star
+                            }
+                        });
+                    });
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.PerformanceRating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                stars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        const value = parseInt(star.getAttribute('data-value'));
+                        const parent = star.parentElement;
+                        const ratingValue = parent.getAttribute('data-rating');
+                        parent.setAttribute('data-rating', value);
+
+                        stars.forEach(s => {
+                            if (parseInt(s.getAttribute('data-value')) <= value) {
+                                s.innerHTML = '&#9733;'; // Filled star
+                            } else {
+                                s.innerHTML = '&#9734;'; // Empty star
+                            }
+                        });
+                    });
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.MaintanenceCostRating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                stars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        const value = parseInt(star.getAttribute('data-value'));
+                        const parent = star.parentElement;
+                        const ratingValue = parent.getAttribute('data-rating');
+                        parent.setAttribute('data-rating', value);
+
+                        stars.forEach(s => {
+                            if (parseInt(s.getAttribute('data-value')) <= value) {
+                                s.innerHTML = '&#9733;'; // Filled star
+                            } else {
+                                s.innerHTML = '&#9734;'; // Empty star
+                            }
+                        });
+                    });
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.SafetyRating').forEach(rating => {
                 const stars = rating.querySelectorAll('.star');
                 stars.forEach(star => {
                     star.addEventListener('click', () => {
