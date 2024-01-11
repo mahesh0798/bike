@@ -341,7 +341,7 @@ function brandlistV1() {
                     var $carousel = $("#image-carousel-1");
                     for (var i = 0; i < img.length; i++) {
                         var imageUrl = img[i].imagePath;
-                        var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300");
+                        var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300").attr("class","pl-5 pt-5 pr-3");
                         $carousel.append($image);
                     }
 
