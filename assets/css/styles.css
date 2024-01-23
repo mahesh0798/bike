@@ -172,6 +172,9 @@ h4{
 .owl-nav .owl-prev{
     left: 0px;
 }
+/* .clr .owl-item.active.center {
+    width: auto !important;
+} */
 .container.textimonialsection.mt-5 {
     height: 235px;
     margin-top: 1px !important;
