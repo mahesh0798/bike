@@ -123,9 +123,9 @@
                                 </label>
                               </div>
                               <div class="form-check ms-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                  Petrol Bikes
+                                  PV Bikes
                                 </label>
                               </div>
                             </div>
@@ -138,37 +138,30 @@
              </div>   
 
             <div class="row p-2"> 
-                <div class="col-md-2 col-4 pb-2 text-center" >
+                <div class="col-md-1 col-4 p-2 text-center" >
                     <label>Brand</label> 
                 </div>
-                <div class="col-md-4 col-8 pb-2"> 
+                <div class="col-md-3 col-8 pb-2"> 
                     <select id="myBrand" class="form-select" aria-label="Default select example"> 
                     </select> 
                 </div>
-                <div class="col-md-2 col-4 pb-2 text-center">
+                <div class="col-md-1 col-4 p-2 text-center" >
+                    <label>Varient</label> 
+                </div>
+                <div class="col-md-3 col-8 pb-2"> 
+                    <select id="VarientBike" class="form-select" aria-label="Default select example"> 
+                    </select> 
+                </div>
+                <div class="col-md-1 col-4 p-2 text-center">
                     <label>Bike</label> 
                 </div>
-                <div class="col-md-4 col-8 pb-2">
+                <div class="col-md-3 col-8 ">
                     <select id="ddlBike" class="form-select" aria-label="Default select example">
-                        <option value="0">Select Bike</option> 
                     </select> 
                 </div>
             </div>
-            <div class="row p-2">
-                <div class="col-md-2 col-4 pb-2 text-center">
-                    <label>CustomerName</label> 
-                </div>
-                <div class="col-md-4 col-8 pb-2">
-                    <input type="text" id="retxtname" class="form-control" />
-                </div> 
-                <div class="col-md-2 col-4 pb-2 text-center" >
-                    <label>Mobile No</label> 
-                </div> 
-                <div class="col-md-4 col-8 pb-2">
-                    <input type="text" id="retxtmobile" class="form-control" />
-                </div> 
-            </div> 
-
+            
+            <div class="d-grid justify-content-center">
             <div class="row p-2 mt-50">
                 <div class="col-4 d-flex align-items-center">
                     <label>Mileage</label>
@@ -239,8 +232,31 @@
                     </div>
                 </div>
             </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-2 col-4 pb-2 text-center">
+                    <label>CustomerName</label> 
+                </div>
+                <div class="col-md-4 col-8 pb-2">
+                    <input type="text" id="retxtname" class="form-control" />
+                </div> 
+                <div class="col-md-2 col-4 pb-2 text-center" >
+                    <label>Mobile No</label> 
+                </div> 
+                <div class="col-md-4 col-8 pb-2">
+                    <input type="text" id="retxtmobile" class="form-control" />
+                </div> 
+            </div> 
+            <div class="row p-2 my-2">
+                <div class="col-md-2 col-4 pb-2 text-center">
+                    <label>Comment</label> 
+                </div>
+                <div class="col-md-10 col-8 pb-2">
+                    <input type="text" id="CommentMbl" class="form-control" />
+                </div> 
+            </div>
             <div class="col-12 text-center">
-                <button class="btn btn-outline-secondary text-white purple1 psbutton">Submit</button>
+                <button class="btn btn-outline-secondary text-white purple1 psbutton" onclick="ReviewSub()">Submit</button>
             </div>
         </div>
     </div>
@@ -251,8 +267,86 @@
             location.href = "./index.html";
         }
             $(document).ready(function() {
+                var brand=sessionStorage.getItem('brand')
+                var vechileid=sessionStorage.getItem('vechileid')
+                var IsEV=sessionStorage.getItem('isEv')
+                var vehiclename=sessionStorage.getItem('vehiclename')
+                var bikeModelid=sessionStorage.getItem('bikeModelid')
+                if(bikeModelid){
+                var apiUrl = baseUrl + "VehicleDetails/GetBikedetails?Modelid="+bikeModelid;
+                    var selectBox1 = $('#ddlBike');
+                    selectBox1.empty(); 
+                    selectBox1.append($('<option>', { 
+                        value: '', 
+                        text: vehiclename, 
+                        selected: true 
+                    }));
+                    $.ajax({
+                        url: apiUrl,
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            if (Array.isArray(data)) {
+                                $.each(data, function(index, option) {
+                                    selectBox1.append($('<option>', {
+                                        value: option.data,
+                                        text: option.vehiclename
+                                    }));
+                                });
+                            } else {
+                                console.error('API response is not an array.');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching data from the API:', status, error);
+                        }
+                    });
+                }
+                if(sessionStorage.getItem('vechileid') && sessionStorage.getItem('isEv')){
+                    if(IsEV=="false"||IsEV==false){
+                        $('#flexRadioDefault2').prop('checked', true);
+                        $('#flexRadioDefault1').prop('checked', false);
+                    }else{
+                        $('#flexRadioDefault2').prop('checked', false);
+                        $('#flexRadioDefault1').prop('checked', true);
+                    }
+                    var apiUrl = baseUrl + "VehicleDetails/GetBikeModelsdetails?Brandid=" + vechileid + '&EV=' + IsEV;
+                    var VarientBox = $('#VarientBike');
+                    VarientBox.empty(); 
+                    VarientBox.append($('<option>', { 
+                        value: '', 
+                        text: vehiclename, 
+                        selected: true 
+                    }));
+                    $.ajax({
+                        url: apiUrl,
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            if (Array.isArray(data)) {
+                                $.each(data, function(index, option) {
+                                    VarientBox.append($('<option>', {
+                                        value: option.data,
+                                        text: option.brandName
+                                    }));
+                                });
+                            } else {
+                                console.error('API response is not an array.');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error fetching data from the API:', status, error);
+                        }
+                    });
+                }
             var apiUrl = baseUrl + "VehicleDetails/GetBrandsdata";
             var selectBox = $('#myBrand');
+            selectBox.empty(); 
+            selectBox.append($('<option>', { 
+                value: '', 
+                text: brand, 
+                selected: true 
+            }));
             $.ajax({
                 url: apiUrl,
                 method: 'GET',
@@ -273,7 +367,27 @@
                     console.error('Error fetching data from the API:', status, error);
                 }
             });
+            
         });
+        function ReviewSub(){
+            var apiurl = baseUrl + 'VehicleDetails/SubmitReview';
+		var sendData = {
+			"Modelid": bikeModelid,
+			"Vehicleid": vechileid,
+			"Comments":$('#CommentMbl').val(),
+            "username": $('#retxtname').val(),
+		};
+		sendData = JSON.stringify(sendData);
+		$.ajax({
+			url: apiurl,
+			type: 'POST',
+			data: sendData,
+			contentType: "application/json",
+			dataType: "json",
+			success: function (response) {
+			}
+		})
+        }
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.rating').forEach(rating => {
                 const stars = rating.querySelectorAll('.star');
