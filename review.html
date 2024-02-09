@@ -47,7 +47,19 @@
             border: none;
             border-radius: 5px;
         }
-
+        .toast {
+            position: fixed;
+            top: 20px; /* Adjust top position */
+            right: 20px; /* Adjust right position */
+            background-color: red;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: white
+        }
 
         .star {
             font-size: 30px;
@@ -60,7 +72,8 @@
     <div class="loader-parent " style="display:none;">
         <div class="nb-spinner"></div>
     </div>
-
+    <div id="toastMessage" class="toast hide">
+    </div>
     <div class="container">
         <header style="height: 56px;width: 100%;">
             <nav class="navbar navbar-light bg-light fixed-top">
@@ -142,8 +155,8 @@
                         </div>
 
                     </div>
-
-                    <div class="row p-2">
+                    <div id="PetrolBike">
+                    <div class="row p-2" >
                         <div class="col-md-1 col-4 p-2 text-center">
                             <label>Brand</label>
                         </div>
@@ -166,6 +179,25 @@
                             </select>
                         </div>
                     </div>
+                </div>
+                <div id="electricBike">
+                    <div class="row p-2" >
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Brand</label>
+                        </div>
+                        <div class="col-md-5 col-8 pb-2">
+                            <select id="myBrand" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Bike</label>
+                        </div>
+                        <div class="col-md-5 col-8 ">
+                            <select id="ddlBike" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                    </div>
+                </div>
                     <div class="row p-2 mt-50">
                         <div class="col-md-6">
                             <div class="row mx-0">
@@ -173,7 +205,7 @@
                                     <label>Mileage</label>
                                 </div>
                                 <div class="col-8">
-                                    <div class="rating" data-rating="0">
+                                    <div class="rating" data-rating="0" id="rating">
                                         <span class="star" data-value="1">&#9734;</span>
                                         <span class="star" data-value="2">&#9734;</span>
                                         <span class="star" data-value="3">&#9734;</span>
@@ -190,7 +222,7 @@
                                     <label>Comfort</label>
                                 </div>
                                 <div class="col-8">
-                                    <div class="ComfortRating" data-rating="0">
+                                    <div class="ComfortRating" data-rating="0" id="ComfortRating">
                                         <span class="star" data-value="1">&#9734;</span>
                                         <span class="star" data-value="2">&#9734;</span>
                                         <span class="star" data-value="3">&#9734;</span>
@@ -206,7 +238,7 @@
                                     <label>Performance</label>
                                 </div>
                                 <div class="col-8">
-                                    <div class="PerformanceRating" data-rating="0">
+                                    <div class="PerformanceRating" data-rating="0" id="PerformanceRating">
                                         <span class="star" data-value="1">&#9734;</span>
                                         <span class="star" data-value="2">&#9734;</span>
                                         <span class="star" data-value="3">&#9734;</span>
@@ -223,7 +255,7 @@
                                     <label>Maintanence Cost</label>
                                 </div>
                                 <div class="col-8">
-                                    <div class="MaintanenceCostRating" data-rating="0">
+                                    <div class="MaintanenceCostRating" data-rating="0" id="MaintanenceCostRating">
                                         <span class="star" data-value="1">&#9734;</span>
                                         <span class="star" data-value="2">&#9734;</span>
                                         <span class="star" data-value="3">&#9734;</span>
@@ -240,7 +272,7 @@
                                     <label>Safety</label>
                                 </div>
                                 <div class="col-8">
-                                    <div class="SafetyRating" data-rating="0">
+                                    <div class="SafetyRating" data-rating="0" id="SafetyRating">
                                         <span class="star" data-value="1">&#9734;</span>
                                         <span class="star" data-value="2">&#9734;</span>
                                         <span class="star" data-value="3">&#9734;</span>
@@ -262,7 +294,7 @@
                         <div class="col-md-6 my-3">
                             <div class="form-inline">
                                 <label class="form-label" for="retxtmobile">Mobile No</label>
-                                <input type="text" id="retxtmobile" autocomplete="off" class="form-control mx-md-3"/>
+                                <input type="tel" id="retxtmobile" autocomplete="off"  pattern="[0-9]{10}" maxlength="10" class="form-control mx-md-3"/>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -309,12 +341,36 @@
         function frontpage() {
             location.href = "./index.html";
         }
+        var ratingValue = $('#rating').attr('data-rating');
+        // var ratingValue1 = $('#rating').attr('data-rating')
+        var ComfortRating = $('#ComfortRating').data('rating');
+        var PerformanceRating = $('#PerformanceRating').data('rating');
+        var MaintanenceCostRating = $('#MaintanenceCostRating').data('rating');
+        var SafetyRating = $('#SafetyRating').data('rating');
+        var brand = sessionStorage.getItem('brand')
+        var vechileid = sessionStorage.getItem('vechileid')
+        var IsEV = sessionStorage.getItem('isEv')
+        if(IsEV){
+            $('#electricBike').css("display", "none");
+            $('#PetrolBike').css("display", "block");
+            
+        }else{
+            $('#electricBike').css("display", "block");
+            $('#PetrolBike').css("display", "none");
+        }
+        var vehiclename = sessionStorage.getItem('vehiclename')
+        var bikeModelid = sessionStorage.getItem('bikeModelid')
         $(document).ready(function () {
-            var brand = sessionStorage.getItem('brand')
-            var vechileid = sessionStorage.getItem('vechileid')
-            var IsEV = sessionStorage.getItem('isEv')
-            var vehiclename = sessionStorage.getItem('vehiclename')
-            var bikeModelid = sessionStorage.getItem('bikeModelid')
+            var apiUrl2 = baseUrl +"VehicleDetails/GetReviewDetails?Vehicleid="+vechileid;
+                $.ajax({
+                    url: apiUrl2,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (res) {
+                            
+                    }})
+            
+
             if (bikeModelid) {
                 var apiUrl = baseUrl + "VehicleDetails/GetBikedetails?Modelid=" + bikeModelid;
                 var selectBox1 = $('#ddlBike');
@@ -410,15 +466,94 @@
                     console.error('Error fetching data from the API:', status, error);
                 }
             });
-
+            
         });
         function ReviewSub() {
+            var MileageRating = $('#rating').attr('data-rating');
+            var ComfortRating = $('#ComfortRating').attr('data-rating');
+            var PerformanceRating = $('#PerformanceRating').attr('data-rating');
+            var MaintanenceCostRating = $('#MaintanenceCostRating').attr('data-rating');
+            var SafetyRating = $('#SafetyRating').attr('data-rating');
+            var comment=$('#CommentMbl').val()
+            var username= $('#retxtname').val()
+            var mobilenumber=$('#retxtmobile').val()
+            var error=0;
+            if(MileageRating=="0"){
+                $('#toastMessage').text("*Please Enter MileageRating!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            else if(ComfortRating=="0"){
+                $('#toastMessage').text("*Please Enter ComfortRating!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            else if(PerformanceRating=="0"){
+                $('#toastMessage').text("*Please Enter PerformanceRating!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            else if(MaintanenceCostRating=="0"){
+                $('#toastMessage').text("*Please Enter MaintanenceCostRating!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+           else if(SafetyRating=="0"){
+                $('#toastMessage').text("*Please Enter SafetyRating!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            else if(username==""){
+                $('#toastMessage').text("*Please Enter UserName!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            else if(mobilenumber==""){
+                $('#toastMessage').text("*Please Enter MobileNumber!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            else if(comment==""){
+                $('#toastMessage').text("*Please Enter Comment!");
+                $('#toastMessage').removeClass('hide').addClass('show');
+                error++;
+                setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 3000);
+            }
+            if(error==0){
             var apiurl = baseUrl + 'VehicleDetails/SubmitReview';
             var sendData = {
                 "Modelid": bikeModelid,
                 "Vehicleid": vechileid,
-                "Comments": $('#CommentMbl').val(),
-                "username": $('#retxtname').val(),
+                "Comments": comment,
+                "username": username,
+                "Mileage": MileageRating,
+                "comfort": ComfortRating,
+                "performance": PerformanceRating,
+                "MaintanenceCost": MaintanenceCostRating,
+                "Safety": SafetyRating,
             };
             sendData = JSON.stringify(sendData);
             $.ajax({
@@ -430,6 +565,7 @@
                 success: function (response) {
                 }
             })
+        }
         }
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.rating').forEach(rating => {
