@@ -56,7 +56,9 @@ function getParameterByName(name, url) {
 
 // Usage example:
 
-
+function reviewpage(){
+    location.href = "./review.html";
+}
 function brandlistV1() {
 
     var i = getParameterByName('Vehicleid');
@@ -70,6 +72,11 @@ function brandlistV1() {
         dataType: 'json',
         success: function (data) {
             var vehicleDetails = data[0];// data.find(item => item.vechileid === i);
+            sessionStorage.setItem('vechileid', vehicleDetails.vechileid);
+            sessionStorage.setItem('isEv', vehicleDetails.isEv);
+            sessionStorage.setItem('brand', vehicleDetails.brand);
+            sessionStorage.setItem('vehiclename', vehicleDetails.vehiclename);
+            sessionStorage.setItem('bikeModelid', vehicleDetails.bikeModelid);
             var bikemodeid;
             var ismulticolor = vehicleDetails.ismulticolor;
             var isSamePrize = vehicleDetails.isSamePrize;

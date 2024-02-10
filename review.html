@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Bike</title>
-    <meta name="keywords"
-          content="Open Demat Account Online, Trading Account Opening, 2 in 1 Account,3 in 1 Account, Open Demat Account, Demat Account Opening">
+    <meta name="keywords" content="Dream bikes, bike world">
     <meta name="description"
-          content="Open demat account online with SBICAP Securities in just 15 minutes! Get your 2 in 1 demat and trading account with great benefitss">
+        content="Open demat account online with SBICAP Securities in just 15 minutes! Get your 2 in 1 demat and trading account with great benefitss">
     <link rel="shortcut icon" href="assets/images/favicon/favicon.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -32,6 +31,7 @@
     <script src="assets/js/bootstrap.min.js" defer></script>
     <script src="assets/js/owl.carousel.min.js" defer></script>
     <script src="assets/js/Common.js?ver=2.0" defer></script>
+    <script src="assets/js/review.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jquery_Clookies.js"></script>
@@ -48,10 +48,23 @@
             border: none;
             border-radius: 5px;
         }
+        .toast {
+            position: fixed;
+            top: 20px; /* Adjust top position */
+            right: 20px; /* Adjust right position */
+            background-color: red;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: white
+        }
 
-        
         .star {
-            font-size: 30px; /* Change this value to adjust the size as needed */
+            font-size: 30px;
+            /* Change this value to adjust the size as needed */
         }
     </style>
 </head>
@@ -60,7 +73,8 @@
     <div class="loader-parent " style="display:none;">
         <div class="nb-spinner"></div>
     </div>
-
+    <div id="toastMessage" class="toast hide">
+    </div>
     <div class="container">
         <header style="height: 56px;width: 100%;">
             <nav class="navbar navbar-light bg-light fixed-top">
@@ -70,7 +84,8 @@
                             <div class="d-flex">
 
                                 <div></div>
-                                <img src="assets/images/logo_png.jpg" alt="Bike logo" class="bike-logo" onclick="frontpage()">
+                                <img src="assets/images/logo_png.jpg" alt="Bike logo" class="bike-logo"
+                                    onclick="frontpage()">
                                 <h3 class="mx-2" onclick="frontpage()"></h3>
                             </div>
                         </div>
@@ -78,7 +93,8 @@
                             <div class="row">
                                 <div class="col pr-0">
                                     <form class="form-inline d-flex justify-content-center">
-                                        <input type="search" id="form1" class="form-control w_80" placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" />
+                                        <input type="search" id="form1" class="form-control w_80"
+                                            placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" />
 
 
                                         <button type="button" class="btn btn-outline-secondary text-white purple1 ">
@@ -96,7 +112,8 @@
                                     <i class="fa fa-user fa-lg " aria-hidden="true"> </i>
                                 </div>
                                 <a class="navbar-brand pl-1" href="login.html" id="loginlable"> Log In</a>
-                                <a class="navbar-brand pl-1" id="loginUserName" onclik="Logout()" style="display:none"></a>
+                                <a class="navbar-brand pl-1" id="loginUserName" onclik="Logout()"
+                                    style="display:none"></a>
                             </div>
                         </div>
 
@@ -105,280 +122,224 @@
             </nav>
         </header>
 
-        <div class="w-100 mt-4"> 
-            <div class="card p-md-4 p-0 m-md-4 m-0 shadow-sm"> 
-            <div class="card-body shadow-sm"> 
-             <div class="row mx-0 my-2 "> 
-                <div class="col-md-12 align-items-center card border-0 shadow-sm">
-                    <div class="row w-100 align-items-center">
-                        <div class="col-md-6 text-center">
-                            <img src="assets/images/mt-15.webp" width="170" height="auto" alt="" loading="eager">
+        <div class="w-100 mt-4">
+            <div class="card p-md-4 p-0 m-md-4 m-0 shadow-sm">
+                <div class="card-body shadow-sm">
+                    <div class="row mx-0 my-2 ">
+                        <div class="col-md-12 align-items-center card border-0 shadow-sm">
+                            <div class="row w-100 align-items-center">
+                                <div class="col-md-6 text-center">
+                                    <img src="assets/images/mt-15.webp" width="170" height="auto" alt=""
+                                        loading="eager">
+                                </div>
+                                <div class="col-md-6 mt-md-0 mt-3">
+                                    <div class="d-flex">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                EV Bikes
+                                            </label>
+                                        </div>
+                                        <div class="form-check ms-3">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                PV Bikes
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
-                        <div class="col-md-6 mt-md-0 mt-3">
-                        <div class="d-flex">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  EV Bikes
-                                </label>
-                              </div>
-                              <div class="form-check ms-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                  Petrol Bikes
-                                </label>
-                              </div>
+
+                    </div>
+                    <div id="PetrolBike">
+                    <div class="row p-2" >
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Brand</label>
+                        </div>
+                        <div class="col-md-3 col-8 pb-2">
+                            <select id="myBrand" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Varient</label>
+                        </div>
+                        <div class="col-md-3 col-8 pb-2">
+                            <select id="VarientBike" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Bike</label>
+                        </div>
+                        <div class="col-md-3 col-8 ">
+                            <select id="ddlBike" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="electricBike">
+                    <div class="row p-2" >
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Brand</label>
+                        </div>
+                        <div class="col-md-5 col-8 pb-2">
+                            <select id="myBrand" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                        <div class="col-md-1 col-4 p-2 text-center">
+                            <label>Bike</label>
+                        </div>
+                        <div class="col-md-5 col-8 ">
+                            <select id="ddlBike" class="form-select" aria-label="Default select example">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row p-2 mt-50">
+                        <div class="col-md-6">
+                            <div class="row mx-0">
+                                <div class="col-4 d-flex align-items-center">
+                                    <label>Mileage</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="rating" data-rating="0" id="rating">
+                                        <span class="star" data-value="1">&#9734;</span>
+                                        <span class="star" data-value="2">&#9734;</span>
+                                        <span class="star" data-value="3">&#9734;</span>
+                                        <span class="star" data-value="4">&#9734;</span>
+                                        <span class="star" data-value="5">&#9734;</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
+                    
+                        <div class="col-md-6">
+                            <div class="row mx-0">
+                                <div class="col-4 d-flex align-items-center">
+                                    <label>Comfort</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="ComfortRating" data-rating="0" id="ComfortRating">
+                                        <span class="star" data-value="1">&#9734;</span>
+                                        <span class="star" data-value="2">&#9734;</span>
+                                        <span class="star" data-value="3">&#9734;</span>
+                                        <span class="star" data-value="4">&#9734;</span>
+                                        <span class="star" data-value="5">&#9734;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mx-0">
+                                <div class="col-4 d-flex align-items-center">
+                                    <label>Performance</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="PerformanceRating" data-rating="0" id="PerformanceRating">
+                                        <span class="star" data-value="1">&#9734;</span>
+                                        <span class="star" data-value="2">&#9734;</span>
+                                        <span class="star" data-value="3">&#9734;</span>
+                                        <span class="star" data-value="4">&#9734;</span>
+                                        <span class="star" data-value="5">&#9734;</span>
+                                    </div>
+                                </div>
+                                </div>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mx-0">
+                                <div class="col-4 d-flex align-items-center">
+                                    <label>Maintanence Cost</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="MaintanenceCostRating" data-rating="0" id="MaintanenceCostRating">
+                                        <span class="star" data-value="1">&#9734;</span>
+                                        <span class="star" data-value="2">&#9734;</span>
+                                        <span class="star" data-value="3">&#9734;</span>
+                                        <span class="star" data-value="4">&#9734;</span>
+                                        <span class="star" data-value="5">&#9734;</span>
+                                    </div>
+                                </div>
+                                </div>
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mx-0">
+                                <div class="col-4 d-flex align-items-center">
+                                    <label>Safety</label>
+                                </div>
+                                <div class="col-8">
+                                    <div class="SafetyRating" data-rating="0" id="SafetyRating">
+                                        <span class="star" data-value="1">&#9734;</span>
+                                        <span class="star" data-value="2">&#9734;</span>
+                                        <span class="star" data-value="3">&#9734;</span>
+                                        <span class="star" data-value="4">&#9734;</span>
+                                        <span class="star" data-value="5">&#9734;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                </div>
-
-             </div>   
-
-            <div class="row p-2"> 
-                <div class="col-md-2 col-4 pb-2 text-center" >
-                    <label>Brand</label> 
-                </div>
-                <div class="col-md-4 col-8 pb-2"> 
-                    <select id="myBrand" class="form-select" aria-label="Default select example"> 
-                    </select> 
-                </div>
-                <div class="col-md-2 col-4 pb-2 text-center">
-                    <label>Bike</label> 
-                </div>
-                <div class="col-md-4 col-8 pb-2">
-                    <select id="ddlBike" class="form-select" aria-label="Default select example">
-                        <option value="0">Select Bike</option> 
-                    </select> 
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-md-2 col-4 pb-2 text-center">
-                    <label>CustomerName</label> 
-                </div>
-                <div class="col-md-4 col-8 pb-2">
-                    <input type="text" id="retxtname" class="form-control" />
-                </div> 
-                <div class="col-md-2 col-4 pb-2 text-center" >
-                    <label>Mobile No</label> 
-                </div> 
-                <div class="col-md-4 col-8 pb-2">
-                    <input type="text" id="retxtmobile" class="form-control" />
-                </div> 
-            </div> 
-
-            <div class="row p-2 mt-50">
-                <div class="col-4 d-flex align-items-center">
-                    <label>Mileage</label>
-                </div>
-                <div class="col-8">
-                    <div class="rating" data-rating="0">
-                        <span class="star" data-value="1">&#9734;</span>
-                        <span class="star" data-value="2">&#9734;</span>
-                        <span class="star" data-value="3">&#9734;</span>
-                        <span class="star" data-value="4">&#9734;</span>
-                        <span class="star" data-value="5">&#9734;</span>
+                        
+                    <div class="row mx-0 p-2">
+                        <div class="col-md-6 my-3">
+                            <div class="form-inline">
+                                <label class="form-label" for="retxtname">CustomerName</label>
+                                <input type="text" id="retxtname" autocomplete="off" class="form-control mx-md-3"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6 my-3">
+                            <div class="form-inline">
+                                <label class="form-label" for="retxtmobile">Mobile No</label>
+                                <input type="tel" id="retxtmobile" autocomplete="off"  pattern="[0-9]{10}" maxlength="10" class="form-control mx-md-3"/>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="CommentMbl">Comment</label>
+                                <textarea class="form-control" id="CommentMbl" rows="3"></textarea>
+                              </div>
+                            <!-- <div class="form-inline">
+                                <label class="form-label" for="CommentMbl">Comment</label>
+                                <textarea type="text" id="CommentMbl" autocomplete="off" class="form-control mx-md-3"></textarea>
+                            </div> -->
+                        </div>
+                        
+                        <!-- <div class="col-md-2 col-4 pb-2 text-center">
+                            <label>CustomerName</label>
+                        </div>
+                        <div class="col-md-4 col-8 pb-2">
+                            <input type="text" id="retxtname" class="form-control" />
+                        </div> -->
+                        <!-- <div class="col-md-2 col-4 pb-2 text-center">
+                            <label>Mobile No</label>
+                        </div>
+                        <div class="col-md-4 col-8 pb-2">
+                            <input type="text" id="retxtmobile" class="form-control" />
+                        </div> -->
+                    </div>
+                    <!-- <div class="row p-2 my-2">
+                        <div class="col-md-2 col-4 pb-2 text-center">
+                            <label>Comment</label>
+                        </div>
+                        <div class="col-md-10 col-8 pb-2">
+                            <input type="text" id="CommentMbl" class="form-control" />
+                        </div>
+                    </div> -->
+                    <div class="col-12 text-center">
+                        <button class="btn btn-outline-secondary text-white purple1 psbutton"
+                            onclick="ReviewSub()">Submit</button>
                     </div>
                 </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4 d-flex align-items-center">
-                    <label>Comfort</label>
-                </div>
-                <div class="col-8">
-                    <div class="ComfortRating" data-rating="0">
-                        <span class="star" data-value="1">&#9734;</span>
-                        <span class="star" data-value="2">&#9734;</span>
-                        <span class="star" data-value="3">&#9734;</span>
-                        <span class="star" data-value="4">&#9734;</span>
-                        <span class="star" data-value="5">&#9734;</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4 d-flex align-items-center">
-                    <label>Performance</label>
-                </div>
-                <div class="col-8">
-                    <div class="PerformanceRating" data-rating="0">
-                        <span class="star" data-value="1">&#9734;</span>
-                        <span class="star" data-value="2">&#9734;</span>
-                        <span class="star" data-value="3">&#9734;</span>
-                        <span class="star" data-value="4">&#9734;</span>
-                        <span class="star" data-value="5">&#9734;</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4 d-flex align-items-center">
-                    <label>Maintanence Cost</label>
-                </div>
-                <div class="col-8">
-                    <div class="MaintanenceCostRating" data-rating="0">
-                        <span class="star" data-value="1">&#9734;</span>
-                        <span class="star" data-value="2">&#9734;</span>
-                        <span class="star" data-value="3">&#9734;</span>
-                        <span class="star" data-value="4">&#9734;</span>
-                        <span class="star" data-value="5">&#9734;</span>
-                    </div>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-4 d-flex align-items-center">
-                    <label>Safety</label>
-                </div>
-                <div class="col-8">
-                    <div class="SafetyRating" data-rating="0">
-                        <span class="star" data-value="1">&#9734;</span>
-                        <span class="star" data-value="2">&#9734;</span>
-                        <span class="star" data-value="3">&#9734;</span>
-                        <span class="star" data-value="4">&#9734;</span>
-                        <span class="star" data-value="5">&#9734;</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 text-center">
-                <button class="btn btn-outline-secondary text-white purple1 psbutton">Submit</button>
             </div>
         </div>
     </div>
-    </div>
-    </div>
     <script>
-        function frontpage() {
-            location.href = "./index.html";
-        }
-            $(document).ready(function() {
-            var apiUrl = baseUrl + "VehicleDetails/GetBrandsdata";
-            var selectBox = $('#myBrand');
-            $.ajax({
-                url: apiUrl,
-                method: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    if (Array.isArray(data)) {
-                        $.each(data, function(index, option) {
-                            selectBox.append($('<option>', {
-                                value: option.data,
-                                text: option.brandName
-                            }));
-                        });
-                    } else {
-                        console.error('API response is not an array.');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error fetching data from the API:', status, error);
-                }
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.rating').forEach(rating => {
-                const stars = rating.querySelectorAll('.star');
-                stars.forEach(star => {
-                    star.addEventListener('click', () => {
-                        const value = parseInt(star.getAttribute('data-value'));
-                        const parent = star.parentElement;
-                        const ratingValue = parent.getAttribute('data-rating');
-                        parent.setAttribute('data-rating', value);
-
-                        stars.forEach(s => {
-                            if (parseInt(s.getAttribute('data-value')) <= value) {
-                                s.innerHTML = '&#9733;'; // Filled star
-                            } else {
-                                s.innerHTML = '&#9734;'; // Empty star
-                            }
-                        });
-                    });
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.ComfortRating').forEach(rating => {
-                const stars = rating.querySelectorAll('.star');
-                stars.forEach(star => {
-                    star.addEventListener('click', () => {
-                        const value = parseInt(star.getAttribute('data-value'));
-                        const parent = star.parentElement;
-                        const ratingValue = parent.getAttribute('data-rating');
-                        parent.setAttribute('data-rating', value);
-
-                        stars.forEach(s => {
-                            if (parseInt(s.getAttribute('data-value')) <= value) {
-                                s.innerHTML = '&#9733;'; // Filled star
-                            } else {
-                                s.innerHTML = '&#9734;'; // Empty star
-                            }
-                        });
-                    });
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.PerformanceRating').forEach(rating => {
-                const stars = rating.querySelectorAll('.star');
-                stars.forEach(star => {
-                    star.addEventListener('click', () => {
-                        const value = parseInt(star.getAttribute('data-value'));
-                        const parent = star.parentElement;
-                        const ratingValue = parent.getAttribute('data-rating');
-                        parent.setAttribute('data-rating', value);
-
-                        stars.forEach(s => {
-                            if (parseInt(s.getAttribute('data-value')) <= value) {
-                                s.innerHTML = '&#9733;'; // Filled star
-                            } else {
-                                s.innerHTML = '&#9734;'; // Empty star
-                            }
-                        });
-                    });
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.MaintanenceCostRating').forEach(rating => {
-                const stars = rating.querySelectorAll('.star');
-                stars.forEach(star => {
-                    star.addEventListener('click', () => {
-                        const value = parseInt(star.getAttribute('data-value'));
-                        const parent = star.parentElement;
-                        const ratingValue = parent.getAttribute('data-rating');
-                        parent.setAttribute('data-rating', value);
-
-                        stars.forEach(s => {
-                            if (parseInt(s.getAttribute('data-value')) <= value) {
-                                s.innerHTML = '&#9733;'; // Filled star
-                            } else {
-                                s.innerHTML = '&#9734;'; // Empty star
-                            }
-                        });
-                    });
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.SafetyRating').forEach(rating => {
-                const stars = rating.querySelectorAll('.star');
-                stars.forEach(star => {
-                    star.addEventListener('click', () => {
-                        const value = parseInt(star.getAttribute('data-value'));
-                        const parent = star.parentElement;
-                        const ratingValue = parent.getAttribute('data-rating');
-                        parent.setAttribute('data-rating', value);
-
-                        stars.forEach(s => {
-                            if (parseInt(s.getAttribute('data-value')) <= value) {
-                                s.innerHTML = '&#9733;'; // Filled star
-                            } else {
-                                s.innerHTML = '&#9734;'; // Empty star
-                            }
-                        });
-                    });
-                });
-            });
-        });
+       
     </script>
 
 
