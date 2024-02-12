@@ -12,15 +12,15 @@
     <link rel="shortcut icon" href="assets/images/favicon/favicon.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="google-site-verification" content="a_r0SxdW-AjEZpv1GcTiHQPYIkS2AwSXOsplBI5V914" />
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <meta name="theme-color" content="#ffffff"> 
+    <meta name="google-site-verification" content="a_r0SxdW-AjEZpv1GcTiHQPYIkS2AwSXOsplBI5V914" /> 
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" /> 
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.ui.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?ver=1.8" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?ver=1.8" /> 
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" /> 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -61,7 +61,19 @@
             font-size: 16px;
             color: white
         }
-
+        .toast1 {
+            position: fixed;
+            top: 20px; /* Adjust top position */
+            right: 20px; /* Adjust right position */
+            background-color: green;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: white
+        }
         .star {
             font-size: 30px;
             background: linear-gradient(94deg, rgb(48 32 116) 2%, rgb(48 32 116) 11%,rgb(198 30 86) 82%, rgb(198 30 86) 96%);
@@ -77,6 +89,8 @@
         <div class="nb-spinner"></div>
     </div>
     <div id="toastMessage" class="toast hide">
+    </div>
+    <div id="toastMessage1" class="toast1 hide">
     </div>
     <div class="container">
         <header style="height: 56px;width: 100%;">
@@ -95,9 +109,9 @@
                         <div class="col-7">
                             <div class="row">
                                 <div class="col pr-0">
-                                    <form class="form-inline d-flex justify-content-center">
+                                    <form class="form-inline d-flex justify-content-center"> 
                                         <input type="search" id="form1" class="form-control w_80"
-                                            placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" />
+                                            placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" /> 
 
 
                                         <button type="button" class="btn btn-outline-secondary text-white purple1 ">
@@ -105,20 +119,20 @@
                                         </button>
                                     </form>
                                     <div id="autocompleteResults1" class="w_80"></div>
-                                </div>
+                                </div> 
 
                             </div>
                         </div>
                         <div class="col-2 p-0">
-                            <div class="d-flex justify-content-md-end">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-user fa-lg " aria-hidden="true"> </i>
-                                </div>
+                            <div class="d-flex justify-content-md-end">  
+                                <div class="d-flex align-items-center"> 
+                                    <i class="fa fa-user fa-lg " aria-hidden="true"> </i>  
+                                </div> 
                                 <a class="navbar-brand pl-1" href="login.html" id="loginlable"> Log In</a>
                                 <a class="navbar-brand pl-1" id="loginUserName" onclik="Logout()"
                                     style="display:none"></a>
                             </div>
-                        </div>
+                        </div> 
 
                     </div>
                 </div>
@@ -132,7 +146,7 @@
                         <div class="col-md-12 align-items-center card border-0 shadow-sm">
                             <div class="row w-100 align-items-center">
                                 <div class="col-md-6 text-center">
-                                    <img src="assets/images/mt-15.webp" width="170" height="auto" alt=""
+                                    <img id="your-image-id" width="170" height="auto" alt=""
                                         loading="eager">
                                 </div>
                                 <div class="col-md-6 mt-md-0 mt-3">
@@ -202,91 +216,110 @@
                         </div>
                     </div>
                 </div>
-                    <div class="row p-2 mt-50">
-                        <div class="col-md-6">
-                            <div class="row mx-0">
-                                <div class="col-4 d-flex align-items-center">
-                                    <label>Mileage</label>
-                                </div>
-                                <div class="col-8">
-                                    <div class="rating" data-rating="0" id="rating">
-                                        <span class="star" data-value="1">&#9734;</span>
-                                        <span class="star" data-value="2">&#9734;</span>
-                                        <span class="star" data-value="3">&#9734;</span>
-                                        <span class="star" data-value="4">&#9734;</span>
-                                        <span class="star" data-value="5">&#9734;</span>
-                                    </div>
-                                </div>
+                <div class="row p-2 mt-50">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row mx-0">
+                            <div class="col-4 d-flex align-items-center">
+                                <label>Mileage</label>
                             </div>
-                        </div>
-                    
-                        <div class="col-md-6">
-                            <div class="row mx-0">
-                                <div class="col-4 d-flex align-items-center">
-                                    <label>Comfort</label>
-                                </div>
-                                <div class="col-8">
-                                    <div class="ComfortRating" data-rating="0" id="ComfortRating">
-                                        <span class="star" data-value="1">&#9734;</span>
-                                        <span class="star" data-value="2">&#9734;</span>
-                                        <span class="star" data-value="3">&#9734;</span>
-                                        <span class="star" data-value="4">&#9734;</span>
-                                        <span class="star" data-value="5">&#9734;</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row mx-0">
-                                <div class="col-4 d-flex align-items-center">
-                                    <label>Performance</label>
-                                </div>
-                                <div class="col-8">
-                                    <div class="PerformanceRating" data-rating="0" id="PerformanceRating">
-                                        <span class="star" data-value="1">&#9734;</span>
-                                        <span class="star" data-value="2">&#9734;</span>
-                                        <span class="star" data-value="3">&#9734;</span>
-                                        <span class="star" data-value="4">&#9734;</span>
-                                        <span class="star" data-value="5">&#9734;</span>
-                                    </div>
-                                </div>
-                                </div>
-                            
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row mx-0">
-                                <div class="col-4 d-flex align-items-center">
-                                    <label>Maintanence Cost</label>
-                                </div>
-                                <div class="col-8">
-                                    <div class="MaintanenceCostRating" data-rating="0" id="MaintanenceCostRating">
-                                        <span class="star" data-value="1">&#9734;</span>
-                                        <span class="star" data-value="2">&#9734;</span>
-                                        <span class="star" data-value="3">&#9734;</span>
-                                        <span class="star" data-value="4">&#9734;</span>
-                                        <span class="star" data-value="5">&#9734;</span>
-                                    </div>
-                                </div>
-                                </div>
-                           
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row mx-0">
-                                <div class="col-4 d-flex align-items-center">
-                                    <label>Safety</label>
-                                </div>
-                                <div class="col-8">
-                                    <div class="SafetyRating" data-rating="0" id="SafetyRating">
-                                        <span class="star" data-value="1">&#9734;</span>
-                                        <span class="star" data-value="2">&#9734;</span>
-                                        <span class="star" data-value="3">&#9734;</span>
-                                        <span class="star" data-value="4">&#9734;</span>
-                                        <span class="star" data-value="5">&#9734;</span>
-                                    </div>
+                            <div class="col-8">
+                                <div class="rating" data-rating="0" id="rating">
+                                    <span class="star" data-value="1">&#9734;</span>
+                                    <span class="star" data-value="2">&#9734;</span>
+                                    <span class="star" data-value="3">&#9734;</span>
+                                    <span class="star" data-value="4">&#9734;</span>
+                                    <span class="star" data-value="5">&#9734;</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row mx-0">
+                            <div class="col-4 d-flex align-items-center">
+                                <label>Comfort</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="ComfortRating" data-rating="0" id="ComfortRating">
+                                    <span class="star" data-value="1">&#9734;</span>
+                                    <span class="star" data-value="2">&#9734;</span>
+                                    <span class="star" data-value="3">&#9734;</span>
+                                    <span class="star" data-value="4">&#9734;</span>
+                                    <span class="star" data-value="5">&#9734;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row mx-0">
+                            <div class="col-4 d-flex align-items-center">
+                                <label>Performance</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="PerformanceRating" data-rating="0" id="PerformanceRating">
+                                    <span class="star" data-value="1">&#9734;</span>
+                                    <span class="star" data-value="2">&#9734;</span>
+                                    <span class="star" data-value="3">&#9734;</span>
+                                    <span class="star" data-value="4">&#9734;</span>
+                                    <span class="star" data-value="5">&#9734;</span>
+                                </div>
+                            </div>
+                            </div>
+                        
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row mx-0">
+                            <div class="col-4 d-flex align-items-center">
+                                <label>Maintanence Cost</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="MaintanenceCostRating" data-rating="0" id="MaintanenceCostRating">
+                                    <span class="star" data-value="1">&#9734;</span>
+                                    <span class="star" data-value="2">&#9734;</span>
+                                    <span class="star" data-value="3">&#9734;</span>
+                                    <span class="star" data-value="4">&#9734;</span>
+                                    <span class="star" data-value="5">&#9734;</span>
+                                </div>
+                            </div>
+                            </div>
+                       
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row mx-0">
+                            <div class="col-4 d-flex align-items-center">
+                                <label>Safety</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="SafetyRating" data-rating="0" id="SafetyRating">
+                                    <span class="star" data-value="1">&#9734;</span>
+                                    <span class="star" data-value="2">&#9734;</span>
+                                    <span class="star" data-value="3">&#9734;</span>
+                                    <span class="star" data-value="4">&#9734;</span>
+                                    <span class="star" data-value="5">&#9734;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
                         
                     <div class="row mx-0 p-2">
                         <div class="col-md-6 my-3">

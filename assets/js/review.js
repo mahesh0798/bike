@@ -4,31 +4,75 @@ var vechileid = sessionStorage.getItem('vechileid')
 var IsEV = sessionStorage.getItem('isEv')
 var vehiclename = sessionStorage.getItem('vehiclename')
 var bikeModelid = sessionStorage.getItem('bikeModelid')
+var BID="";
 function frontpage() {
     location.href = "./index.html";
 }
 
-if(IsEV){
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+var i = getParameterByName('Vehicleid');
+var j = getParameterByName('IsEv');
+if(j=="false"){
     $('#electricBike').css("display", "none");
     $('#PetrolBike').css("display", "block");
     
 }else{
+    bikeModelid=sessionStorage.getItem('modelid')
     $('#electricBike').css("display", "block");
     $('#PetrolBike').css("display", "none");
 }
-
 $(document).ready(function () {
-    var apiUrl2 = baseUrl +"VehicleDetails/GetReviewDetails?Vehicleid="+vechileid;
+    var apiUrl2 = baseUrl +"VehicleDetails/GetReviewDetails?Vehicleid="+i;
+    $('.loader-parent').show();
         $.ajax({
             url: apiUrl2,
             method: 'GET',
             dataType: 'json',
             success: function (res) {
-                    
+                $('.loader-parent').hide();
+                $('#rating').val(res.averageMileage);
+                $('#ComfortRating').val(res.averageComfort);
+                $('#PerformanceRating').val(res.averagePerformance);
+                $('#MaintanenceCostRating').val(res.averageMaintenance);
+                $('#SafetyRating').val(res.averageSafety);
+                $('#CommentMbl').val(res.mostRecentComment)
+                $('#retxtname').val(res.username)
             }})
     
 
     if (bikeModelid) {
+        var apiurl = baseUrl + "VehicleDetails/VehicleDetailImages?Vehicleid=" + i;
+        $('.loader-parent').show();
+        $.ajax({
+            url: apiurl,
+            method: 'GET',
+            dataType: 'json',
+            success: function (img) {
+                $('.loader-parent').hide();
+                var primaryImage = img.find(function(image) {
+                    return image.isPrimary === true;
+                });
+                if (primaryImage) {
+                    var primaryImagePath = primaryImage.imagePath;
+                    $('img#your-image-id').attr('src', primaryImagePath);
+                } else {
+                    console.error('No primary image found');
+                }
+            },
+            error: function (xhr, status, error) {
+                $('.loader-parent').hide();
+                console.error('Error fetching data:', error);
+            }
+        });
         var apiUrl = baseUrl + "VehicleDetails/GetBikedetails?Modelid=" + bikeModelid;
         var selectBox1 = $('#ddlBike');
         selectBox1.empty();
@@ -42,6 +86,7 @@ $(document).ready(function () {
             method: 'GET',
             dataType: 'json',
             success: function (data) {
+                BID=data[0].brandid
                 if (Array.isArray(data)) {
                     $.each(data, function (index, option) {
                         selectBox1.append($('<option>', {
@@ -58,15 +103,15 @@ $(document).ready(function () {
             }
         });
     }
-    if (sessionStorage.getItem('vechileid') && sessionStorage.getItem('isEv')) {
-        if (IsEV == "false" || IsEV == false) {
+    if (i && j) {
+        if (j == "false" || j == false) {
             $('#flexRadioDefault2').prop('checked', true);
             $('#flexRadioDefault1').prop('checked', false);
         } else {
             $('#flexRadioDefault2').prop('checked', false);
             $('#flexRadioDefault1').prop('checked', true);
         }
-        var apiUrl = baseUrl + "VehicleDetails/GetBikeModelsdetails?Brandid=" + vechileid + '&EV=' + IsEV;
+        var apiUrl = baseUrl + "VehicleDetails/GetBikeModelsdetails?Brandid=" + i + '&EV=' + j;
         var VarientBox = $('#VarientBike');
         VarientBox.empty();
         VarientBox.append($('<option>', {
@@ -209,10 +254,12 @@ function ReviewSub() {
         "Mileage": MileageRating,
         "comfort": ComfortRating,
         "performance": PerformanceRating,
+        "Brandid":BID,
         "MaintanenceCost": MaintanenceCostRating,
         "Safety": SafetyRating,
     };
     sendData = JSON.stringify(sendData);
+    $('.loader-parent').show();
     $.ajax({
         url: apiurl,
         type: 'POST',
@@ -220,6 +267,14 @@ function ReviewSub() {
         contentType: "application/json",
         dataType: "json",
         success: function (response) {
+            $('.loader-parent').hide();
+                $('#toastMessage1').text("Review Submitted Successfully");
+                $('#toastMessage1').removeClass('hide').addClass('show');
+                $('#toastMessage1').css('display','block')
+                setTimeout(function () {
+                $('#toastMessage1').removeClass('show').addClass('hide');
+                $('#toastMessage1').css('display','none')
+            }, 3000);
         }
     })
 }
