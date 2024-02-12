@@ -81,7 +81,7 @@ function brandselectV1() {
                   <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vehicleId},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
-                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
+                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="..." style="padding-top: 37px;">
                           </div>
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
@@ -111,7 +111,7 @@ function brandselectV1() {
                   <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
-                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
+                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="..." style="padding-top: 37px;">
                           </div>
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">

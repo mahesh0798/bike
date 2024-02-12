@@ -1,6 +1,7 @@
 ﻿// JavaScript source code
 var baseUrl = 'https://dreambikesdigitalshowroom.com/DreamBikes_API/api/';
 var UserMobileNo;
+var LeadBikeId = 0;
 
 $(document).ready(function () {
 
@@ -59,6 +60,51 @@ function displayAutocompleteResults1(results) {
     });
 }
 
+function searchLeadBike() {
+    const searchCity = document.getElementById('form14').value;
+    var apiurl = baseUrl + "VehicleList/SearchVehicle?keywords=" + searchCity;
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            displayAutocompleteLeadBikeResults1(data);
+
+        },
+        error: function (xhr, status, error) {
+            const autocompleteResults2 = document.getElementById('autocompleteLeadBikeResults');
+            autocompleteResults2.innerHTML = '';
+            autocompleteResults2.innerText = '';
+            autocompleteResults2.style.display='none'
+        }
+    })
+}
+function displayAutocompleteLeadBikeResults1(results) {
+    const autocompleteResults1 = document.getElementById('autocompleteLeadBikeResults');
+    autocompleteResults1.innerHTML = '';
+    autocompleteResults1.style.display='block';
+
+    if (results.length === 0) {
+        const noResults1 = document.createElement('div');
+        noResults1.textContent = 'No results found';
+        autocompleteResults1.appendChild(noResults1);
+        return;
+    }
+
+    results.forEach(result => {
+        const option1 = document.createElement('div');
+        option1.classList.add('autocomplete-option');
+        option1.textContent = `${result.vehiclename}`;
+        option1.addEventListener('click', function () {
+            document.getElementById('form14').value = result.vehiclename;
+            LeadBikeId = result.vechileid
+            autocompleteResults1.innerHTML = '';
+        });
+        autocompleteResults1.appendChild(option1);
+    });
+}
+
+
 document.addEventListener("click", function (e) {
     const autocompleteResults2 = document.getElementById('autocompleteResults1');
     if (!autocompleteResults2) {
@@ -109,7 +155,7 @@ function addsImg() {
             $('#addline1three').text(response.dailyOfferLine1)
             $('#addline2three').text(response.dailyOfferLine2)
             $('#addline3three').text(response.dailyOfferLine3)
-            $("#addimgthree").attr('src', response.dailyOfferImage)
+            $("#addimgthree1").attr('src', response.dailyOfferImage)
             $('#addline1four').text(response.dailyOfferLine1)
             $('#addline2four').text(response.dailyOfferLine2)
             $('#addline3four').text(response.dailyOfferLine3)
@@ -571,7 +617,204 @@ function validateSignup() {
         }
     })
 }
+function listoffer() {
+
+    var Pin = $.cookie('SearchPincode');
+    if (Pin == null || Pin == "" || Pin == undefined) {
+        $('#leadpin').show();
+    }
 
 
+    var pinlist = new bootstrap.Modal(document.getElementById('pinlist'), {
+        backdrop: 'static',
+        keyboard: false
+    })
+    pinlist.show()
+}
+
+function GenerateLead(type) {
+
+    var Pin = $.cookie('SearchPincode');
+    if (Pin == null || Pin == "" || Pin == undefined) {
+        $('#leadpin').show();
+        $('#pinvalidation').text("* Enter Your Pincode");
+        $('#pinvalidation').focus();
+        $('#pinvalidation').show();
+
+        return;
+    }
+    else {
+        $('#form13').val(Pin);
+        //$('#leadpin').hide();
+    }
+   
+   
+
+    $('#LeadSuccess').text("");
+    $('#LeadSuccess').hide();
+    var apiurl = baseUrl + "Home/LeadGeneration";
+    var LeadGeneration = new Object();
+
+    var mobileNumber = $('#MobileBook').val();
+    var pattern = /^[6-9]\d{9}$/; // Regex pattern for Indian mobile numbers
+
+    if (!pattern.test(mobileNumber)) {
+        $('#mobilevalidation').text("* Enter Valid Mobile Number");
+        $('#mobilevalidation').focus();
+        $('#mobilevalidation').show();
+        return;
+    }
+    if ($('#CustName').val() == "" || $('#CustName').val() == null || $('#CustName').val() == "undefined") {
+        $('#namevalidation').text("* Enter Your Name");
+        $('#namevalidation').focus();
+        $('#namevalidation').show();
+        return;
+    }
+    $('.loader-parent').show();
+    LeadGeneration.Mobile = $('#MobileBook').val();
+    LeadGeneration.Name = $('#CustName').val();
+    LeadGeneration.Pincode = Pin;
+    if (type == 2) {
+        LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
+    }
+    else {
+
+        if (LeadBikeId == null || LeadBikeId == 0 || LeadBikeId == undefined) {
+            $('#Bikevalidation').text("* Enter the Bike Name");
+            $('#Bikevalidation').focus();
+            $('#Bikevalidation').show();
+
+            return;
+        }
+
+        LeadGeneration.Vehicleid = LeadBikeId;
+    }
+    
+    var request = JSON.stringify(LeadGeneration);
+
+    $.ajax({
+        url: apiurl,
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: request,
+        success: function (data) {
+            $('#LeadSuccess').show();
+            $('#LeadSuccess').text("😊 Thank you for connecting with us");
+            $('#toastMessage').text("😊 Thank You for connecting with us. Our Executive will Connect and  assist you soon.")
+            $('#toastMessage').removeClass('hide').addClass('show');
+            $('#pinlist').modal('hide');
+            $('#MobileBook,#CustName,#form14').val("");
+            LeadBikeId = 0;
+            $('#mobilevalidation,#namevalidation').hide();
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hide after 3 seconds
+            $('.loader-parent').hide();
+        },
+        error: function (xhr, status, error) {
+            $('.loader-parent').hide();
+            $('#toastMessage').text("🙁 OOPS ! We are not able Process your Request.Please try again")
+            $('#toastMessage').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hid
+
+        }
+
+    })
+}
+function fetchPincode(type) {
+    var city;
+    if (type == 1) {
+        city = document.getElementById('form12').value;
+    }
+    else {
+        city = document.getElementById('form13').value;
+    }
+
+    var apiurl = baseUrl + "Home/GetCity?Key=" + city;
+
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+            if (type == 1) {
+                displayAutocompleteResults(data);
+            }
+            else {
+                displayAutocompleteResults12(data);
+            }
 
 
+            if (matchingPincode) {
+                const pincode = matchingPincode.pincode;
+                document.getElementById('pincodeResult').textContent = ` ${pincode}`;
+            } else {
+                document.getElementById('pincodeResult').textContent = `${city} not found`;
+            }
+        }
+    })
+}
+
+
+function fetchLeadPincode(type) {
+
+var city = document.getElementById('form13').value;
+    
+
+    var apiurl = baseUrl + "Home/GetCity?Key=" + city;
+
+    $.ajax({
+        url: apiurl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            const matchingPincode = data.find(item => item.city.toLowerCase() === city.toLowerCase());
+            if (type == 1) {
+                displayAutocompleteResults(data);
+            }
+            else {
+                displayAutocompleteResultsLead(data);
+            }
+
+
+            if (matchingPincode) {
+                const pincode = matchingPincode.pincode;
+                document.getElementById('pincodeResult').textContent = ` ${pincode}`;
+            } else {
+                document.getElementById('pincodeResult').textContent = `${city} not found`;
+            }
+        }
+    })
+}
+
+function displayAutocompleteResultsLead(results) {
+    const autocompleteResults = document.getElementById('autocompleteResultsPin');
+    autocompleteResults.innerHTML = '';
+
+    if (results.length === 0) {
+        const noResults = document.createElement('div');
+        noResults.textContent = 'No results found';
+        autocompleteResults.appendChild(noResults);
+        return;
+    }
+    //localStorage.setItem("SearchPincode", results[0].pincode);
+
+
+    results.forEach(result => {
+        const option = document.createElement('div');
+        option.classList.add('autocomplete-option');
+        option.textContent = `${result.city} - ${result.pincode}`;
+        option.addEventListener('click', function () {
+            document.getElementById('form13').value = result.city;
+            $.cookie('SearchPincode', result.pincode);
+            document.getElementById('pincodeResult').textContent = result.pincode;
+            autocompleteResults.innerHTML = '';
+
+        });
+        autocompleteResults.appendChild(option);
+    });
+}
