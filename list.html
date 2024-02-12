@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Bike</title>
+    <title>Dream Bikes</title>
     <meta name="keywords"
-          content="Open Demat Account Online, Trading Account Opening, 2 in 1 Account,3 in 1 Account, Open Demat Account, Demat Account Opening">
+          content="Get Your Dream Bike With best Price">
     <meta name="description"
-          content="Open demat account online with SBICAP Securities in just 15 minutes! Get your 2 in 1 demat and trading account with great benefitss">
+          content="Get Your Dream Bike With best Price">
     <link rel="shortcut icon" href="assets/images/favicon/favicon.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -58,6 +58,32 @@
             display: flex;
             justify-content: space-around;
         }
+        /* Styling for Mobile Number input */
+        .leadinput {
+            border: 2px solid #6ab8ff; /* Red border */
+            border-radius: 5px;
+            padding: 8px;
+        }
+        .toast {
+            position: fixed;
+            top: 20px; /* Adjust top position */
+            right: 20px; /* Adjust right position */
+            background-color: green;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none;
+            color: white
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
     </style>
 </head>
 
@@ -112,7 +138,7 @@
     </div>
 
     <div id="second">
-        <section class="Review">
+        <section class="Review" onclick="listoffer()">
             <div class="container mt-5 ">
 
                 <div class="card border_green">
@@ -867,7 +893,64 @@
 
         </div>
     </section>
+    <div class="modal fade" id="pinlist" role="dialog">
+        <div class="modal-dialog login-dialog" style="max-width: 500px;max-height:500px;margin-top: 11rem;">
+            <div class="modal-content">
+                <div class="modal-header" style="padding-bottom: 0 !important">
+                    <h5>Get your dream bike with best Price</h5>
+                    <button type="button" class="close" data-dismiss="modal"><b>X</b></button>
+                </div>
+                <div class="col-md-12 col-12 text-center">
+                    <img src="assets/images/logo_png.jpg" id="addimgthree" style=" max-width: 50%; height: auto;">
+                </div>
+                <div class="modal-body">
 
+                    <div class="col-md-12 pb-2" data-mdb-input-init id="leadBike">
+                        <input type="text" id="form14" autocomplete="off" class="form-control leadinput" onkeyup="searchLeadBike()" placeholder="Enter Your Bike here, e.g. TVS XL" />
+                        <div id="autocompleteLeadBikeResults"></div>
+                        <span id="Bikevalidation" style="display:none;color:red"></span>
+                    </div>
+
+                    <div class="col-md-12 pb-2" data-mdb-input-init id="leadpin" style="display:none">
+                        <input type="text" id="form13" autocomplete="off" class="form-control leadinput" onkeyup="fetchLeadPincode(2)" placeholder="Type Your Pincode here" />
+                        <div id="autocompleteResultsPin"></div>
+                        <span id="pinvalidation" style="display:none;color:red"></span>
+                    </div>
+
+
+                    <div class="col-md-12 pb-2">
+                        <input type="text" id="MobileBook" class="form-control leadinput" placeholder="Enter Your Mobile Number" />
+                        <span id="mobilevalidation" style="display:none;color:red"></span>
+
+                    </div>
+                    <div class="col-md-12 pb-2">
+                        <input type="text" id="CustName" class="form-control leadinput" placeholder="Enter Your Name" />
+                        <span id="namevalidation" style="display:none;color:red"></span>
+                    </div>
+
+                    <div class="col-md-12 pb-5">
+                        <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF " style="height:17px" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img"><path d="M11.89 16h-8a2.06 2.06 0 01-2.06-2.06v-6a2.07 2.07 0 012-2.06V4.09a4.09 4.09 0 118.17 0v1.78a2.07 2.07 0 012 2.06v6A2.06 2.06 0 0111.89 16zm-8-9.13a1.07 1.07 0 00-1.03 1.06v6A1.07 1.07 0 003.92 15h8A1.07 1.07 0 0013 13.94v-6a1.07 1.07 0 00-1.06-1.06zm.9-1H11V4.09a3.09 3.09 0 10-6.17 0zm3.61 6.37h-1v-1.63a.84.84 0 01-.32-.61.83.83 0 111.32.65zm-.5-2.46a.18.18 0 00-.17.18c0 .19.35.19.35 0a.18.18 0 00-.18-.18z"></path></svg>
+                        <span> We only ask these once and your details are safe with us.</span>
+                    </div>
+
+                    <div class="o-cNwRuH o-cpNAVm">By proceeding ahead, you agree to Dream Bikes<a class="o-elzeOy" target="_blank" href="assets/pdf/visitor-agreement.pdf">Visitor Agreement</a> and <a class="o-elzeOy" target="_blank" href="assets/pdf/privacy-policy.pdf">Privacy Policy</a>.</div>
+
+                    <div class="col-md-12 pb-2 text-center">
+                        <span id="LeadSuccess" style="display:none;color:green"></span>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-danger text-white px-4" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-secondary text-white purple1 px-4" onclick="GenerateLead(1)" id="LeadPopup">Submit</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="toastMessage" class="toast hide">
+    </div>
 
     <div class="container-fluid mt-3 p-0 ml-0 mr-0">
         <footer class="text-center text-lg-start" style="background-color: #e9e6e5;">
