@@ -31,24 +31,6 @@ if(j=="false"){
     $('#PetrolBike').css("display", "none");
 }
 $(document).ready(function () {
-    var apiUrl2 = baseUrl +"VehicleDetails/GetReviewDetails?Vehicleid="+i;
-    $('.loader-parent').show();
-        $.ajax({
-            url: apiUrl2,
-            method: 'GET',
-            dataType: 'json',
-            success: function (res) {
-                $('.loader-parent').hide();
-                $('#rating').val(res.averageMileage);
-                $('#ComfortRating').val(res.averageComfort);
-                $('#PerformanceRating').val(res.averagePerformance);
-                $('#MaintanenceCostRating').val(res.averageMaintenance);
-                $('#SafetyRating').val(res.averageSafety);
-                $('#CommentMbl').val(res.mostRecentComment)
-                $('#retxtname').val(res.username)
-            }})
-    
-
     if (bikeModelid) {
         var apiurl = baseUrl + "VehicleDetails/VehicleDetailImages?Vehicleid=" + i;
         $('.loader-parent').show();
@@ -106,9 +88,11 @@ $(document).ready(function () {
     if (i && j) {
         if (j == "false" || j == false) {
             $('#flexRadioDefault2').prop('checked', true);
-            $('#flexRadioDefault1').prop('checked', false);
+            // $('#flexRadioDefault1').prop('checked', false);
+            $('#evFalse').css('display', 'none');
         } else {
-            $('#flexRadioDefault2').prop('checked', false);
+            // $('#flexRadioDefault2').prop('checked', false);
+            $('#pvFalse').css('display', 'none');
             $('#flexRadioDefault1').prop('checked', true);
         }
         var apiUrl = baseUrl + "VehicleDetails/GetBikeModelsdetails?Brandid=" + i + '&EV=' + j;

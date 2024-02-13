@@ -81,6 +81,11 @@
             -webkit-text-fill-color: transparent;
             /* Change this value to adjust the size as needed */
         }
+        .form-check-input:disabled~.form-check-label, .form-check-input[disabled]~.form-check-label {
+            cursor: default;
+            opacity: 2.5;
+            color: black;
+        }
     </style>
 </head>
 
@@ -151,16 +156,16 @@
                                 </div>
                                 <div class="col-md-6 mt-md-0 mt-3">
                                     <div class="d-flex">
-                                        <div class="form-check">
+                                        <div class="form-check" id="evFalse">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1">
+                                                id="flexRadioDefault1" disabled>
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 EV Bikes
                                             </label>
                                         </div>
-                                        <div class="form-check ms-3">
+                                        <div class="form-check ms-3" id="pvFalse">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2">
+                                                id="flexRadioDefault2" disabled>
                                             <label class="form-check-label" for="flexRadioDefault2">
                                                 PV Bikes
                                             </label>

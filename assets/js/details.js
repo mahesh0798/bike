@@ -270,12 +270,12 @@ function brandlistV1() {
 
                                 carouselContent += `
                           <div class="carousel-item ${activeClass}">
-                              <div class="row mx-0">
+                              <div class="row mx-0 text-center">
                                   <div class="col border">Color</div>
                                   <div class="col border">Name</div>
                                   <div class="col border" id="vehiclePriceCol">Price</div>
                               </div>
-                              <div class="row mx-0 mb-1">
+                              <div class="row mx-0 mb-1 text-center" style="height:55px;">
                                   <div class="col border" id="vehicleColor" >
                                     <div class="circle" style="background-color:${item.colour};"></div></div>
                                   <div class="col border" id="vehicleName">${item.name}</div>
@@ -314,12 +314,12 @@ function brandlistV1() {
 
                                 carouselContent += `
                           <div class="carousel-item ${activeClass}">
-                              <div class="row mx-0">
+                              <div class="row mx-0 text-center">
                                   <div class="col border">Color</div>
                                   <div class="col border">Name</div>
                                   <div class="col border" id="vehiclePriceCol">Price</div>
                               </div>
-                              <div class="row mx-0 mb-1">
+                              <div class="row mx-0 mb-1 text-center" style="height:55px;" >
                                   <div class="col border" id="vehicleColor" >
                                     <div class="circle" style="background-color:${item.colour};"></div></div>
                                   <div class="col border" id="vehicleName">${item.name}</div>
@@ -474,6 +474,22 @@ function brandlistV1() {
                     console.error('Error fetching data:', error);
                 }
             })
+            var apiUrl2 = baseUrl +"VehicleDetails/GetReviewDetails?Vehicleid="+i;
+                $('.loader-parent').show();
+                $.ajax({
+                    url: apiUrl2,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function (res) {
+                        $('.loader-parent').hide();
+                        // $('#rating').val(res.averageMileage);
+                        // $('#ComfortRating').val(res.averageComfort);
+                        // $('#PerformanceRating').val(res.averagePerformance);
+                        // $('#MaintanenceCostRating').val(res.averageMaintenance);
+                        // $('#SafetyRating').val(res.averageSafety);
+                        // $('#CommentMbl').val(res.mostRecentComment)
+                        // $('#retxtname').val(res.username)
+                    }})
             defaultcity();
         },
         error: function (xhr, status, error) {
@@ -553,7 +569,7 @@ function allcolor() {
             for (var i = 0; i < data.length; i++) {
                 var card = data[i];
                 var $card = `
-                    <div class="row mx-0 ">
+                    <div class="row mx-0 text-center" style="height:55px;">
                             <div class="col border" id="vehicleColor" >
                               <div class="circle" style="background-color:${card.colour};"></div></div>
                             <div class="col border" id="vehicleName">${card.name}</div>
