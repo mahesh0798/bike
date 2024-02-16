@@ -482,7 +482,11 @@ function brandlistV1() {
                     dataType: 'json',
                     success: function (res) {
                         $('.loader-parent').hide();
-                        // $('#rating').val(res.averageMileage);
+                        $('#commentReviw').text(res.mostRecentComment)
+                        $('#Reviewvehiclename').val(res.vehiclename +" "+"User Review")
+                        updateStars(res.overallratings)
+
+                        // $('#BikeChoice').val(res.averageMileage);
                         // $('#ComfortRating').val(res.averageComfort);
                         // $('#PerformanceRating').val(res.averagePerformance);
                         // $('#MaintanenceCostRating').val(res.averageMaintenance);
@@ -498,7 +502,17 @@ function brandlistV1() {
         }
     })
 }
+function updateStars(averageValue) {
+    const ratingDiv = document.getElementById('ratings');
+    const stars = ratingDiv.querySelectorAll('.star');
+    stars.forEach(star => star.innerHTML = '&#9734;');
 
+    const roundedValue = Math.round(parseFloat(averageValue));
+
+    for (let i = 0; i < roundedValue; i++) {
+        stars[i].innerHTML = '&#9733;';
+    }
+}
 function Varients(i, j) {
     location.href = "./details.html?Vehicleid=" + i + '&IsEv=' + j;
 }

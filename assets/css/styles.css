@@ -546,3 +546,9 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     color: white;
     margin-left: 2px !important;
   }
+  .b_color{
+    border: 2px solid black !important;
+    /* border-style: solid;
+    border-width: 3px !important;
+    border-image: linear-gradient(94deg, rgb(31 31 64) 2%, rgb(164 35 98) 11%,rgb(204 9 74) 82%, rgb(39 37 71) 96%) 1 !important; */
+  }

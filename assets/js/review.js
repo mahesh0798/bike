@@ -140,8 +140,9 @@ $(document).ready(function () {
             if (Array.isArray(data)) {
                 $.each(data, function (index, option) {
                     selectBox.append($('<option>', {
-                        value: option.data,
-                        text: option.brandName
+                        value: option.brandid,
+                        text: option.brandName,
+                        'data-ev': option.ev
                     }));
                 });
             } else {
@@ -152,7 +153,14 @@ $(document).ready(function () {
             console.error('Error fetching data from the API:', status, error);
         }
     });
-    
+    selectBox.change(function() {
+        var selectedOption = $(this).find(':selected');
+        var selectedBrandId = selectedOption.val();
+        var selectedEv = selectedOption.data('ev');
+        
+        console.log('Selected brand ID:', selectedBrandId);
+        console.log('Selected ev:', selectedEv);
+    });
 });
 function ReviewSub() {
     var MileageRating = $('#rating').attr('data-rating');
@@ -162,7 +170,7 @@ function ReviewSub() {
     var SafetyRating = $('#SafetyRating').attr('data-rating');
     var comment=$('#CommentMbl').val()
     var username= $('#retxtname').val()
-    var mobilenumber=$('#retxtmobile').val()
+    // var mobilenumber=$('#retxtmobile').val()
     var error=0;
     if(MileageRating=="0"){
         $('#toastMessage').text("*Please Enter MileageRating!");
@@ -212,14 +220,14 @@ function ReviewSub() {
         $('#toastMessage').removeClass('show').addClass('hide');
     }, 3000);
     }
-    else if(mobilenumber==""){
-        $('#toastMessage').text("*Please Enter MobileNumber!");
-        $('#toastMessage').removeClass('hide').addClass('show');
-        error++;
-        setTimeout(function () {
-        $('#toastMessage').removeClass('show').addClass('hide');
-    }, 3000);
-    }
+    // else if(mobilenumber==""){
+    //     $('#toastMessage').text("*Please Enter MobileNumber!");
+    //     $('#toastMessage').removeClass('hide').addClass('show');
+    //     error++;
+    //     setTimeout(function () {
+    //     $('#toastMessage').removeClass('show').addClass('hide');
+    // }, 3000);
+    // }
     else if(comment==""){
         $('#toastMessage').text("*Please Enter Comment!");
         $('#toastMessage').removeClass('hide').addClass('show');
