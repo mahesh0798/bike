@@ -552,3 +552,16 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     border-width: 3px !important;
     border-image: linear-gradient(94deg, rgb(31 31 64) 2%, rgb(164 35 98) 11%,rgb(204 9 74) 82%, rgb(39 37 71) 96%) 1 !important; */
   }
+  .mt-9{
+	margin-top: 9rem !important;
+}
+
+.w-18{
+	width:18rem;
+	height:18rem;
+}
+
+.w-16{
+	width:16rem;
+	height:16rem;
+}

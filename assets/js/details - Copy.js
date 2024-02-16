@@ -404,15 +404,15 @@ function brandlistV1() {
                             for (var i = 0; i < data.length; i++) {
                                 carouselItems += `
                         <div class="item">
-                          <div class="container mt-9" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
-                            <div class="card border-top-0 position-relative w-18" >
-                              <div class="card-body shadow-sm">
-                                <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
-                                  <span>
-                                    <img class="rounded rounded-circle image-container text-center" src="${data[i].imagePath}" alt="${data[i].vehiclename}">
-                                  </span>
-                                </span>
-                                <div class="row mx-0" style="padding-top: 130px;">
+                          <div class="container mt-6" style="position: relative;" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
+                            <div class="card border-top-0">
+                              <div class="card-body shadow">
+                                <div class="row mx-0">
+                                  <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+                                    <img class="rounded-circle image-container text-center" src="${data[i].imagePath}" alt="${data[i].vehiclename}">
+                                  </div>
+                                </div>
+                                <div class="row mx-0" style="padding-top: 180px;">
                                   <div class="col-md-12">
                                     <h5 class="text-center">${data[i].vehiclename}</h5>
                                   </div>

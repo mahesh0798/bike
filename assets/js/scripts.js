@@ -543,15 +543,15 @@ $(document).ready(function () {
             for (var i = 0; i < filteredData.length; i++) {
                 carouselItems2 += `
     <div class="item">
-      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
-        <div class="card border-top-0">
-          <div class="card-body shadow">
-            <div class="row mx-0">
-              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+      <div class="container mt-9" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0 position-relative w-18">
+          <div class="card-body shadow-sm">
+            <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
+              <span>
                 <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-              </div>
-            </div>
-            <div class="row mx-0" style="padding-top: 180px;">
+              </span>
+              </span>
+            <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
@@ -871,15 +871,15 @@ function RaceModelsBind() {
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
           <div class="item">
-      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
-        <div class="card border-top-0">
-          <div class="card-body shadow">
-            <div class="row mx-0">
-              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+      <div class="container mt-9" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0 position-relative w-18">
+          <div class="card-body shadow-sm">
+            <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
+              <span>
                 <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-              </div>
-            </div>
-            <div class="row mx-0" style="padding-top: 180px;">
+              </span>
+              </span>
+            <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
@@ -937,15 +937,15 @@ function ScootyModelsBind() {
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
          <div class="item">
-      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
-        <div class="card border-top-0">
-          <div class="card-body shadow">
-            <div class="row mx-0">
-              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+      <div class="container mt-9" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0 position-relative w-18">
+          <div class="card-body shadow-sm">
+            <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
+              <span>
                 <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-              </div>
-            </div>
-            <div class="row mx-0" style="padding-top: 180px;">
+              </span>
+              </span>
+            <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
@@ -1003,15 +1003,15 @@ function FamousEvModels() {
     for (var i = 0; i < filteredData.length; i++) {
         carouselContent += `
           <div class="item">
-      <div class="container mt-6" style="position: relative;" onclick="Scootyevmodel(${filteredData[i].vehicleId})">
-        <div class="card border-top-0">
-          <div class="card-body shadow">
-            <div class="row mx-0">
-              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+      <div class="container mt-9" onclick="Scootyevmodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0 position-relative w-18">
+          <div class="card-body shadow-sm">
+            <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
+              <span>
                 <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-              </div>
-            </div>
-            <div class="row mx-0" style="padding-top: 180px;">
+              </span>
+              </span>
+            <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
@@ -1071,15 +1071,15 @@ function FamousMilageModel() {
     for (var i = 0; i < filteredData.length; i++) {
         carouselItems += `
          <div class="item">
-      <div class="container mt-6" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
-        <div class="card border-top-0">
-          <div class="card-body shadow">
-            <div class="row mx-0">
-              <div class="col-md-12 text-center rounded-pill shadow border" style="position: absolute; top: -30%; height: 18rem; width: 18rem;">
+      <div class="container mt-9" style="position: relative;" onclick="Racemodel(${filteredData[i].vehicleId})">
+        <div class="card border-top-0 position-relative w-18">
+          <div class="card-body shadow-sm">
+            <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
+              <span>
                 <img class="rounded-circle image-container text-center" src="${filteredData[i].image}" alt="${filteredData[i].vehicleName}">
-              </div>
-            </div>
-            <div class="row mx-0" style="padding-top: 180px;">
+              </span>
+              </span>
+            <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
                 <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
