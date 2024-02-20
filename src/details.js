@@ -406,7 +406,7 @@ function brandlistV1() {
                             for (var i = 0; i < data.length; i++) {
                                 carouselItems += `
                         <div class="item">
-                          <div class="container mt-9" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
+                          <div class="container mt-9 d-flex justify-content-center" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
                             <div class="card border-top-0 position-relative w-18" >
                               <div class="card-body shadow-sm">
                                 <span class="position-absolute top-0 start-50 translate-middle p-2 shadow border rounded-circle w-16">
