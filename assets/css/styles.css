@@ -565,3 +565,12 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
 	width:16rem;
 	height:16rem;
 }
+#showAll a:not([href]) {
+    color: blue !important;
+    cursor: pointer !important;
+}
+
+#showLess a:not([href]) {
+    color: blue !important;
+    cursor: pointer !important;
+}
