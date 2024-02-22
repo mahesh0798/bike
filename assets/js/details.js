@@ -354,8 +354,28 @@ function brandlistV1() {
                     $('.loader-parent').hide();
                     $("#image-carousel-1").empty();
                     var $carousel = $("#image-carousel-1");
+
+                    var primaryIndex;
                     for (var i = 0; i < img.length; i++) {
-                        var imageUrl = img[i].imagePath;
+                        if (img[i].isPrimary === true) {
+                            primaryIndex = i;
+                            break;
+                        }
+                    }
+
+                    // Move the object with isPrimary: true to the second position
+                    var primaryObject = img.splice(primaryIndex, 1)[0];
+                    img.splice(1, 0, primaryObject);
+
+
+                    for (var i = 0; i < img.length; i++) {
+
+                        var imageUrl =img[i].imagePath;
+                        //if (i == 1) {
+                        //    var primaryimg = img.filter(x => x.isPrimary === true)
+                        //    imageUrl = primaryimg[0].imagePath;
+                        //}
+                       
                         var $image = $("<img>").attr("src", imageUrl).attr("width", "300").attr("height", "300").attr("class","pl-5 pt-5 pr-3");
                         $carousel.append($image);
                     }
