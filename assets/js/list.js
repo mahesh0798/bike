@@ -28,6 +28,13 @@ const toggleForm = () => {
 AOS.init()
 
 $(document).ready(function () {
+
+    window.onpopstate = function (event) {
+        // Handle the back button press here
+        // For example, you can navigate back using window.history.back()
+        window.history.back();
+    };
+
     addsImg();
     brandselectV1();
 });
@@ -95,7 +102,7 @@ function brandselectV1() {
                               <div class="card-body ">
                                   <table class="table table-bordered">
                                       <tr>
-                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'} </span></td>
+                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'}/5 </span></td>
                                          
                                       </tr>
                                   </table>
@@ -125,7 +132,7 @@ function brandselectV1() {
                               <div class="card-body ">
                                   <table class="table table-bordered">
                                       <tr>
-                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'} </span></td>
+                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'}/5 </span></td>
                                          
                                       </tr>
                                   </table>

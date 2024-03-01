@@ -518,6 +518,13 @@ function brandlist(i, j) {
     })
 }
 $(document).ready(function () {
+
+    window.onpopstate = function (event) {
+        // Handle the back button press here
+        // For example, you can navigate back using window.history.back()
+        window.history.back();
+    };
+
     carouselBind();
     fetchBrands(1, 2);
 });

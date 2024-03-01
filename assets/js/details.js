@@ -30,6 +30,13 @@ const toggleForm = () => {
 AOS.init()
 
 $(document).ready(function () {
+
+    window.onpopstate = function (event) {
+        // Handle the back button press here
+        // For example, you can navigate back using window.history.back()
+        window.history.back();
+    };
+
     addsImg();
     brandlistV1();
 
@@ -77,9 +84,18 @@ function brandlistV1() {
         dataType: 'json',
         success: function (data) {
             var vehicleDetails = data[0];// data.find(item => item.vechileid === i);
-            sessionStorage.setItem('vechileid', vehicleDetails.vechileid);
-            if(j=="false"){
-            sessionStorage.setItem('isEv', vehicleDetails.isEv);
+            if (j == "true") {
+                sessionStorage.setItem('vechileid', vehicleDetails.vehicleId);
+            }
+            else {
+                sessionStorage.setItem('vechileid', vehicleDetails.vechileid);
+            }
+           
+            if (j == "false") {
+                sessionStorage.setItem('isEv', false);
+            }
+            else {
+                sessionStorage.setItem('isEv', true);
             }
             sessionStorage.setItem('brand', vehicleDetails.brand);
             sessionStorage.setItem('vehiclename', vehicleDetails.vehiclename);
@@ -107,7 +123,14 @@ function brandlistV1() {
             brandidpin = vehicleDetails.brandid;
 
             $('#exshowroomPrize').text(" "+vehicleDetails.exshowroomPrize);
-            $('#overallRatings,#overallRatingsPv').text(vehicleDetails.overallRatings);
+            // Assuming vehicleDetails.overallRatings is a number between 0 and 5
+
+            // Calculate a color gradient based on the rating
+            var color = "#4CAF50";
+           
+            // Apply the color to the element
+            $('#overallRatings,#overallRatingsPv').html('<span style="font-weight:bold; background-color:' + color + '; color: white; padding: 0.2em 0.5em; border-radius: 0.25em;">' + vehicleDetails.overallRatings + '</span>/5');
+
 
             if (j == "false") {
                 $('#pvkeyspec').show();
@@ -275,7 +298,7 @@ function brandlistV1() {
                               <div class="row mx-0 text-center">
                                   <div class="col border">Color</div>
                                   <div class="col border">Name</div>
-                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                                  <div class="col border" id="vehiclePriceCol">Ex showroom Price</div>
                               </div>
                               <div class="row mx-0 mb-1 text-center" style="height:55px;">
                                   <div class="col border" id="vehicleColor" >
@@ -319,7 +342,7 @@ function brandlistV1() {
                               <div class="row mx-0 text-center">
                                   <div class="col border">Color</div>
                                   <div class="col border">Name</div>
-                                  <div class="col border" id="vehiclePriceCol">Price</div>
+                                  <div class="col border" id="vehiclePriceCol">Ex showroom Price</div>
                               </div>
                               <div class="row mx-0 mb-1 text-center" style="height:55px;" >
                                   <div class="col border" id="vehicleColor" >
@@ -513,7 +536,7 @@ function brandlistV1() {
                                 var card = $('<div class="card border-0 my-3" style="background-color: #f9f9f9;">');
                                 var cardBody = $('<div class="card-body shadow-sm">');
                                 var ratingId = 'ratings' + index;
-                                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + res.vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + res.username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + res.comments + '</p></div></div><div class="row py-2"><div class="col-md-10 text-left"><p style="color: #aaa;font-size: 14px;">Was this review helpful?</p></div><div class="col-md-1 text-right"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16"><path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/></svg></div><div class="col-md-1 text-left"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down-fill" viewBox="0 0 16 16"><path d="M6.956 14.534c.065.936.952 1.659 1.908 1.42l.261-.065a1.378 1.378 0 0 0 1.012-.965c.22-.816.533-2.512.062-4.51.136.02.285.037.443.051.713.065 1.669.071 2.516-.211.518-.173.994-.68 1.2-1.272a1.896 1.896 0 0 0-.234-1.734c.058-.118.103-.242.138-.362.077-.27.113-.568.113-.856 0-.29-.036-.586-.113-.857a2.094 2.094 0 0 0-.16-.403c.169-.387.107-.82-.003-1.149a3.162 3.162 0 0 0-.488-.9c.054-.153.076-.313.076-.465a1.86 1.86 0 0 0-.253-.912C13.1.757 12.437.28 11.5.28H8c-.605 0-1.07.08-1.466.217a4.823 4.823 0 0 0-.97.485l-.048.029c-.504.308-.999.61-2.068.723C2.682 1.815 2 2.434 2 3.279v4c0 .851.685 1.433 1.357 1.616.849.232 1.574.787 2.132 1.41.56.626.914 1.28 1.039 1.638.199.575.356 1.54.428 2.591z"/></svg></div></div>');
+                                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + res.vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + res.username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + res.comments + '</p></div></div></div>');
                                 
                                 card.append(cardBody);
                                 $('.container-for-reviews').append(card);
@@ -524,7 +547,7 @@ function brandlistV1() {
                                 var card = $('<div class="card border-0 my-3" style="background-color: #f9f9f9;">');
                                 var cardBody = $('<div class="card-body shadow-sm">');
                                 var ratingId = 'ratings' + i;
-                                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + item[i].vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + item[i].username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + item[i].comments + '</p></div></div><div class="row py-2"><div class="col-md-10 text-left"><p style="color: #aaa;font-size: 14px;">Was this review helpful?</p></div><div class="col-md-1 text-right"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16"><path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/></svg></div><div class="col-md-1 text-left"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down-fill" viewBox="0 0 16 16"><path d="M6.956 14.534c.065.936.952 1.659 1.908 1.42l.261-.065a1.378 1.378 0 0 0 1.012-.965c.22-.816.533-2.512.062-4.51.136.02.285.037.443.051.713.065 1.669.071 2.516-.211.518-.173.994-.68 1.2-1.272a1.896 1.896 0 0 0-.234-1.734c.058-.118.103-.242.138-.362.077-.27.113-.568.113-.856 0-.29-.036-.586-.113-.857a2.094 2.094 0 0 0-.16-.403c.169-.387.107-.82-.003-1.149a3.162 3.162 0 0 0-.488-.9c.054-.153.076-.313.076-.465a1.86 1.86 0 0 0-.253-.912C13.1.757 12.437.28 11.5.28H8c-.605 0-1.07.08-1.466.217a4.823 4.823 0 0 0-.97.485l-.048.029c-.504.308-.999.61-2.068.723C2.682 1.815 2 2.434 2 3.279v4c0 .851.685 1.433 1.357 1.616.849.232 1.574.787 2.132 1.41.56.626.914 1.28 1.039 1.638.199.575.356 1.54.428 2.591z"/></svg></div></div>');
+                                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + item[i].vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + item[i].username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + item[i].comments + '</p></div></div></div>');
                                 
                                 card.append(cardBody);
                                 $('.container-for-reviews').append(card);
@@ -564,7 +587,7 @@ function showLess(){
                 var card = $('<div class="card border-0 my-3" style="background-color: #f9f9f9;">');
                 var cardBody = $('<div class="card-body shadow-sm">');
                 var ratingId = 'ratings' + i;
-                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + item[i].vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + item[i].username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + item[i].comments + '</p></div></div><div class="row py-2"><div class="col-md-10 text-left"><p style="color: #aaa;font-size: 14px;">Was this review helpful?</p></div><div class="col-md-1 text-right"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16"><path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/></svg></div><div class="col-md-1 text-left"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down-fill" viewBox="0 0 16 16"><path d="M6.956 14.534c.065.936.952 1.659 1.908 1.42l.261-.065a1.378 1.378 0 0 0 1.012-.965c.22-.816.533-2.512.062-4.51.136.02.285.037.443.051.713.065 1.669.071 2.516-.211.518-.173.994-.68 1.2-1.272a1.896 1.896 0 0 0-.234-1.734c.058-.118.103-.242.138-.362.077-.27.113-.568.113-.856 0-.29-.036-.586-.113-.857a2.094 2.094 0 0 0-.16-.403c.169-.387.107-.82-.003-1.149a3.162 3.162 0 0 0-.488-.9c.054-.153.076-.313.076-.465a1.86 1.86 0 0 0-.253-.912C13.1.757 12.437.28 11.5.28H8c-.605 0-1.07.08-1.466.217a4.823 4.823 0 0 0-.97.485l-.048.029c-.504.308-.999.61-2.068.723C2.682 1.815 2 2.434 2 3.279v4c0 .851.685 1.433 1.357 1.616.849.232 1.574.787 2.132 1.41.56.626.914 1.28 1.039 1.638.199.575.356 1.54.428 2.591z"/></svg></div></div>');
+                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + item[i].vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + item[i].username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + item[i].comments + '</p></div></div></div>');
                 
                 card.append(cardBody);
                 $('.container-for-reviews').append(card);
@@ -592,7 +615,7 @@ function showall(){
                     var card = $('<div class="card border-0 my-3" style="background-color: #f9f9f9;">');
                     var cardBody = $('<div class="card-body shadow-sm">');
                     var ratingId = 'ratings' + index;
-                    cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + res.vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + res.username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + res.comments + '</p></div></div><div class="row py-2"><div class="col-md-10 text-left"><p style="color: #aaa;font-size: 14px;">Was this review helpful?</p></div><div class="col-md-1 text-right"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16"><path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/></svg></div><div class="col-md-1 text-left"><svg xmlns="http://www.w3.org/1000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down-fill" viewBox="0 0 16 16"><path d="M6.956 14.534c.065.936.952 1.659 1.908 1.42l.261-.065a1.378 1.378 0 0 0 1.012-.965c.22-.816.533-2.512.062-4.51.136.02.285.037.443.051.713.065 1.669.071 2.516-.211.518-.173.994-.68 1.2-1.272a1.896 1.896 0 0 0-.234-1.734c.058-.118.103-.242.138-.362.077-.27.113-.568.113-.856 0-.29-.036-.586-.113-.857a2.094 2.094 0 0 0-.16-.403c.169-.387.107-.82-.003-1.149a3.162 3.162 0 0 0-.488-.9c.054-.153.076-.313.076-.465a1.86 1.86 0 0 0-.253-.912C13.1.757 12.437.28 11.5.28H8c-.605 0-1.07.08-1.466.217a4.823 4.823 0 0 0-.97.485l-.048.029c-.504.308-.999.61-2.068.723C2.682 1.815 2 2.434 2 3.279v4c0 .851.685 1.433 1.357 1.616.849.232 1.574.787 2.132 1.41.56.626.914 1.28 1.039 1.638.199.575.356 1.54.428 2.591z"/></svg></div></div>');
+                    cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + res.vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + res.username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + res.comments + '</p></div></div></div>');
                     
                     card.append(cardBody);
                     $('.container-for-reviews').append(card);

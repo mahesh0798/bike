@@ -1,4 +1,4 @@
-
+﻿
 var brand = sessionStorage.getItem('brand')
 var vechileid = sessionStorage.getItem('vechileid')
 var IsEV = sessionStorage.getItem('isEv')
@@ -23,14 +23,25 @@ var i = getParameterByName('Vehicleid');
 var j = getParameterByName('IsEv');
 if(j=="false"){
     $('#electricBike').css("display", "none");
-    $('#PetrolBike').css("display", "block");
+    $('#PetrolBike').css("display", "none");
     
 }else{
     bikeModelid=sessionStorage.getItem('modelid')
-    $('#electricBike').css("display", "block");
+    $('#electricBike').css("display", "none");
     $('#PetrolBike').css("display", "none");
 }
 $(document).ready(function () {
+
+    $('#btngoback').click(function () {
+        window.history.back(); // Go back to the previous page
+    });
+    window.onpopstate = function (event) {
+        // Handle the back button press here
+        // For example, you can navigate back using window.history.back()
+        window.history.back();
+    };
+
+    $('#lblbikename').text(brand + " - " + vehiclename);
     if (bikeModelid) {
         var apiurl = baseUrl + "VehicleDetails/VehicleDetailImages?Vehicleid=" + i;
         $('.loader-parent').show();
@@ -259,14 +270,32 @@ function ReviewSub() {
         contentType: "application/json",
         dataType: "json",
         success: function (response) {
+            $('#rating').attr('data-rating', '0');
+            $('#ComfortRating').attr('data-rating', '0');
+            $('#PerformanceRating').attr('data-rating', '0');
+            $('#MaintanenceCostRating').attr('data-rating', '0');
+            $('#SafetyRating').attr('data-rating', '0');
+            $('.star').html('&#9734;');
+
+            $('#retxtname').val('');
+            $('#CommentMbl').val('');
             $('.loader-parent').hide();
-                $('#toastMessage1').text("Review Submitted Successfully");
+            $('#toastMessage1').text("😊 Thank you for your Valuable Review.");
                 $('#toastMessage1').removeClass('hide').addClass('show');
                 $('#toastMessage1').css('display','block')
                 setTimeout(function () {
                 $('#toastMessage1').removeClass('show').addClass('hide');
                 $('#toastMessage1').css('display','none')
             }, 3000);
+        },
+         error: function (xhr, status, error) {
+            $('.loader-parent').hide();
+             $('#toastMessage1').text("🙁 OOPS ! We are not able Process your Request.Please try again")
+             $('#toastMessage1').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage1').removeClass('show').addClass('hide');
+            }, 3000); // Hid
+
         }
     })
 }

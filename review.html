@@ -90,6 +90,14 @@
             opacity: 2.5;
             color: black;
         }
+        @media (min-width: 768px){
+            #fixed-width{
+                width:1000px !important;
+            }
+        }
+        #fixed-width {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -101,7 +109,7 @@
     </div>
     <div id="toastMessage1" class="toast1 hide">
     </div>
-    <div class="container">
+    <div class="container" id="fixed-width">
         <header style="height: 56px;width: 100%;">
             <nav class="navbar navbar-light bg-light fixed-top">
                 <div class="container-fluid">
@@ -120,7 +128,7 @@
                                 <div class="col pr-0">
                                     <form class="form-inline d-flex justify-content-center"> 
                                         <input type="search" id="form1" class="form-control w_80"
-                                            placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" /> 
+                                            placeholder="Search here, e.g. TVS XL" onkeyup="searchCity()" /> 
 
 
                                         <button type="button" class="btn btn-outline-secondary text-white purple1 ">
@@ -153,12 +161,17 @@
                 <div class="card-body shadow-sm">
                     <div class="row mx-0 my-2 ">
                         <div class="col-md-12 align-items-center card border-0 shadow-sm">
+                            <div class="w-100 align-items-center">
+                                <div class="col-md-12 text-center">
+                                    <h3 id="lblbikename"></h3>
+                                </div>
+                            </div>
                             <div class="row w-100 align-items-center">
-                                <div class="col-md-6 text-center">
-                                    <img id="your-image-id" class="b_color" width="170" height="auto" alt=""
+                                <div class="col-md-12 text-center">
+                                    <img id="your-image-id" class="b_color" width="170" height="130" alt=""
                                         loading="eager">
                                 </div>
-                                <div class="col-md-6 mt-md-0 mt-3">
+                                <!--<div class="col-md-6 mt-md-0 mt-3">
                                     <div class="d-flex">
                                         <div class="form-check" id="evFalse">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault"
@@ -175,14 +188,14 @@
                                             </label>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
                             </div>
 
                         </div>
 
                     </div>
-                    <div id="PetrolBike">
+                    <div id="PetrolBike" style="display:none">
                     <div class="row p-2" >
                         <div class="col-md-1 col-4 p-2 text-center">
                             <label>Brand</label>
@@ -207,20 +220,20 @@
                         </div>
                     </div>
                 </div>
-                <div id="electricBike">
+                <div id="electricBike" style="display:none">
                     <div class="row p-2" >
                         <div class="col-md-1 col-4 p-2 text-center">
                             <label>Brand</label>
                         </div>
                         <div class="col-md-5 col-8 pb-2">
-                            <select id="myBrand" class="form-select b_color" aria-label="Default select example">
+                            <select id="myBrandev" class="form-select b_color" aria-label="Default select example">
                             </select>
                         </div>
                         <div class="col-md-1 col-4 p-2 text-center">
                             <label>Bike</label>
                         </div>
                         <div class="col-md-5 col-8 ">
-                            <select id="ddlBike" class="form-select b_color" aria-label="Default select example">
+                            <select id="ddlBikeev" class="form-select b_color" aria-label="Default select example">
                             </select>
                         </div>
                     </div>
@@ -330,10 +343,10 @@
                     </div>
                 </div>
                         
-                    <div class="row mx-0 p-2">
+                    <div class="mx-0 p-2">
                         <div class="col-md-6 my-3">
                             <div class="form-inline">
-                                <label class="form-label " for="retxtname">CustomerName</label>
+                                <label class="form-label " for="retxtname">Name</label>
                                 <input type="text" id="retxtname" autocomplete="off" class="form-control mx-md-3 b_color"/>
                             </div>
                         </div>
@@ -345,7 +358,7 @@
                         </div> -->
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="CommentMbl">Comment</label>
+                                <label class="form-label "  for="CommentMbl">Comment</label>
                                 <textarea class="form-control b_color" id="CommentMbl" rows="3"></textarea>
                               </div>
                             <!-- <div class="form-inline">
@@ -376,8 +389,15 @@
                         </div>
                     </div> -->
                     <div class="col-12 text-center">
+
+                        <button class="btn btn-outline-secondary text-white purple1 psbutton" id="btngoback">
+
+                            Go Back
+                        </button>
                         <button class="btn btn-outline-secondary text-white purple1 psbutton"
-                            onclick="ReviewSub()">Submit</button>
+                                onclick="ReviewSub()" >
+                            Submit
+                        </button>
                     </div>
                 </div>
             </div>
