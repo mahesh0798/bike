@@ -6,22 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Dream Bikes</title>
-    <meta name="keywords" content="Dream bikes, bike world">
+    <meta name="keywords"
+          content="Get Your Dream Bike With best Price">
     <meta name="description"
-          content="Dream bikes, bike world">
+          content="Get Your Dream Bike With best Price">
     <link rel="shortcut icon" href="assets/images/favicon/favicon.png">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="google-site-verification" content="a_r0SxdW-AjEZpv1GcTiHQPYIkS2AwSXOsplBI5V914" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.ui.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
-
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?ver=1.8" />
+    <link rel="stylesheet" type="text/css" href="assets/css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?ver=1.9" />
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
-
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -30,14 +32,16 @@
     <script src="assets/js/popper.min.js" defer></script>
     <script src="assets/js/bootstrap.min.js" defer></script>
     <script src="assets/js/owl.carousel.min.js" defer></script>
+    <script src="assets/js/scripts.js?ver=2.0" defer></script>
     <script src="assets/js/Common.js?ver=2.0" defer></script>
-    <script src="assets/js/review.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/jquery_Clookies.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3206472924338070"
-            crossorigin="anonymous"></script>
+
     <style>
         .offer-btn {
             width: 100%;
@@ -50,21 +54,30 @@
             border-radius: 5px;
         }
 
-        .toast {
-            position: fixed;
-            top: 20px; /* Adjust top position */
-            right: 20px; /* Adjust right position */
-            background-color: red;
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 9999;
-            display: none;
-            font-weight: bold;
-            font-size: 16px;
-            color: white
+        .specs {
+            display: flex;
+            justify-content: space-around;
+        }
+        /* Tooltip styling */
+        .tooltip-inner {
+            background-color: #333; /* Tooltip background color */
+            color: #fff; /* Tooltip text color */
+            border-radius: 4px; /* Tooltip border radius */
+            padding: 5px 10px; /* Tooltip padding */
+            font-size: 14px; /* Tooltip font size */
         }
 
-        .toast1 {
+        /* Tooltip arrow styling */
+        .arrow::before {
+            border-top-color: #333 !important; /* Tooltip arrow color */
+        }
+        /* Styling for Mobile Number input */
+        .leadinput {
+            border: 2px solid #6ab8ff; /* Red border */
+            border-radius: 5px;
+            padding: 8px;
+        }
+        .toast {
             position: fixed;
             top: 20px; /* Adjust top position */
             right: 20px; /* Adjust right position */
@@ -73,95 +86,380 @@
             border-radius: 5px;
             z-index: 9999;
             display: none;
-            font-weight: bold;
-            font-size: 16px;
             color: white
         }
 
-        .star {
-            font-size: 30px;
-            background: linear-gradient(94deg, rgb(48 32 116) 2%, rgb(48 32 116) 11%,rgb(198 30 86) 82%, rgb(198 30 86) 96%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Change this value to adjust the size as needed */
+        .hide {
+            display: none;
         }
 
-        .form-check-input:disabled ~ .form-check-label, .form-check-input[disabled] ~ .form-check-label {
-            cursor: default;
-            opacity: 2.5;
-            color: black;
+        .show {
+            display: block;
         }
+
+        @media (min-width: 768px) {
+            #about-us{
+            background-image: url('./assets/images/about-us-d_cleanup.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 400px !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }  
+        }
+
+        #about-us{
+            /* background-image: url('./assets/images/about-us-d_cleanup.jpg'); */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: #239ed1; */
+            background: linear-gradient(94deg, rgb(48 32 116) 2%, rgb(48 32 116) 11%, rgb(198 30 86) 82%, rgb(198 30 86) 96%);
+            margin-top: 1rem;
+        }
+
+        .bg-respect{
+            background-color: #bfebeb;
+        }
+
+        .bg-respect1{
+            background-color: #fef7ef;
+        }
+        .contact-bg{
+            background-color:#f9f9f9;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="loader-parent " style="display:none;">
-        <div class="nb-spinner"></div>
-    </div>
-    <div id="toastMessage" class="toast hide">
-    </div>
-    <div id="toastMessage1" class="toast1 hide">
-    </div>
-    <div class="container" style="width:1000px">
-        <header style="height: 56px;width: 100%;">
-            <nav class="navbar navbar-light bg-light fixed-top">
-                <div class="container-fluid">
-                    <div class="row w-100">
-                        <div class="col-3">
-                            <div class="d-flex">
+    <header style="height: 56px;width: 100%;">
+        <nav class="navbar navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <div class="row w-100">
+                    <div class="col-3">
+                        <div class="d-flex">
 
-                                <div></div>
-                                <img src="assets/images/logo_png.jpg" alt="Bike logo" class="bike-logo"
-                                     onclick="frontpage()">
-                                <h3 class="mx-2" onclick="frontpage()"></h3>
-                            </div>
+                            <div></div>
+                            <img src="assets/images/logo_png.jpg" alt="Bike logo" class="bike-logo" onclick="frontpage()">
+                            <h3 class="mx-2" onclick="frontpage()"></h3>
                         </div>
-                        <div class="col-7">
-                            <div class="row">
-                                <div class="col pr-0">
-                                    <form class="form-inline d-flex justify-content-center">
-                                        <input type="search" id="form1" class="form-control w_80"
-                                               placeholder="Search here, e.g. TVS XL" onkeyup="searchCity()" />
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <div class="col pr-0">
+                                <form class="form-inline d-flex justify-content-center">
+                                    <input type="search" id="form1" class="form-control w_80" placeholder="Search your bike here, e.g. TVS XL" onkeyup="searchCity()" />
 
-
-                                        <button type="button" class="btn btn-outline-secondary text-white purple1 ">
-                                            <img src="./assets/images/Search.svg" style="height:20px">
-                                        </button>
-                                    </form>
-                                    <div id="autocompleteResults1" class="w_80"></div>
-                                </div>
+                                    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                                    <button type="button" class="btn btn-outline-secondary text-white purple1 ">
+                                        <img src="./assets/images/Search.svg" style="height:20px">
+                                    </button>
+                                </form>
+                                <div id="autocompleteResults1" class="w_80"></div>
 
                             </div>
+
                         </div>
-                        <div class="col-2 p-0">
-                            <div class="d-flex justify-content-md-end">
-                                <div class="d-flex align-items-center">
-                                    <i class="fa fa-user fa-lg " aria-hidden="true"> </i>
+                    </div>
+                    <div class="col-2 p-0">
+                        <div class="d-flex justify-content-md-end">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-user fa-lg " aria-hidden="true"> </i>
+                            </div>
+                            <a class="navbar-brand pl-1" href="login.html" id="loginlable"> Log In</a>
+                            <a class="navbar-brand pl-1" id="loginUserName" onclik="Logout()" style="display:none"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    
+    <section id="about-us" class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6 my-md-0 my-3 align-self-center">
+                <p class="h2 text-white">
+                    Our <span class="h1 text-warning">Mission</span>  is to make the process of <span class="h1 text-warning">Buying</span>  and <span class="h1 text-warning">Maintaining</span>   bikes simple and joyable.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-12 my-2">
+                <p class="h4 fw-bold">About Us</p>
+
+            </div>
+
+            <div class="col-md-12">
+                <p>Dream bikes digital showroom is the fastest growing two wheeler web site in tamilnadu.</p>
+                <p>Our portal is helps to decide on buying your suitable bikes in right price at the right dealer and also helps to create service appointment of your bikes on time of your nearest authorized dealer. </p>
+            </div>
+
+            <div class="col-md-12">
+                <p class="fw-bold h4 mt-4 mb-2">Our Core Values</p>
+            </div>
+
+            <div class="col-md-12 my-3">
+                <div class="row mx-0">
+                    <div class="col-md-6 my-3">
+                        <div class="card shadow-sm border-0 bg-respect">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-md-2 col-3">
+                                        <img src="./assets/images/icon-respect.svg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-9 align-self-center">
+                                        <div class="row mx-0">
+                                            <div class="col-md-12">
+                                                <p class="fw-bold text-uppercase">Respect</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                Fair and ethical relationship with everyone.
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a class="navbar-brand pl-1" href="login.html" id="loginlable"> Log In</a>
-                                <a class="navbar-brand pl-1" id="loginUserName" onclik="Logout()"
-                                   style="display:none"></a>
                             </div>
                         </div>
 
                     </div>
-                </div>
-            </nav>
-        </header>
+                    <div class="col-md-6 my-3">
+                        <div class="card shadow-sm border-0 bg-respect1">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-md-2 col-3">
+                                        <img src="./assets/images/icon-agile.svg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-9 align-self-center">
+                                        <div class="row mx-0">
+                                            <div class="col-md-12">
+                                                <p class="fw-bold text-uppercase">Accountability </p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                Responsible for our actions and results.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="w-100 mt-4">
-            <div class="card p-md-4 p-0 m-md-4 m-0 shadow-sm">
-                
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <div class="card shadow-sm border-0 bg-respect1">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-md-2 col-3">
+                                        <img src="./assets/images/icon-ownership.svg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-9 align-self-center">
+                                        <div class="row mx-0">
+                                            <div class="col-md-12">
+                                                <p class="fw-bold text-uppercase">Passion </p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                We love the work we do.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <div class="card shadow-sm border-0 bg-respect">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-md-2 col-3">
+                                        <img src="./assets/images/icon-we-before-i.svg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-9 align-self-center">
+                                        <div class="row mx-0">
+                                            <div class="col-md-12">
+                                                <p class="fw-bold text-uppercase">Knowledgeale</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                We experts in our fields.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <div class="card shadow-sm border-0 bg-respect">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-md-2 col-3">
+                                        <img class="img-fluid" src="./assets/images/icon-respect.svg" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-9 align-self-center">
+                                        <div class="row mx-0">
+                                            <div class="col-md-12">
+                                                <p class="fw-bold text-uppercase">Innovation</p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                We simplifify and save your time.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 my-3">
+                        <div class="card shadow-sm border-0 bg-respect1">
+                            <div class="card-body">
+                                <div class="row mx-0">
+                                    <div class="col-md-2 col-3">
+                                        <img class="img-fluid" src="./assets/images/icon-agile.svg" alt="">
+                                    </div>
+                                    <div class="col-md-10 col-9 align-self-center">
+                                        <div class="row mx-0">
+                                            <div class="col-md-12">
+                                                <p class="fw-bold text-uppercase">Quality </p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                We provide the best customer support.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
         </div>
+    </section>
+
+    <section class="contact-us my-4">
+        <div class="container">
+            <div class="row mx-0">
+                <div class="col-md-12">
+                    <p class="fw-bold h4">
+                        Contact Us
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 my-2">
+                    <div class="card shadow-sm border-0 contact-bg">
+                        <div class="card-body">
+                            <div class="row mx-0">
+                                <div class="col-md-4">
+                                    <p class="fw-bold">Customer Support:</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p class="fw-bold" id="customer-support"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="card shadow-sm border-0 contact-bg">
+                        <div class="card-body">
+                            <div class="row mx-0">
+                                <div class="col-md-4 align-self-center">
+                                    <p class="fw-bold">New Bike Dealer:</p>
+                                </div>
+                                <div class="col-md-8 align-self-center">
+                                    <p class="fw-bold" id="bikeDealer"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 my-2">
+                    <div class="card shadow-sm border-0 contact-bg">
+                        <div class="card-body">
+                            <div class="row mx-0">
+                                <div class="col-md-4 align-self-center">
+                                    <p class="fw-bold">Address:</p>
+                                </div>
+                                <div class="col-md-8 align-self-center">
+                                    <p class="fw-bold" id="aboutAddress"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container-fluid mt-3 p-0 ml-0 mr-0">
+        <footer class="text-center text-lg-start" style="background-color: #e9e6e5;">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-4 mb-md-0">
+                        <div class="d-flex justify-content-center gap-3">
+                            <h6><a href="./aboutus.html" target="_blank">About Us</a></h6>
+                            <h6 style="color: rgba(var(--bs-link-color-rgb))">Follow Us</h6>
+                        </div>
+                       
+
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class=" col-md-12 mb-4 mb-md-0">
+                        
+
+                        <section class="mb-4 d-flex justify-content-center">
+                            <!-- Facebook -->
+                            <button type="button" class="btn btn-primary btn-floating mx-2" style="background-color: #54456b;">
+                                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary  btn-floating mx-2" style="background-color: #54456b;">
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-floating mx-2" style="background-color: #54456b;">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-floating mx-2" style="background-color: #54456b;">
+                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                            </button>
+                        </section>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+           
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2024 All Rights Reserved:
+                <a class="text-black" href="https://dreambikesdigitalshowroom.com/">dreambikesdigitalshowroom.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
     </div>
-    <script>
-
-    </script>
-
-
+   
 </body>
-
-
-
 </html>
