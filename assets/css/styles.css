@@ -261,8 +261,8 @@ h4{
     .circle {
         position: absolute;
         border-radius: 50%;
-        width: 26% !important;
-        height: 50% !important;
+        width: 24% !important;
+        height: 40% !important;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
