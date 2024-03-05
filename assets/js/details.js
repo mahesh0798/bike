@@ -300,11 +300,11 @@ function brandlistV1() {
                                   <div class="col border">Name</div>
                                   <div class="col border" id="vehiclePriceCol">Ex showroom Price</div>
                               </div>
-                              <div class="row mx-0 mb-1 text-center" style="height:55px;">
+                              <div class="row mx-0 mb-1 text-center" style="height:100px;">
                                   <div class="col border" id="vehicleColor" >
                                     <div class="circle" style="background-color:${item.colour};"></div></div>
-                                  <div class="col border" id="vehicleName">${item.name}</div>
-                                  <div class="col border" id="vehiclePrice">${item.price || 'N/A'}</div>
+                                  <div class="col border d-flex align-items-center" id="vehicleName">${item.name}</div>
+                                  <div class="col border d-flex align-items-center" id="vehiclePrice">${item.price || 'N/A'}</div>
                               </div>
                           </div>`;
                             });
@@ -344,11 +344,11 @@ function brandlistV1() {
                                   <div class="col border">Name</div>
                                   <div class="col border" id="vehiclePriceCol">Ex showroom Price</div>
                               </div>
-                              <div class="row mx-0 mb-1 text-center" style="height:55px;" >
+                              <div class="row mx-0 mb-1 text-center" style="height:100px;" >
                                   <div class="col border" id="vehicleColor" >
                                     <div class="circle" style="background-color:${item.colour};"></div></div>
-                                  <div class="col border" id="vehicleName">${item.name}</div>
-                                  <div class="col border" id="vehiclePrice">${item.price || 'Same Price'}</div>
+                                  <div class="col border d-flex align-items-center" id="vehicleName">${item.name}</div>
+                                  <div class="col border d-flex align-items-center" id="vehiclePrice">${item.price || 'Same Price'}</div>
                               </div>
                           </div>`;
                             });
@@ -706,11 +706,11 @@ function allcolor() {
             for (var i = 0; i < data.length; i++) {
                 var card = data[i];
                 var $card = `
-                    <div class="row mx-0 text-center" style="height:55px;">
+                    <div class="row mx-0 text-center" style="height:100px;">
                             <div class="col border" id="vehicleColor" >
                               <div class="circle" style="background-color:${card.colour};"></div></div>
-                            <div class="col border" id="vehicleName">${card.name}</div>
-                            <div class="col border" id="vehiclePrice">${card.price || 'Same Price'}</div>
+                            <div class="col border d-flex align-items-center" id="vehicleName">${card.name}</div>
+                            <div class="col border d-flex align-items-center" id="vehiclePrice">${card.price || 'Same Price'}</div>
                     </div>`;
 
                 $carousel.append($card);
