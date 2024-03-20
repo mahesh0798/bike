@@ -261,7 +261,7 @@ function brandlistV1() {
                 $('#EVCruiseControl').text(vehicleDetails.cruiseControl);
                 $('#EVLowBatteryIndicator').text(vehicleDetails.lowBatteryIndicator);
                 $('#EVexshowroomPrize1').text(vehicleDetails.exshowroomPrize);
-                $('#EVoverallRatings').text(vehicleDetails.overallRatings);
+                $('#EVoverallRatings').text(vehicleDetails.isRegisterVehicle);
 
                 $('#EVvehicleName1').text(vehicleDetails.vehiclename + " Key Highlight");
                 $('#EVvehicleName2').text(vehicleDetails.vehiclename + " Specifications");
@@ -407,17 +407,12 @@ function brandlistV1() {
 
 
                     $carousel.owlCarousel({
-                        items: 3,
                         loop: false,
-                        slideSpeed: 300,
-                        paginationSpeed: 600,
-                        nav: true,
+                        margin: 10,
+                        autoplay: false,
                         dots: false,
-                        autoWidth: false,
-                        margin: 30,
-                        startPosition: 1,
-                        center: true,
-                        responsiveClass: true,
+                        navSpeed: 700,
+                        nav:true,
                         navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                         responsive: {
                             0: {
@@ -459,7 +454,7 @@ function brandlistV1() {
                                 </span>
                                 <div class="row mx-0" style="padding-top: 130px;">
                                   <div class="col-md-12">
-                                    <h5 class="text-center">${data[i].vehiclename}</h5>
+                                    <h5 class="text-center" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">${data[i].vehiclename}</h5>
                                   </div>
                                   <div class="col-md-12">
                                     <h5 class="text-center">${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize : 'Price not available'}</h5>
@@ -480,17 +475,12 @@ function brandlistV1() {
 
                             // Initialize the Owl Carousel
                             $("#bikePrice").owlCarousel({
-                                items: 3,
                                 loop: false,
-                                slideSpeed: 300,
-                                paginationSpeed: 600,
-                                nav: true,
+                                margin: 10,
+                                autoplay: false,
                                 dots: false,
-                                autoWidth: false,
-                                margin: 30,
-                                startPosition: 1,
-                                center: true,
-                                responsiveClass: true,
+                                navSpeed: 700,
+                                nav:true,
                                 navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                                 responsive: {
                                     0: {
@@ -587,7 +577,7 @@ function showLess(){
                 var card = $('<div class="card border-0 my-3" style="background-color: #f9f9f9;">');
                 var cardBody = $('<div class="card-body shadow-sm">');
                 var ratingId = 'ratings' + i;
-                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + item[i].vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + item[i].username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + item[i].comments + '</p></div></div></div>');
+                cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + item[i].vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">' + item[i].dayValues + '</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + item[i].username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + item[i].comments + '</p></div></div></div>');
                 
                 card.append(cardBody);
                 $('.container-for-reviews').append(card);
@@ -615,7 +605,7 @@ function showall(){
                     var card = $('<div class="card border-0 my-3" style="background-color: #f9f9f9;">');
                     var cardBody = $('<div class="card-body shadow-sm">');
                     var ratingId = 'ratings' + index;
-                    cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + res.vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">1 day ago</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + res.username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + res.comments + '</p></div></div></div>');
+                    cardBody.append('<div class="row py-2"><div class="col-md-12"><h5 id="BikeChoice">' + res.vehiclename + '</h5></div><div class="col-md-8"><div class="rating" data-rating="0" id="' + ratingId + '"><span class="star" data-value="1">&#9734;</span><span class="star" data-value="2">&#9734;</span><span class="star" data-value="3">&#9734;</span><span class="star" data-value="4">&#9734;</span><span class="star" data-value="5">&#9734;</span></div></div></div><div class="row"><div class="col-md-1 border-right text-center"><p style="color: #aaa;font-size: 12px;" class="m-0">' + res.dayValues + '</p></div><div class="col-md-2 text-left"><p style="color: #aaa;font-size: 12px;" class="m-0" id="username">' + res.username + '</p></div></div><div class="row my-2"><div class="col-md-12"><p id="commentReviw">' + res.comments + '</p></div></div></div>');
                     
                     card.append(cardBody);
                     $('.container-for-reviews').append(card);
@@ -751,6 +741,8 @@ function ClearFilter() {
     $.removeCookie('SearchPincode');
     $('#pinCity').hide();
     $('#SearchShowrom').show();
+    $('.owl-carousel').owlCarousel('destroy');
+    brandlistV1();
     defaultcity();
 }
 
@@ -790,17 +782,12 @@ function defaultcity() {
             }
 
             $carousel.owlCarousel({
-                items: 1,
                 loop: false,
-                slideSpeed: 300,
-                paginationSpeed: 600,
-                nav: true,
+                margin: 10,
+                autoplay: false,
                 dots: false,
-                autoWidth: false,
-                margin: 30,
-                startPosition: 1,
-                center: true,
-                responsiveClass: true,
+                navSpeed: 700,
+                nav:true,
                 navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                 responsive: {
                     0: {

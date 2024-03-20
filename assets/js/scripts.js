@@ -399,17 +399,12 @@ function brandlist(i, j) {
 
 
                     $carousel.owlCarousel({
-                        items: 3,
                         loop: false,
-                        slideSpeed: 300,
-                        paginationSpeed: 600,
-                        nav: true,
+                        margin: 10,
+                        autoplay: false,
                         dots: false,
-                        autoWidth: false,
-                        margin: 30,
-                        startPosition: 1,
-                        center: true,
-                        responsiveClass: true,
+                        navSpeed: 700,
+                        nav:true,
                         navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                         responsive: {
                             0: {
@@ -470,17 +465,12 @@ function brandlist(i, j) {
 
                             // Initialize the Owl Carousel
                             $("#bikePrice").owlCarousel({
-                                items: 3,
                                 loop: false,
-                                slideSpeed: 300,
-                                paginationSpeed: 600,
-                                nav: true,
+                                margin: 10,
+                                autoplay: false,
                                 dots: false,
-                                autoWidth: false,
-                                margin: 30,
-                                startPosition: 1,
-                                center: true,
-                                responsiveClass: true,
+                                navSpeed: 700,
+                                nav:true,
                                 navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                                 responsive: {
                                     0: {
@@ -580,17 +570,12 @@ $(document).ready(function () {
 
             // Initialize the Owl Carousel
             $("#carousel2").owlCarousel({
-                items: 3,
                 loop: false,
-                slideSpeed: 300,
-                paginationSpeed: 600,
-                nav: true,
+                margin: 10,
+                autoplay: false,
                 dots: false,
-                autoWidth: false,
-                margin: 30,
-                startPosition: 1,
-                center: true,
-                responsiveClass: true,
+                navSpeed: 700,
+                nav:true,
                 navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                 responsive: {
                     0: {
@@ -740,17 +725,12 @@ function famousbikemodel(i) {
 
 
                     $carousel.owlCarousel({
-                        items: 3,
                         loop: false,
-                        slideSpeed: 300,
-                        paginationSpeed: 600,
-                        nav: true,
+                        margin: 10,
+                        autoplay: false,
                         dots: false,
-                        autoWidth: false,
-                        margin: 30,
-                        startPosition: 1,
-                        center: true,
-                        responsiveClass: true,
+                        navSpeed: 700,
+                        nav:true,
                         navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                         responsive: {
                             0: {
@@ -818,17 +798,12 @@ function famousbikemodel(i) {
 
                             // Initialize the Owl Carousel
                             $("#bikePrice").owlCarousel({
-                                items: 3,
                                 loop: false,
-                                slideSpeed: 300,
-                                paginationSpeed: 600,
-                                nav: true,
+                                margin: 10,
+                                autoplay: false,
                                 dots: false,
-                                autoWidth: false,
-                                margin: 30,
-                                startPosition: 1,
-                                center: true,
-                                responsiveClass: true,
+                                navSpeed: 700,
+                                nav:true,
                                 navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
                                 responsive: {
                                     0: {
@@ -908,17 +883,12 @@ function RaceModelsBind() {
 
     // Initialize the Owl Carousel
     $("#myCarousel2").owlCarousel({
-        items: 3,
         loop: false,
-        slideSpeed: 300,
-        paginationSpeed: 600,
-        nav: true,
+        margin: 10,
+        autoplay: false,
         dots: false,
-        autoWidth: false,
-        margin: 30,
-        startPosition: 1,
-        center: true,
-        responsiveClass: true,
+        navSpeed: 700,
+        nav:true,
         navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
         responsive: {
             0: {
@@ -974,17 +944,12 @@ function ScootyModelsBind() {
 
     // Initialize the Owl Carousel
     $("#myCarousel3").owlCarousel({
-        items: 3,
         loop: false,
-        slideSpeed: 300,
-        paginationSpeed: 600,
-        nav: true,
+        margin: 10,
+        autoplay: false,
         dots: false,
-        autoWidth: false,
-        margin: 30,
-        startPosition: 1,
-        center: true,
-        responsiveClass: true,
+        navSpeed: 700,
+        nav:true,
         navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
         responsive: {
             0: {
@@ -1040,17 +1005,12 @@ function FamousEvModels() {
 
     // Initialize the Owl Carousel
     $("#evModals").owlCarousel({
-        items: 3,
         loop: false,
-        slideSpeed: 300,
-        paginationSpeed: 600,
-        nav: true,
+        margin: 10,
+        autoplay: false,
         dots: false,
-        autoWidth: false,
-        margin: 30,
-        startPosition: 1,
-        center: true,
-        responsiveClass: true,
+        navSpeed: 700,
+        nav:true,
         navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
         responsive: {
             0: {
@@ -1108,17 +1068,12 @@ function FamousMilageModel() {
 
     // Initialize the Owl Carousel
     $("#myCarousel4").owlCarousel({
-        items: 3,
         loop: false,
-        slideSpeed: 300,
-        paginationSpeed: 600,
-        nav: true,
+        margin: 10,
+        autoplay: false,
         dots: false,
-        autoWidth: false,
-        margin: 30,
-        startPosition: 1,
-        center: true,
-        responsiveClass: true,
+        navSpeed: 700,
+        nav:true,
         navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
         responsive: {
             0: {

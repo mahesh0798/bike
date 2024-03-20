@@ -269,7 +269,8 @@
                                         <table class="table border-0">
                                             <tbody>
                                                 <tr>
-                                                    <td style="border: none;text-align: center;" onclick="reviewpage()">Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;" id="overallRatingsPv"> </span></td>
+                                                    <td style="border: none;text-align: center;" onclick="reviewpage()">Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;" id="overallRatingsPv"> </span>
+                                                        <img src="assets/images/edit.svg" alt="" id="editreview"  class="img-fluid ml-2"></td>
 
                                                 </tr>
                                             </tbody>
@@ -1228,7 +1229,7 @@
                                 </div>
                                 <div class="row border-bottom">
                                     <div class="col-md-6 col-6 py-3">
-                                        Over All Ratings
+                                        Register Vehicle
                                     </div>
                                     <div class="col-md-6 col-6 py-3 text-end vspec" id="EVoverallRatings">
 
@@ -1283,8 +1284,9 @@
 
         <section>
             <div class="container" style="margin-top: 300px;">
-                <div data-aos="fade-up" data-aos-duration="1000">
+                <div data-aos="fade-up" data-aos-duration="1000" class="d-flex justify-content-between align-items-center">
                     <h2 class="fw-bold" id="Reviewvehiclename"></h2>
+                    <h4 style="color:#007bff;text-decoration: underline;" onclick="reviewpage()">+ Add Review</h4>
                 </div>
                 <!-- <div class="row mx-0">
                     <div class="col-md-auto">
@@ -1423,12 +1425,12 @@
                             <span id="namevalidation" style="display:none;color:red"></span>
                         </div>
 
-                        <div class="col-md-12 pb-5">
+                        <!-- <div class="col-md-12 pb-5">
                             <svg class="o-dlrcWp o-eoatGj o-cqgkZn o-euTeMg o-bUlUGg o-emJYLF " style="height:17px" viewBox="0 0 16 16" fill="currentcolor" tabindex="-1" focusable="false" aria-hidden="true" role="img"><path d="M11.89 16h-8a2.06 2.06 0 01-2.06-2.06v-6a2.07 2.07 0 012-2.06V4.09a4.09 4.09 0 118.17 0v1.78a2.07 2.07 0 012 2.06v6A2.06 2.06 0 0111.89 16zm-8-9.13a1.07 1.07 0 00-1.03 1.06v6A1.07 1.07 0 003.92 15h8A1.07 1.07 0 0013 13.94v-6a1.07 1.07 0 00-1.06-1.06zm.9-1H11V4.09a3.09 3.09 0 10-6.17 0zm3.61 6.37h-1v-1.63a.84.84 0 01-.32-.61.83.83 0 111.32.65zm-.5-2.46a.18.18 0 00-.17.18c0 .19.35.19.35 0a.18.18 0 00-.18-.18z"></path></svg>
                             <span> We only ask these once and your details are safe with us.</span>
-                        </div>
+                        </div> -->
 
-                        <div class="o-cNwRuH o-cpNAVm">By proceeding ahead, you agree to DreamBikes <a class="o-elzeOy" target="_blank" href="assets/pdf/visitor-agreement.pdf">Visitor Agreement</a> and <a class="o-elzeOy" target="_blank" href="assets/pdf/privacy-policy.pdf">Privacy Policy</a>.</div>
+                        <div class="o-cNwRuH o-cpNAVm">By proceeding ahead, you agree to DreamBikes <a class="o-elzeOy" target="_blank" href="assets/pdf/visitor-agreement.pdf">Terms & Condition</a> and <a class="o-elzeOy" target="_blank" href="assets/pdf/privacy-policy.pdf">Privacy Policy</a>.</div>
 
                         <div class="col-md-12 pb-2 text-center">
                             <span id="LeadSuccess" style="display:none;color:green"></span>
