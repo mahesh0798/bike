@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360-Degree Image Viewer</title>
+    <!-- Include Panolens library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/j360.js"></script>
+    <script>
+        // Initialize panorama viewer
+        const panorama = new PANOLENS.ImagePanorama('image_000.jpg');
+
+        // Create viewer
+        const viewer = new PANOLENS.Viewer({
+            container: document.getElementById('panorama-container'),
+            controlBar: true // Show control bar for navigation
+        });
+
+        // Add panorama to viewer
+        viewer.add(panorama);
+    </script>
+</head>
+<body>
+    <div id="panorama-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
