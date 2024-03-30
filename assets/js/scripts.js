@@ -1150,3 +1150,10 @@ function backstage() {
     $('#four').hide();
 }
 
+window.addEventListener('pageshow', function (event) {
+    // Check if the persisted property is true (indicating page navigation from cache)
+    if (event.persisted) {
+        // Reload the page to ensure full refresh
+        window.location.reload();
+    }
+});

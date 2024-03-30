@@ -75,14 +75,14 @@ function searchLeadBike() {
             const autocompleteResults2 = document.getElementById('autocompleteLeadBikeResults');
             autocompleteResults2.innerHTML = '';
             autocompleteResults2.innerText = '';
-            autocompleteResults2.style.display='none'
+            autocompleteResults2.style.display = 'none'
         }
     })
 }
 function displayAutocompleteLeadBikeResults1(results) {
     const autocompleteResults1 = document.getElementById('autocompleteLeadBikeResults');
     autocompleteResults1.innerHTML = '';
-    autocompleteResults1.style.display='block';
+    autocompleteResults1.style.display = 'block';
 
     if (results.length === 0) {
         const noResults1 = document.createElement('div');
@@ -501,7 +501,7 @@ function validateLogin() {
         dataType: "json",
         success: function (response) {
             $('.loader-parent').hide();
-            
+
             if (response.isSuccess) {
                 $('#toastMessage').text("Login Success");
                 $('#toastMessage').removeClass('hide').addClass('show');
@@ -524,13 +524,13 @@ function validateLogin() {
                 }, 5000); // Hide after 3 seconds
             }
         },
-         error: function (xhr, status, error) {
-             $('.loader-parent').hide();
-             $('#toastMessage').text("Login Failed.Please try  again");
-             $('#toastMessage').removeClass('hide').addClass('show');
-             setTimeout(function () {
-                 $('#toastMessage').removeClass('show').addClass('hide');
-             }, 5000); // Hide after 3 seconds
+        error: function (xhr, status, error) {
+            $('.loader-parent').hide();
+            $('#toastMessage').text("Login Failed.Please try  again");
+            $('#toastMessage').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000); // Hide after 3 seconds
         }
     })
 }
@@ -634,21 +634,42 @@ function listoffer() {
 
 function GenerateLead(type) {
 
-    var Pin = $.cookie('SearchPincode');
-    if (Pin == null || Pin == "" || Pin == undefined) {
+    //var Pin = $.cookie('SearchPincode');
+    //if (Pin == null || Pin == "" || Pin == undefined) {
+    //    $('#leadpin').show();
+    //    $('#pinvalidation').text("* Enter Your Pincode");
+    //    $('#pinvalidation').focus();
+    //    $('#pinvalidation').show();
+
+    //    return;
+    //}
+    //else {
+    //    $('#form13').val(Pin);
+    //    //$('#leadpin').hide();
+    //}
+
+    if (type == 2) {
+        LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
+    }
+    else {
+
+        if (LeadBikeId == null || LeadBikeId == 0 || LeadBikeId == undefined) {
+            $('#Bikevalidation').text("* Enter the Bike Name");
+            $('#Bikevalidation').focus();
+            $('#Bikevalidation').show();
+
+            return;
+        }
+
+        LeadGeneration.Vehicleid = LeadBikeId;
+    }
+    if ($('#form13').val() == null || $('#form13').val() == "") {
         $('#leadpin').show();
         $('#pinvalidation').text("* Enter Your Pincode");
         $('#pinvalidation').focus();
         $('#pinvalidation').show();
-
         return;
     }
-    else {
-        $('#form13').val(Pin);
-        //$('#leadpin').hide();
-    }
-   
-   
 
     $('#LeadSuccess').text("");
     $('#LeadSuccess').hide();
@@ -670,26 +691,15 @@ function GenerateLead(type) {
         $('#namevalidation').show();
         return;
     }
+   
     $('.loader-parent').show();
     LeadGeneration.Mobile = $('#MobileBook').val();
     LeadGeneration.Name = $('#CustName').val();
-    LeadGeneration.Pincode = Pin;
-    if (type == 2) {
-        LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
-    }
-    else {
+    LeadGeneration.Pincode = $('#form13').val();
 
-        if (LeadBikeId == null || LeadBikeId == 0 || LeadBikeId == undefined) {
-            $('#Bikevalidation').text("* Enter the Bike Name");
-            $('#Bikevalidation').focus();
-            $('#Bikevalidation').show();
 
-            return;
-        }
+   
 
-        LeadGeneration.Vehicleid = LeadBikeId;
-    }
-    
     var request = JSON.stringify(LeadGeneration);
 
     $.ajax({
@@ -704,7 +714,7 @@ function GenerateLead(type) {
             $('#toastMessage').text("😊 Thank You for connecting with us. Our Executive will Connect and  assist you soon.")
             $('#toastMessage').removeClass('hide').addClass('show');
             $('#pinlist').modal('hide');
-            $('#MobileBook,#CustName,#form14').val("");
+            $('#MobileBook,#CustName,#form14,#form13').val("");
             LeadBikeId = 0;
             $('#mobilevalidation,#namevalidation').hide();
             setTimeout(function () {
@@ -762,8 +772,8 @@ function fetchPincode(type) {
 
 function fetchLeadPincode(type) {
 
-var city = document.getElementById('form13').value;
-    
+    var city = document.getElementById('form13').value;
+
 
     var apiurl = baseUrl + "Home/GetCity?Key=" + city;
 
