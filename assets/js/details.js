@@ -431,8 +431,8 @@ function brandlistV1() {
                     });
 
                     var btext = localStorage.getItem("buttontext");
-                    var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid;
-                    $('.loader-parent').show();
+                    var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid +'&Vehicleid='+ i ;
+                    $('.loader-parent').show();  
                     $.ajax({
                         url: apiurl,
                         method: 'GET',
@@ -518,7 +518,7 @@ function brandlistV1() {
                     success: function (response) 
                     {   
                         let item = response;
-                        $('#Reviewvehiclename').text(item[0].vehiclename+ " - User Reviews");
+                        $('#Reviewvehiclename').text(item[0].vehiclename+ " -"+item[0].reviewCount+ " User Reviews");
                         if(item.length < 4){
                             $('#showAll').hide();
                             $('#showLess').hide();
