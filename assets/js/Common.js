@@ -647,6 +647,7 @@ function GenerateLead(type) {
     //    $('#form13').val(Pin);
     //    //$('#leadpin').hide();
     //}
+    var LeadGeneration = new Object();
 
     if (type == 2) {
         LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
@@ -674,7 +675,7 @@ function GenerateLead(type) {
     $('#LeadSuccess').text("");
     $('#LeadSuccess').hide();
     var apiurl = baseUrl + "Home/LeadGeneration";
-    var LeadGeneration = new Object();
+   
 
     var mobileNumber = $('#MobileBook').val();
     var pattern = /^[6-9]\d{9}$/; // Regex pattern for Indian mobile numbers
@@ -709,8 +710,8 @@ function GenerateLead(type) {
         dataType: "json",
         data: request,
         success: function (data) {
-            $('#LeadSuccess').show();
-            $('#LeadSuccess').text("😊 Thank you for connecting with us");
+            //$('#LeadSuccess').show();
+            //$('#LeadSuccess').text("😊 Thank you for connecting with us");
             $('#toastMessage').text("😊 Thank You for connecting with us. Our Executive will Connect and  assist you soon.")
             $('#toastMessage').removeClass('hide').addClass('show');
             $('#pinlist').modal('hide');
@@ -719,6 +720,7 @@ function GenerateLead(type) {
             $('#mobilevalidation,#namevalidation').hide();
             setTimeout(function () {
                 $('#toastMessage').removeClass('show').addClass('hide');
+                //$('#LeadSuccess').hide();
             }, 5000); // Hide after 3 seconds
             $('.loader-parent').hide();
         },
