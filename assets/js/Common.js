@@ -693,12 +693,13 @@ function GenerateLead(type) {
         return;
     }
    
+
     $('.loader-parent').show();
     LeadGeneration.Mobile = $('#MobileBook').val();
     LeadGeneration.Name = $('#CustName').val();
-    LeadGeneration.Pincode = $('#form13').val();
+    LeadGeneration.Pincode = $.cookie('SearchPincode');
 
-
+   
    
 
     var request = JSON.stringify(LeadGeneration);
