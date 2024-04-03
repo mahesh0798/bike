@@ -182,7 +182,7 @@ function brandlistV1() {
                 $('#mileage').text(vehicleDetails.mileage + " KMPl");
                 $('#mileage1').text(vehicleDetails.mileage + " KMPl");
                 $('#maxPower').text(vehicleDetails.maxPower);
-                $('#PvPower').text(vehicleDetails.maxPower);
+                $('#PvPower').text(vehicleDetails.maxPower.split("@")[0]);
 
                 $('#maxTorque').text(vehicleDetails.maxTorque);
                 $('#frontBrake').text(vehicleDetails.frontBrake);
@@ -431,7 +431,7 @@ function brandlistV1() {
                     });
 
                     var btext = localStorage.getItem("buttontext");
-                    var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid +'&Vehicleid='+ i ;
+                    var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid + '&Vehicleid=' + getParameterByName('Vehicleid') ;
                     $('.loader-parent').show();  
                     $.ajax({
                         url: apiurl,
