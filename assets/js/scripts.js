@@ -31,7 +31,9 @@ AOS.init()
 //   $(function() {
 //     $('#nav-tab').responsiveTabs();
 //   });
-
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 function frontpage() {
     $('#first').show();
     $('#second').hide();
@@ -550,13 +552,14 @@ $(document).ready(function () {
               </span>
             <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
-                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
                 <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
-                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+             <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" >View Details</button>
               </div>
             </div>
           </div>
@@ -863,13 +866,14 @@ function RaceModelsBind() {
               </span>
             <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
-                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
                 <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
-                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+                    <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" >View Details</button>
               </div>
             </div>
           </div>
@@ -924,13 +928,14 @@ function ScootyModelsBind() {
               </span>
             <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
-                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
                 <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
-                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+                  <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" >View Details</button>
               </div>
             </div>
           </div>
@@ -985,13 +990,14 @@ function FamousEvModels() {
               </span>
             <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
-                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
                 <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
-                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+                    <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" >View Details</button>
               </div>
             </div>
           </div>
@@ -1048,13 +1054,14 @@ function FamousMilageModel() {
               </span>
             <div class="row mx-0" style="padding-top: 130px;">
               <div class="col-md-12">
-                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
+                <h5 class="text-center mt-1 text-ellipsis" style="max-height: 3.6em; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" data-toggle="tooltip" data-placement="top" title="${filteredData[i].vehicleName}">${filteredData[i].vehicleName}</h5>
               </div>
               <div class="col-md-12">
                 <h5 class="text-center mt-1">${filteredData[i].price ? '₹ ' + filteredData[i].price : 'Price not available'}</h5>
               </div>
               <div class="col-md-12 text-center">
-                <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>
+                    <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" >View Details</button>
               </div>
             </div>
           </div>

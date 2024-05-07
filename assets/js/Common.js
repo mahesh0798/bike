@@ -227,7 +227,7 @@ function displayAutocompleteResults(results) {
                                 "<div class='col-9'>" +
                                 "<p class='mb-1'>" + card.city + "</p>" +
                                 "<p class='mt-4 mb-3 f-15'>" + card.name + "," + card.street + "," + card.pincode + "</p>" +
-                                "<a class='mt-2' href='tel:" + card.phNo + "'>" + card.phNo + "</a>" +
+                                
                                 "</div>" +
                                 "</div>" +
                                 "</div>" +
@@ -476,11 +476,20 @@ function validateLogin() {
     var mobileNumber = document.getElementById('mobileNumber').value;
     var password = document.getElementById('password').value;
     if (!/^\d{10}$/.test(mobileNumber)) {
-        alert('Invalid mobile number. Please enter a 10-digit numeric value.');
+        $('#toastMessage').text("Invalid mobile number. Please enter a 10-digit numeric value.");
+        $('#toastMessage').removeClass('hide').addClass('show');
+        setTimeout(function () {
+            $('#toastMessage').removeClass('show').addClass('hide');
+        }, 5000);
         return;
     }
     if (password.length < 6) {
-        alert('Password must be at least 6 characters long');
+        $('#toastMessage').text("Password must be at least 6 characters long");
+        $('#toastMessage').removeClass('hide').addClass('show');
+        setTimeout(function () {
+            $('#toastMessage').removeClass('show').addClass('hide');
+        }, 5000); 
+        // alert('Password must be at least 6 characters long');
         return;
     }
 
@@ -541,27 +550,52 @@ function validateSignup() {
     var password1 = document.getElementById('password1').value;
     var nameRegex = /^[a-zA-Z\-]+$/;
     if (!nameRegex.test(name)) {
-        $('#LoginCname').text("* Enter Your Name");
+        // $('#LoginCname').text("* Enter Your Name");
+        $('#toastMessage').text("* Enter Your Name");
+        $('#toastMessage').removeClass('hide').addClass('show');
+        setTimeout(function () {
+            $('#toastMessage').removeClass('show').addClass('hide');
+        }, 5000);
         return;
     }
     if (mobileNumber1 == "" || mobileNumber1 == null || mobileNumber1 == undefined) {
-        $('#LoginMobile').text("* Enter Your Mobile Number");
+        // $('#LoginMobile').text("* Enter Your Mobile Number");
+        $('#toastMessage').text("* Enter Your Mobile Number");
+        $('#toastMessage').removeClass('hide').addClass('show');
+        setTimeout(function () {
+            $('#toastMessage').removeClass('show').addClass('hide');
+        }, 5000);
     }
     if (!/^\d{10}$/.test(mobileNumber1)) {
-        $('#LoginMobile').text("* Enter Valid 10 digit Mobile Number");
+        $('#toastMessage').text("*Enter Valid 10 digit Mobile Number");
+        $('#toastMessage').removeClass('hide').addClass('show');
+        setTimeout(function () {
+            $('#toastMessage').removeClass('show').addClass('hide');
+        }, 5000);
+        // $('#LoginMobile').text("* Enter Valid 10 digit Mobile Number");
         return;
     }
 
     if (!(email == "" || email == undefined || email == null)) {
         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            $('#Loginemail').text("* Enter Valid Email");
+            $('#toastMessage').text("*Enter Valid Email");
+            $('#toastMessage').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000);
+            // $('#Loginemail').text("* Enter Valid Email");
             return;
         }
     }
 
     if (password1.length < 6) {
-        $('#Loginpasword').text("* Password must be at least 6 characters long");
+        $('#toastMessage').text("*Password must be at least 6 characters long");
+            $('#toastMessage').removeClass('hide').addClass('show');
+            setTimeout(function () {
+                $('#toastMessage').removeClass('show').addClass('hide');
+            }, 5000);
+        // $('#Loginpasword').text("* Password must be at least 6 characters long");
         return;
     }
 
@@ -618,7 +652,9 @@ function validateSignup() {
     })
 }
 function listoffer() {
-
+    $('#form13').val('')
+    $('#autocompleteResultsPin').val('')
+    $('#CustName').val('')
     var Pin = $.cookie('SearchPincode');
     if (Pin == null || Pin == "" || Pin == undefined) {
         $('#leadpin').show();
@@ -647,8 +683,8 @@ function GenerateLead(type) {
     //    $('#form13').val(Pin);
     //    //$('#leadpin').hide();
     //}
-    var LeadGeneration = new Object();
 
+  var LeadGeneration = new Object();
     if (type == 2) {
         LeadGeneration.Vehicleid = getParameterByName('Vehicleid');
     }
@@ -675,7 +711,7 @@ function GenerateLead(type) {
     $('#LeadSuccess').text("");
     $('#LeadSuccess').hide();
     var apiurl = baseUrl + "Home/LeadGeneration";
-   
+  
 
     var mobileNumber = $('#MobileBook').val();
     var pattern = /^[6-9]\d{9}$/; // Regex pattern for Indian mobile numbers
@@ -693,13 +729,12 @@ function GenerateLead(type) {
         return;
     }
    
-
     $('.loader-parent').show();
     LeadGeneration.Mobile = $('#MobileBook').val();
     LeadGeneration.Name = $('#CustName').val();
-    LeadGeneration.Pincode = $.cookie('SearchPincode');
+    LeadGeneration.Pincode =  $.cookie('SearchPincode');
 
-   
+
    
 
     var request = JSON.stringify(LeadGeneration);
@@ -711,8 +746,8 @@ function GenerateLead(type) {
         dataType: "json",
         data: request,
         success: function (data) {
-            //$('#LeadSuccess').show();
-            //$('#LeadSuccess').text("😊 Thank you for connecting with us");
+          //  $('#LeadSuccess').show();
+          //  $('#LeadSuccess').text("😊 Thank you for connecting with us");
             $('#toastMessage').text("😊 Thank You for connecting with us. Our Executive will Connect and  assist you soon.")
             $('#toastMessage').removeClass('hide').addClass('show');
             $('#pinlist').modal('hide');
@@ -721,7 +756,6 @@ function GenerateLead(type) {
             $('#mobilevalidation,#namevalidation').hide();
             setTimeout(function () {
                 $('#toastMessage').removeClass('show').addClass('hide');
-                //$('#LeadSuccess').hide();
             }, 5000); // Hide after 3 seconds
             $('.loader-parent').hide();
         },
@@ -731,6 +765,7 @@ function GenerateLead(type) {
             $('#toastMessage').removeClass('hide').addClass('show');
             setTimeout(function () {
                 $('#toastMessage').removeClass('show').addClass('hide');
+ //$('#LeadSuccess').hide();
             }, 5000); // Hid
 
         }

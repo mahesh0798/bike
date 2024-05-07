@@ -90,14 +90,55 @@ function brandselectV1() {
                           <div class="col-md-3 col-12">
                               <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="..." style="padding-top: 37px;">
                           </div>
-                          <div class="col-md-6 col-12">
+<div class="col-md-6 col-12">
+  <div class="card-body px-md-2">
+    <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
+
+    <ul class="vehicle-details">
+      <li>
+        <img src='assets/images/battery.png' style='width:13px'>
+        <span>${vehicle.batteryType}</span>
+      </li>
+      <li>
+        <img src='assets/images/battery-charging.png' style='width:24px'>
+        <span>${vehicle.chargingTime}</span>
+      </li>
+      <li>
+        <img src='assets/images/kerb-weight..jpg' style='width:20px'>
+        <span>${vehicle.kerbWeight} Kg</span>
+      </li>
+      <li>
+        <img src='assets/images/mileage-color.png' style='width:20px'>
+        <span>${vehicle.topSpeed} KMPH</span>
+      </li>
+    </ul>
+
+    <div class="price-section mt-3">
+      <h4>
+        <b class="mt-3">₹ ${vehicle.exshowroomPrize}</b>
+        <span class="f-14">Ex showroom Price onwards</span>
+      </h4>
+    </div>
+<div>
+  <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+<!--<button class="btn btn-outline-secondary text-white purple1 psbutton custom-yellow-button">View Details</button>-->
+
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" style='width:50%' >View   Details</button>
+</div>
+   
+  </div>
+</div>
+
+
+                    <!--   <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
                                   <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
                                   <p class="card-text mt-3 col-md-12"> <img src='assets/images/battery.png' style='width:13px'> ${vehicle.batteryType} | <img src='assets/images/battery-charging.png' style='width:24px'> ${vehicle.chargingTime} | <img src='assets/images/kerb-weight..jpg' style='width:20px'> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
-                                  <h4 class="col-md-12"> <b class="mt-3">₹ ${vehicle.exshowroomPrize}</b> <span class="f-14">Ex showroom Price onwards<span></h4>
+                                <h4 class="col-md-12"> <b class="mt-3">₹ ${vehicle.exshowroomPrize}</b> <span class="f-14">Ex showroom Price onwards<span></h4>
                                   <a  class="btn btn-outline-secondary text-white purple1 col-md-6" onclick="brandlist(${vehicle.vehicleId},${vehicle.isEv})">${btext}</a>
-                              </div>
-                          </div>
+
+                          </div>-->
+
                           <div class="col-md-3 col-12">
                               <div class="card-body ">
                                   <table class="table table-bordered">
@@ -115,19 +156,57 @@ function brandselectV1() {
                 } else {
                     carouselContentsec += `
               <div class="item">
-                  <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
+                  <div class="card mt-2 mb-4 bikeshadow"  onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
                               <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="..." style="padding-top: 37px;">
                           </div>
-                          <div class="col-md-6 col-12">
+
+    <div class="col-md-6 col-12">
+      <div class="card-body px-md-2">
+        <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
+
+        <ul class="vehicle-details">
+          <li>
+            <img src='assets/images/engine-color.png' style='width:20px'>
+            <span>${vehicle.displacement} CC</span>
+          </li>
+          <li>
+            <img src='assets/images/milage-icon.png' style='width:20px'>
+            <span>${vehicle.mileage} KMPL</span>
+          </li>
+          <li>
+            <img src='assets/images/kerb-weight..jpg' style='width:20px'>
+            <span>${vehicle.kerbWeight} Kg</span>
+          </li>
+          <li>
+            <img src='assets/images/mileage-color.png' style='width:20px'>
+            <span>${vehicle.topSpeed} KMPH</span>
+          </li>
+        </ul>
+
+        <div class="price-section mt-3">
+ <h4 class="col-md-12">
+          <b class="mt-3">₹ ${vehicle.exshowroomPrize}</b>
+          <span class="f-14">Ex showroom Price onwards</span>
+        </h4>
+</div>
+<div>
+        <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" style='width:50%', 'Background color: Yellow' >View   Details</button>
+      </div>
+    </div>
+  </div>
+
+
+                        <!--  <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
                                   <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
                                   <p class="card-text mt-3 col-md-12"> <img src='assets/images/engine-color.png' style='width:20px'> ${vehicle.displacement} CC | <img src='assets/images/milage-icon.png' style='width:20px'> ${vehicle.mileage} KMPL | <img src='assets/images/kerb-weight..jpg' style='width:20px'> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
                                   <h4 class="col-md-12"> <b class="mt-3">₹ ${vehicle.exshowroomPrize}</b> <span class="f-14">Ex showroom Price onwards<span></h4>
-                                  <a  class="btn btn-outline-secondary text-white purple1 col-md-6" onclick="brandlist(${vehicle.vehicleId},${vehicle.isEv})">${btext}</a>
+                                  <a  class="btn btn-outline-secondary text-white purple1 col-md-6"onclick="listoffer()" >${btext}</a>
                               </div>
-                          </div>
+                          </div>-->
                           <div class="col-md-3 col-12">
                               <div class="card-body ">
                                   <table class="table table-bordered">

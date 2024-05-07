@@ -47,10 +47,14 @@ $(document).ready(function () {
     }
 });
 
+
+
+
 function frontpage() {
     location.href = "./index.html";
 }
 
+ 
 
 
 function getParameterByName(name, url) {
@@ -261,7 +265,12 @@ function brandlistV1() {
                 $('#EVCruiseControl').text(vehicleDetails.cruiseControl);
                 $('#EVLowBatteryIndicator').text(vehicleDetails.lowBatteryIndicator);
                 $('#EVexshowroomPrize1').text(vehicleDetails.exshowroomPrize);
-                $('#EVoverallRatings').text(vehicleDetails.isRegisterVehicle);
+                if(vehicleDetails.isRegisterVehicle==true){
+                    $('#EVoverallRatings').text('Yes');
+                }else{
+                    $('#EVoverallRatings').text('No');
+                }
+               
 
                 $('#EVvehicleName1').text(vehicleDetails.vehiclename + " Key Highlight");
                 $('#EVvehicleName2').text(vehicleDetails.vehiclename + " Specifications");
@@ -431,7 +440,7 @@ function brandlistV1() {
                     });
 
                     var btext = localStorage.getItem("buttontext");
-                    var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid + '&Vehicleid=' + getParameterByName('Vehicleid') ;
+                    var apiurl = baseUrl + "VehicleDetails/GetVariant?BikeModelid=" + bikemodeid +'&Vehicleid='+ getParameterByName('Vehicleid') ;
                     $('.loader-parent').show();  
                     $.ajax({
                         url: apiurl,
@@ -443,7 +452,7 @@ function brandlistV1() {
                             var carouselItems = "";
                             for (var i = 0; i < data.length; i++) {
                                 carouselItems += `
-                        <div class="item">
+    <div class="item">
                           <div class="container mt-9 d-flex justify-content-center" onclick="Varients(${data[i].vechileid},${data[i].isEv})" >
                             <div class="card border-top-0 position-relative w-18" >
                               <div class="card-body shadow-sm">
@@ -460,15 +469,14 @@ function brandlistV1() {
                                     <h5 class="text-center">${data[i].exshowroomPrize ? '₹ ' + data[i].exshowroomPrize : 'Price not available'}</h5>
                                   </div>
                                                    <div class="col-md-12 text-center">
-                                      <button class="btn btn-outline-secondary text-white purple1">${btext}</button>
+                                          <!-- <button  class="btn btn-outline-secondary text-white purple1 psbutton" >${btext}</button>-->
+ <button  class="btn btn-outline-secondary text-white purple1 psbutton" >View Details</button>
                                     </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>`;
-
-                            }
+                        </div>`; }
 
                             // Update the carousel with the new content
                             $("#bikePrice").html(carouselItems);
@@ -767,12 +775,12 @@ function defaultcity() {
                     "<div class='col-3 text-center'>" +
                     "<p class='mb-1'><b>City</b></p>" +
                     "<p class='mt-4'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-geo-alt' viewBox='0 0 16 16'><path d='M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z'/><path d='M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'/></svg></p>" +
-                    "<p class='mt-0'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-telephone-fill' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'/></svg></p>" +
+                 
                     "</div>" +
                     "<div class='col-9'>" +
                     "<p class='mb-1'>" + card.city + "</p>" +
-                    "<p class='mt-4 mb-3 f-15'>" + card.name + "," + card.street + "," + card.pincode + "</p>" +
-                    "<a class='mt-2' href='tel:" + card.phNo + "'>" + card.phNo + "</a>" +
+                    "<p class='mt-4 mb-3 f-15'>" + card.name + "," + card.street + "," + card.pincode + "</p>"+
+                    
                     "</div>" +
                     "</div>" +
                     "</div>" +
