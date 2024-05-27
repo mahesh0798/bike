@@ -1,0 +1,166 @@
+.radio-button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    align-items: center;
+    color: white;
+  }
+  
+  .radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .radio {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transform: translateZ(-25px);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio {
+    border-color: #5cb85c;
+    transform: translateZ(0px);
+    background-color: #fff;
+  }
+  
+  .radio-button input[type="radio"]:checked + .radio::before {
+    opacity: 1;
+  }
+  
+  .bg-custom {
+    width: 100%;
+    height: auto !important;
+    /* background-color: #111111;
+    background-image: linear-gradient(
+      32deg,
+      rgba(8, 8, 8, 0.74) 30px,
+      transparent
+    );
+    background-size: 60px 60px;
+    background-position: -5px -5px; */
+    background-repeat: no-repeat;
+    background-image: url("../images/Backimg.png");
+	background-color: black;
+	background-position: center center;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  }
+
+  .sDate{
+    padding: 6px 36px 6px 12px;
+    outline: none;
+    border: 0;
+  }
+  
+
+  .cyberpunk-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #30cfd0;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .cyberpunk-checkbox:before {
+    content: "";
+    background-color: #30cfd0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cyberpunk-checkbox:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cyberpunk-checkbox-label {
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .inputGroup {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 1em 0 1em 0;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+  }
+  
+  .inputGroup input {
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    color: white;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .inputGroup label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color:white;
+  }
+  
+  .inputGroup :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    background-color: #111111;
+    background-image: linear-gradient(
+      32deg,
+      rgba(8, 8, 8, 0.74) 30px,
+      transparent
+    );
+  }
+  
+  .inputGroup :is(input:focus, input:valid) {
+    border-color: rgb(150, 150, 200);
+  }
+
+
+  
