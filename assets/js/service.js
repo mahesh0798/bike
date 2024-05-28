@@ -80,7 +80,7 @@ function filterBrands(fuelType) {
 
     BrandBox1.off('change').on('change', debounce(function() {
         var selectedOption = $(this).find(':selected');
-        var selectedBrandId = selectedOption.val();
+        selectedBrandId = selectedOption.val();
         var selectedEv = selectedOption.data('ev');
         console.log('Selected brand ID:', selectedBrandId);
         console.log('Selected EV:', selectedEv);
