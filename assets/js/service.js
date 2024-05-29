@@ -1,6 +1,7 @@
 // import { carouselBind } from './scripts.js'
 var selectedBrandId=""
 var selectedEv='';
+var isEV =false;
 var typeId="";
 var vechileid = '';
 var vehiclename ='';
@@ -80,11 +81,17 @@ function filterBrands(fuelType) {
 
     BrandBox1.off('change').on('change', debounce(function() {
         var selectedOption = $(this).find(':selected');
-        var selectedBrandId = selectedOption.val();
-        var selectedEv = selectedOption.data('ev');
+         selectedBrandId = selectedOption.val();
+         selectedEv = selectedOption.data('ev');
+        if ($('#Petrol').is(':checked')) {
+            isEV=false;
+        } else {
+            isEV=true;
+        }
+        console.log(isEV);
         console.log('Selected brand ID:', selectedBrandId);
         console.log('Selected EV:', selectedEv);
-        fetchVehicleTypes(selectedBrandId, selectedEv);
+        fetchVehicleTypes(selectedBrandId, isEV);
     }, 300));
 }
 
@@ -118,7 +125,7 @@ function fetchVehicleTypes(brandId, isEv) {
 
                 ModelBox1.off('change').on('change', debounce(function() {
                     var selectedOption1 = $(this).find(':selected');
-                    var typeId = selectedOption1.val();
+                    typeId = selectedOption1.val();
                     fetchVehicleNames(brandId, typeId);
                 }, 300));
             } else {
@@ -161,8 +168,8 @@ function fetchVehicleNames(brandId, typeId) {
 
                 VehicleBox1.off('change').on('change', function() {
                     var selectedOption2 = $(this).find(':selected');
-                    var vechileid = selectedOption2.val();
-                    var vehiclename = selectedOption2.text();
+                    vechileid = selectedOption2.val();
+                    vehiclename = selectedOption2.text();
                     console.log('Selected vehicle ID:', vechileid);
                     console.log('Selected vehicle name:', vehiclename);
                 });
@@ -475,7 +482,7 @@ function Appointment() {
         "expressService": Eservice, 
         "customerName":customername, 
         "mobile":  cusMob, 
-        "isEV": selectedEv, 
+        "isEV": isEV, 
         "createdOn": new Date()
     };
     sendData = JSON.stringify(sendData);
