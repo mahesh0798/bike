@@ -15,6 +15,7 @@ var Eservice=false
 var ModelBox1 = $('#Modelselect');
 var VehicleBox1 = $('#Vehicleselect');
 var DistrictBox1 = $('#Districtselect');
+var ServiceCentreselectBox1 = $('#ServiceCentreselect');
 var typeVechile="";
 const pattern = /^[6-9]\d{9}$/;
 $('input[name="example-radio"]').change(function() {
@@ -357,6 +358,7 @@ function SubmitApp() {
     DistrictBox1id="";
     Districtselect="";
     ServiceCentre1id =""; 
+    ServiceCentreselectBox1="";
     ddate=""; 
     ServicePack=""; 
     Eservice=false;
@@ -371,19 +373,21 @@ function SubmitApp() {
     $('#Modelselect').val('')
     $('#Vehicleselect').val('')
     $('#serviceDate').val('')
+    $('#ServiceCentreselect').val('');
     $('#ServicePackselect').val('')
     $('#nameService').val('')
     $('#mob').val('')
     $('#nameApp').val('')
     $('#dateapp').val('')
     $('#Appid').val('')
-    $('#toastMessage').text("😊 Thank you .");
+    $('#toastMessage').text("Service Appointment Created Successfully.😊 Thank you .");
         $('#toastMessage').removeClass('hide').addClass('show');
-        $('#toastMessage1').css('display','block')
+        $('#toastMessage').css('display','block')
         setTimeout(function () {
         $('#toastMessage').removeClass('show').addClass('hide');
         $('#toastMessage').css('display','none')
-    }, 3000);
+        window.location.reload();
+    }, 2000);
 }
 function Appointment() {
     var Brandselect=$('#Brandselect').val()
@@ -396,6 +400,7 @@ function Appointment() {
     var cusMob=$('#mob').val()
     // var mobilenumber=$('#retxtmobile').val()
     var error=0;
+   
     if(Brandselect==""){
         $('#toastMessage1').text("*Please Select Brand!");
         $('#toastMessage1').removeClass('hide').addClass('show');
@@ -433,6 +438,13 @@ function Appointment() {
     }, 3000);
     }else if(ServicePack==""){
         $('#toastMessage1').text("*Please Select ServicePack!");
+        $('#toastMessage1').removeClass('hide').addClass('show');
+        error++;
+        setTimeout(function () {
+        $('#toastMessage1').removeClass('show').addClass('hide');
+    }, 3000);
+    }else  if( !pickup&&!Eservice){
+        $('#toastMessage1').text("*Please Choos Special Pack!");
         $('#toastMessage1').removeClass('hide').addClass('show');
         error++;
         setTimeout(function () {
@@ -497,7 +509,7 @@ function Appointment() {
             $('.loader-parent').hide();
             $('#nameApp').text(customername)
             $('#dateapp').text(ddate)
-            $('#Appid').text(typeId)
+            $('#Appid').text(response.appointmentid)
             var Servicelist = new bootstrap.Modal(document.getElementById('Servicelist'), {
                 backdrop: 'static',
                 keyboard: false
