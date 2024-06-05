@@ -286,40 +286,46 @@ function carouselBind() {
 function frontpage() {
     location.href = "./index.html";
 }
-$(function(){
+$(function () {
     var dtToday = new Date();
-
     var month = dtToday.getMonth() + 1;
     var day = dtToday.getDate();
     var year = dtToday.getFullYear();
     if (month < 10) month = '0' + month.toString();
     if (day < 10) day = '0' + day.toString();
 
-    var minDate = year + '-' + month + '-' + day;
+    var minDate = new Date(year, dtToday.getMonth(), day);
 
-    dtToday.setDate(dtToday.getDate() + 15); // Add 15 days to the current date
+    dtToday.setDate(dtToday.getDate() + 15);
+    var maxDate = new Date(dtToday.getFullYear(), dtToday.getMonth(), dtToday.getDate());
 
-    var maxMonth = dtToday.getMonth() + 1;
-    var maxDay = dtToday.getDate();
-    var maxYear = dtToday.getFullYear();
-    if (maxMonth < 10) maxMonth = '0' + maxMonth.toString();
-    if (maxDay < 10) maxDay = '0' + maxDay.toString();
+    $('#serviceDate').datepicker({
+        dateFormat: 'dd-mm-yy',
+        minDate: minDate,
+        maxDate: maxDate,
+        beforeShowDay: function(date) {
+            var dayOfWeek = date.getUTCDay();
+            var today = new Date();
+            today.setHours(0, 0, 0, 0);  // Set to midnight to avoid time comparison issues
 
-    var maxDate = maxYear + '-' + maxMonth + '-' + maxDay;
+            if (date.getTime() === today.getTime()) {
+                return [false, "", "Today is disabled"];
+            }
 
-    $('#serviceDate').attr('min', minDate);
-    $('#serviceDate').attr('max', maxDate);
-    $('#serviceDate').on('input', function() {
-        var inputDate = new Date(this.value);
-        var dayOfWeek = inputDate.getUTCDay();
-
-        if (dayOfWeek === 0) { 
-            $('#toastMessage').text("*Sundays are not allowed. Please select another day.");
+            return [(dayOfWeek != 6)];
+        },
+        onSelect: function(dateText, inst) {
+            var inputDate = new Date(dateText);
+            var dayOfWeek = inputDate.getUTCDay();
+            if (dayOfWeek === 0) {
+                $('#toastMessage').text("*Sundays are not allowed. Please select another day.");
                 $('#toastMessage').removeClass('hide').addClass('show');
                 setTimeout(function () {
-                $('#toastMessage').removeClass('show').addClass('hide');
-            }, 3000);
-            this.value = '';
+                    $('#toastMessage').removeClass('show').addClass('hide');
+                }, 3000);
+                this.value = '';
+                // $(this).datepicker('setDate', null);
+            }
         }
     });
 });
@@ -444,7 +450,7 @@ function Appointment() {
         $('#toastMessage1').removeClass('show').addClass('hide');
     }, 3000);
     }else  if( !pickup&&!Eservice){
-        $('#toastMessage1').text("*Please Choos Special Pack!");
+        $('#toastMessage1').text("*select any one on of the special pack options!");
         $('#toastMessage1').removeClass('hide').addClass('show');
         error++;
         setTimeout(function () {
