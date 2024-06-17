@@ -3,6 +3,7 @@ var selectedBrandId=""
 var selectedEv='';
 var isEV =false;
 var typeId="";
+var brandId ="";
 var vechileid = '';
 var vehiclename ='';
 var DistrictBox1id = "";
@@ -300,7 +301,7 @@ $(function () {
     var maxDate = new Date(dtToday.getFullYear(), dtToday.getMonth(), dtToday.getDate());
 
     $('#serviceDate').datepicker({
-        dateFormat: 'dd-mm-yy',
+        dateFormat: 'yy-mm-dd',
         minDate: minDate,
         maxDate: maxDate,
         beforeShowDay: function(date) {
@@ -449,14 +450,16 @@ function Appointment() {
         setTimeout(function () {
         $('#toastMessage1').removeClass('show').addClass('hide');
     }, 3000);
-    }else  if( !pickup&&!Eservice){
-        $('#toastMessage1').text("*select any one on of the special pack options!");
-        $('#toastMessage1').removeClass('hide').addClass('show');
-        error++;
-        setTimeout(function () {
-        $('#toastMessage1').removeClass('show').addClass('hide');
-    }, 3000);
-    }else if(customername==""){
+    }
+    // else  if( !pickup&&!Eservice){
+    //     $('#toastMessage1').text("*select any one on of the special pack options!");
+    //     $('#toastMessage1').removeClass('hide').addClass('show');
+    //     error++;
+    //     setTimeout(function () {
+    //     $('#toastMessage1').removeClass('show').addClass('hide');
+    // }, 3000);
+    // }
+    else if(customername==""){
         $('#toastMessage1').text("*Please Enter Customer Name!");
         $('#toastMessage1').removeClass('hide').addClass('show');
         error++;
@@ -489,7 +492,7 @@ function Appointment() {
         var apiurl = baseUrl + "Service/CreateAppointment ";
         var sendData = {
         "appointmentid": typeId, 
-        "vehicleBrand": vechileid, 
+        "vehicleBrand": selectedBrandId, 
         "bikeModel": vehiclename, 
         "vehicleId": vechileid, 
         "districtid": DistrictBox1id, 
