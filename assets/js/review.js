@@ -8,6 +8,14 @@ var BID="";
 function frontpage() {
     location.href = "./index.html";
 }
+const exampleEl = document.getElementById('tool')
+const tooltip = new bootstrap.Tooltip(exampleEl, {animation: true, trigger:"hover",title:"Service",customClass:"custom-tooltip"})
+//   $(function() {
+//     $('#nav-tab').responsiveTabs();
+//   });
+function servicepage() {
+    location.href = "./service.html";
+}
 
 
 function getParameterByName(name, url) {

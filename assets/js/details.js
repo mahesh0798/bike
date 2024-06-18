@@ -28,7 +28,14 @@ const toggleForm = () => {
     container.classList.toggle('active');
 };
 AOS.init()
-
+const exampleEl = document.getElementById('tool')
+const tooltip = new bootstrap.Tooltip(exampleEl, {animation: true, trigger:"hover",title:"Service",customClass:"custom-tooltip"})
+//   $(function() {
+//     $('#nav-tab').responsiveTabs();
+//   });
+function servicepage() {
+    location.href = "./service.html";
+}
 $(document).ready(function () {
 
     window.onpopstate = function (event) {
