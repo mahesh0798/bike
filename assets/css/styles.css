@@ -606,7 +606,7 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     background-color: white;
     border-radius: 100%;
     cursor: pointer;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
   
   .btn-custom{
@@ -615,7 +615,7 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     border: 1px solid rgb(48, 32, 116)
   }
 
-  img:hover {
+  .hovertool:hover {
     animation: shake 0.5s;
   
     animation-iteration-count: infinite;
