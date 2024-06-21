@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:service.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\details.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:details.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -54,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 23,
+          "SelectedChildIndex": 21,
           "Children": [
             {
               "$type": "Bookmark",
@@ -137,12 +145,33 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "service.js",
+              "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js",
+              "RelativeDocumentMoniker": "assets\\js\\service.js",
+              "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js",
+              "RelativeToolTip": "assets\\js\\service.js",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAcwFIAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-05-28T14:22:08.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
+              "Title": "service.html",
+              "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html",
+              "RelativeDocumentMoniker": "service.html",
+              "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html",
+              "RelativeToolTip": "service.html",
+              "ViewState": "AQIAAHkBAAAAAAAAAAAlwD0BAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-28T14:21:43.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "list.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\list.js",
               "RelativeDocumentMoniker": "assets\\js\\list.js",
@@ -154,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "details.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\details.js",
               "RelativeDocumentMoniker": "assets\\js\\details.js",
@@ -166,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "details.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\details.html",
               "RelativeDocumentMoniker": "details.html",
@@ -174,12 +203,11 @@
               "RelativeToolTip": "details.html",
               "ViewState": "AQIAAK8FAAAAAAAAAAAAADUGAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-03-21T10:26:55.762Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-21T10:26:55.762Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "styles.css",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\css\\styles.css",
               "RelativeDocumentMoniker": "assets\\css\\styles.css",
@@ -191,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Common.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\Common.js",
               "RelativeDocumentMoniker": "assets\\js\\Common.js",
@@ -203,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "scripts.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\scripts.js",
               "RelativeDocumentMoniker": "assets\\js\\scripts.js",
@@ -215,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "review.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\review.html",
               "RelativeDocumentMoniker": "review.html",
@@ -227,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "aboutus.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\aboutus.html",
               "RelativeDocumentMoniker": "aboutus.html",
@@ -239,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "list.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\list.html",
               "RelativeDocumentMoniker": "list.html",
@@ -251,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\index.html",
               "RelativeDocumentMoniker": "index.html",
@@ -263,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -272,10 +300,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-03-20T12:25:35.279Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

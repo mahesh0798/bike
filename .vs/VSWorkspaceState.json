@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\js",
+    "\\src",
+    "\\src\\js"
   ],
   "PreviewInSolutionExplorer": false
 }
