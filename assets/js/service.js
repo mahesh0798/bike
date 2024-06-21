@@ -200,6 +200,7 @@ $(document).ready(function () {
     fetchBrands();
     var apiurl = baseUrl + "Service/GetDistrict ";
     var DistrictBox1 = $('#Districtselect');
+    var BikeModelBox = $('#Vehicleselect');
         DistrictBox1.empty();
         DistrictBox1.append($('<option>', {
             value: '',
@@ -264,8 +265,54 @@ $(document).ready(function () {
                 ServiceCentredistirct=selectedOption2.text();
             })
         });
+
+
+    
         
 });
+
+function GetletwRoomDis() {
+
+        if ($('#Districtselect').val() > 0) {
+            var selectedOption2 = $('#Districtselect').find(':selected');
+            DistrictBox1id = selectedOption2.val();
+            Districtdistirct = selectedOption2.text();
+            var apiUrlVehicle = baseUrl + "Service/GetShowroomdetailsbyDist?Brandid=" + selectedBrandId + '&Distid=' + DistrictBox1id;
+            ServiceCentreselectBox1 = $('#ServiceCentreselect');
+            ServiceCentreselectBox1.empty();
+            ServiceCentreselectBox1.append($('<option>', {
+                value: '',
+                text: 'Select Nearest Service Centre',
+                selected: true
+            }));
+            $.ajax({
+                url: apiUrlVehicle,
+                method: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    if (Array.isArray(data)) {
+                        $.each(data, function (index, option) {
+                            ServiceCentreselectBox1.append($('<option>', {
+                                value: option.showRoomId,
+                                text: option.showroomfulldetail
+                            }));
+                        });
+                    } else {
+                        console.error('API response is not an array.');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching data from the API:', status, error);
+                }
+            });
+            ServiceCentreselectBox1.change(function () {
+                var selectedOption2 = $(this).find(':selected');
+                ServiceCentre1id = selectedOption2.val();
+                ServiceCentredistirct = selectedOption2.text();
+            })
+        }
+
+}
 function carouselBind() {
     var apiurl = baseUrl + "Home/PictureBanner";
     $('.loader-parent').show();

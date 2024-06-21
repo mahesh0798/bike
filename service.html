@@ -241,7 +241,7 @@
    <div class="carousel-inner">
        <div class="carousel-item active" data-bs-interval="3000">
            <!--<img src="./assets/images/banner4.jpg" class="d-block img-fluid" alt="..." id="caroselimg1">-->
-           <img class="d-block img-fluid" alt="..." id="caroselimg1">
+           <img class="d-block img-fluid" alt="..." id="caroselimg1" loading="lazy">
 
        </div>
        <!-- <div class="carousel-item" data-bs-interval="3000">
@@ -308,7 +308,7 @@
                       </select>
                 </div>
                 <div class="col-md-4 mt-4 px-md-5 px-0">
-                    <select id="Vehicleselect" class="form-select b_color" aria-label="Default select example">   
+                    <select id="Vehicleselect" class="form-select b_color" aria-label="Default select example" onchange="GetletwRoomDis()">   
                       </select>
                 </div>
                 <div class="col-md-4 mt-4 px-md-5 px-0">
@@ -344,10 +344,10 @@
                 </div>
                 <div class="col-md-8 mt-md-4 px-md-5 px-0">
                     <div class="d-flex gap-1">
-                                <label class="cyberpunk-checkbox-label" for="terms">
+                                <label class="cyberpunk-checkbox-label" for="pickup">
                                     <input type="checkbox"id="pickup" name="pickup1" value="pickup" class="cyberpunk-checkbox">
                                     PickUp & Drop</label>
-                                    <label class="cyberpunk-checkbox-label" for="terms">
+                                    <label class="cyberpunk-checkbox-label" for="Eservice">
                                         <input type="checkbox" id="Eservice" name="pickup2" value="Eservice" class="cyberpunk-checkbox">
                                         Express Service</label>
                         <!-- <label class="radio-button">
