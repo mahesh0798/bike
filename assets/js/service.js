@@ -1,7 +1,9 @@
 // import { carouselBind } from './scripts.js'
 var selectedBrandId=""
 var selectedEv='';
+var isEV =false;
 var typeId="";
+var brandId ="";
 var vechileid = '';
 var vehiclename ='';
 var DistrictBox1id = "";
@@ -14,6 +16,7 @@ var Eservice=false
 var ModelBox1 = $('#Modelselect');
 var VehicleBox1 = $('#Vehicleselect');
 var DistrictBox1 = $('#Districtselect');
+var ServiceCentreselectBox1 = $('#ServiceCentreselect');
 var typeVechile="";
 const pattern = /^[6-9]\d{9}$/;
 $('input[name="example-radio"]').change(function() {
@@ -80,11 +83,17 @@ function filterBrands(fuelType) {
 
     BrandBox1.off('change').on('change', debounce(function() {
         var selectedOption = $(this).find(':selected');
-        selectedBrandId = selectedOption.val();
-        var selectedEv = selectedOption.data('ev');
+         selectedBrandId = selectedOption.val();
+         selectedEv = selectedOption.data('ev');
+        if ($('#Petrol').is(':checked')) {
+            isEV=false;
+        } else {
+            isEV=true;
+        }
+        console.log(isEV);
         console.log('Selected brand ID:', selectedBrandId);
         console.log('Selected EV:', selectedEv);
-        fetchVehicleTypes(selectedBrandId, selectedEv);
+        fetchVehicleTypes(selectedBrandId, isEV);
     }, 300));
 }
 
@@ -118,7 +127,7 @@ function fetchVehicleTypes(brandId, isEv) {
 
                 ModelBox1.off('change').on('change', debounce(function() {
                     var selectedOption1 = $(this).find(':selected');
-                    var typeId = selectedOption1.val();
+                    typeId = selectedOption1.val();
                     fetchVehicleNames(brandId, typeId);
                 }, 300));
             } else {
@@ -161,8 +170,8 @@ function fetchVehicleNames(brandId, typeId) {
 
                 VehicleBox1.off('change').on('change', function() {
                     var selectedOption2 = $(this).find(':selected');
-                    var vechileid = selectedOption2.val();
-                    var vehiclename = selectedOption2.text();
+                    vechileid = selectedOption2.val();
+                    vehiclename = selectedOption2.text();
                     console.log('Selected vehicle ID:', vechileid);
                     console.log('Selected vehicle name:', vehiclename);
                 });
@@ -278,40 +287,46 @@ function carouselBind() {
 function frontpage() {
     location.href = "./index.html";
 }
-$(function(){
+$(function () {
     var dtToday = new Date();
-
     var month = dtToday.getMonth() + 1;
     var day = dtToday.getDate();
     var year = dtToday.getFullYear();
     if (month < 10) month = '0' + month.toString();
     if (day < 10) day = '0' + day.toString();
 
-    var minDate = year + '-' + month + '-' + day;
+    var minDate = new Date(year, dtToday.getMonth(), day);
 
-    dtToday.setDate(dtToday.getDate() + 15); // Add 15 days to the current date
+    dtToday.setDate(dtToday.getDate() + 15);
+    var maxDate = new Date(dtToday.getFullYear(), dtToday.getMonth(), dtToday.getDate());
 
-    var maxMonth = dtToday.getMonth() + 1;
-    var maxDay = dtToday.getDate();
-    var maxYear = dtToday.getFullYear();
-    if (maxMonth < 10) maxMonth = '0' + maxMonth.toString();
-    if (maxDay < 10) maxDay = '0' + maxDay.toString();
+    $('#serviceDate').datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: minDate,
+        maxDate: maxDate,
+        beforeShowDay: function(date) {
+            var dayOfWeek = date.getUTCDay();
+            var today = new Date();
+            today.setHours(0, 0, 0, 0);  // Set to midnight to avoid time comparison issues
 
-    var maxDate = maxYear + '-' + maxMonth + '-' + maxDay;
+            if (date.getTime() === today.getTime()) {
+                return [false, "", "Today is disabled"];
+            }
 
-    $('#serviceDate').attr('min', minDate);
-    $('#serviceDate').attr('max', maxDate);
-    $('#serviceDate').on('input', function() {
-        var inputDate = new Date(this.value);
-        var dayOfWeek = inputDate.getUTCDay();
-
-        if (dayOfWeek === 0) { 
-            $('#toastMessage').text("*Sundays are not allowed. Please select another day.");
+            return [(dayOfWeek != 6)];
+        },
+        onSelect: function(dateText, inst) {
+            var inputDate = new Date(dateText);
+            var dayOfWeek = inputDate.getUTCDay();
+            if (dayOfWeek === 0) {
+                $('#toastMessage').text("*Sundays are not allowed. Please select another day.");
                 $('#toastMessage').removeClass('hide').addClass('show');
                 setTimeout(function () {
-                $('#toastMessage').removeClass('show').addClass('hide');
-            }, 3000);
-            this.value = '';
+                    $('#toastMessage').removeClass('show').addClass('hide');
+                }, 3000);
+                this.value = '';
+                // $(this).datepicker('setDate', null);
+            }
         }
     });
 });
@@ -350,6 +365,7 @@ function SubmitApp() {
     DistrictBox1id="";
     Districtselect="";
     ServiceCentre1id =""; 
+    ServiceCentreselectBox1="";
     ddate=""; 
     ServicePack=""; 
     Eservice=false;
@@ -364,19 +380,21 @@ function SubmitApp() {
     $('#Modelselect').val('')
     $('#Vehicleselect').val('')
     $('#serviceDate').val('')
+    $('#ServiceCentreselect').val('');
     $('#ServicePackselect').val('')
     $('#nameService').val('')
     $('#mob').val('')
     $('#nameApp').val('')
     $('#dateapp').val('')
     $('#Appid').val('')
-    $('#toastMessage').text("😊 Thank you .");
+    $('#toastMessage').text("Service Appointment Created Successfully.😊 Thank you .");
         $('#toastMessage').removeClass('hide').addClass('show');
-        $('#toastMessage1').css('display','block')
+        $('#toastMessage').css('display','block')
         setTimeout(function () {
         $('#toastMessage').removeClass('show').addClass('hide');
         $('#toastMessage').css('display','none')
-    }, 3000);
+        window.location.reload();
+    }, 2000);
 }
 function Appointment() {
     var Brandselect=$('#Brandselect').val()
@@ -389,6 +407,7 @@ function Appointment() {
     var cusMob=$('#mob').val()
     // var mobilenumber=$('#retxtmobile').val()
     var error=0;
+   
     if(Brandselect==""){
         $('#toastMessage1').text("*Please Select Brand!");
         $('#toastMessage1').removeClass('hide').addClass('show');
@@ -431,7 +450,16 @@ function Appointment() {
         setTimeout(function () {
         $('#toastMessage1').removeClass('show').addClass('hide');
     }, 3000);
-    }else if(customername==""){
+    }
+    // else  if( !pickup&&!Eservice){
+    //     $('#toastMessage1').text("*select any one on of the special pack options!");
+    //     $('#toastMessage1').removeClass('hide').addClass('show');
+    //     error++;
+    //     setTimeout(function () {
+    //     $('#toastMessage1').removeClass('show').addClass('hide');
+    // }, 3000);
+    // }
+    else if(customername==""){
         $('#toastMessage1').text("*Please Enter Customer Name!");
         $('#toastMessage1').removeClass('hide').addClass('show');
         error++;
@@ -464,7 +492,7 @@ function Appointment() {
         var apiurl = baseUrl + "Service/CreateAppointment ";
         var sendData = {
         "appointmentid": typeId, 
-        "vehicleBrand": vechileid, 
+        "vehicleBrand": selectedBrandId, 
         "bikeModel": vehiclename, 
         "vehicleId": vechileid, 
         "districtid": DistrictBox1id, 
@@ -475,7 +503,7 @@ function Appointment() {
         "expressService": Eservice, 
         "customerName":customername, 
         "mobile":  cusMob, 
-        "isEV": selectedEv, 
+        "isEV": isEV, 
         "createdOn": new Date()
     };
     sendData = JSON.stringify(sendData);
@@ -490,7 +518,7 @@ function Appointment() {
             $('.loader-parent').hide();
             $('#nameApp').text(customername)
             $('#dateapp').text(ddate)
-            $('#Appid').text(typeId)
+            $('#Appid').text(response.appointmentid)
             var Servicelist = new bootstrap.Modal(document.getElementById('Servicelist'), {
                 backdrop: 'static',
                 keyboard: false
