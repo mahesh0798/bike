@@ -3,36 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\list.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:list.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:service.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\details.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:details.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\review.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:review.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\aboutus.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:aboutus.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:service.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\list.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:list.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\details.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:details.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\Common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\Common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\scripts.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\service.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\aboutus.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:aboutus.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\css\\styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -47,10 +51,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\details.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\Common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\Common.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Satheesh CGS\\source\\repos\\bike\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 32,
+          "SelectedChildIndex": 29,
           "Children": [
             {
               "$type": "Bookmark",
@@ -145,38 +145,21 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "service.js",
-              "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js",
-              "RelativeDocumentMoniker": "assets\\js\\service.js",
-              "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js",
-              "RelativeToolTip": "assets\\js\\service.js",
-              "ViewState": "AQIAAAcBAAAAAAAAAAAswB4BAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-28T14:22:08.122Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "service.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html",
               "RelativeDocumentMoniker": "service.html",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\service.html",
               "RelativeToolTip": "service.html",
-              "ViewState": "AQIAALoAAAAAAAAAAADgvzQBAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-05-28T14:21:43.555Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "list.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\list.js",
               "RelativeDocumentMoniker": "assets\\js\\list.js",
@@ -188,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "details.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\details.js",
               "RelativeDocumentMoniker": "assets\\js\\details.js",
@@ -200,19 +183,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "details.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\details.html",
               "RelativeDocumentMoniker": "details.html",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\details.html",
               "RelativeToolTip": "details.html",
-              "ViewState": "AQIAAK8FAAAAAAAAAAAAADUGAAAeAAAA",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAAAIgAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-03-21T10:26:55.762Z"
+              "WhenOpened": "2024-03-21T10:26:55.762Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "styles.css",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\css\\styles.css",
               "RelativeDocumentMoniker": "assets\\css\\styles.css",
@@ -224,43 +208,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "Common.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\Common.js",
               "RelativeDocumentMoniker": "assets\\js\\Common.js",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\Common.js",
               "RelativeToolTip": "assets\\js\\Common.js",
-              "ViewState": "AQIAAGUCAAAAAAAAAAAuwJACAAAxAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-20T14:52:32.788Z"
+              "WhenOpened": "2024-03-20T14:52:32.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "scripts.js",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\scripts.js",
               "RelativeDocumentMoniker": "assets\\js\\scripts.js",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\scripts.js",
               "RelativeToolTip": "assets\\js\\scripts.js",
-              "ViewState": "AQIAALQAAAAAAAAAAAA5wD4CAAAgAAAA",
+              "ViewState": "AQIAALUAAAAAAAAAAAAiwMYAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-03-20T14:52:24.981Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "review.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\review.html",
               "RelativeDocumentMoniker": "review.html",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\review.html",
               "RelativeToolTip": "review.html",
-              "ViewState": "AQIAAFQBAAAAAAAAAAAswJgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-03-20T12:28:42.546Z"
+              "WhenOpened": "2024-03-20T12:28:42.546Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "aboutus.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\aboutus.html",
               "RelativeDocumentMoniker": "aboutus.html",
@@ -272,25 +258,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "list.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\list.html",
               "RelativeDocumentMoniker": "list.html",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\list.html",
               "RelativeToolTip": "list.html",
-              "ViewState": "AQIAANUDAAAAAAAAAAAAAOADAAAeAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAAAB8AAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-03-20T12:26:42.788Z"
+              "WhenOpened": "2024-03-20T12:26:42.788Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\index.html",
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMQBAABHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-03-20T12:26:41.24Z",
               "EditorCaption": ""
@@ -306,6 +293,18 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-03-20T12:25:35.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "service.js",
+              "DocumentMoniker": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js",
+              "RelativeDocumentMoniker": "assets\\js\\service.js",
+              "ToolTip": "C:\\Users\\Satheesh CGS\\source\\repos\\bike\\assets\\js\\service.js",
+              "RelativeToolTip": "assets\\js\\service.js",
+              "ViewState": "AQIAAAcBAAAAAAAAAAAswB4BAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-05-28T14:22:08.122Z"
             },
             {
               "$type": "Bookmark",

@@ -5,6 +5,31 @@ var LeadBikeId = 0;
 
 $(document).ready(function () {
 
+    $(document).on("contextmenu", function (e) {
+        e.preventDefault();
+    });
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    $(document).keydown(function (e) {
+        if (
+            e.which === 123 || // F12
+            (e.ctrlKey && e.shiftKey && e.which === 73) || // Ctrl+Shift+I
+            (e.ctrlKey && e.shiftKey && e.which === 74) || // Ctrl+Shift+J
+            (e.ctrlKey && e.which === 85) // Ctrl+U
+        ) {
+            e.preventDefault();
+        }
+    });
+
+    // Disable text selection
+    $(document).on("selectstart", function () {
+        return false;
+    });
+
+    // Disable drag and drop
+    $(document).on("dragstart", function () {
+        return false;
+    });
+
     UserMobileNo = $.cookie('username');
     var CustName = $.cookie('CustName');
     if (CustName != "" && CustName != undefined && CustName != null && UserMobileNo != "" && UserMobileNo != undefined && UserMobileNo != null) {
@@ -732,7 +757,7 @@ function GenerateLead(type) {
     $('.loader-parent').show();
     LeadGeneration.Mobile = $('#MobileBook').val();
     LeadGeneration.Name = $('#CustName').val();
-    LeadGeneration.Pincode =  $.cookie('SearchPincode');
+    LeadGeneration.Pincode = $('#form13').val(); //$.cookie('SearchPincode');
 
 
    
