@@ -606,6 +606,8 @@ body{background-color:#eee}.btn-sm{width:100px}.card{width:100%;background-color
     background-color: white;
     border-radius: 100%;
     cursor: pointer;
+    opacity: 1 !important;
+    z-index: 2;
     /* border: 1px solid black; */
   }
   
