@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="google-site-verification" content="a_r0SxdW-AjEZpv1GcTiHQPYIkS2AwSXOsplBI5V914" />
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
- 
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
 
@@ -38,6 +38,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3206472924338070"
             crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E9QLMK32M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9E9QLMK32M');
+    </script>
+
     <style>
         .offer-btn {
             width: 100%;
@@ -85,16 +96,19 @@
             -webkit-text-fill-color: transparent;
             /* Change this value to adjust the size as needed */
         }
-        .form-check-input:disabled~.form-check-label, .form-check-input[disabled]~.form-check-label {
+
+        .form-check-input:disabled ~ .form-check-label, .form-check-input[disabled] ~ .form-check-label {
             cursor: default;
             opacity: 2.5;
             color: black;
         }
-        @media (min-width: 768px){
-            #fixed-width{
-                width:1000px !important;
+
+        @media (min-width: 768px) {
+            #fixed-width {
+                width: 1000px !important;
             }
         }
+
         #fixed-width {
             width: 100%;
         }

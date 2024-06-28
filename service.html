@@ -35,7 +35,7 @@
     <script src="assets/js/owl.carousel.min.js" defer></script>
     <script src="assets/js/service.js" defer></script>
     <script src="assets/js/Common.js?ver=2.1" defer></script>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -45,7 +45,17 @@
     <!--<script src="owlcarousel/owl.carousel.min.js"></script>-->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/jquery_Clookies.js"></script>
-   
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9E9QLMK32M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9E9QLMK32M');
+    </script>
+
     <style>
         .btn btn-outline-secondary text-white purple1 psbutton {
             width: 100%;
@@ -57,27 +67,28 @@
             border: none;
             border-radius: 5px;
         }
+
         .sd-container {
-        position: relative;
-        float: left;
+            position: relative;
+            float: left;
         }
 
 
 
         .open-button {
-        position: absolute;
-        top: 4px;
-        right: 54px;
-        width: 25px;
-        height: 25px;
-        background: #fff;
-        pointer-events: none;
+            position: absolute;
+            top: 4px;
+            right: 54px;
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            pointer-events: none;
         }
 
-        .open-button button {
-        border: none;
-        background: transparent;
-        }
+            .open-button button {
+                border: none;
+                background: transparent;
+            }
 
         .specs {
             display: flex;
@@ -114,6 +125,7 @@
             display: none;
             color: white
         }
+
         .toast1 {
             position: fixed;
             top: 20px; /* Adjust top position */
@@ -127,6 +139,7 @@
             font-size: 16px;
             color: white
         }
+
         .hide {
             display: none;
         }
@@ -134,6 +147,7 @@
         .show {
             display: block;
         }
+
         .btn1 {
             display: inline-block;
             padding: 0.9rem 1.8rem;
@@ -148,26 +162,27 @@
             overflow: hidden;
             z-index: 1;
             font-family: inherit;
-            }
+        }
 
             .btn1::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #198754;
-            transform: translateX(-100%);
-            transition: all .3s;
-            z-index: -1;
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #198754;
+                transform: translateX(-100%);
+                transition: all .3s;
+                z-index: -1;
             }
 
             .btn1:hover::before {
-            transform: translateX(0);
+                transform: translateX(0);
             }
-            @media only screen and (max-width: 600px) {
-                .open-button {
+
+        @media only screen and (max-width: 600px) {
+            .open-button {
                 position: absolute;
                 top: 4px;
                 right: 15px;
@@ -176,7 +191,7 @@
                 background: #fff;
                 pointer-events: none;
             }
-            }
+        }
     </style>
 </head>
 
