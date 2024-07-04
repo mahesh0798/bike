@@ -160,7 +160,7 @@ function renderImagesForTable1(data, count) {
                 }
                 // Remove double quotes from brandNames using replace()
                 var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-                imagesHTML += '<td title="' + data[i].brandNames +'" style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
+                imagesHTML += '<td title="' + data[i].brandNames + '" style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid" alt="' + data[i].brandNames +'"></div></td>';
                 if (i % 5 === 4 || i === data.length - 1) {
                     imagesHTML += '</tr>';
                 }
@@ -175,7 +175,7 @@ function renderImagesForTable1(data, count) {
             }
             // Remove double quotes from brandNames using replace()
             var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-            imagesHTML += '<td title="' + data[i].brandNames +'" style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
+            imagesHTML += '<td title="' + data[i].brandNames + '" style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + false + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid" alt="' + data[i].brandNames +'"></div></td>';
             if (i % 5 === 4 || i === data.length - 1) {
                 imagesHTML += '</tr>';
             }
@@ -197,7 +197,7 @@ function renderImagesForTable2(data, count) {
                 }
                 // Remove double quotes from brandNames using replace()
                 var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-                imagesHTML += '<td title="' + data[i].brandNames +'" style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
+                imagesHTML += '<td title="' + data[i].brandNames + '" style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid" alt="' + data[i].brandNames +'"></div></td>';
                 if (i % 5 === 4 || i === data.length - 1) {
                     imagesHTML += '</tr>';
                 }
@@ -210,7 +210,7 @@ function renderImagesForTable2(data, count) {
             }
             // Remove double quotes from brandNames using replace()
             var brandNameWithoutQuotes = data[i].brandNames.replace(/"/g, '');
-            imagesHTML += '<td title="' + data[i].brandNames +'"  style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid"></div></td>';
+            imagesHTML += '<td title="' + data[i].brandNames + '"  style="cursor: pointer;" onclick="brandselect(' + data[i].brandId + ',' + data[i].ev + ')"><div class="card shadow"><img src="' + data[i].brandLogo + '" class="img-fluid" alt="' + data[i].brandNames +'"></div></td>';
             if (i % 5 === 4 || i === data.length - 1) {
                 imagesHTML += '</tr>';
             }
@@ -245,12 +245,12 @@ function brandselect(i, j, name) {
                   <div class="card mt-2 mb-4 bikeshadow" onclick="brandlist(${vehicle.vechileid},${vehicle.isEv})">
                       <div class="row">
                           <div class="col-md-3 col-12">
-                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="...">
+                              <img src="${vehicle.imagePath}" class="card-img-top img-fluid" alt="${vehicle.vehiclename}">
                           </div>
                           <div class="col-md-6 col-12">
                               <div class="card-body px-md-2">
                                   <h5 class="card-title" style="color:darkblue" class="col-md-12">${vehicle.vehiclename}</h5>
-                                  <p class="card-text mt-3 col-md-12"> <img src='assets/images/engine-color.png' style='width:20px'> ${vehicle.displacement} CC | <img src='assets/images/milage-icon.png' style='width:20px'> ${vehicle.mileage} KMPL | <img src='assets/images/piston.png' style='width:20px'> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px'> ${vehicle.topSpeed} KMPH</p>
+                                  <p class="card-text mt-3 col-md-12"> <img src='assets/images/engine-color.png' style='width:20px' alt="${vehicle.vehiclename}"> ${vehicle.displacement} CC | <img src='assets/images/milage-icon.png' style='width:20px' alt="${vehicle.vehiclename}"> ${vehicle.mileage} KMPL | <img src='assets/images/piston.png' style='width:20px' alt="${vehicle.vehiclename}"> ${vehicle.kerbWeight} Kg | <img src='assets/images/mileage-color.png' style='width:20px' alt="${vehicle.vehiclename}"> ${vehicle.topSpeed} KMPH</p>
                                   <h4 class="col-md-12"> <b>₹ ${vehicle.exshowroomPrize}</b> <span class="f-14">Ex showroom Price onwards<span></h4>
                                   <a href="#" class="btn btn-outline-secondary text-white purple1 col-md-6">${btext}</a>
                               </div>
@@ -259,7 +259,7 @@ function brandselect(i, j, name) {
                               <div class="card-body ">
                                   <table class="table table-bordered">
                                       <tr>
-                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'} </span></td>
+                                          <td>Rating:  <span style="display: inline-block; vertical-align: middle;"><img src="./assets/images/star.png" alt="${vehicle.vehiclename}" style="width: 50px;height: 50px;"> </span>  <span style="display: inline-block; vertical-align: middle;">${vehicle.overallRatings ? vehicle.overallRatings : 'N/A'} </span></td>
                                          
                                       </tr>
                                   </table>
@@ -411,7 +411,7 @@ function brandlist(i, j) {
                         dots: false,
                         navSpeed: 700,
                         nav:true,
-                        navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                        navText: ["<img  src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
                         responsive: {
                             0: {
                                 items: 1,
@@ -477,7 +477,7 @@ function brandlist(i, j) {
                                 dots: false,
                                 navSpeed: 700,
                                 nav:true,
-                                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                                navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
                                 responsive: {
                                     0: {
                                         items: 1,
@@ -583,7 +583,7 @@ $(document).ready(function () {
                 dots: false,
                 navSpeed: 700,
                 nav:true,
-                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
                 responsive: {
                     0: {
                         items: 1,
@@ -738,7 +738,7 @@ function famousbikemodel(i) {
                         dots: false,
                         navSpeed: 700,
                         nav:true,
-                        navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                        navText: ["<img  src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
                         responsive: {
                             0: {
                                 items: 1,
@@ -811,7 +811,7 @@ function famousbikemodel(i) {
                                 dots: false,
                                 navSpeed: 700,
                                 nav:true,
-                                navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                                navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
                                 responsive: {
                                     0: {
                                         items: 1,
@@ -897,7 +897,7 @@ function RaceModelsBind() {
         dots: false,
         navSpeed: 700,
         nav:true,
-        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
         responsive: {
             0: {
                 items: 1,
@@ -959,7 +959,7 @@ function ScootyModelsBind() {
         dots: false,
         navSpeed: 700,
         nav:true,
-        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
         responsive: {
             0: {
                 items: 1,
@@ -1021,7 +1021,7 @@ function FamousEvModels() {
         dots: false,
         navSpeed: 700,
         nav:true,
-        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
         responsive: {
             0: {
                 items: 1,
@@ -1085,7 +1085,7 @@ function FamousMilageModel() {
         dots: false,
         navSpeed: 700,
         nav:true,
-        navText: ["<img src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+        navText: ["<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='bikes and Scooters'>"],
         responsive: {
             0: {
                 items: 1,

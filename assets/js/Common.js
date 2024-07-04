@@ -273,7 +273,7 @@ function displayAutocompleteResults(results) {
                             startPosition: 1,
                             center: true,
                             responsiveClass: true,
-                            navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                            navText: ["<img  src='assets/images/leftarrowNew.png' alt='bikes'>", "<img src='assets/images/leftarrowNew.png' alt='bikes'>"],
                             responsive: {
                                 0: {
                                     items: 1,
@@ -380,7 +380,7 @@ function displayAutocompleteResults12(results) {
                             startPosition: 1,
                             center: true,
                             responsiveClass: true,
-                            navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                            navText: ["<img  src='assets/images/leftarrowNew.png' alt='Scooters'>", "<img src='assets/images/leftarrowNew.png' alt='Scooters'>"],
                             responsive: {
                                 0: {
                                     items: 1,
@@ -458,7 +458,7 @@ function GetAutoCit() {
                     startPosition: 1,
                     center: true,
                     responsiveClass: true,
-                    navText: ["<img  src='assets/images/leftarrowNew.png'>", "<img src='assets/images/leftarrowNew.png'>"],
+                    navText: ["<img  src='assets/images/leftarrowNew.png' alt='bikes'>", "<img src='assets/images/leftarrowNew.png' alt='bikes'>"],
                     responsive: {
                         0: {
                             items: 1,
